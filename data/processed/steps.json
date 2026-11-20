@@ -1,0 +1,1210 @@
+{
+ "res_m": 0.5,
+ "extent": [
+  -300.0,
+  300.0,
+  -300.0,
+  300.0
+ ],
+ "steps": [
+  {
+   "osm_id": 30882783,
+   "name": "二寧坂",
+   "coords": [
+    [
+     155.93,
+     39.35
+    ],
+    [
+     155.67,
+     36.67
+    ],
+    [
+     155.15,
+     33.57
+    ],
+    [
+     154.35,
+     30.55
+    ],
+    [
+     152.39,
+     23.9
+    ]
+   ],
+   "width_m": 4.0,
+   "width_src": "osm:width",
+   "n": 17,
+   "n_src": "osm:step_count",
+   "z_bottom": 66.02,
+   "z_top": 69.8,
+   "ascending_along_way": true,
+   "riser_m": 0.222,
+   "tread_m": 0.935,
+   "length_m": 15.89,
+   "surface": "paving_stones",
+   "in_box": true,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 30913261,
+   "name": null,
+   "coords": [
+    [
+     112.73,
+     -279.39
+    ],
+    [
+     115.79,
+     -294.63
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 20,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 71.79,
+   "z_top": 74.96,
+   "ascending_along_way": false,
+   "riser_m": 0.158,
+   "tread_m": 0.777,
+   "length_m": 15.54,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 157527392,
+   "name": null,
+   "coords": [
+    [
+     187.4,
+     -285.85
+    ],
+    [
+     193.05,
+     -279.85
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 20,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 77.1,
+   "z_top": 80.37,
+   "ascending_along_way": true,
+   "riser_m": 0.164,
+   "tread_m": 0.412,
+   "length_m": 8.24,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 157527397,
+   "name": null,
+   "coords": [
+    [
+     207.5,
+     -281.08
+    ],
+    [
+     210.07,
+     -277.32
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 16,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 81.07,
+   "z_top": 83.56,
+   "ascending_along_way": true,
+   "riser_m": 0.156,
+   "tread_m": 0.285,
+   "length_m": 4.55,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 179116810,
+   "name": "産寧坂",
+   "coords": [
+    [
+     151.41,
+     -177.23
+    ],
+    [
+     158.53,
+     -161.18
+    ],
+    [
+     163.96,
+     -147.88
+    ]
+   ],
+   "width_m": 4.0,
+   "width_src": "osm:width",
+   "n": 46,
+   "n_src": "osm:step_count",
+   "z_bottom": 76.12,
+   "z_top": 81.57,
+   "ascending_along_way": false,
+   "riser_m": 0.118,
+   "tread_m": 0.694,
+   "length_m": 31.92,
+   "surface": "paving_stones",
+   "in_box": true,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 179116812,
+   "name": null,
+   "coords": [
+    [
+     137.97,
+     188.44
+    ],
+    [
+     140.41,
+     187.3
+    ],
+    [
+     147.13,
+     184.8
+    ],
+    [
+     150.9,
+     183.58
+    ],
+    [
+     150.92,
+     178.1
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 21,
+   "n_src": "osm:step_count",
+   "z_bottom": 66.33,
+   "z_top": 69.59,
+   "ascending_along_way": false,
+   "riser_m": 0.155,
+   "tread_m": 0.919,
+   "length_m": 19.31,
+   "surface": "sett",
+   "in_box": true,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 186985121,
+   "name": null,
+   "coords": [
+    [
+     98.91,
+     257.23
+    ],
+    [
+     131.42,
+     250.96
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 68,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 59.56,
+   "z_top": 70.42,
+   "ascending_along_way": true,
+   "riser_m": 0.16,
+   "tread_m": 0.487,
+   "length_m": 33.11,
+   "surface": null,
+   "in_box": false,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 458799950,
+   "name": null,
+   "coords": [
+    [
+     -240.87,
+     -149.41
+    ],
+    [
+     -229.63,
+     -150.53
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 19,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 46.77,
+   "z_top": 49.8,
+   "ascending_along_way": true,
+   "riser_m": 0.159,
+   "tread_m": 0.595,
+   "length_m": 11.3,
+   "surface": "paved",
+   "in_box": false,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 458802397,
+   "name": null,
+   "coords": [
+    [
+     -256.56,
+     -52.22
+    ],
+    [
+     -253.81,
+     -52.03
+    ],
+    [
+     -251.31,
+     -52.04
+    ],
+    [
+     -249.05,
+     -52.21
+    ],
+    [
+     -246.81,
+     -52.51
+    ],
+    [
+     -244.6,
+     -52.95
+    ],
+    [
+     -242.41,
+     -53.53
+    ],
+    [
+     -240.26,
+     -54.24
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 20,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 46.97,
+   "z_top": 50.22,
+   "ascending_along_way": true,
+   "riser_m": 0.163,
+   "tread_m": 0.828,
+   "length_m": 16.57,
+   "surface": null,
+   "in_box": false,
+   "handrail": "right"
+  },
+  {
+   "osm_id": 459001849,
+   "name": null,
+   "coords": [
+    [
+     -264.85,
+     -37.42
+    ],
+    [
+     -264.3,
+     -37.43
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 3,
+   "n_src": "osm:step_count; terrain shows no rise -> nominal 0.16 m risers (inferred)",
+   "z_bottom": 47.29,
+   "z_top": 47.77,
+   "ascending_along_way": true,
+   "riser_m": 0.16,
+   "tread_m": 0.183,
+   "length_m": 0.55,
+   "surface": "concrete",
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 459001854,
+   "name": null,
+   "coords": [
+    [
+     -264.76,
+     -52.57
+    ],
+    [
+     -266.04,
+     -51.24
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred); terrain shows no rise -> nominal 0.16 m risers (inferred)",
+   "z_bottom": 46.84,
+   "z_top": 47.0,
+   "ascending_along_way": false,
+   "riser_m": 0.16,
+   "tread_m": 1.846,
+   "length_m": 1.85,
+   "surface": "paved",
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 459001879,
+   "name": null,
+   "coords": [
+    [
+     -251.29,
+     -55.31
+    ],
+    [
+     -240.27,
+     -55.43
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 12,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 48.41,
+   "z_top": 50.33,
+   "ascending_along_way": true,
+   "riser_m": 0.16,
+   "tread_m": 0.918,
+   "length_m": 11.02,
+   "surface": null,
+   "in_box": false,
+   "handrail": "reft"
+  },
+  {
+   "osm_id": 522894747,
+   "name": null,
+   "coords": [
+    [
+     278.37,
+     101.18
+    ],
+    [
+     291.36,
+     100.14
+    ]
+   ],
+   "width_m": 3.0,
+   "width_src": "osm:width",
+   "n": 37,
+   "n_src": "osm:step_count",
+   "z_bottom": 79.23,
+   "z_top": 82.32,
+   "ascending_along_way": true,
+   "riser_m": 0.084,
+   "tread_m": 0.352,
+   "length_m": 13.03,
+   "surface": "paving_stones",
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 522959934,
+   "name": null,
+   "coords": [
+    [
+     142.56,
+     299.84
+    ],
+    [
+     147.36,
+     299.37
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 5,
+   "n_src": "osm:step_count",
+   "z_bottom": 69.8,
+   "z_top": 70.59,
+   "ascending_along_way": true,
+   "riser_m": 0.158,
+   "tread_m": 0.965,
+   "length_m": 4.82,
+   "surface": "sett",
+   "in_box": false,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 527257294,
+   "name": null,
+   "coords": [
+    [
+     69.05,
+     185.78
+    ],
+    [
+     72.32,
+     185.69
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 5,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 58.39,
+   "z_top": 59.12,
+   "ascending_along_way": true,
+   "riser_m": 0.146,
+   "tread_m": 0.654,
+   "length_m": 3.27,
+   "surface": "asphalt",
+   "in_box": true,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 527257299,
+   "name": null,
+   "coords": [
+    [
+     73.04,
+     281.0
+    ],
+    [
+     75.46,
+     278.63
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 12,
+   "n_src": "osm:step_count",
+   "z_bottom": 56.86,
+   "z_top": 56.94,
+   "ascending_along_way": true,
+   "riser_m": 0.007,
+   "tread_m": 0.282,
+   "length_m": 3.39,
+   "surface": "asphalt",
+   "in_box": false,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 527257301,
+   "name": null,
+   "coords": [
+    [
+     69.88,
+     235.85
+    ],
+    [
+     73.43,
+     235.76
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 16,
+   "n_src": "osm:step_count",
+   "z_bottom": 56.93,
+   "z_top": 57.94,
+   "ascending_along_way": true,
+   "riser_m": 0.063,
+   "tread_m": 0.222,
+   "length_m": 3.55,
+   "surface": "asphalt",
+   "in_box": false,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 532546308,
+   "name": null,
+   "coords": [
+    [
+     -68.11,
+     -264.35
+    ],
+    [
+     -68.34,
+     -263.72
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 62.45,
+   "z_top": 62.51,
+   "ascending_along_way": true,
+   "riser_m": 0.06,
+   "tread_m": 0.671,
+   "length_m": 0.67,
+   "surface": null,
+   "in_box": false,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 541034931,
+   "name": null,
+   "coords": [
+    [
+     292.88,
+     -39.62
+    ],
+    [
+     296.3,
+     -39.62
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 7,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 76.39,
+   "z_top": 77.57,
+   "ascending_along_way": true,
+   "riser_m": 0.169,
+   "tread_m": 0.489,
+   "length_m": 3.42,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 545611308,
+   "name": null,
+   "coords": [
+    [
+     293.32,
+     100.01
+    ],
+    [
+     307.67,
+     98.98
+    ]
+   ],
+   "width_m": 3.0,
+   "width_src": "osm:width",
+   "n": 28,
+   "n_src": "osm:step_count",
+   "z_bottom": 83.07,
+   "z_top": 85.05,
+   "ascending_along_way": true,
+   "riser_m": 0.071,
+   "tread_m": 0.514,
+   "length_m": 14.39,
+   "surface": "paving_stones",
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 545611310,
+   "name": null,
+   "coords": [
+    [
+     257.6,
+     100.77
+    ],
+    [
+     257.53,
+     99.43
+    ]
+   ],
+   "width_m": 2.0,
+   "width_src": "osm:width",
+   "n": 2,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 75.63,
+   "z_top": 75.88,
+   "ascending_along_way": false,
+   "riser_m": 0.125,
+   "tread_m": 0.671,
+   "length_m": 1.34,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 545611312,
+   "name": null,
+   "coords": [
+    [
+     176.8,
+     66.68
+    ],
+    [
+     180.81,
+     66.77
+    ]
+   ],
+   "width_m": 2.0,
+   "width_src": "osm:width",
+   "n": 6,
+   "n_src": "osm:step_count",
+   "z_bottom": 64.16,
+   "z_top": 64.82,
+   "ascending_along_way": true,
+   "riser_m": 0.11,
+   "tread_m": 0.669,
+   "length_m": 4.01,
+   "surface": "paving_stones",
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 545679618,
+   "name": "紅小路",
+   "coords": [
+    [
+     17.64,
+     -233.8
+    ],
+    [
+     23.25,
+     -244.98
+    ]
+   ],
+   "width_m": 2.0,
+   "width_src": "osm:width",
+   "n": 21,
+   "n_src": "osm:step_count",
+   "z_bottom": 67.69,
+   "z_top": 69.93,
+   "ascending_along_way": false,
+   "riser_m": 0.107,
+   "tread_m": 0.596,
+   "length_m": 12.51,
+   "surface": "concrete",
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 550352951,
+   "name": null,
+   "coords": [
+    [
+     142.59,
+     174.81
+    ],
+    [
+     142.7,
+     165.27
+    ]
+   ],
+   "width_m": 2.0,
+   "width_src": "osm:width",
+   "n": 9,
+   "n_src": "osm:step_count",
+   "z_bottom": 63.66,
+   "z_top": 65.26,
+   "ascending_along_way": false,
+   "riser_m": 0.178,
+   "tread_m": 1.06,
+   "length_m": 9.54,
+   "surface": "concrete",
+   "in_box": true,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 553267099,
+   "name": null,
+   "coords": [
+    [
+     234.14,
+     235.3
+    ],
+    [
+     237.19,
+     234.93
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 3,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 72.11,
+   "z_top": 72.56,
+   "ascending_along_way": true,
+   "riser_m": 0.15,
+   "tread_m": 1.024,
+   "length_m": 3.07,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 598689863,
+   "name": null,
+   "coords": [
+    [
+     -5.21,
+     -236.89
+    ],
+    [
+     -11.09,
+     -223.61
+    ]
+   ],
+   "width_m": 4.0,
+   "width_src": "osm:width",
+   "n": 22,
+   "n_src": "osm:step_count",
+   "z_bottom": 64.27,
+   "z_top": 67.57,
+   "ascending_along_way": false,
+   "riser_m": 0.15,
+   "tread_m": 0.66,
+   "length_m": 14.52,
+   "surface": "concrete",
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 664761375,
+   "name": null,
+   "coords": [
+    [
+     266.65,
+     288.11
+    ],
+    [
+     260.95,
+     287.51
+    ],
+    [
+     252.26,
+     288.02
+    ],
+    [
+     247.74,
+     290.47
+    ],
+    [
+     246.89,
+     295.59
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 44,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 71.97,
+   "z_top": 78.94,
+   "ascending_along_way": false,
+   "riser_m": 0.158,
+   "tread_m": 0.563,
+   "length_m": 24.77,
+   "surface": "sett",
+   "in_box": false,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 664761376,
+   "name": null,
+   "coords": [
+    [
+     290.38,
+     287.3
+    ],
+    [
+     298.28,
+     287.43
+    ],
+    [
+     308.21,
+     288.63
+    ],
+    [
+     315.19,
+     291.18
+    ],
+    [
+     322.55,
+     296.11
+    ],
+    [
+     323.52,
+     297.0
+    ],
+    [
+     326.13,
+     299.15
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 23,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 80.7,
+   "z_top": 84.42,
+   "ascending_along_way": true,
+   "riser_m": 0.162,
+   "tread_m": 1.691,
+   "length_m": 38.89,
+   "surface": "sett",
+   "in_box": false,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 666214496,
+   "name": null,
+   "coords": [
+    [
+     127.09,
+     258.38
+    ],
+    [
+     128.07,
+     259.14
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 70.48,
+   "z_top": 70.72,
+   "ascending_along_way": true,
+   "riser_m": 0.24,
+   "tread_m": 1.24,
+   "length_m": 1.24,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 666214497,
+   "name": null,
+   "coords": [
+    [
+     119.55,
+     273.16
+    ],
+    [
+     120.93,
+     272.95
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 2,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 70.43,
+   "z_top": 70.77,
+   "ascending_along_way": true,
+   "riser_m": 0.17,
+   "tread_m": 0.698,
+   "length_m": 1.4,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 666214507,
+   "name": null,
+   "coords": [
+    [
+     294.63,
+     293.91
+    ],
+    [
+     304.91,
+     293.94
+    ],
+    [
+     322.55,
+     296.11
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 7,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 82.27,
+   "z_top": 83.39,
+   "ascending_along_way": true,
+   "riser_m": 0.16,
+   "tread_m": 4.008,
+   "length_m": 28.05,
+   "surface": "sett",
+   "in_box": false,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 893851279,
+   "name": null,
+   "coords": [
+    [
+     94.95,
+     -170.52
+    ],
+    [
+     98.35,
+     -171.97
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 9,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 76.31,
+   "z_top": 77.71,
+   "ascending_along_way": true,
+   "riser_m": 0.156,
+   "tread_m": 0.411,
+   "length_m": 3.7,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 893851280,
+   "name": null,
+   "coords": [
+    [
+     92.65,
+     -172.32
+    ],
+    [
+     91.17,
+     -174.42
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 4,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 75.26,
+   "z_top": 75.83,
+   "ascending_along_way": false,
+   "riser_m": 0.142,
+   "tread_m": 0.642,
+   "length_m": 2.57,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 893851282,
+   "name": null,
+   "coords": [
+    [
+     95.01,
+     -164.83
+    ],
+    [
+     94.77,
+     -167.39
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred); terrain shows no rise -> nominal 0.16 m risers (inferred)",
+   "z_bottom": 75.58,
+   "z_top": 75.74,
+   "ascending_along_way": false,
+   "riser_m": 0.16,
+   "tread_m": 2.571,
+   "length_m": 2.57,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 893851284,
+   "name": null,
+   "coords": [
+    [
+     92.42,
+     -163.22
+    ],
+    [
+     94.27,
+     -163.68
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 75.36,
+   "z_top": 75.55,
+   "ascending_along_way": true,
+   "riser_m": 0.19,
+   "tread_m": 1.906,
+   "length_m": 1.91,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 893851288,
+   "name": null,
+   "coords": [
+    [
+     90.35,
+     -174.76
+    ],
+    [
+     89.8,
+     -174.53
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 2,
+   "n_src": "osm:step_count",
+   "z_bottom": 74.76,
+   "z_top": 74.91,
+   "ascending_along_way": false,
+   "riser_m": 0.075,
+   "tread_m": 0.298,
+   "length_m": 0.6,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 893851292,
+   "name": null,
+   "coords": [
+    [
+     91.5,
+     -154.03
+    ],
+    [
+     93.13,
+     -151.57
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 4,
+   "n_src": "osm:step_count",
+   "z_bottom": 75.61,
+   "z_top": 76.25,
+   "ascending_along_way": true,
+   "riser_m": 0.16,
+   "tread_m": 0.738,
+   "length_m": 2.95,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  },
+  {
+   "osm_id": 893851294,
+   "name": null,
+   "coords": [
+    [
+     83.79,
+     -140.3
+    ],
+    [
+     86.73,
+     -142.84
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 4,
+   "n_src": "osm:step_count",
+   "z_bottom": 75.4,
+   "z_top": 75.64,
+   "ascending_along_way": true,
+   "riser_m": 0.06,
+   "tread_m": 0.971,
+   "length_m": 3.89,
+   "surface": null,
+   "in_box": true,
+   "handrail": "no"
+  },
+  {
+   "osm_id": 1426959290,
+   "name": null,
+   "coords": [
+    [
+     226.0,
+     -155.7
+    ],
+    [
+     224.48,
+     -159.45
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 13,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "z_bottom": 75.09,
+   "z_top": 77.25,
+   "ascending_along_way": true,
+   "riser_m": 0.166,
+   "tread_m": 0.311,
+   "length_m": 4.05,
+   "surface": null,
+   "in_box": false,
+   "handrail": null
+  },
+  {
+   "osm_id": 1550466024,
+   "name": null,
+   "coords": [
+    [
+     -88.72,
+     25.72
+    ],
+    [
+     -74.18,
+     23.57
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 23,
+   "n_src": "osm:step_count",
+   "z_bottom": 54.43,
+   "z_top": 57.52,
+   "ascending_along_way": true,
+   "riser_m": 0.134,
+   "tread_m": 0.639,
+   "length_m": 14.7,
+   "surface": "stone",
+   "in_box": true,
+   "handrail": "yes"
+  },
+  {
+   "osm_id": 1554873118,
+   "name": null,
+   "coords": [
+    [
+     -78.7,
+     -45.2
+    ],
+    [
+     -78.88,
+     -45.13
+    ],
+    [
+     -79.09,
+     -45.06
+    ]
+   ],
+   "width_m": 2.5,
+   "width_src": "default-by-highway-type (inferred)",
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred); terrain shows no rise -> nominal 0.16 m risers (inferred)",
+   "z_bottom": 59.82,
+   "z_top": 59.98,
+   "ascending_along_way": false,
+   "riser_m": 0.16,
+   "tread_m": 0.414,
+   "length_m": 0.41,
+   "surface": null,
+   "in_box": true,
+   "handrail": null
+  }
+ ]
+}

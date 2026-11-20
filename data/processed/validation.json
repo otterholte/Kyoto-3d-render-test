@@ -1,0 +1,776 @@
+{
+ "eave_area_ratio_median": 1.000263421742371,
+ "eave_offset_m_median": 0.0005062873788117035,
+ "gsi_bldL_dist_lod2ground_m": {
+  "median": 0.500723402944936,
+  "p90": 1.853084279745027
+ },
+ "gsi_bldL_dist_lod0roofedge_m": {
+  "median": 0.5015913161881093,
+  "p90": 1.8346323882456554
+ },
+ "osm_vs_plateau_iou": {
+  "n": 635,
+  "median": 0.7207616615679128,
+  "share_above_0_5": 0.7307086614173228
+ },
+ "osm_buildings_in_box": 902,
+ "plateau_buildings_in_box": 666,
+ "street_building_conflicts": 69,
+ "street_building_conflicts_list": [
+  {
+   "osm_id": 575545763,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_0f702396-1cf7-4a6b-8ea4-6b872e934b5c",
+   "area_m2": 188.65
+  },
+  {
+   "osm_id": 575545763,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_6ba557bf-e604-40c8-b99f-1c24318b1fa5",
+   "area_m2": 82.73
+  },
+  {
+   "osm_id": 575545763,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_8278a0a1-1052-4371-8a67-5aca7e388a7e",
+   "area_m2": 22.43
+  },
+  {
+   "osm_id": 532546279,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_bc3d4bc1-e013-41fe-af46-7d1f96c48abe",
+   "area_m2": 21.12
+  },
+  {
+   "osm_id": 397245758,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_4215e5eb-779f-4825-9c57-237c7bad66d9",
+   "area_m2": 15.02
+  },
+  {
+   "osm_id": 710696944,
+   "highway": "pedestrian",
+   "name": null,
+   "plateau_id": "bldg_27cf722b-e3b3-40f6-b898-0fdb1e726d33",
+   "area_m2": 13.62
+  },
+  {
+   "osm_id": 1148998439,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_2e667e83-7b28-4e84-9bd1-45ba8aeb4762",
+   "area_m2": 12.95
+  },
+  {
+   "osm_id": 550360171,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_ea74ad50-9142-484a-aa5e-6cd75df34259",
+   "area_m2": 11.42
+  },
+  {
+   "osm_id": 24516359,
+   "highway": "residential",
+   "name": "八坂通",
+   "plateau_id": "bldg_8bb1e246-d493-45d4-9d1c-eace51fd5178",
+   "area_m2": 10.93
+  },
+  {
+   "osm_id": 273248242,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_cbd4412d-46a6-48db-8335-70962ff6bfbc",
+   "area_m2": 8.06
+  },
+  {
+   "osm_id": 545679623,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_93246887-6f07-42f4-ac81-c3ab1dc9b4cc",
+   "area_m2": 7.54
+  },
+  {
+   "osm_id": 30882775,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_a17140e3-2257-47a8-9dec-51588f87f3b6",
+   "area_m2": 7.25
+  },
+  {
+   "osm_id": 157527405,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_c4978550-562e-4456-98d9-04523332fe7f",
+   "area_m2": 5.55
+  },
+  {
+   "osm_id": 24516359,
+   "highway": "residential",
+   "name": "八坂通",
+   "plateau_id": "bldg_f77e14bd-16ba-45c1-9634-a3d272db9973",
+   "area_m2": 5.13
+  },
+  {
+   "osm_id": 1569088147,
+   "highway": "residential",
+   "name": "産寧坂",
+   "plateau_id": "bldg_69781181-44ab-4eb6-8419-00aa4fbe1210",
+   "area_m2": 5.02
+  },
+  {
+   "osm_id": 545679621,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_93246887-6f07-42f4-ac81-c3ab1dc9b4cc",
+   "area_m2": 4.66
+  },
+  {
+   "osm_id": 30882777,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_86fd9093-aec5-46ba-915e-87ca9198bd4d",
+   "area_m2": 4.61
+  },
+  {
+   "osm_id": 273248240,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_9452a060-bc30-428b-8788-89319ea49d6b",
+   "area_m2": 4.15
+  },
+  {
+   "osm_id": 575997512,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_2656d8de-a797-48df-8239-edcf3811b5c2",
+   "area_m2": 4.12
+  },
+  {
+   "osm_id": 30882777,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_9116d1d8-2481-48a4-ae17-9069d1a6c30a",
+   "area_m2": 4.04
+  },
+  {
+   "osm_id": 534193840,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_efa937ec-b9cc-43a4-8425-dbfc78ce2125",
+   "area_m2": 3.81
+  },
+  {
+   "osm_id": 30882777,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_a8b0814f-d39f-42d2-b63f-2dfea194418d",
+   "area_m2": 3.66
+  },
+  {
+   "osm_id": 30882775,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_5130ea8e-24dc-45c0-9582-d067b602f2ba",
+   "area_m2": 3.53
+  },
+  {
+   "osm_id": 1574407520,
+   "highway": "unclassified",
+   "name": "清水道",
+   "plateau_id": "bldg_c168cbba-4dc2-45d1-86d8-048d3ce47b3a",
+   "area_m2": 3.53
+  },
+  {
+   "osm_id": 1574407523,
+   "highway": "unclassified",
+   "name": "五条坂",
+   "plateau_id": "bldg_93246887-6f07-42f4-ac81-c3ab1dc9b4cc",
+   "area_m2": 3.53
+  },
+  {
+   "osm_id": 545679621,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_51f6cb90-72fb-47ec-9a12-3d8c77ff3e5d",
+   "area_m2": 3.42
+  },
+  {
+   "osm_id": 30882775,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_bcb163e9-05a6-4a58-a87e-67a7ebacc25d",
+   "area_m2": 3.16
+  },
+  {
+   "osm_id": 526198271,
+   "highway": "pedestrian",
+   "name": "産寧坂",
+   "plateau_id": "bldg_fbeee35d-db65-48ff-a7aa-a75fb9290503",
+   "area_m2": 3.16
+  },
+  {
+   "osm_id": 1149797470,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_a9e0a8c1-b219-425a-99b8-d32dc40174f1",
+   "area_m2": 3.15
+  },
+  {
+   "osm_id": 30882777,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_723be9f6-b48b-4e4f-9262-e162b405f5c0",
+   "area_m2": 3.07
+  },
+  {
+   "osm_id": 1315867736,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_4aba2f32-5845-4cb9-b94a-d3bd25ba6a69",
+   "area_m2": 3.05
+  },
+  {
+   "osm_id": 550342421,
+   "highway": "service",
+   "name": null,
+   "plateau_id": "bldg_4a0fd44a-bb1a-4df7-90de-baea65cc1b8c",
+   "area_m2": 2.95
+  },
+  {
+   "osm_id": 710696944,
+   "highway": "pedestrian",
+   "name": null,
+   "plateau_id": "bldg_2b777177-fbb4-46cb-94d1-043d45cb14c1",
+   "area_m2": 2.95
+  },
+  {
+   "osm_id": 550342408,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_03d2e7a5-2098-4f13-93b9-99b8871fa291",
+   "area_m2": 2.92
+  },
+  {
+   "osm_id": 30882777,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_22594153-feaa-4dd4-adc0-d1ed1e0656ab",
+   "area_m2": 2.79
+  },
+  {
+   "osm_id": 24516359,
+   "highway": "residential",
+   "name": "八坂通",
+   "plateau_id": "bldg_65cf46dc-681b-4a9d-8667-72ffadaccca9",
+   "area_m2": 2.72
+  },
+  {
+   "osm_id": 30882775,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_8b71ca74-4678-4cb0-9ac9-8c33a4c83e19",
+   "area_m2": 2.61
+  },
+  {
+   "osm_id": 30882777,
+   "highway": "residential",
+   "name": null,
+   "plateau_id": "bldg_efa937ec-b9cc-43a4-8425-dbfc78ce2125",
+   "area_m2": 2.53
+  },
+  {
+   "osm_id": 397245758,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_84928aa1-5669-42a1-9bfa-6d822c3dc312",
+   "area_m2": 2.5
+  },
+  {
+   "osm_id": 550342430,
+   "highway": "footway",
+   "name": null,
+   "plateau_id": "bldg_64382ddc-3b5f-4543-85d5-585d03a7c9a6",
+   "area_m2": 2.44
+  }
+ ],
+ "roof_edges_over_pedestrian_corridors": 87,
+ "connectivity": {
+  "components_in_box": 6,
+  "main_component_nodes": 448,
+  "other_component_sizes": [
+   19,
+   9,
+   1,
+   1,
+   1
+  ]
+ },
+ "isolated_ways": [
+  {
+   "osm_id": 157527393,
+   "highway": "service",
+   "name": null,
+   "length_m": 190.8,
+   "access": null
+  },
+  {
+   "osm_id": 157527409,
+   "highway": "service",
+   "name": null,
+   "length_m": 112.4,
+   "access": null
+  },
+  {
+   "osm_id": 371717425,
+   "highway": "pedestrian",
+   "name": null,
+   "length_m": 128.8,
+   "access": null
+  },
+  {
+   "osm_id": 371717426,
+   "highway": "footway",
+   "name": null,
+   "length_m": 3.5,
+   "access": null
+  },
+  {
+   "osm_id": 371717427,
+   "highway": "footway",
+   "name": null,
+   "length_m": 8.6,
+   "access": null
+  },
+  {
+   "osm_id": 371717428,
+   "highway": "footway",
+   "name": null,
+   "length_m": 11.0,
+   "access": null
+  },
+  {
+   "osm_id": 532546295,
+   "highway": "service",
+   "name": null,
+   "length_m": 19.2,
+   "access": null
+  },
+  {
+   "osm_id": 541053788,
+   "highway": "footway",
+   "name": null,
+   "length_m": 133.3,
+   "access": null
+  },
+  {
+   "osm_id": 545607512,
+   "highway": "footway",
+   "name": null,
+   "length_m": 34.2,
+   "access": null
+  },
+  {
+   "osm_id": 551671281,
+   "highway": "service",
+   "name": null,
+   "length_m": 34.9,
+   "access": null
+  }
+ ],
+ "stairs": [
+  {
+   "osm_id": 30882783,
+   "name": "二寧坂",
+   "n": 17,
+   "n_src": "osm:step_count",
+   "rise_m": 3.78,
+   "riser_m": 0.222,
+   "tread_m": 0.935,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": false,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 179116810,
+   "name": "産寧坂",
+   "n": 46,
+   "n_src": "osm:step_count",
+   "rise_m": 5.45,
+   "riser_m": 0.118,
+   "tread_m": 0.694,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 179116812,
+   "name": null,
+   "n": 21,
+   "n_src": "osm:step_count",
+   "rise_m": 3.26,
+   "riser_m": 0.155,
+   "tread_m": 0.919,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 527257294,
+   "name": null,
+   "n": 5,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "rise_m": 0.73,
+   "riser_m": 0.146,
+   "tread_m": 0.654,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 545611312,
+   "name": null,
+   "n": 6,
+   "n_src": "osm:step_count",
+   "rise_m": 0.66,
+   "riser_m": 0.11,
+   "tread_m": 0.669,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 550352951,
+   "name": null,
+   "n": 9,
+   "n_src": "osm:step_count",
+   "rise_m": 1.6,
+   "riser_m": 0.178,
+   "tread_m": 1.06,
+   "ends_connected": [
+    false,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 893851279,
+   "name": null,
+   "n": 9,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "rise_m": 1.4,
+   "riser_m": 0.156,
+   "tread_m": 0.411,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 893851280,
+   "name": null,
+   "n": 4,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "rise_m": 0.57,
+   "riser_m": 0.142,
+   "tread_m": 0.642,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 893851282,
+   "name": null,
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred); terrain shows no rise -> nominal 0.16 m risers (inferred)",
+   "rise_m": 0.16,
+   "riser_m": 0.16,
+   "tread_m": 2.571,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": false
+  },
+  {
+   "osm_id": 893851284,
+   "name": null,
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred)",
+   "rise_m": 0.19,
+   "riser_m": 0.19,
+   "tread_m": 1.906,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 893851288,
+   "name": null,
+   "n": 2,
+   "n_src": "osm:step_count",
+   "rise_m": 0.15,
+   "riser_m": 0.075,
+   "tread_m": 0.298,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": false,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 893851292,
+   "name": null,
+   "n": 4,
+   "n_src": "osm:step_count",
+   "rise_m": 0.64,
+   "riser_m": 0.16,
+   "tread_m": 0.738,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 893851294,
+   "name": null,
+   "n": 4,
+   "n_src": "osm:step_count",
+   "rise_m": 0.24,
+   "riser_m": 0.06,
+   "tread_m": 0.971,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": false,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 1550466024,
+   "name": null,
+   "n": 23,
+   "n_src": "osm:step_count",
+   "rise_m": 3.09,
+   "riser_m": 0.134,
+   "tread_m": 0.639,
+   "ends_connected": [
+    true,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  },
+  {
+   "osm_id": 1554873118,
+   "name": null,
+   "n": 1,
+   "n_src": "terrain rise / 0.16 m riser (inferred); terrain shows no rise -> nominal 0.16 m risers (inferred)",
+   "rise_m": 0.16,
+   "riser_m": 0.16,
+   "tread_m": 0.414,
+   "ends_connected": [
+    false,
+    true
+   ],
+   "riser_plausible": true,
+   "tread_plausible": true
+  }
+ ],
+ "foundation_minus_terrain_m": {
+  "median": -0.3831826152869091,
+  "p5": -2.5701591858544877,
+  "p95": 0.028124707606908217,
+  "share_within_1m": 0.7777777777777778
+ },
+ "widths": {
+  "footway": {
+   "n": 79,
+   "median": 2.0,
+   "measured_share": 0.0379746835443038
+  },
+  "path": {
+   "n": 8,
+   "median": 1.5,
+   "measured_share": 0.0
+  },
+  "pedestrian": {
+   "n": 11,
+   "median": 4.5,
+   "measured_share": 0.7272727272727273
+  },
+  "residential": {
+   "n": 19,
+   "median": 4.75,
+   "measured_share": 0.9473684210526315
+  },
+  "secondary": {
+   "n": 2,
+   "median": 16.215,
+   "measured_share": 1.0
+  },
+  "service": {
+   "n": 36,
+   "median": 3.5,
+   "measured_share": 0.6388888888888888
+  },
+  "steps": {
+   "n": 15,
+   "median": 2.5,
+   "measured_share": 0.26666666666666666
+  },
+  "tertiary": {
+   "n": 2,
+   "median": 6.865,
+   "measured_share": 0.5
+  },
+  "unclassified": {
+   "n": 8,
+   "median": 7.834999999999999,
+   "measured_share": 0.875
+  }
+ },
+ "named_widths": {
+  "八坂通": [
+   [
+    4.26,
+    "plateau:road-area (media"
+   ]
+  ],
+  "清水道": [
+   [
+    5.44,
+    "plateau:road-area (media"
+   ],
+   [
+    5.0,
+    "default-by-highway-type "
+   ],
+   [
+    4.97,
+    "plateau:road-area (media"
+   ]
+  ],
+  "二寧坂": [
+   [
+    4.0,
+    "osm:width"
+   ],
+   [
+    4.34,
+    "plateau:road-area (media"
+   ],
+   [
+    4.5,
+    "default-by-highway-type "
+   ],
+   [
+    5.22,
+    "plateau:road-area (media"
+   ],
+   [
+    8.87,
+    "plateau:road-area (media"
+   ]
+  ],
+  "一念坂": [
+   [
+    4.01,
+    "plateau:road-area (media"
+   ]
+  ],
+  "東大路通": [
+   [
+    16.15,
+    "plateau:road-area (media"
+   ],
+   [
+    16.28,
+    "plateau:road-area (media"
+   ]
+  ],
+  "産寧坂": [
+   [
+    4.0,
+    "osm:width"
+   ],
+   [
+    5.0,
+    "plateau:road-area (media"
+   ],
+   [
+    4.5,
+    "default-by-highway-type "
+   ],
+   [
+    3.45,
+    "plateau:road-area (media"
+   ],
+   [
+    4.7,
+    "plateau:road-area (media"
+   ]
+  ]
+ },
+ "pagoda": {
+  "osm_centroid": [
+   9.67,
+   83.46
+  ],
+  "plateau_centroid": [
+   9.09,
+   83.22
+  ],
+  "offset_m": 0.63,
+  "plateau_height": 28.7,
+  "documented_height": 46.0,
+  "plateau_base_z": 61.038,
+  "dem_ground": 61.39
+ },
+ "sightline_yasakadori_to_pagoda_upper": {
+  "eye": [
+   -79.0,
+   88.2,
+   54.63
+  ],
+  "target": [
+   9.67,
+   83.46,
+   91.04
+  ],
+  "blocked_by": []
+ }
+}
