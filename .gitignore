@@ -1,0 +1,6 @@
+# Large reproducible downloads (re-run pipeline/02_fetch_plateau.py)
+data/raw/plateau/
+__pycache__/
+*.blend1
+*.pyc
+/tmp/
