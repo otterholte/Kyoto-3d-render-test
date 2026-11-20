@@ -266,11 +266,11 @@ def p_shopfront(pb, W=BAY):
     pb.box(0.1, W - 0.1, -0.03, -0.01, 0.0, 2.2, "glow")
     # shelves / goods silhouettes in front of the glow
     rng = np.random.default_rng(int(W * 100))
-    pb.box(0.1, W - 0.1, -0.6, -0.03, 0.0, 0.75, "wood_weather")             # display table
+    pb.box(0.1, W - 0.1, -0.38, -0.03, 0.0, 0.75, "wood_weather")            # display table (kept under the eave)
     for i in range(6):
         x = 0.2 + i * (W - 0.4) / 6
         hh = rng.uniform(0.08, 0.2)
-        pb.box(x, x + 0.18, -0.5, -0.2, 0.75, 0.75 + hh, "ceramic_ochre" if i % 2 else "ceramic")
+        pb.box(x, x + 0.18, -0.33, -0.1, 0.75, 0.75 + hh, "ceramic_ochre" if i % 2 else "ceramic")
     pb.box(0.1, W - 0.1, -0.12, -0.05, 1.45, 1.49, "wood_weather")
     pb.box(0.1, W - 0.1, -0.12, -0.05, 1.85, 1.89, "wood_weather")
 
@@ -322,6 +322,23 @@ def p_lantern_black(pb):
     pb.box(-0.15, 0.15, -0.69, -0.39, 1.98, 2.05, "metal")
 
 
+def p_gutter(pb):
+    """1 m half-round eave gutter (toi) at the hisashi edge, scaled along x (inferred, common machiya detail)."""
+    import math as _m
+    n = 6
+    prof = [(-1.0 - 0.055 * _m.cos(_m.pi * k / n), -0.46 - 0.055 * _m.sin(_m.pi * k / n)) for k in range(n + 1)]
+    for (y0, z0), (y1, z1) in zip(prof[:-1], prof[1:]):
+        pb.face([(0, y0, z0), (1, y0, z0), (1, y1, z1), (0, y1, z1)], "metal_gutter")
+        pb.face([(0, y1, z1 + 0.004), (1, y1, z1 + 0.004), (1, y0, z0 + 0.004), (0, y0, z0 + 0.004)], "metal_gutter")
+    pb.box(0.0, 1.0, -0.96, -0.94, -0.47, -0.43, "metal_gutter")
+
+
+def p_downpipe(pb):
+    """1 m downpipe (scaled in z) from the gutter to the ground, with a bracket every metre."""
+    pb.lathe(0, -0.12, [(0.035, 0.0), (0.035, 1.0)], "metal_gutter", n=8)
+    pb.box(-0.01, 0.01, -0.12, 0.0, 0.5, 0.52, "metal_gutter")
+
+
 PIECES = {
     "K_Koshi": lambda pb: p_koshi(pb),
     "K_Koshi_Lit": lambda pb: p_koshi(pb, lit=True),
@@ -349,6 +366,8 @@ PIECES = {
     "K_Beam": p_beam,
     "K_LampPost": p_lamppost,
     "K_Lantern_Black": p_lantern_black,
+    "K_Gutter": p_gutter,
+    "K_Downpipe": p_downpipe,
 }
 
 
@@ -381,7 +400,12 @@ def build_library():
             lib.children.link(c)
             pb = PB(name)
             fn(pb)
-            pb.finish(c)
+            ob = pb.finish(c)
+            # softened edges on every kit piece (geometry bevel on the prototype; instances share it)
+            if name not in ("K_Hisashi", "K_Beam", "K_Gutter", "K_Downpipe") and not name.startswith("K_Noren"):
+                bv = ob.modifiers.new("Bevel", "BEVEL")
+                bv.width = 0.006; bv.segments = 1; bv.limit_method = "ANGLE"; bv.use_clamp_overlap = True
+                bv.harden_normals = False
         out[name] = c
     from kit_common import exclude_coll
     exclude_coll(LIB, True)
@@ -480,7 +504,7 @@ def place(facades, lib, log=print):
         for s in segs:
             a, b = np.array(s["a"]), np.array(s["b"])
             L = float(np.linalg.norm(b - a))
-            if L < 1.3 or s["src"].startswith("party"):
+            if L < 1.3:
                 continue
             u = (b - a) / L
             out = np.array([u[1], -u[0]])
@@ -525,6 +549,7 @@ def _dress(s, a, b, u, L, lib, root, pois):
     coll = get_coll("60_Kit_%s" % s["street"], root)
     rng = rng_for(s["obj"], s["i"])
     rot = math.atan2(u[1], u[0])
+    out_vec = np.array([u[1], -u[0]])
     nb = max(1, int(round(L / BAY)))
     bw = L / nb
     g = gz(np.array([a[0], b[0]]), np.array([a[1], b[1]]))
@@ -549,6 +574,7 @@ def _dress(s, a, b, u, L, lib, root, pois):
         d = dict(base)
         d["detail_class"] = cls or c
         d["evidence_confidence"] = "artistic" if cls == "artistic" else conf
+        d["artistic"] = d["detail_class"] == "artistic"
         d["evidence_ref"] = "; ".join(refs)
         return d
 
@@ -612,6 +638,14 @@ def _dress(s, a, b, u, L, lib, root, pois):
         zh = zmax_bay + 2.98
         if zh + 0.15 < s["top_min"] - 0.9:
             out.append(_inst(lib, "K_Hisashi", coll, P(0, zh), rot, L, props("K_Hisashi", extra=use_ref)))
+            out.append(_inst(lib, "K_Gutter", coll, P(0, zh), rot, L, props("K_Gutter", cls="inferred")))
+            out[-1]["evidence_ref"] = "inferred: eave gutter (toi) typical on tiled hisashi"
+            wp = np.array(P(L - 0.25, 0)[:2]) + out_vec * 0.88
+            z0 = gz(wp[0], wp[1]) - 0.05
+            dp = _inst(lib, "K_Downpipe", coll, (float(wp[0]), float(wp[1]), z0), rot, 1.0, props("K_Downpipe", cls="inferred"))
+            dp.scale = (1, 1, max(0.5, zh - 0.46 - z0))
+            dp["evidence_ref"] = "inferred: downpipe from the hisashi gutter"
+            out.append(dp)
             for k in range(nb + 1):
                 out.append(_inst(lib, "K_Bracket", coll, P(min(max(k * bw, 0.06), L - 0.06), zh), rot, 1.0, props("K_Hisashi")))
             z2 = zh + 0.45
@@ -641,4 +675,5 @@ def _dress(s, a, b, u, L, lib, root, pois):
         out.append(_inst(lib, "K_LampPost", coll, P(tt, gz(*P(tt, 0)[:2]) - 0.05), rot, 1.0,
                          props("K_LampPost", cls="artistic")))
         out[-1]["evidence_ref"] = "type observed (building_evidence.json street_furniture: old-style lamp posts); position artistic"
+        out[-1]["artistic"] = True
     return out

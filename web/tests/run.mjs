@@ -354,9 +354,12 @@ async function mobile(browser, url, devName, dev) {
   await touch(cdp, 'touchStart', [[jx, jy]]);
   await touch(cdp, 'touchMove', [[jx, jy - 60]]);
   await touch(cdp, 'touchStart', [[jx, jy - 60], rc]);
-  await touch(cdp, 'touchEnd', [[jx, jy - 60]]);
-  R.runWhileHeld = await page.getAttribute('#btn-run', 'aria-pressed');
+  await touch(cdp, 'touchMove', [[jx + 1, jy - 60], rc]);
+  // CDP can only release all fingers at once; Chrome synthesises no click for a 2nd simultaneous touch,
+  // so this toggles only through the pointerup handler
   await touch(cdp, 'touchEnd', []);
+  await frames(page, 1);
+  R.runWhileHeld = await page.getAttribute('#btn-run', 'aria-pressed');
   check(R.runWhileHeld === 'true', `${devName}: run toggles while the joystick is held`);
   await page.tap('#btn-run');
 

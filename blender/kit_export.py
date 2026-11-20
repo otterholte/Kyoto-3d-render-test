@@ -298,7 +298,7 @@ def build_web_kit(mat_kit, mat_glow):
         "K_Koshi_Lit": quad(0.05, W - 0.05, -0.11, -0.11, -0.3, 2.42, "koshi_lit", glow=True) + box(0, W, -0.17, 0, 2.42, 2.6, wd),
         "K_Door": quad(0.05, W - 0.05, -0.08, -0.08, 0.0, 2.2, "door") + box(0, W, -0.17, 0, 2.2, 2.6, wd),
         "K_ShopFront": quad(0.05, W - 0.05, -0.03, -0.03, 0.0, 2.2, "shop", glow=True) + box(0, W, -0.17, 0, 2.2, 2.6, wd)
-        + box(0.1, W - 0.1, -0.6, -0.05, 0.0, 0.75, ww),
+        + box(0.1, W - 0.1, -0.38, -0.05, 0.0, 0.75, ww),
         "K_Noren_Indigo": quad(0.08, W - 0.08, -0.225, -0.225, 1.2, 2.2, "noren_indigo"),
         "K_Noren_Brown": quad(0.08, W - 0.08, -0.225, -0.225, 1.2, 2.2, "noren_brown"),
         "K_Noren_Cream": quad(0.08, W - 0.08, -0.225, -0.225, 1.2, 2.2, "noren_cream"),

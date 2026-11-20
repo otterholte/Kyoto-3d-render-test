@@ -279,6 +279,32 @@ PROTO_OF = {"maple": ["T_Maple_1", "T_Maple_2", "T_Maple_3"], "cherry": ["T_Cher
             "pine": ["T_Pine_1", "T_Pine_2"], "broad": ["T_Broad_1", "T_Broad_2"], "ginkgo": ["T_Ginkgo_1"]}
 
 
+PAGODA_XY = (9.4, 83.3)
+
+
+def pagoda_corridors():
+    """Sight corridors (5 m buffer) from every geotagged Commons photo of the pagoda and from the hero cameras to the
+    pagoda: artistic trees are kept out of them; documented default-height crowns inside are drawn smaller
+    (accuracy audit F9)."""
+    import json as _json
+    import os as _os
+    from shapely.geometry import LineString
+    from shapely.ops import unary_union
+    from kit_common import DOCS
+    pts = []
+    try:
+        for c in _json.load(open(_os.path.join(DOCS, "references", "commons_geotagged.json"))):
+            xy = c.get("local_xy_m")
+            txt = (c.get("title", "") + " " + " ".join(c.get("categories") or [])).lower()
+            if xy and max(abs(xy[0]), abs(xy[1])) < 320 and any(k in txt for k in ("yasaka no t", "pagoda", "hokan", "gojunoto", "八坂の塔", "法観寺", "yasakanoto", "yasaka tower")):
+                pts.append(tuple(xy))
+    except Exception:
+        pass
+    pts += [(-79.0, 88.2), (118.0, 30.0), (91.8, 44.7), (80.9, 39.8), (55.9, 48.4)]
+    lines = [LineString([p, PAGODA_XY]).buffer(5.0) for p in set(pts) if (p[0] - PAGODA_XY[0]) ** 2 + (p[1] - PAGODA_XY[1]) ** 2 > 400]
+    return unary_union(lines) if lines else None
+
+
 def documented_trees(lib, log):
     coll = get_coll("50_Vegetation_Documented")
     for o in list(coll.objects):
@@ -295,6 +321,8 @@ def documented_trees(lib, log):
                 p = c[i] + (c[i + 1] - c[i]) * (d - ln[i]) / max(ln[i + 1] - ln[i], 1e-6)
                 pts.append((p[0], p[1], t["osm_id"], t["tags"], "natural=tree_row sampled every 5 m"))
     stats = {}
+    from shapely.geometry import Point as _Pt
+    corr = pagoda_corridors()
     for k, (x, y, oid, tags, kind) in enumerate(pts):
         sp, src = species_of(tags, "%s_%d" % (oid, k))
         rng = rng_for("tree", oid, k)
@@ -310,6 +338,9 @@ def documented_trees(lib, log):
                      species_tag=tags.get("species") or tags.get("species:ja") or tags.get("genus") or "",
                      height_m=h, height_src=hsrc, osm_kind=kind, collide=True,
                      detail_class="observed" if src == "osm:species" else "inferred")
+        if corr is not None and corr.contains(_Pt(x, y)) and not tags.get("height"):
+            s *= 0.8
+            props["crown_note"] = "default-height crown drawn 20 % smaller inside a documented pagoda sightline (audit F9)"
         _inst(lib, proto, coll, "Tree_osm%s_%d" % (oid, k), (x, y, gz(x, y)), rng.uniform(0, 2 * math.pi), s, props)
         stats[sp] = stats.get(sp, 0) + 1
     log("documented trees", len(pts), stats)
@@ -336,7 +367,8 @@ def artistic(lib, log):
         p = Point(x, y)
         return not any(bpolys[i].contains(p) for i in btree.query(p)) and not any(streets[i].contains(p) for i in stree.query(p))
 
-    n = dict(forest=0, bamboo=0, shrub=0, weeds=0)
+    n = dict(forest=0, bamboo=0, shrub=0, weeds=0, skipped_in_sightline=0)
+    corr = pagoda_corridors()
     # forest / scrub / garden fill (documented areas, inferred individual trees)
     for a in data("features")["areas"]:
         t = a["tags"]
@@ -361,6 +393,9 @@ def artistic(lib, log):
                 px, py = x + rng.uniform(-0.45, 0.45) * spacing, y + rng.uniform(-0.45, 0.45) * spacing
                 if not poly.contains(Point(px, py)) or not free(px, py):
                     continue
+                if corr is not None and corr.contains(Point(px, py)):
+                    n["skipped_in_sightline"] += 1
+                    continue
                 r = rng.random()
                 if kind == "scrub":
                     proto = "T_Shrub_1" if r < 0.6 else "T_Bamboo_1" if r < 0.8 else "T_Maple_2"
@@ -371,7 +406,7 @@ def artistic(lib, log):
                         "T_Bamboo_2" if r < 0.8 else "T_Pine_2" if r < 0.92 else "T_Ginkgo_1"
                 s = rng.uniform(0.85, 1.3)
                 _inst(lib, proto, coll, "TreeArt_%s_%d" % (a["osm_id"], n["forest"]), (px, py, gz(px, py) - 0.1),
-                      rng.uniform(0, 6.28), s, dict(artistic=True, documented=False, evidence_ref=ref, collide=False))
+                      rng.uniform(0, 6.28), s, dict(artistic=True, detail_class="artistic", documented=False, evidence_ref=ref, collide=False))
                 n["forest"] += 1
     # shrubs along stone walls (garden side and street side alternately), very sparse
     for bar in data("features")["barriers"]:
@@ -394,7 +429,7 @@ def artistic(lib, log):
                 continue
             proto = "T_Shrub_1" if rng.random() < 0.7 else "T_Shrub_2"
             _inst(lib, proto, coll, "Shrub_art_%d" % n["shrub"], (q[0], q[1], gz(q[0], q[1])), rng.uniform(0, 6.28),
-                  rng.uniform(0.7, 1.2), dict(artistic=True, evidence_ref="artistic: shrub at OSM barrier %s" % bar["osm_id"], collide=False))
+                  rng.uniform(0.7, 1.2), dict(artistic=True, detail_class="artistic", evidence_ref="artistic: shrub at OSM barrier %s" % bar["osm_id"], collide=False))
             n["shrub"] += 1
     # weeds along P2 facade bases (between paving and walls)
     for e in [o for o in bpy.data.objects if o.type == "EMPTY" and o.get("kit_piece") in ("K_Koshi", "K_Koshi_Lit", "K_Door", "K_Inuyarai")]:
@@ -404,7 +439,7 @@ def artistic(lib, log):
         loc = e.matrix_world @ Vector((rng.uniform(0.1, 1.7), -0.25 if e["kit_piece"] != "K_Inuyarai" else -0.5, 0))
         loc.z = gz(loc.x, loc.y)
         _inst(lib, "T_Weeds_1", coll, "Weeds_art_%d" % n["weeds"], loc, rng.uniform(0, 6.28), rng.uniform(0.7, 1.3),
-              dict(artistic=True, evidence_ref="artistic: weeds at facade base", collide=False))
+              dict(artistic=True, detail_class="artistic", evidence_ref="artistic: weeds at facade base", collide=False))
         n["weeds"] += 1
     log("artistic vegetation", n)
     fallen_leaves(coll, log)
@@ -444,7 +479,7 @@ def fallen_leaves(coll, log):
         bm.to_mesh(mm); bm.free()
         mm.materials.append(M("fallen_leaf"))
         lo = bpy.data.objects.new("Veg_FallenLeaves_" + ob.name[7:], mm)
-        lo["artistic"] = True; lo["evidence_ref"] = "artistic: late-autumn fallen leaves"; lo["exclude_web"] = True
+        lo["artistic"] = True; lo["detail_class"] = "artistic"; lo["evidence_ref"] = "artistic: late-autumn fallen leaves"; lo["exclude_web"] = True
         coll.objects.link(lo)
     log("fallen leaves", total)
 

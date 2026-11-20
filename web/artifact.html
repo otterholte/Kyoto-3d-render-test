@@ -120,10 +120,14 @@
   }
   var noMap = window.HTMLScriptElement && typeof HTMLScriptElement.supports === 'function' && !HTMLScriptElement.supports('importmap');
   if (noMap) { fail('This walk needs a newer browser (JavaScript import maps): Safari / iOS 16.4+, Chrome 89+, Firefox 108+ or Edge 89+.'); return; }
-  window.__hwModuleError = function () { fail('The 3D engine (three.js from cdn.jsdelivr.net) could not be loaded. Check the connection or content blockers and reload.'); };
+  // a module graph that fails to fetch fires "error" on its <script> (captured here, no inline handler needed)
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'SCRIPT' && t.type === 'module') fail('The 3D engine (three.js from cdn.jsdelivr.net) could not be loaded. Check the connection or content blockers and reload.');
+  }, true);
   setTimeout(function () {
     fail('The 3D engine did not start after 20 seconds. The script CDN (cdn.jsdelivr.net) may be blocked, or this browser is too old (iOS 16.4+ / a current Chrome, Firefox, Edge or Safari is needed). Please reload to try again.');
   }, 20000);
 })();
 </script>
-<script type="module" src="src/main.js" onerror="window.__hwModuleError && window.__hwModuleError()"></script>
+<script type="module" src="src/main.js"></script>

@@ -19,16 +19,16 @@ from kit_materials import M, node, link, mix, mrange, math as mth, sep, comb
 
 # ------------------------------------------------------------------ presets
 PRESETS = {
-    # sun elevation/azimuth in degrees (azimuth from north, clockwise; late November Kyoto sets at ~242 deg);
-    # sky strength (lighting) / skycam (sky as seen by camera); sun strength + colour temperature;
-    # lantern emission multiplier; fog density (1/m, homogeneous street-level shell); exposure;
-    # amb/tint: share of the sky light replaced by an art-directed tint; city: basin lights; haze: far hills
-    "golden": dict(sun_el=6.0, sun_az=238.0, sky=0.6, skycam=0.55, sun=5.5, sun_k=3300, lamps=0.4, fog=0.0025,
-                   exposure=0.9, amb=0.6, tint=(0.86, 0.66, 0.42), city=0.0, haze=(0.62, 0.52, 0.52), mist=0.0),
-    "dusk": dict(sun_el=1.5, sun_az=242.0, sky=0.8, skycam=0.5, sun=3.0, sun_k=2700, lamps=0.8, fog=0.003,
-                 exposure=1.15, amb=0.55, tint=(0.80, 0.62, 0.50), city=0.3, haze=(0.42, 0.36, 0.44), mist=0.0),
-    "blue": dict(sun_el=-4.0, sun_az=246.0, sky=2.4, skycam=0.55, sun=0.0, sun_k=2400, lamps=1.25, fog=0.0035,
-                 exposure=1.5, amb=0.35, tint=(0.50, 0.46, 0.75), city=1.0, haze=(0.05, 0.055, 0.11), mist=0.0, flood=1.0),
+    # physically plausible sun for Kyoto, 20 Nov: 16:00 JST az ~231 deg / alt ~11.5 deg; 16:25 JST az ~237 / alt ~6.5;
+    # blue hour ~17:05 JST, sun -4 deg.  Sky = MULTIPLE_SCATTERING (lighting) / skycam (sky seen by the camera);
+    # amb/tint: small share of sky light replaced by a tint (kept subtle for a realistic read); lamps: lantern
+    # multiplier; fog: homogeneous street-level shell (1/m); haze/city: far landscape
+    "golden": dict(sun_el=11.5, sun_az=231.0, sky=0.7, skycam=0.7, sun=4.2, sun_k=3900, lamps=0.35, fog=0.0018,
+                   exposure=0.35, amb=0.18, tint=(0.86, 0.70, 0.55), city=0.0, haze=(0.62, 0.55, 0.52), mist=0.0),
+    "dusk": dict(sun_el=6.5, sun_az=237.0, sky=0.8, skycam=0.65, sun=3.4, sun_k=3200, lamps=0.6, fog=0.0022,
+                 exposure=0.6, amb=0.22, tint=(0.82, 0.66, 0.56), city=0.25, haze=(0.50, 0.44, 0.46), mist=0.0),
+    "blue": dict(sun_el=-4.0, sun_az=246.0, sky=2.4, skycam=0.55, sun=0.0, sun_k=2400, lamps=1.2, fog=0.0025,
+                 exposure=1.4, amb=0.25, tint=(0.55, 0.55, 0.75), city=1.0, haze=(0.05, 0.055, 0.11), mist=0.0, flood=1.0),
 }
 
 
@@ -251,7 +251,7 @@ def lanterns():
             lo = bpy.data.objects.new("KitLight_" + e.name, ld)
             lo.location = mw @ local
             lo["lamp_base_energy"] = ld.energy
-            lo["detail_class"] = e.get("detail_class", "inferred"); lo["artistic"] = e.get("detail_class") == "artistic"
+            lo["detail_class"] = e.get("detail_class", "inferred"); lo["artistic"] = bool(e.get("artistic", e.get("detail_class") == "artistic"))
             lo["evidence_ref"] = "light for kit piece " + e.name
             coll.objects.link(lo)
             n_art += 1
@@ -404,7 +404,7 @@ def compositor():
     gl.inputs["Type"].default_value = "Bloom"
     gl.inputs["Quality"].default_value = "High"
     gl.inputs["Threshold"].default_value = 0.9
-    gl.inputs["Strength"].default_value = 0.35
+    gl.inputs["Strength"].default_value = 0.22
     gl.inputs["Size"].default_value = 0.65
     ng.links.new(img, gl.inputs["Image"])
     img = gl.outputs[0]
@@ -417,7 +417,7 @@ def compositor():
     kw.inputs["High Precision"].default_value = True
     ng.links.new(img, kw.inputs["Image"])
     km = N.new("ShaderNodeMix"); km.data_type = "RGBA"; km.name = "KuwaharaMix"
-    km.inputs[0].default_value = 0.55
+    km.inputs[0].default_value = 0.18          # painterly touch kept subtle (realistic read)
     ng.links.new(img, km.inputs[6]); ng.links.new(kw.outputs[0], km.inputs[7])
     img = km.outputs[2]
     # grade: cool lift, warm gain
@@ -425,11 +425,11 @@ def compositor():
     cb.name = "Grade"
     cb.inputs["Color Lift"].default_value = (1.0, 0.995, 1.01, 1)
     cb.inputs["Color Gamma"].default_value = (1.02, 1.0, 0.97, 1)
-    cb.inputs["Color Gain"].default_value = (1.06, 1.02, 0.9, 1)
+    cb.inputs["Color Gain"].default_value = (1.03, 1.01, 0.96, 1)
     ng.links.new(img, cb.inputs["Image"])
     img = cb.outputs[0]
     hs = N.new("CompositorNodeHueSat")
-    hs.inputs["Saturation"].default_value = 0.94
+    hs.inputs["Saturation"].default_value = 1.0
     ng.links.new(img, hs.inputs["Image"])
     img = hs.outputs[0]
     # vignette
@@ -478,7 +478,7 @@ def render_settings(scene=None):
     scene.render.film_transparent = False
     scene.view_settings.view_transform = "AgX"
     try:
-        scene.view_settings.look = "AgX - Base Contrast"
+        scene.view_settings.look = "AgX - Medium High Contrast"
     except TypeError:
         pass
     scene.render.image_settings.file_format = "PNG"
@@ -530,7 +530,14 @@ def pagoda(log=print):
         if "COLLIDER" in o.name:
             o.hide_render = True
     _paint_hero_materials({m for o in hero_objs if o.type == "MESH" for m in o.data.materials if m})
+    root = bpy.data.objects.get("LM_Yasaka_Pagoda_HERO")
+    for o in hero_objs:
+        if "detail_class" not in o:
+            o["detail_class"] = root.get("detail_class", "measured+documented (hero_pagoda.py EVIDENCE)") if root else "inferred"
+            o["artistic"] = False
     if old is not None:
+        old["collide"] = False
+        old["hero_replacement"] = "replaced by hero model (blender/hero_pagoda.py); see docs/accuracy_report.md F2 for the height discussion"
         old.hide_render = True
         old.hide_set(True)
         old["replaced_by_hero"] = True

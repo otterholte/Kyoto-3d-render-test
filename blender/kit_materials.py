@@ -25,6 +25,8 @@ PAL = dict(
 )
 
 
+BRUSH_AMOUNT = 0.5
+
 # ------------------------------------------------------------------ tiny node DSL
 def node(nt, t, inputs=None, **props):
     n = nt.nodes.new(t)
@@ -146,7 +148,8 @@ def brush(nt, vec=None, scale=3.0, stretch=(1, 1, 3)):
 
 
 def paint(nt, col, fac, fac2, val=0.16, hue=0.025, sat=0.10):
-    """Jitter hue/sat/value of `col` with brush factors."""
+    """Jitter hue/sat/value of `col` with brush factors (scaled by BRUSH_AMOUNT; kept subtle for a realistic read)."""
+    val, hue, sat = val * BRUSH_AMOUNT, hue * BRUSH_AMOUNT, sat * BRUSH_AMOUNT
     h = math(nt, "MULTIPLY_ADD", fac2, hue * 2, 0.5 - hue)
     v = math(nt, "MULTIPLY_ADD", fac, val * 2, 1.0 - val)
     s = math(nt, "MULTIPLY_ADD", fac2, sat * 2, 1.0 - sat)
@@ -575,6 +578,8 @@ def M(name):
         "ceramic_ochre": lambda: m_simple("ART_Ceramic_Ochre", (0.30, 0.15, 0.06), 0.35, 3.0, (1, 1, 1), 0.2, spec=0.5),
         "stone_lantern": lambda: m_simple("ART_Stone_Lantern", (0.28, 0.27, 0.24), 0.85, 2.5, (1, 1, 1), 0.2, bevel=0.02),
         "metal": lambda: m_simple("ART_Metal_Dark", (0.03, 0.03, 0.03), 0.45, spec=0.5),
+        "metal_gutter": lambda: m_simple("ART_Gutter_Copper_Patina", (0.09, 0.11, 0.09), 0.45, 4.0, (6, 1, 1), 0.12, spec=0.5),
+        "concrete": lambda: m_simple("ART_Concrete_Pole", (0.32, 0.31, 0.29), 0.85, 3.0, (1, 1, 6), 0.1),
         "paper": lambda: m_simple("ART_Shoji_Paper", (0.75, 0.70, 0.60), 0.9, trans=0.4, emission=(1.0, 0.75, 0.45), estr=0.0),
         "red_felt": lambda: m_simple("ART_Red_Felt", (0.45, 0.04, 0.03), 0.95, sheen=0.5),
         "noren_indigo": lambda: m_noren("ART_Noren_Indigo", PAL["indigo"]),

@@ -41,15 +41,15 @@ ROOT = os.path.dirname(HERE)
 CENTRE_XY = (9.38, 83.34)
 ROT_DEG = 1.4
 GROUND_Z = 61.03            # PLATEAU LOD2 GroundSurface / LOD1 base (61.03-61.04)
-TOTAL_HEIGHT = 38.8         # lead decision 2026-11-20: documented 38.8 m (NDL ref. entry) + PLATEAU apex 28.7 m
-POPULAR_HEIGHT = 46.0       # OSM height=46 / tourist sources; disputed (inconsistent with measured roof outline)
+TOTAL_HEIGHT = 38.8         # measured/derived: PLATEAU apex 28.7 m + photo-derived sorin (audit telephoto: 39.2-40.0 m)
+POPULAR_HEIGHT = 46.0       # widely published / OSM height=46: disputed popular figure (inconsistent with measured geometry)
 
 PLATFORM_W = 9.4            # inferred (spec)
 PLATFORM_H = 1.0            # inferred (spec)
 # per storey: body width (column-centre square), eave span corner-to-corner, top of eave edge above ground
 BODY_W = [6.4, 6.08, 5.76, 5.45, 5.13]          # 6.4 documented (disputed 5.5); upper storeys photo ratio 0.42
 EAVE_W = [15.1, 14.35, 13.6, 12.85, 12.1]       # 15.1 measured (PLATEAU roof edge 15.31 x 14.96); taper from photos
-EAVE_TOP = [8.3, 12.2, 16.1, 20.0, 23.9]        # PLATEAU LOD2 steps 8.29/12.23/16.07/20.47/24.32 + photo spacing
+EAVE_TOP = [8.29, 12.23, 16.07, 20.47, 24.32]   # measured: PLATEAU LOD2 tier steps above the 61.04 m base
 TOP_APEX = 28.7                                  # PLATEAU measuredHeight = top roof apex (measured)
 SORIN_H = TOTAL_HEIGHT - TOP_APEX                # 10.1 m (photo ratio 2.3-2.5 tier spacings -> estimated)
 SORIN_BASE = TOP_APEX - 1.10                     # tile surface meets the roban here; roban top ~ PLATEAU apex (inferred)
@@ -67,20 +67,25 @@ EVIDENCE = {
     "plan_rotation_deg_ccw_from_grid_east": {"value": ROT_DEG, "confidence": "measured",
                                              "source": "minimum rotated rectangle: OSM 1.94 deg, PLATEAU 0.95 deg (range 0.9-1.9)"},
     "ground_z_TP": {"value": GROUND_Z, "confidence": "measured", "source": "PLATEAU LOD2 GroundSurface / LOD1 base (DEM5A at centroid 61.4)"},
-    "total_height_incl_sorin_m": {"value": TOTAL_HEIGHT, "confidence": "documented+measured",
-                                  "source": "NDL Collaborative Reference 1000061716 (総高 38.8 m) + PLATEAU measuredHeight 28.7 m (top roof apex) + photo sorin ratio; lead decision"},
-    "popular_height_m_disputed": {"value": POPULAR_HEIGHT, "confidence": "documented",
-                                  "source": "OSM height=46, tourist sources; contradicted by PLATEAU 15.1 m roof outline and 28.7 m apex + photo proportions"},
+    "total_height_incl_sorin_m": {"value": TOTAL_HEIGHT, "confidence": "measured/derived",
+                                  "source": "PLATEAU measuredHeight 28.7 m (top roof apex above base) + photo-derived sorin ~10.1 m; "
+                                            "independent telephoto measurement in docs/accuracy_report.md F2: 39.2-40.0 m"},
+    "ndl_reference_height_m": {"value": 38.8, "confidence": "documented, source not retrievable from this environment",
+                               "source": "NDL Collaborative Reference 1000061716 (総高 38.8 m, seen only as a web-search summary; crd.ndl.go.jp unreachable)"},
+    "popular_height_m_disputed": {"value": POPULAR_HEIGHT, "confidence": "disputed popular figure",
+                                  "source": "widely published '約46 m' (operator/tourist sites, OSM height=46); would need ~17 m sorin or ~19.6 m eaves, "
+                                            "contradicted by PLATEAU 15.1 m roof outline, 28.7 m apex and photo proportions"},
     "storeys": {"value": 5, "confidence": "documented", "source": "designation 三間五重塔婆; OSM building:levels=5"},
     "plan_bays": {"value": "3x3", "confidence": "documented", "source": "三間五重塔婆 (souda-kyoto.jp, kyoto-design.jp snippets)"},
     "first_storey_side_m": {"value": BODY_W[0], "confidence": "documented", "source": "'6.4 m 四方' (alt. 5.5 m), spec first_storey_side_m"},
     "upper_body_widths_m": {"value": BODY_W[1:], "confidence": "estimated", "source": "photo ratio body/eave 0.42 (File:Yasaka Pagoda (24922466195).jpg)"},
     "lowest_eave_span_m": {"value": EAVE_W[0], "confidence": "measured", "source": "PLATEAU lod0RoofEdge 15.31 x 14.96 m (area 229.2 m2)"},
     "eave_spans_2_5_m": {"value": EAVE_W[1:], "confidence": "estimated", "source": "~5 %/storey taper, photo widths 5th:4th:3rd = 415:440:465 px"},
-    "eave_heights_above_ground_m": {"value": EAVE_TOP, "confidence": "measured", "source": "PLATEAU LOD2 stepped tiers 8.29/12.23/16.07/20.47/24.32 m, regularised with photo spacing 3.9 m"},
-    "eave_spacing_m": {"value": 3.9, "confidence": "estimated", "source": "photo eave-spacing / eave-width ratios scaled by PLATEAU 15.1 m"},
+    "eave_heights_above_ground_m": {"value": EAVE_TOP, "confidence": "measured",
+                                    "source": "PLATEAU LOD2 stepped tiers 8.29/12.23/16.07/20.47/24.32 m (taken as top of eave edge; interpretation inferred)"},
+    "eave_spacing_m": {"value": "3.84-4.40 (mean 4.0)", "confidence": "measured", "source": "PLATEAU LOD2 tier steps; photo rhythm agrees (accuracy_report F2)"},
     "top_roof_apex_above_ground_m": {"value": TOP_APEX, "confidence": "measured", "source": "PLATEAU measuredHeight 28.7 m"},
-    "sorin_height_m": {"value": round(SORIN_H, 2), "confidence": "estimated", "source": "photo ratio sorin = 2.3-2.5 eave spacings; = total 38.8 - apex 28.7"},
+    "sorin_height_m": {"value": round(SORIN_H, 2), "confidence": "estimated", "source": "photo ratio sorin = 2.3-2.5 eave spacings (sorin/(apex-eave1) = 0.51-0.56 in audit); = total 38.8 - apex 28.7"},
     "kurin_rings": {"value": 9, "confidence": "observed", "source": "File:150124 At Yasakakamimachi Kyoto Japan02n.jpg; File:Yasaka-Dori - panoramio.jpg"},
     "platform_w_m": {"value": PLATFORM_W, "confidence": "inferred", "source": "body + ~1.5 m margin; kidan mostly hidden behind street fence"},
     "platform_h_m": {"value": PLATFORM_H, "confidence": "inferred", "source": "typical; spec base_platform"},
@@ -943,7 +948,7 @@ def build_sorin(mb, z0, height, web):
 # =============================================================================================== layout
 def layout(height_basis="evidence"):
     """vertical layout (pagoda-local z = height above GROUND_Z). Returns storeys list and sorin base."""
-    scale = 1.0 if height_basis != "documented_46m" else POPULAR_HEIGHT / TOTAL_HEIGHT
+    scale = 1.0 if height_basis != "popular_46m" else POPULAR_HEIGHT / TOTAL_HEIGHT
     st = []
     z_floor = PLATFORM_H
     for i in range(5):
@@ -1040,9 +1045,11 @@ def build_pagoda(collection=None, detail="high", height_basis="evidence", seed=8
     root["wikidata"] = "Q858308"
     root["name_ja"] = "法観寺五重塔（八坂の塔）"
     root["height_m"] = round(total, 2)
-    root["height_note"] = ("38.8 m incl. sorin (documented NDL ref. + PLATEAU apex 28.7 m); popular figure 46 m is disputed"
+    root["height_note"] = ("38.8 m incl. sorin = measured/derived (PLATEAU apex 28.7 m + photo-derived sorin; audit telephoto 39.2-40.0 m); "
+                           "NDL 38.8 m entry = documented, source not retrievable here; ~46 m = disputed popular figure"
                            if height_basis == "evidence" else "uniformly scaled to the popular 46 m figure (disputed)")
     root["height_basis"] = height_basis
+    root["height_confidence"] = "measured/derived" if height_basis == "evidence" else "disputed popular figure"
     root["sources"] = ("OSM way 371717416 (ODbL); PLATEAU 2025 Kyoto bldg_2b477621-2b5c-480b-a960-d2b3972db237 (LOD0 roof edge, "
                        "LOD2 tiers, measuredHeight 28.7); GSI DEM5A; docs/evidence/yasaka_pagoda_spec.json; NDL CRD 1000061716; "
                        "Wikimedia Commons photos listed in docs/evidence/yasaka_pagoda_model.md")

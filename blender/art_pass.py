@@ -80,6 +80,7 @@ if "ground" in STAGES:
     rib = kit_ground.build(cg, M("paving"), M("paving_sett"))
     log("paving ribbons", len(rib))
     kit_ground.carve_terrain_under_steps(log=log)
+    kit_ground.utility_poles(kc.get_coll("40_Walls_Barriers"), log=log)
     import kit_backdrop
     kit_backdrop.build(log=log)
     ter = bpy.data.objects.get("Terrain_GSI_DEM5A")

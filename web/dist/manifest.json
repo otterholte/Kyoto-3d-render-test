@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-20T23:18:20.223Z",
+  "generated": "2026-11-20T23:42:38.547Z",
   "world": {
     "file": "world_art.glb.b64.txt",
     "source": "assets/world_art.glb",
-    "bytes": 3719308,
-    "sourceBytes": 12669760,
+    "bytes": 3768116,
+    "sourceBytes": 12824700,
     "colours": {
       "renamed": 0,
       "fixed": 0,

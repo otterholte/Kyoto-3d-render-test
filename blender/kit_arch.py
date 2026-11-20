@@ -1,11 +1,11 @@
 """Phase 5 architecture pass: priority classification, eave-correct walls, roof thickness, ridges.
 
 Priority 2 = buildings fronting Yasaka-dori / Ninenzaka / Sannenzaka / Ichinenzaka (P2_STREETS):
-  * PLATEAU LOD2 walls stand on the roof edge (lod0RoofEdge). Outer walls are regenerated inset from the
-    roof edge so that the surveyed roof edge becomes a real eave:
-      - edge matched to a GSI 建築物の外周線 (BldL) line  -> inset = measured offset (detail "gsi")
-      - otherwise                                       -> 0.5 m (validation median), flagged inferred
-      - party walls (another footprint within 0.6 m)   -> no inset
+  * PLATEAU LOD2 walls stand on the roof edge (lod0RoofEdge). Following the accuracy audit (F1), only the
+    street-facing walls of traditional buildings (timber per building_evidence.json, <= 3 storeys) are set back by
+    one uniform, inferred 0.45 m (typical machiya eave overhang) so the surveyed roof edge reads as an eave; every
+    other wall stays exactly on the PLATEAU outline.  (An earlier per-edge GSI-derived inset was removed: GSI BldL vs
+    PLATEAU differences are registration noise, not eaves.)
   * roof surfaces kept exactly (shape + height), given 0.2 m thickness (vertical), ridge caps
     (munagawara) on convex roof edges, a nokigawara tile-end roll along horizontal eave edges.
 Priority 3 = other buildings inside the box: geometry kept, roof thickness + ridge caps only.
@@ -89,50 +89,63 @@ class Context:
         return best
 
 
-def edge_insets(ctx, ring, bid):
-    """Per-edge inset distance + source string."""
+EAVE_INSET = 0.45
+EAVE_SRC = "inferred: uniform 0.45 m street-front eave (typical machiya eave overhang, building_evidence.md)"
+
+
+def traditional(ctx, rec):
+    """Priority-2 'traditional' = timber (木造・土蔵造 per docs/evidence/building_evidence.json) and <= 3 storeys.
+    Buildings whose structure is unknown or non-timber keep all walls on the PLATEAU outline."""
+    from kit_common import evidence
+    if "_evb" not in ctx.__dict__:
+        ev = evidence()
+        ctx._evb = [b for v in (ev.get("buildings_by_street") or {}).values() for b in v] if isinstance(ev, dict) else []
+    poly = Polygon(rec["footprint"])
+    best = None
+    for b in ctx._evb:
+        c = b.get("local_centroid_xy")
+        if not c:
+            continue
+        d = poly.distance(Point(*c))
+        if d < 1.0 and (best is None or d < best[0]):
+            best = (d, b)
+    if best is None:
+        return False, "no evidence record"
+    b = best[1]
+    st = str(b.get("structure") or "")
+    storeys = b.get("storeys") or rec.get("storeys") or 0
+    ok = st.startswith("wooden") and storeys <= 3
+    return ok, "%s, storeys %s (%s)" % (st, storeys or "unknown", b.get("plateau_buildingID"))
+
+
+def edge_insets(ctx, ring, rec, is_trad):
+    """Per-edge inset (m) + source. Accuracy audit F1 (docs/accuracy_report.md): GSI-vs-PLATEAU outline differences are
+    registration noise, not eaves -> no per-edge GSI insets. Only street-facing edges of traditional P2 buildings get
+    one uniform, inferred 0.45 m eave; every other wall stays exactly on the PLATEAU outline."""
     n = len(ring)
     out = []
     for i in range(n):
         a, b = ring[i], ring[(i + 1) % n]
         L = float(np.linalg.norm(b - a))
-        if L < 0.25:
-            out.append((0.0, "edge < 0.25 m (kept)", None)); continue
+        if not is_trad or L < 1.0:
+            out.append((0.0, "on PLATEAU outline", None)); continue
         u = (b - a) / L
-        nin = np.array([-u[1], u[0]])
-        party = 0
-        for t in (0.2, 0.5, 0.8):
-            p = a + (b - a) * t - nin * 0.6
-            party += ctx.others_at(p[0], p[1], bid)
-        if party >= 2:
-            out.append((0.0, "party wall: adjacent footprint within 0.6 m (no inset)", None)); continue
-        el = LineString([a, b])
-        best = None
-        for k in ctx.gtree.query(el.buffer(1.8)):
-            s = ctx.gsegs[k]
-            c0, c1 = np.array(s.coords[0]), np.array(s.coords[1])
-            sv = c1 - c0; sl = np.linalg.norm(sv)
-            if abs(np.dot(sv / sl, u)) < math.cos(math.radians(12)):
+        nout = np.array([u[1], -u[0]])
+        mid = (a + b) / 2
+        facing = False
+        for key, w, ls, width, hw in ctx.lines:
+            d = ls.distance(Point(*mid))
+            if d > width / 2 + 4.0:
                 continue
-            t0, t1 = sorted([np.dot(c0 - a, u), np.dot(c1 - a, u)])
-            ov = min(L, t1) - max(0.0, t0)
-            if ov < 0.3 * min(L, sl):
-                continue
-            tm = 0.5 * (max(0.0, t0) + min(L, t1))
-            # signed inward distance of the GSI line at the overlap midpoint
-            sp = c0 + sv * ((tm - np.dot(c0 - a, u)) / np.dot(sv, u))
-            dd = float(np.dot(sp - a, nin))
-            if -0.3 < dd < 1.6 and (best is None or ov > best[0]):
-                best = (ov, dd, ctx.gfids[k])
-        if best and best[1] >= 0.3:
-            dd = best[1]
-            d = min(dd, 1.2)
-            src = "gsi:BldL %s measured %.2f m%s" % (best[2], dd, "" if abs(d - dd) < 1e-6 else " (clamped to %.2f)" % d)
-            out.append((d, src, best[2]))
-        elif best:
-            out.append((DEFAULT_INSET, "inferred: 0.5 m (GSI BldL %s traces the roof edge, %.2f m)" % (best[2], best[1]), None))
+            near = np.array(ls.interpolate(ls.project(Point(*mid))).coords[0])
+            v = near - mid
+            if np.linalg.norm(v) > 1e-6 and np.dot(v / np.linalg.norm(v), nout) > 0.6:
+                facing = True
+                break
+        if facing:
+            out.append((EAVE_INSET, EAVE_SRC, None))
         else:
-            out.append((DEFAULT_INSET, "inferred: 0.5 m (median GSI wall offset, validation_report)", None))
+            out.append((0.0, "on PLATEAU outline", None))
     return out
 
 
@@ -261,7 +274,8 @@ def rebuild_p2(ob, ctx):
     ring = _ring(rec["footprint"])
     if len(ring) < 3:
         return None
-    ins = edge_insets(ctx, ring, rec["id"])
+    is_trad, trad_src = traditional(ctx, rec)
+    ins = edge_insets(ctx, ring, rec, is_trad)
     d = np.array([x[0] for x in ins])
     Q = inset_ring(ring, d)
     qp = Polygon(Q)
@@ -411,8 +425,13 @@ def rebuild_p2(ob, ctx):
     ob.data = new
     ob["priority"] = 2
     ob["wall_inset_m"] = json.dumps([round(float(x), 3) for x in d])
-    ob["wall_inset_src"] = json.dumps([x[1] for x in ins], ensure_ascii=False)
-    ob["inset_detail_class"] = "observed" if any(x[2] for x in ins) else "inferred"
+    ob["wall_inset_src"] = json.dumps(sorted(set(x[1] for x in ins)), ensure_ascii=False)
+    ob["traditional"] = bool(is_trad)
+    ob["traditional_src"] = trad_src
+    if any(x[0] > 0 for x in ins):
+        ob["inset_detail_class"] = "inferred"
+        ob["detail_class"] = "inferred"
+        ob["evidence_ref"] = "typical machiya eave overhang (building_evidence.md); walls of street-facing edges inset 0.45 m, roof untouched"
     ob["roof_detail"] = "PLATEAU LOD2 roof kept; +%.2f m slab, %d ridge/eave tile rolls" % (ROOF_T, nd)
     return segs
 
@@ -444,7 +463,7 @@ def run(only=None, log=print):
     """Classify every B_* building, rebuild P2, lighten P3. Returns facade segments for the kit."""
     ctx = Context()
     facades = []
-    stats = dict(p2=0, p3=0, p4=0, edges_gsi=0, edges_inferred=0, edges_party=0)
+    stats = dict(p2=0, p3=0, p4=0, p2_traditional_inset=0, edges_eave_inset=0, edges_on_outline=0)
     for ob in list(bpy.data.objects):
         if ob.type != "MESH" or not ob.name.startswith("B_") or "plateau_id" not in ob:
             continue
@@ -465,15 +484,14 @@ def run(only=None, log=print):
                 continue
             ob["street_front"] = fr[1]; ob["street_front_osm"] = str(fr[2])
             stats["p2"] += 1
+            stats["p2_traditional_inset"] += int(ob.get("traditional", False))
             for s in segs:
                 s.update(obj=ob.name, plateau_id=rec["id"], storeys=rec.get("storeys") or 0,
                          height=rec.get("height") or 0, usage=rec.get("usage") or "", year=rec.get("year") or "")
-                if s["src"].startswith("gsi"):
-                    stats["edges_gsi"] += 1
-                elif s["src"].startswith("inferred"):
-                    stats["edges_inferred"] += 1
-                elif s["src"].startswith("party"):
-                    stats["edges_party"] += 1
+                if s["inset"] > 0:
+                    stats["edges_eave_inset"] += 1
+                else:
+                    stats["edges_on_outline"] += 1
                 facades.append(s)
         else:
             lighten_p3(ob); stats["p3"] += 1

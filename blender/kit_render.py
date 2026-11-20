@@ -50,6 +50,16 @@ if cn and "Kuwahara" in cn.nodes:
     cn.nodes["Kuwahara"].inputs["Size"].default_value = max(2, int(round(5 * res / 3840 * 1.6)))
 if "--no-fog" in A and bpy.data.objects.get("FX_Fog_Volume"):
     bpy.data.objects["FX_Fog_Volume"].hide_render = True
+_last = [0.0]
+
+
+def _stats(st):
+    if time.time() - _last[0] > 120:
+        _last[0] = time.time()
+        print("STATS", time.strftime("%H:%M:%S"), st, flush=True)
+
+
+bpy.app.handlers.render_stats.append(_stats)
 prefix = arg("--out", os.path.join("renders", "test_"))
 shots = arg("--shots", "a,b,c,d,e").split(",")
 cams = {o.name[4:]: o for o in bpy.data.objects if o.type == "CAMERA" and o.name.startswith("Cam_") and o.get("preset")}

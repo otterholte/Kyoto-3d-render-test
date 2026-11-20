@@ -17,19 +17,21 @@ and an `evidence_ref` custom property. The `evidence_confidence` property keeps 
 
 | priority | selection | treatment |
 |---|---|---|
-| **2** (126 buildings) | footprint within street half-width + 2.5 m of the OSM centrelines of 八坂通 (24516359 + its pedestrian continuation 710696944), 二寧坂, 産寧坂, 一念坂 | outer walls regenerated and inset from the PLATEAU roof edge. The roof keeps its exact shape and gets a 0.2 m slab, ridge caps (munagawara) on convex roof edges and a nokigawara roll on horizontal eave edges. The machiya kit is placed on the street-facing walls |
+| **2** (126 buildings) | footprint within street half-width + 2.5 m of the OSM centrelines of 八坂通 (24516359 + its pedestrian continuation 710696944), 二寧坂, 産寧坂, 一念坂 | uniform 0.45 m street-front eave on traditional buildings only (see below). The roof keeps its exact shape and gets a 0.2 m slab, ridge caps (munagawara) on convex roof edges and a nokigawara roll on horizontal eave edges. The machiya kit is placed on the street-facing walls |
 | **3** (539) | other buildings in the box | LOD2 geometry kept; 0.15 m roof fascia + ridge caps; painterly materials |
 | **4** (602) | backdrop outside the box | massing and roof silhouette only, one atmospheric material |
 
-**Wall inset.** PLATEAU LOD2 walls stand on the roof edge (`lod0RoofEdge`). Each footprint edge is set back by one of these rules:
-* **GSI-matched** (231 edges): a parallel GSI 建築物の外周線 segment (within 12°, overlapping, 0.3 to 1.6 m inside the roof edge) is found. The edge is set back by the measured offset (capped at 1.2 m), and the `wall_inset_src` property records the GSI fid and the distance.
-* **Inferred, 0.5 m** (760 edges): this is the validation median. It is also used when the GSI line simply traces the roof edge, as aerial-derived outlines do.
-* **Party walls, no inset** (274 edges): another footprint lies within 0.6 m.
-
-The new wall tops are ray-cast onto the underside of the real roof, so gables and stepped roofs stay closed. A 0.35 m stone plinth band follows the terrain.
+**Wall inset (revised after the accuracy audit, `docs/accuracy_report.md` F1).** PLATEAU LOD2 walls stand on the roof edge
+(`lod0RoofEdge`). The first version of this pass set walls back per edge from GSI 建築物の外周線 offsets. The audit showed
+those GSI-vs-PLATEAU differences are registration noise, not eaves, so that rule was removed. The pass now applies **one uniform,
+inferred 0.45 m inset** (`evidence_ref` = "typical machiya eave overhang (building_evidence.md)", `detail_class=inferred`).
+* It applies only to street-facing edges of *traditional* Priority-2 buildings: timber (木造・土蔵造) in
+`building_evidence.json` and ≤ 3 storeys. That is 60 buildings and 93 edges.
+* Every other wall stays exactly on the PLATEAU outline: unknown or non-timber structure, side, rear and party walls (1,219 edges).
+* Roofs are untouched. New wall tops are ray-cast onto the roof underside. A 0.35 m stone plinth band follows the terrain.
 
 **Machiya kit** (hidden collection `A_Asset_Library`, one collection per piece, placed as collection instances in
-`60_Machiya_Kit/60_Kit_<street>`). There are 2,428 placements: 1,040 `observed`, 1,146 `inferred` and 242 `artistic`. Proportions follow `docs/evidence/building_evidence.md`:
+`60_Machiya_Kit/60_Kit_<street>`). There are 2,515 placements: 1,052 `observed`, 1,213 `inferred` and 250 `artistic`. Every placement carries both `detail_class` and the boolean `artistic`. Proportions follow `docs/evidence/building_evidence.md`:
 * bays of 1 ken (1.82 m);
 * a tiled 1F hisashi with its outer edge at about 2.6 m and attached at about 3.0 m (PLATEAU has no hisashi; the evidence gives 2.7–3.2 m);
 * oya-ko sen-gōshi at a 56 mm slat pitch;
@@ -64,7 +66,7 @@ Palette (linear RGB), taken from the *observed* evidence colours and pushed warm
 
 * **Facades** use `plateau_rgb`, the real mean colour per surface, as the base tint. Dark surfaces turn into weathered vertical boards; light ones turn into lime/earth plaster with soft stains.
 * **Roofs** have a kawara wave (0.30 m) and course (0.27 m) normal detail, computed from the face normal without UVs. Per-tile value jitter, faint lichen, a dark fascia and a timber soffit are added.
-* **Paving.** P2 streets are UV ribbons that follow the OSM centreline. They use the mapped width and are extended up to 3 m to the building line (inferred). Ninenzaka, Sannenzaka and Yasaka-dōri east get ishidatami slabs about 0.31 × 0.62 m in running bond. Yasaka-dōri west (OSM `surface=sett`) gets small setts. Granite gutter bands sit at the edges.
+* **Paving.** P2 streets are UV ribbons that follow the OSM centreline (`detail_class=inferred`: the centreline and surface are documented, the widening and slab pattern are not). They use the mapped width and are extended up to 3 m to the building line (inferred). Ninenzaka, Sannenzaka and Yasaka-dōri east get ishidatami slabs about 0.31 × 0.62 m in running bond. Yasaka-dōri west (OSM `surface=sett`) gets small setts. Granite gutter bands sit at the edges.
 * **Wet sheen.** Post-rain sheen comes from a restrained (~9 %) low-frequency puddle mask with low roughness, plus darker joints.
 * **Other surfaces.** Stone steps have worn bright edges (bevel-normal mask) and moss in crevices (AO). Barrier walls are mossy stone; fences are bamboo/wood.
 * **Brushwork.** The shared node group `G_Brush` jitters hue, saturation and value by a few percent with noise-warped, stretched Voronoi dabs. It acts on colour only, never on geometry.
@@ -85,6 +87,7 @@ cherries bronze and thinning, ginkgo yellow, pines and evergreen broadleaves dar
   * weeds at facade bases;
   * about 15,000 fallen leaves on the paving, denser in gutters and near maples;
   * moss on walls, roofs and steps (shader only).
+* **Pagoda sightlines (audit F9).** Artistic trees are kept out of 5 m corridors from every geotagged Commons photo of the pagoda, and from the hero cameras, to the pagoda (18 skipped). Documented trees with the default 7 m height inside a corridor get crowns drawn 20 % smaller (flagged `crown_note`).
 
 ## 4. Lighting & atmosphere (`kit_light.py`)
 * **Sky.** Blender 5.2's `MULTIPLE_SCATTERING` sky has its sun disc off. It is paired with a separate sun lamp from the WSW (azimuth 238–246°, the late-November sunset direction).
@@ -116,6 +119,8 @@ All camera positions are snapped to OSM centrelines, at the walkable surface (te
 | c Sannenzaka 46-step stair, looking up-south | way 1569088146 near (166.5, −142) | dusk |
 | d blue-hour view over the kawara roofs to the illuminated pagoda | above way 710696944 near (118, 30), +14 m | blue |
 | e iconic view down Yasaka-dōri east to the pagoda, matching the Commons "at dusk" photo position (91.8, 44.7, heading 311°) | way 710696944 | dusk |
+
+Audit F3: the model blocks the pagoda view from the upper Yasaka-dōri / Ninenzaka junction (x > ~135 m), which is unresolved. All hero cameras that feature the pagoda are therefore west of x = 130 m: (a) x −79, (e) x 91.8, (d) x 118.
 
 ## 7. Web export (`kit_export.py` → `web/assets/world_art.glb`)
 Y-up, extras on, no normals (flat shading), COLOR_0 vertex colours as normalised ushort, and 4 small textures:

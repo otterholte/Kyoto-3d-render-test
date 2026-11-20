@@ -32,10 +32,11 @@
 
 | item | value | class | source |
 |---|---|---|---|
-| **total height incl. sōrin** | **38.8 m** (tip at 99.83 m T.P.) | documented + measured | NDL Collaborative Reference entry 1000061716 gives 総高 38.8 m. PLATEAU measuredHeight 28.7 m is the top-roof apex. Photo sōrin ratio. Lead decision. |
+| **total height incl. sōrin** | **38.8 m** (tip at 99.83 m T.P.) | measured/derived | PLATEAU measuredHeight 28.7 m is the top-roof apex above the base. A photo-derived sōrin of about 10.1 m is added. The auditor's independent telephoto measurement gives 39.2–40.0 m (`docs/accuracy_report.md`, F2). |
+| NDL reference value | 38.8 m | documented, source not retrievable from this environment | NDL Collaborative Reference 1000061716 (総高 38.8 m), seen only as a web-search summary; crd.ndl.go.jp is unreachable here. It agrees with the measured/derived value but is not its basis. |
 | top roof apex | 28.7 m | measured | PLATEAU measuredHeight. The roban top sits at about 28.4 m. The tile surface meets the roban at 27.6 m (inferred). |
 | sōrin (roof top → tip) | 11.2 m incl. roban; 10.1 m above the PLATEAU apex | estimated | 2.3–2.5 eave spacings in photos. |
-| popular figure 46 m | **not used (disputed)** | documented | OSM `height=46` and tourist sites. A 46 m pagoda would need about 19.6 m lowest eaves or a 17 m sōrin. Both are contradicted by the 15.1 m PLATEAU roof outline and by the photos. Stored as `popular_height_m_disputed` in the `evidence` property. `build_pagoda(height_basis="documented_46m")` scales the model uniformly if the popular figure is ever wanted. |
+| widely published ~46 m | **not used** | disputed popular figure | OSM `height=46` and tourist sites. A 46 m pagoda would need about 19.6 m lowest eaves or a 17 m sōrin. Both are contradicted by the 15.1 m PLATEAU roof outline and by the photos. Stored as `popular_height_m_disputed` in the `evidence` property. `build_pagoda(height_basis="popular_46m")` scales the model uniformly if the popular figure is ever wanted. |
 
 ## Per-storey dimensions
 
@@ -43,13 +44,13 @@ Heights are in metres above the 61.03 m ground. The body width is the column-cen
 
 | storey | body width | class | eave span | class | eave top | class | balcony floor | wall (floor→head-tie top) |
 |---|---|---|---|---|---|---|---|---|
-| 1 | 6.40 | documented (alt. 5.5) | 15.10 | measured (PLATEAU 15.31 × 14.96) | 8.30 | measured (PLATEAU LOD2 step 8.29) | platform 1.00 | 5.48 (derived) |
-| 2 | 6.08 | estimated | 14.35 | estimated | 12.20 | measured + estimated (PLATEAU 12.23) | 9.41 | 1.6 (derived) |
-| 3 | 5.76 | estimated | 13.60 | estimated | 16.10 | measured + estimated (16.07) | 13.31 | 1.6 |
-| 4 | 5.45 | estimated | 12.85 | estimated | 20.00 | measured + estimated (20.47) | 17.21 | 1.6 |
-| 5 | 5.13 | estimated | 12.10 | estimated | 23.90 | measured + estimated (24.32) | 21.11 | 1.6 |
+| 1 | 6.40 | documented (alt. 5.5) | 15.10 | measured (PLATEAU 15.31 × 14.96) | 8.29 | measured (PLATEAU LOD2 step) | platform 1.00 | 5.47 (derived) |
+| 2 | 6.08 | estimated | 14.35 | estimated | 12.23 | measured (PLATEAU LOD2 step) | 9.40 | 1.66 (derived) |
+| 3 | 5.76 | estimated | 13.60 | estimated | 16.07 | measured (PLATEAU LOD2 step) | 13.34 | 1.54 (derived) |
+| 4 | 5.45 | estimated | 12.85 | estimated | 20.47 | measured (PLATEAU LOD2 step) | 17.18 | 2.08 (derived) |
+| 5 | 5.13 | estimated | 12.10 | estimated | 24.32 | measured (PLATEAU LOD2 step) | 21.58 | 1.44 (derived) |
 
-* **Eave spacing 3.9 m** (estimated). It comes from the photo ratio of eave spacing to eave width, scaled by the measured 15.1 m. PLATEAU's stepped tiers are 3.84–4.40 m apart.
+* **Eave heights and spacing** (measured). These are the PLATEAU LOD2 tier steps, 3.84–4.40 m apart (mean 4.0 m). Treating each step as the top of the eave edge is an inferred interpretation. The photo eave rhythm agrees (accuracy report F2). An earlier version regularised tiers 4–5 to a uniform 3.9 m spacing (20.0 / 23.9 m); that was reverted after audit F2.
 * **Taper about 5 % of the lowest eave per storey** (estimated). Photo widths for the 5th : 4th : 3rd eaves are 415 : 440 : 465 px (*Yasaka Pagoda (24922466195).jpg*). The body is about 0.42 × the eave span.
 * The wall heights are **derived**. They follow from the measured eave heights minus the inferred bracket, rafter and roof-rise depths below. The tall first storey is a direct consequence of the measured 8.3 m first eave.
 
@@ -97,7 +98,7 @@ It carries `collide=True` and `collider_for`. It is hidden in renders and invisi
 
 ## Inferred or unverified
 
-* The **38.8 m total height** is a documented figure chosen by the lead. The popular 46 m figure is disputed and recorded.
+* The **38.8 m total height** is measured/derived: PLATEAU apex plus a photo-derived sōrin, against the audit's 39.2–40.0 m. The NDL entry giving 38.8 m is documented but could not be retrieved, so it has not been checked against its source. The widely published ~46 m is a disputed popular figure.
 * The **first-storey width** has two published values, 6.4 m and 5.5 m. No official survey (修理工事報告書) was found.
 * **Eave heights** come from PLATEAU's generalised stepped LOD2 model. It is unclear whether its tier tops are eave lips or roof surfaces. The model treats them as the top of the eave edge.
 * The following are inferred from typical wayō practice:
