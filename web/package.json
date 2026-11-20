@@ -1,0 +1,22 @@
+{
+  "name": "higashiyama-walk",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser third-person explorer of the Higashiyama (Kyoto) reconstruction. Static page; build step optimises the GLBs.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "http-server -p 8765 -c-1 --silent .",
+    "test": "node tests/run.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "4.5.1",
+    "@gltf-transform/core": "4.5.1",
+    "@gltf-transform/extensions": "4.5.1",
+    "@gltf-transform/functions": "4.5.1",
+    "http-server": "14.1.1",
+    "meshoptimizer": "1.3.0",
+    "three": "0.170.0",
+    "three-mesh-bvh": "0.8.3"
+  }
+}

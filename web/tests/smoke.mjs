@@ -1,0 +1,14 @@
+import { serve, launch, newPage, sleep } from './harness.mjs';
+const OUT = process.env.OUT || '/tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/web';
+const { srv, url } = await serve();
+const b = await launch();
+const { page, errors, warnings, ext } = await newPage(b, { viewport: { width: 1280, height: 800 } }, (l) => { if (!/GPU stall/.test(l)) console.log(l.slice(0, 400)); });
+const t0 = Date.now();
+await page.goto(url);
+await page.waitForFunction(() => window.__hw && (window.__hw.ready || window.__hw.errors.length), null, { timeout: 240000 });
+console.log('ready in', (Date.now() - t0) / 1000, 's');
+await sleep(4000);
+console.log(JSON.stringify(await page.evaluate(() => ({ st: __hw.state(), stats: __hw.stats(), fps: __hw.fps, err: __hw.errors, tl: __hw.teleportLog }))));
+await page.screenshot({ path: OUT + '/smoke.png' });
+console.log('errors', errors, 'ext', ext, 'warn', warnings.slice(0, 5));
+await b.close(); srv.close();

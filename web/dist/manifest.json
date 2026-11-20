@@ -1,0 +1,32 @@
+{
+  "generated": "2026-11-20T21:33:28.013Z",
+  "world": {
+    "file": "world.glb",
+    "source": "assets/world.glb",
+    "bytes": 2697816,
+    "sourceBytes": 15569204,
+    "colours": {
+      "renamed": 3594,
+      "fixed": 3734,
+      "medianLinearLuminanceBefore": 0.0142,
+      "reencoded": true
+    },
+    "join": {
+      "joinedNodes": 1378,
+      "joinedGroups": 59
+    },
+    "kind": "blockout"
+  },
+  "pagoda": null,
+  "minimap": "assets/minimap.json",
+  "surfaceMask": {
+    "file": "assets/surface_mask.png",
+    "extent": [
+      -300,
+      300,
+      -300,
+      300
+    ],
+    "channels": "R asphalt, G granite paving, B gravel, else soil"
+  }
+}

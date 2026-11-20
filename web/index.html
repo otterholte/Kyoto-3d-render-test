@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d2338">
+<meta name="description" content="Walk a geographically accurate, painterly 3D reconstruction of Higashiyama, Kyoto: Yasaka Pagoda, Ninenzaka and Sannenzaka, built from OpenStreetMap, GSI and PLATEAU data.">
+<title>Higashiyama Walk</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+    "three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.8.3/build/index.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="scene" aria-label="3D view of Higashiyama, Kyoto"></canvas>
+
+<!-- loading -->
+<div id="loading" role="status" aria-live="polite">
+  <div class="load-card">
+    <div class="load-kanji" aria-hidden="true">東山</div>
+    <h1>Higashiyama Walk</h1>
+    <p class="load-sub">Yasaka Pagoda · Ninenzaka · Sannenzaka — Kyoto</p>
+    <div class="bar"><div id="load-fill"></div></div>
+    <p id="load-text">Preparing…</p>
+  </div>
+</div>
+
+<!-- HUD -->
+<div id="hud" hidden>
+  <header class="topbar">
+    <div class="title-chip">
+      <span class="t-main">Higashiyama Walk</span>
+      <span class="t-sub" id="place-name">八坂通 Yasaka-dōri</span>
+    </div>
+    <nav class="btn-row" aria-label="Menu">
+      <button class="icon-btn" id="btn-places" aria-label="Places" aria-expanded="false" aria-controls="panel-places" title="Places">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-settings" aria-label="Time and quality" aria-expanded="false" aria-controls="panel-settings" title="Time of day &amp; quality">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-info" aria-label="About and credits" aria-expanded="false" aria-controls="panel-info" title="About &amp; credits">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.6" class="fill"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <div id="minimap-wrap" title="Map (tap to zoom out / in)">
+    <canvas id="minimap" aria-label="Mini-map, north up"></canvas>
+    <span class="north" aria-hidden="true">N</span>
+  </div>
+
+  <section class="panel" id="panel-places" hidden aria-label="Places">
+    <h2>Places</h2>
+    <ul id="places-list"></ul>
+  </section>
+
+  <section class="panel" id="panel-settings" hidden aria-label="Time of day and quality">
+    <h2>Time of day</h2>
+    <label class="slider-row">
+      <span>Golden hour</span>
+      <input type="range" id="tod" min="0" max="1" step="0.01" value="0.35" aria-label="Time of day: golden hour to blue hour">
+      <span>Blue hour</span>
+    </label>
+    <h2>Quality</h2>
+    <div class="seg" role="radiogroup" aria-label="Quality">
+      <button role="radio" data-q="auto" aria-checked="true">Auto</button>
+      <button role="radio" data-q="low" aria-checked="false">Low</button>
+      <button role="radio" data-q="medium" aria-checked="false">Medium</button>
+      <button role="radio" data-q="high" aria-checked="false">High</button>
+    </div>
+    <p class="small" id="perf-line"></p>
+  </section>
+
+  <section class="panel wide" id="panel-info" hidden aria-label="About and credits">
+    <h2>About this walk</h2>
+    <p>A 400 × 400 m reconstruction of Higashiyama, Kyoto, centred near Yasaka Pagoda (八坂の塔, Hōkan-ji). Walk the stone-paved slopes of Ninenzaka and Sannenzaka, climb their stairs, and watch the light change from golden hour to blue hour.</p>
+    <h3>Measured</h3>
+    <ul class="dots">
+      <li>Terrain: GSI DEM5A 5 m laser survey (bare earth), T.P. heights.</li>
+      <li>Buildings: PLATEAU 2025 LOD2 roofs/walls, facade colours sampled from PLATEAU textures.</li>
+      <li>Streets, widths, steps (step counts), walls/fences, trees: OpenStreetMap.</li>
+      <li>Ground surfaces (asphalt / granite paving / gravel): OSM surface tags + PLATEAU road areas.</li>
+    </ul>
+    <h3>Artistic or inferred</h3>
+    <ul class="dots">
+      <li id="info-pagoda">Pagoda: PLATEAU LOD2 survey shape (28.7 m; documented height 46 m).</li>
+      <li>Paper lanterns along Ninenzaka/Sannenzaka: <strong>artistic</strong> placement.</li>
+      <li>Falling leaves, sky, distant hills, fog, wet sheen and lighting: <strong>artistic</strong>.</li>
+      <li>Wall/fence heights without OSM tags and tree sizes: default values (inferred).</li>
+      <li>The traveller is an original procedural character.</li>
+    </ul>
+    <h3>Controls</h3>
+    <p class="small"><b>Desktop:</b> WASD / arrows to walk, Shift to run, drag to look, wheel to zoom. <b>Touch:</b> left thumb to walk, drag on the right to look, pinch to zoom, “Run” to toggle running.</p>
+    <h3>Credits</h3>
+    <p class="credits">© OpenStreetMap contributors (ODbL) · 国土地理院 (GSI) · PLATEAU (MLIT) · Wikimedia Commons</p>
+    <p class="small">Rendering: three.js, three-mesh-bvh, meshoptimizer (MIT).</p>
+    <button class="close-btn" data-close="panel-info">Close</button>
+  </section>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <div id="hint" class="hint"></div>
+
+  <div id="joy" aria-hidden="true"><div id="joy-knob"></div></div>
+  <button id="btn-run" class="run-btn" aria-pressed="false" hidden>Run</button>
+</div>
+
+<div id="fatal" hidden role="alert"></div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

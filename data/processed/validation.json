@@ -756,7 +756,8 @@
   ],
   "offset_m": 0.63,
   "plateau_height": 28.7,
-  "documented_height": 46.0,
+  "documented_height": 38.8,
+  "disputed_popular_height": 46.0,
   "plateau_base_z": 61.038,
   "dem_ground": 61.39
  },
