@@ -249,7 +249,7 @@ for bi, rec in enumerate(BLD["buildings"]):
     nb += 1
 print("buildings", nb)
 pag = bpy.data.objects["LM_Yasaka_Pagoda_PLATEAU_LOD2"]
-pag["hero_replacement"] = "custom high-detail model (blender/hero_pagoda.py) - PLATEAU height 28.7 m under-reads documented 46 m"
+pag["hero_replacement"] = "custom high-detail model (blender/hero_pagoda.py), total 38.8 m measured/derived (PLATEAU roof apex 28.7 m + photo-derived sorin); popular ~46 m figure disputed"
 
 # ------------------------------------------------------------------ stairs (OSM highway=steps)
 for s in STP["steps"]:

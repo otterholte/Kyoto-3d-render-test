@@ -89,7 +89,7 @@ It carries `collide=True` and `collider_for`. It is hidden in renders and invisi
 
 ## Triangle counts
 
-* `high`: 229,728 triangles.
+* `high`: 229,024 triangles.
 * `web`: 47,472 triangles, with 27 nodes under `LM_Yasaka_Pagoda_HERO`.
   * 7 PBR base-colour materials named `PAG_*_web`, multiplied by the `COLOR_0` per-element tint.
   * Hidden top and inner faces are dropped.
