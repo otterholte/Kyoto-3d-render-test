@@ -51,13 +51,13 @@ void main() {
 
 // keyframes along t (linear-ish colours in three's working space)
 const K = [
-  { t: 0.0, el: 13, sun: [1.0, 0.74, 0.5], sunI: 3.0, hemiSky: [0.55, 0.62, 0.9], hemiGround: [0.42, 0.32, 0.24], hemiI: 1.25,
+  { t: 0.0, el: 13, sun: [1.0, 0.74, 0.5], sunI: 3.0, hemiSky: [0.55, 0.62, 0.9], hemiGround: [0.58, 0.44, 0.32], hemiI: 1.9,
     top: [0.18, 0.28, 0.58], mid: [0.52, 0.55, 0.78], hor: [1.0, 0.72, 0.5], warm: [1.0, 0.55, 0.25], fog: [0.78, 0.68, 0.62],
     fogD: 0.0038, lan: 0.6, wet: 0.12, exp: 1.0, stars: 0, hill: [0.42, 0.40, 0.52], hillFar: [0.62, 0.56, 0.62], glow: 1.0 },
-  { t: 0.5, el: 3, sun: [1.0, 0.5, 0.26], sunI: 1.7, hemiSky: [0.5, 0.5, 0.82], hemiGround: [0.36, 0.26, 0.24], hemiI: 1.1,
+  { t: 0.5, el: 3, sun: [1.0, 0.5, 0.26], sunI: 1.7, hemiSky: [0.5, 0.5, 0.82], hemiGround: [0.5, 0.36, 0.32], hemiI: 1.65,
     top: [0.14, 0.18, 0.45], mid: [0.48, 0.42, 0.66], hor: [1.0, 0.55, 0.36], warm: [1.0, 0.42, 0.22], fog: [0.62, 0.5, 0.55],
     fogD: 0.0045, lan: 1.6, wet: 0.35, exp: 1.08, stars: 0, hill: [0.30, 0.27, 0.42], hillFar: [0.5, 0.42, 0.55], glow: 1.0 },
-  { t: 1.0, el: -5, sun: [0.42, 0.5, 0.85], sunI: 0.45, hemiSky: [0.32, 0.38, 0.72], hemiGround: [0.16, 0.14, 0.2], hemiI: 0.9,
+  { t: 1.0, el: -5, sun: [0.42, 0.5, 0.85], sunI: 0.45, hemiSky: [0.32, 0.38, 0.72], hemiGround: [0.24, 0.2, 0.26], hemiI: 1.35,
     top: [0.035, 0.06, 0.2], mid: [0.15, 0.17, 0.4], hor: [0.55, 0.42, 0.55], warm: [0.75, 0.38, 0.32], fog: [0.2, 0.22, 0.36],
     fogD: 0.005, lan: 3.4, wet: 0.65, exp: 1.25, stars: 0.6, hill: [0.08, 0.09, 0.18], hillFar: [0.16, 0.16, 0.3], glow: 0.55 },
 ];

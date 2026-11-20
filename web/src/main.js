@@ -24,7 +24,7 @@ const store = {
 const isTouch = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 const isMobile = isTouch && Math.min(screen.width, screen.height) < 900;
 
-const hw = (window.__hw = { ready: false, errors: [], fps: 0 });
+const hw = (window.__hw = { ready: false, errors: [], fps: 0, maxDt: 0.05 });
 
 function fatal(msg) {
   const f = $('fatal'); f.hidden = false; f.textContent = msg;
@@ -84,7 +84,10 @@ async function main() {
   const lanterns = buildLanterns(scene, minimapData, ctrl);
   const leaves = buildLeaves(scene, QUALITY.high.particles);
   const minimap = new MiniMap($('minimap'), $('minimap-wrap'), minimapData);
-  if (world.heroLoaded) $('info-pagoda').textContent = 'Pagoda: hero model on the surveyed footprint (documented height 46 m); carved detail is artistic.';
+  if (world.heroLoaded) {
+    const h = world.heroInfo || {};
+    $('info-pagoda').textContent = `Pagoda: hero model on the surveyed OSM/PLATEAU footprint${h.height_m ? `, ${h.height_m} m incl. sōrin` : ''} (documented/evidence-based; see docs/evidence). Fine carving and colour detail are artistic.`;
+  }
 
   // ---------------------------------------------------------------- post (bloom on high only)
   let composer = null, bloom = null;
@@ -117,6 +120,8 @@ async function main() {
     dprScale = 1;
     bloomAllowed = true;
     leaves.points.geometry.setDrawRange(0, Q.particles);
+    renderer.shadowMap.enabled = Q.shadows;
+    sky.sun.castShadow = Q.shadows;
     setupComposer();
     resize();
     document.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-checked', String(b.dataset.q === qualityPref)));
@@ -175,7 +180,7 @@ async function main() {
   let hintTimer = 0;
 
   let toastT = 0;
-  function toast(msg, secs = 3.5) { const t = $('toast'); t.textContent = msg; t.hidden = false; toastT = secs; }
+  function toast(msg, secs = 3.5) { const t = $('toast'); if (t.textContent !== msg) t.textContent = msg; t.hidden = false; toastT = secs; }
 
   // ---------------------------------------------------------------- teleport
   const teleportLog = {};
@@ -188,7 +193,7 @@ async function main() {
     const facing = Math.atan2(p.look[0] - pos.x, -p.look[1] - pos.z);
     ctrl.teleport(pos, facing);
     traveller.renderY = null;
-    follow.pitch = 0.18; follow.dist = 5.2;
+    follow.pitch = p.pitch ?? 0.12; follow.dist = p.dist ?? 5.2;
     follow.snap(pos, facing + Math.PI);
     teleportLog[p.id] = { requested: [p.x, p.n], placed: [+pos.x.toFixed(2), +(-pos.z).toFixed(2), +pos.y.toFixed(2)], offset: spot ? spot.offset : null, ground: spot ? spot.ground : null };
     return teleportLog[p.id];
@@ -196,13 +201,13 @@ async function main() {
 
   // ---------------------------------------------------------------- loop
   const clock = new THREE.Clock();
-  let frames = 0, fpsT = 0, mmT = 0, zoneT = 0, edgeCool = 0;
+  let frames = 0, fpsT = 0, mmT = 0, zoneT = 0;
   const fpsHistory = [];
   const fwd = new THREE.Vector3(), right = new THREE.Vector3(), mv = new THREE.Vector3(), lightCol = new THREE.Color();
 
   let fpsStart = performance.now();
   function frame() {
-    const dt = Math.min(clock.getDelta(), 0.05);
+    const dt = Math.min(clock.getDelta(), hw.maxDt);
     const now = performance.now();
     const inp = input.sample();
     if (inp.look.x || inp.look.y) follow.look(inp.look.x, inp.look.y, now);
@@ -210,7 +215,11 @@ async function main() {
     fwd.copy(follow.forward);
     right.set(-fwd.z, 0, fwd.x);
     mv.set(0, 0, 0).addScaledVector(fwd, inp.y).addScaledVector(right, inp.x);
-    ctrl.update(dt, mv, inp.run);
+    const sub = Math.max(1, Math.ceil(dt / (1 / 60)));
+    for (let i = 0; i < sub; i++) {
+      ctrl.update(dt / sub, mv, inp.run);
+      if (hw.groundTrace) hw.groundTrace.add(ctrl.groundName);
+    }
     traveller.update(dt, ctrl.pos, ctrl.facing, ctrl.speed, ctrl.grounded);
     follow.update(dt, traveller.root.position, ctrl.facing, ctrl.speed > 0.3, now, input.touchMode);
     sky.placeShadow(ctrl.pos, Q.shadowRange, Q.shadow);
@@ -220,11 +229,8 @@ async function main() {
     leaves.update(dt, camera, lightCol, renderer.domElement.height);
     if (bloom) bloom.strength = 0.25 + 0.18 * sky.lanternIntensity;
 
-    if (ctrl.edgeWarn && edgeCool <= 0) {
-      toast('The surveyed 400 m area ends here — the lanes of Higashiyama continue beyond.');
-      edgeCool = 8;
-    }
-    edgeCool -= dt;
+    // gentle message while the walker is near the invisible wall at the edge of the surveyed box
+    if (ctrl.edgeWarn) toast('The surveyed 400 m area ends here — the lanes of Higashiyama continue beyond.', Math.max(toastT, 1.2));
     if (toastT > 0) { toastT -= dt; if (toastT <= 0) $('toast').hidden = true; }
     if (input.anyInput && ctrl.speed > 0.2) { hintTimer += dt; if (hintTimer > 5) hint.classList.add('fade'); }
 
@@ -274,7 +280,6 @@ async function main() {
   Object.assign(hw, {
     ready: true, THREE, scene, camera, renderer, ctrl, follow, sky, world, lanterns, traveller, input, teleport, teleportLog,
     places: PLACES, spawn: s, fpsHistory, isMobile, isTouch,
-    get quality() { return { pref: qualityPref, dprScale, pixelRatio: renderer.getPixelRatio(), bloom: !!composer, shadow: Q.shadow }; },
     setTime: (t) => { sky.setTime(t); tod.value = String(t); },
     state: () => ({
       x: +ctrl.pos.x.toFixed(3), n: +(-ctrl.pos.z).toFixed(3), y: +ctrl.pos.y.toFixed(3), grounded: ctrl.grounded,
@@ -282,6 +287,7 @@ async function main() {
       slopeBlock: ctrl.blockedBySlope, camYaw: +follow.yaw.toFixed(3), camDist: +follow.curDist.toFixed(2),
     }),
     probe: (x, n) => { const g = ctrl.dropTo(x, -n); return g && { y: g.y, ny: g.normal.y, name: g.info.name, walkable: g.info.walkable }; },
+    quality: () => ({ pref: qualityPref, dprScale, pixelRatio: renderer.getPixelRatio(), bloom: !!composer, shadow: Q.shadow, particles: Q.particles }),
     stats: () => ({ ...world.stats, lanterns: lanterns.count, calls: renderer.info.render.calls, tris: renderer.info.render.triangles }),
   });
 }

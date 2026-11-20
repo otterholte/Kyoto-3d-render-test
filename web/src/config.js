@@ -11,8 +11,8 @@ export const PAGODA = { x: 9.67, n: 83.46 };
 // Teleport targets. `look` = point to face (local x, north). Spots flagged `verify` are probed at runtime
 // (downward ray must land on terrain/steps with free capsule space; otherwise the nearest free spot is used).
 export const PLACES = [
-  { id: 'yasaka', ja: '八坂通', en: 'Yasaka-dōri view', x: -79, n: 88.2, look: [PAGODA.x, PAGODA.n] },
-  { id: 'gate', ja: '八坂の塔 門前', en: 'Yasaka Pagoda gate', x: -5, n: 75, look: [PAGODA.x, PAGODA.n], verify: true },
+  { id: 'yasaka', ja: '八坂通', en: 'Yasaka-dōri view', x: -79, n: 88.2, look: [PAGODA.x, PAGODA.n], pitch: 0.02 },
+  { id: 'gate', ja: '八坂の塔 門前', en: 'Yasaka Pagoda gate', x: -5, n: 75, look: [PAGODA.x, PAGODA.n], verify: true, pitch: -0.3, dist: 4.5 },
   { id: 'ninenzaka', ja: '二寧坂', en: 'Ninenzaka', x: 153.6, n: 98, look: [155.5, 45] },
   { id: 'ninen-steps', ja: '二寧坂 石段上', en: 'Ninenzaka steps (top)', x: 152, n: 24, look: [155.9, 60] },
   { id: 'ichinenzaka', ja: '一念坂', en: 'Ichinenzaka', x: 110, n: 152, look: [150, 150] },
@@ -34,7 +34,7 @@ export const ZONES = [
 ];
 
 export const QUALITY = {
-  low: { dprCap: 1.0, shadow: 1024, shadowRange: 26, bloom: false, msaa: false, particles: 120, petalsSize: 1 },
-  medium: { dprCap: 1.5, shadow: 1024, shadowRange: 32, bloom: false, msaa: false, particles: 220, petalsSize: 1 },
-  high: { dprCap: 2.0, shadow: 2048, shadowRange: 40, bloom: true, msaa: true, particles: 420, petalsSize: 1 },
+  low: { dprCap: 1.0, shadows: false, shadow: 1024, shadowRange: 26, bloom: false, msaa: false, particles: 120, petalsSize: 1 },
+  medium: { dprCap: 1.5, shadows: true, shadow: 1024, shadowRange: 32, bloom: false, msaa: false, particles: 220, petalsSize: 1 },
+  high: { dprCap: 2.0, shadows: true, shadow: 2048, shadowRange: 40, bloom: true, msaa: true, particles: 420, petalsSize: 1 },
 };

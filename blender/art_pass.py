@@ -77,8 +77,11 @@ if "arch" in STAGES:
 if "ground" in STAGES:
     import kit_ground
     cg = kc.get_coll("20_Streets_Stairs")
-    rib = kit_ground.build(cg, M("paving"))
+    rib = kit_ground.build(cg, M("paving"), M("paving_sett"))
     log("paving ribbons", len(rib))
+    kit_ground.carve_terrain_under_steps(log=log)
+    import kit_backdrop
+    kit_backdrop.build(log=log)
     ter = bpy.data.objects.get("Terrain_GSI_DEM5A")
     img = None
     for im in bpy.data.images:

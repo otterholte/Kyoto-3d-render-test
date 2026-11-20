@@ -22,7 +22,7 @@ function floatAttr(attr, size = attr.itemSize) {
 }
 
 // world-space float copy of a mesh geometry with a fixed attribute set
-function worldGeometry(mesh, { normal = true, color = false, objId = null, defaultColor = [1, 1, 1] } = {}) {
+function worldGeometry(mesh, { normal = true, color = false, uv = false, objId = null, defaultColor = [1, 1, 1] } = {}) {
   const src = mesh.geometry;
   const g = new THREE.BufferGeometry();
   const pos = floatAttr(src.attributes.position, 3);
@@ -48,7 +48,13 @@ function worldGeometry(mesh, { normal = true, color = false, objId = null, defau
       g.setAttribute('color', new THREE.BufferAttribute(c, 3));
     }
   }
-  if (objId !== null) g.setAttribute('objId', new THREE.BufferAttribute(new Float32Array(pos.count).fill(objId), 1));
+  if (uv) {
+    g.setAttribute('uv', src.attributes.uv ? floatAttr(src.attributes.uv, 2) : new THREE.BufferAttribute(new Float32Array(pos.count * 2), 2));
+  }
+  if (objId !== null) {
+    const ids = typeof objId === 'function' ? Float32Array.from({ length: pos.count }, (_, i) => objId(i)) : new Float32Array(pos.count).fill(objId);
+    g.setAttribute('objId', new THREE.BufferAttribute(ids, 1));
+  }
   if (src.index) g.setIndex(new THREE.BufferAttribute(Uint32Array.from(src.index.array), 1));
   else g.setIndex(new THREE.BufferAttribute(Uint32Array.from({ length: pos.count }, (_, i) => i), 1));
   // flip winding if the matrix mirrors
@@ -62,9 +68,9 @@ function worldGeometry(mesh, { normal = true, color = false, objId = null, defau
 function roleOf(obj, matName) {
   const n = obj.name || '';
   const pn = nodeOf(obj) !== obj ? nodeOf(obj).name : '';
-  const both = n + ' ' + pn;
+  const any = (re) => re.test(n) || re.test(pn);
   if (/^Terrain/i.test(n) || /^Terrain/i.test(pn)) return 'terrain';
-  if (/^LM_Yasaka_Pagoda/i.test(both)) return 'pagodaLM';
+  if (any(/^LM_Yasaka_Pagoda/i)) return 'pagodaLM';
   if (/^Steps_/i.test(n) || /^Steps_/i.test(pn)) return 'steps';
   if (/^(Barrier|Barriers)_/i.test(n) || /^(Barrier|Barriers)_/i.test(pn)) return 'barrier';
   if (/^TreeCrown/i.test(n) || /^TreeCrown/i.test(pn)) return 'crown';
@@ -124,6 +130,7 @@ export async function loadWorld(scene, renderer, progress) {
   }, rej));
 
   const maskPromise = new THREE.TextureLoader().loadAsync('assets/surface_mask.png');
+  progress(0.05, 'Downloading the district…');
   const gltf = await load(worldUrl, 0.05, 0.62, 'Downloading the district…');
   let hero = null;
   if (pagodaUrl) {
@@ -145,6 +152,21 @@ export async function loadWorld(scene, renderer, progress) {
   const extraMeshes = [];
 
   const addObj = (name, role, walkable) => { objInfo.push({ name, role, walkable }); return objInfo.length - 1; };
+  const sectionKey = (g) => {
+    g.computeBoundingBox();
+    const c = g.boundingBox.getCenter(new THREE.Vector3());
+    return `${Math.floor((c.x + 300) / SECTION)},${Math.floor((c.z + 300) / SECTION)}`;
+  };
+  const groupPush = (map, key, item) => { if (!map.has(key)) map.set(key, []); map.get(key).push(item); };
+  const ownGroups = new Map();    // material uuid|section -> { mat, geoms }
+  const addOwn = (o) => {
+    const mat = Array.isArray(o.material) ? o.material[0] : o.material;
+    const useColor = !!mat.vertexColors, useUv = !!(mat.map || mat.normalMap || mat.roughnessMap || mat.emissiveMap);
+    const g = worldGeometry(o, { normal: true, color: useColor, uv: useUv });
+    const key = `${mat.uuid}|${sectionKey(g)}`;
+    if (!ownGroups.has(key)) ownGroups.set(key, { mat, geoms: [] });
+    ownGroups.get(key).geoms.push(g);
+  };
 
   gltf.scene.traverse((o) => {
     if (!o.isMesh) return;
@@ -156,7 +178,20 @@ export async function loadWorld(scene, renderer, progress) {
     if (role === 'pagodaLM') { pagodaLM = pagodaLM || []; pagodaLM.push(o); return; }
     const walkable = role === 'terrain' || role === 'steps' || ex.walkable === true;
     const collides = walkable || ex.collide === true || ['roof', 'wall', 'plinth', 'barrier'].includes(role);
-    if (collides) collide.push(worldGeometry(o, { normal: false, objId: addObj(nodeName, role, walkable) }));
+    if (collides) {
+      // joined sections (build.mjs) keep every source object: per-vertex _member -> extras.members[i].name
+      const mem = o.geometry.attributes._member;
+      let objId = addObj(nodeName, role, walkable);
+      if (mem && Array.isArray(ex.members)) {
+        const cache = new Map();
+        objId = (i) => {
+          const k = Math.round(mem.getX(i));
+          if (!cache.has(k)) cache.set(k, addObj((ex.members[k] && ex.members[k].name) || nodeName, role, walkable));
+          return cache.get(k);
+        };
+      }
+      collide.push(worldGeometry(o, { normal: false, objId }));
+    }
     if (role === 'terrain') {
       const g = worldGeometry(o, { normal: true });
       const m = new THREE.Mesh(g, groundMat);
@@ -165,46 +200,44 @@ export async function loadWorld(scene, renderer, progress) {
       extraMeshes.push(m);
       return;
     }
-    if (role === 'other') {
-      // unknown objects keep their own material (art pass extras)
-      const m = o.clone();
-      m.matrixAutoUpdate = false; m.matrix.copy(o.matrixWorld);
-      m.castShadow = m.receiveShadow = true;
-      extraMeshes.push(m);
+    // art pass (and unknown objects): keep the authored material, merge per material + section
+    if (role === 'other' || (worldKind === 'art' && role !== 'terrain')) {
+      addOwn(o);
       return;
     }
     const g = worldGeometry(o, { normal: true, color: M[role].vertexColors, defaultColor: [0.8, 0.78, 0.72] });
-    g.computeBoundingBox();
-    const c = g.boundingBox.getCenter(new THREE.Vector3());
-    const key = `${role}|${Math.floor((c.x + 300) / SECTION)},${Math.floor((c.z + 300) / SECTION)}`;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(g);
+    groupPush(groups, `${role}|${sectionKey(g)}`, g);
   });
 
   // hero pagoda (world coordinates) replaces the PLATEAU LOD2 one
   const heroMeshes = [];
+  let heroInfo = null;
   if (hero) {
     hero.scene.updateMatrixWorld(true);
+    const meshes = [];
     hero.scene.traverse((o) => {
-      if (!o.isMesh) return;
-      o.castShadow = o.receiveShadow = true;
-      const ex = extrasOf(o);
-      if (ex.collide !== false && !/glow|flame|halo/i.test(o.name)) {
-        collide.push(worldGeometry(o, { normal: false, objId: addObj('Hero_Pagoda:' + o.name, 'pagoda', false) }));
-      }
-      if (/collider/i.test(o.name)) o.visible = false;
-      heroMeshes.push(o);
+      if (o.isMesh) meshes.push(o);
+      if (!heroInfo && o.userData && (o.userData.height_m || o.userData.plateau_id)) heroInfo = { name: o.name, ...o.userData };
     });
+    // explicit collider meshes (name *COLLIDER* or extras.collider_for) are used for collision and hidden;
+    // without them every visible mesh collides
+    const isCol = (o) => /collider/i.test(o.name) || /collider/i.test(nodeOf(o).name) || extrasOf(o).collider_for;
+    const hasCol = meshes.some(isCol);
+    for (const o of meshes) {
+      const col = isCol(o);
+      if (col || !hasCol) collide.push(worldGeometry(o, { normal: false, objId: addObj('Hero_Pagoda:' + nodeOf(o).name, 'pagoda', false) }));
+      if (col) { o.visible = false; continue; }
+      o.castShadow = o.receiveShadow = true;
+      heroMeshes.push(o);
+    }
     scene.add(hero.scene);
   } else if (pagodaLM) {
     for (const o of pagodaLM) {
       const matName = (o.material && o.material.name) || '';
       const role = /roof/i.test(matName) ? 'roof' : /plinth/i.test(matName) ? 'plinth' : 'wall';
       collide.push(worldGeometry(o, { normal: false, objId: addObj('LM_Yasaka_Pagoda_PLATEAU_LOD2', 'pagoda', false) }));
-      const g = worldGeometry(o, { normal: true, color: true });
-      const key = `${role}|pagoda`;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(g);
+      if (worldKind === 'art') { addOwn(o); continue; }
+      groupPush(groups, `${role}|pagoda`, worldGeometry(o, { normal: true, color: M[role].vertexColors, defaultColor: [0.8, 0.78, 0.72] }));
     }
   }
 
@@ -230,8 +263,21 @@ export async function loadWorld(scene, renderer, progress) {
   }
   for (const m of extraMeshes) { root.add(m); drawCalls++; }
 
-  // instanced documented trees
-  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj);
+  // instanced documented trees (art crowns/trunks that are not shared fall back to merging)
+  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj, addOwn);
+  for (const [key, { mat, geoms }] of ownGroups) {
+    const g = geoms.length === 1 ? geoms[0] : mergeGeometries(geoms, false);
+    if (!g) continue;
+    g.computeBoundingSphere();
+    const m = new THREE.Mesh(g, mat);
+    m.name = 'MergedOwn_' + (mat.name || '') + '_' + key.split('|')[1];
+    const transparent = mat.transparent || mat.alphaTest > 0;
+    m.castShadow = !transparent && !/glow|emiss|light/i.test(mat.name || '');
+    m.receiveShadow = true;
+    m.matrixAutoUpdate = false;
+    root.add(m);
+    drawCalls++;
+  }
   drawCalls += treeInfo.drawCalls;
   scene.add(root);
 
@@ -247,7 +293,7 @@ export async function loadWorld(scene, renderer, progress) {
   colliderMesh.name = 'Collider';
 
   return {
-    root, bvh, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero,
+    root, bvh, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
     stats: {
       worldUrl, pagodaUrl: hero ? pagodaUrl : null, worldKind, drawCalls, trees: treeInfo.count,
       colliderTris: colGeom.index.count / 3, bvhMs: Math.round(bvhMs), manifest,
@@ -286,13 +332,44 @@ function mulberry(a) {
   return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 
-function buildTrees(root, trees, M, worldKind, collide, addObj) {
+function buildTrees(root, trees, M, worldKind, collide, addObj, addOwn) {
   let drawCalls = 0;
   const box = new THREE.Box3(), c = new THREE.Vector3(), s = new THREE.Vector3();
   const tmp = new THREE.Object3D();
   const rnd = mulberry(11);
+  // trunk colliders (both modes): prism slightly larger than the visible trunk
+  for (const o of trees.trunk) {
+    box.setFromObject(o); box.getCenter(c); box.getSize(s);
+    const r = Math.max(0.12, Math.min(s.x, s.z) / 2);
+    const cg = new THREE.CylinderGeometry(r + 0.06, r + 0.06, s.y, 6, 1, false);
+    cg.translate(c.x, box.min.y + s.y / 2, c.z);
+    cg.deleteAttribute('normal'); cg.deleteAttribute('uv');
+    cg.setAttribute('objId', new THREE.BufferAttribute(new Float32Array(cg.attributes.position.count).fill(addObj(o.name, 'trunk', false)), 1));
+    collide.push(cg);
+  }
+
+  if (worldKind !== 'blockout') {
+    // art pass: authored geometry + material, instanced per shared mesh; unshared ones are merged statically
+    const groups = new Map();
+    for (const o of [...trees.trunk, ...trees.crown]) {
+      const mat = Array.isArray(o.material) ? o.material[0] : o.material;
+      const k = o.geometry.uuid + '|' + mat.uuid;
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(o);
+    }
+    for (const list of groups.values()) {
+      if (list.length < 4) { list.forEach(addOwn); continue; }
+      const im = new THREE.InstancedMesh(list[0].geometry, list[0].material, list.length);
+      list.forEach((o, i) => im.setMatrixAt(i, o.matrixWorld));
+      im.castShadow = im.receiveShadow = true;
+      im.computeBoundingSphere();
+      root.add(im); drawCalls++;
+    }
+    return { count: trees.crown.length || trees.trunk.length, drawCalls };
+  }
+
+  // blockout: procedural painterly trees placed on the documented OSM tree positions/sizes
   const autumn = [[0.55, 0.12, 0.05], [0.72, 0.28, 0.06], [0.62, 0.45, 0.08], [0.2, 0.3, 0.1], [0.16, 0.26, 0.09], [0.16, 0.26, 0.09]];
-  // trunks
   if (trees.trunk.length) {
     const tg = new THREE.CylinderGeometry(0.75, 1, 1, 7, 1, false);
     tg.translate(0, 0.5, 0);
@@ -302,42 +379,22 @@ function buildTrees(root, trees, M, worldKind, collide, addObj) {
       const r = Math.max(0.12, Math.min(s.x, s.z) / 2);
       tmp.position.set(c.x, box.min.y, c.z); tmp.scale.set(r, s.y, r); tmp.rotation.set(0, rnd() * 6.28, 0);
       tmp.updateMatrix(); im.setMatrixAt(i, tmp.matrix);
-      // trunk collider: simple prism, slightly larger than the visible trunk
-      const cg = new THREE.CylinderGeometry(r + 0.06, r + 0.06, s.y, 6, 1, false);
-      cg.translate(c.x, box.min.y + s.y / 2, c.z);
-      cg.deleteAttribute('normal'); cg.deleteAttribute('uv');
-      cg.setAttribute('objId', new THREE.BufferAttribute(new Float32Array(cg.attributes.position.count).fill(addObj(o.name, 'trunk', false)), 1));
-      collide.push(cg);
     });
     im.castShadow = true; im.receiveShadow = true;
     im.computeBoundingSphere();
     root.add(im); drawCalls++;
   }
   if (trees.crown.length) {
-    let geom, useProc = worldKind === 'blockout';
-    if (!useProc) {
-      // art pass crowns: instance the authored geometry with its node transforms
-      const g0 = trees.crown[0].geometry;
-      geom = new THREE.BufferGeometry();
-      geom.setAttribute('position', floatAttr(g0.attributes.position, 3));
-      if (g0.attributes.normal) geom.setAttribute('normal', floatAttr(g0.attributes.normal, 3)); else geom.computeVertexNormals();
-      geom.setAttribute('color', g0.attributes.color ? floatAttr(g0.attributes.color, 3) : new THREE.BufferAttribute(new Float32Array(g0.attributes.position.count * 3).fill(0.3), 3));
-      if (g0.index) geom.setIndex(g0.index.clone());
-    } else geom = blobCrown();
-    const im = new THREE.InstancedMesh(geom, M.crown, trees.crown.length);
+    const im = new THREE.InstancedMesh(blobCrown(), M.crown, trees.crown.length);
     const col = new THREE.Color();
     trees.crown.forEach((o, i) => {
-      if (useProc) {
-        box.setFromObject(o); box.getCenter(c); box.getSize(s);
-        tmp.position.copy(c); tmp.scale.set(s.x / 2, s.y / 2, s.z / 2); tmp.rotation.set(0, rnd() * 6.28, 0);
-        tmp.updateMatrix(); im.setMatrixAt(i, tmp.matrix);
-        // documented trees, late-November palette (artistic): maples turn, others stay green
-        const a = autumn[Math.floor(rnd() * autumn.length)];
-        col.setRGB(a[0] / 0.16 * 0.9, a[1] / 0.26 * 0.9, a[2] / 0.09 * 0.9);
-        im.setColorAt(i, col);
-      } else {
-        im.setMatrixAt(i, o.matrixWorld);
-      }
+      box.setFromObject(o); box.getCenter(c); box.getSize(s);
+      tmp.position.copy(c); tmp.scale.set(s.x / 2, s.y / 2, s.z / 2); tmp.rotation.set(0, rnd() * 6.28, 0);
+      tmp.updateMatrix(); im.setMatrixAt(i, tmp.matrix);
+      // late-November palette (artistic): some maples turn, others stay green
+      const a = autumn[Math.floor(rnd() * autumn.length)];
+      col.setRGB(a[0] / 0.16 * 0.9, a[1] / 0.26 * 0.9, a[2] / 0.09 * 0.9);
+      im.setColorAt(i, col);
     });
     if (im.instanceColor) im.instanceColor.needsUpdate = true;
     im.castShadow = true; im.receiveShadow = true;

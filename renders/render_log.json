@@ -58,5 +58,209 @@
   "seconds": 16.9,
   "preset": "golden",
   "when": "2026-11-20 21:48:01"
+ },
+ {
+  "shot": "a_yasaka_dori_east",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v2_a_yasaka_dori_east.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 56.5,
+  "preset": "golden",
+  "when": "2026-11-20 21:55:28"
+ },
+ {
+  "shot": "b_ninenzaka_south",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v2_b_ninenzaka_south.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 54.0,
+  "preset": "dusk",
+  "when": "2026-11-20 21:56:22"
+ },
+ {
+  "shot": "c_sannenzaka_stairs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v2_c_sannenzaka_stairs.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 60.3,
+  "preset": "dusk",
+  "when": "2026-11-20 21:57:22"
+ },
+ {
+  "shot": "d_bluehour_roofs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v2_d_bluehour_roofs.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 21.8,
+  "preset": "blue",
+  "when": "2026-11-20 21:57:44"
+ },
+ {
+  "shot": "e_yasaka_dori_upper_west",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v2_e_yasaka_dori_upper_west.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 22.1,
+  "preset": "golden",
+  "when": "2026-11-20 21:58:06"
+ },
+ {
+  "shot": "a_yasaka_dori_east",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v3_a_yasaka_dori_east.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 16,
+  "seconds": 20.4,
+  "preset": "golden",
+  "when": "2026-11-20 22:05:02"
+ },
+ {
+  "shot": "b_ninenzaka_south",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v3_b_ninenzaka_south.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 16,
+  "seconds": 30.6,
+  "preset": "dusk",
+  "when": "2026-11-20 22:05:33"
+ },
+ {
+  "shot": "c_sannenzaka_stairs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v3_c_sannenzaka_stairs.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 16,
+  "seconds": 46.6,
+  "preset": "dusk",
+  "when": "2026-11-20 22:06:20"
+ },
+ {
+  "shot": "d_bluehour_roofs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v3_d_bluehour_roofs.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 16,
+  "seconds": 24.4,
+  "preset": "blue",
+  "when": "2026-11-20 22:06:44"
+ },
+ {
+  "shot": "e_yasaka_dori_upper_west",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v3_e_yasaka_dori_upper_west.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 16,
+  "seconds": 50.4,
+  "preset": "golden",
+  "when": "2026-11-20 22:07:35"
+ },
+ {
+  "shot": "a_yasaka_dori_east",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v4_a_yasaka_dori_east.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 54.0,
+  "preset": "golden",
+  "when": "2026-11-20 22:09:58"
+ },
+ {
+  "shot": "b_ninenzaka_south",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v4_b_ninenzaka_south.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 49.5,
+  "preset": "dusk",
+  "when": "2026-11-20 22:10:47"
+ },
+ {
+  "shot": "d_bluehour_roofs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v4_d_bluehour_roofs.png",
+  "res": [
+   480,
+   270
+  ],
+  "samples": 12,
+  "seconds": 35.1,
+  "preset": "blue",
+  "when": "2026-11-20 22:11:23"
+ },
+ {
+  "shot": "a_yasaka_dori_east",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v5_a_yasaka_dori_east.png",
+  "res": [
+   960,
+   540
+  ],
+  "samples": 16,
+  "seconds": 239.6,
+  "preset": "golden",
+  "when": "2026-11-20 22:16:16"
+ },
+ {
+  "shot": "b_ninenzaka_south",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v5_b_ninenzaka_south.png",
+  "res": [
+   960,
+   540
+  ],
+  "samples": 16,
+  "seconds": 250.1,
+  "preset": "dusk",
+  "when": "2026-11-20 22:20:26"
+ },
+ {
+  "shot": "c_sannenzaka_stairs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v5_c_sannenzaka_stairs.png",
+  "res": [
+   960,
+   540
+  ],
+  "samples": 16,
+  "seconds": 271.9,
+  "preset": "dusk",
+  "when": "2026-11-20 22:24:58"
+ },
+ {
+  "shot": "d_bluehour_roofs",
+  "file": "../../../tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/art/v5_d_bluehour_roofs.png",
+  "res": [
+   960,
+   540
+  ],
+  "samples": 16,
+  "seconds": 98.3,
+  "preset": "blue",
+  "when": "2026-11-20 22:26:36"
  }
 ]

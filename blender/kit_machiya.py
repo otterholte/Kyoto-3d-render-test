@@ -283,6 +283,45 @@ def p_bench(pb):
             pb.box(x, x + 0.05, y, y + 0.05, 0.0, 0.36, "wood_weather")
 
 
+def p_railing2f(pb, W=BAY):
+    """Projecting wooden balcony railing (te-suri) in front of a 2F window (observed, Yasaka-dori east / Ninenzaka)."""
+    pb.box(0.05, W - 0.05, -0.42, -0.36, 0.55, 0.62, "wood_dark")              # top rail
+    pb.box(0.05, W - 0.05, -0.42, -0.36, -0.05, 0.02, "wood_dark")             # bottom rail
+    for x in np.arange(0.12, W - 0.08, 0.11):
+        pb.box(x, x + 0.025, -0.41, -0.38, 0.02, 0.55, "wood_dark")
+    for x0 in (0.05, W - 0.11):
+        pb.box(x0, x0 + 0.06, -0.42, 0.0, -0.08, -0.02, "wood_dark")
+
+
+def p_post(pb):
+    """1 m tall exposed timber post (scaled in z): 真壁 framing between plaster panels."""
+    pb.box(-0.06, 0.06, -0.035, 0.0, 0.0, 1.0, "wood_dark")
+
+
+def p_beam(pb):
+    """1 m long exposed beam under the main eave (scaled in x)."""
+    pb.box(0.0, 1.0, -0.04, 0.0, -0.16, 0.0, "wood_dark")
+
+
+def p_lamppost(pb):
+    """Old-style lamp post with a hexagonal glass lantern head (observed type; positions artistic)."""
+    pb.lathe(0, -0.6, [(0.11, -0.2), (0.09, 0.15), (0.05, 0.25), (0.045, 2.6), (0.06, 2.65)], "metal", n=8)
+    pb.lathe(0, -0.6, [(0.07, 2.65), (0.16, 2.72), (0.17, 3.05), (0.12, 3.12)], "andon", n=6)
+    pb.lathe(0, -0.6, [(0.22, 3.12), (0.05, 3.3), (0.0, 3.36)], "metal", n=6)
+
+
+def p_lantern_black(pb):
+    """Black hanging lantern with white paper panels (observed, Yasaka-dori east)."""
+    pb.box(-0.015, 0.015, -0.6, 0.0, 2.72, 2.75, "metal")
+    pb.box(-0.01, 0.01, -0.56, -0.52, 2.5, 2.72, "metal")
+    pb.box(-0.15, 0.15, -0.69, -0.39, 2.45, 2.5, "metal")
+    pb.box(-0.13, 0.13, -0.67, -0.41, 2.05, 2.45, "andon")
+    for dx in (-0.14, 0.12):
+        for dy in (-0.68, -0.42):
+            pb.box(dx, dx + 0.02, dy, dy + 0.02, 2.0, 2.47, "metal")
+    pb.box(-0.15, 0.15, -0.69, -0.39, 1.98, 2.05, "metal")
+
+
 PIECES = {
     "K_Koshi": lambda pb: p_koshi(pb),
     "K_Koshi_Lit": lambda pb: p_koshi(pb, lit=True),
@@ -305,6 +344,11 @@ PIECES = {
     "K_Pot_C": lambda pb: p_pot(pb, 3, "grass"),
     "K_ShopFront": lambda pb: p_shopfront(pb),
     "K_Bench": p_bench,
+    "K_Railing2F": lambda pb: p_railing2f(pb),
+    "K_Post": p_post,
+    "K_Beam": p_beam,
+    "K_LampPost": p_lamppost,
+    "K_Lantern_Black": p_lantern_black,
 }
 
 
@@ -364,38 +408,48 @@ def _commons_near(x, y, r=35.0):
     return [t for _, t in best[:2]]
 
 
-def _evidence_for(street, piece):
-    """(detail_class, evidence_ref) from docs/evidence/building_evidence.json when it lists the feature."""
+KEYWORDS = {
+    "K_Koshi": ["sen-koshi", "koshi", "格子"], "K_Koshi_Lit": ["sen-koshi", "koshi", "格子"],
+    "K_Door": ["sliding door"], "K_Hisashi": ["hisashi"], "K_Bracket": ["hisashi"],
+    "K_Mushiko": ["mushiko", "虫籠"], "K_Window2F": ["lattice window", "sudare"], "K_Railing2F": ["railing"],
+    "K_Inuyarai": ["inuyarai"], "K_Kanban": ["signboard", "shop signs", "signs"], "K_Chochin_Red": ["chochin", "red paper"],
+    "K_Chochin_White": ["hanging lantern", "white panels", "lantern"], "K_ShopFront": ["shopfront", "shop fronts", "open shop"],
+    "K_Noren_Indigo": ["noren"], "K_Noren_Brown": ["noren"], "K_Noren_Cream": ["noren"], "K_Noren_Persimmon": ["noren"],
+    "K_Pot_A": ["potted"], "K_Pot_B": ["potted"], "K_Pot_C": ["potted"], "K_Post": ["exposed-timber", "posts", "真壁"],
+    "K_LampPost": ["lamp post"],
+}
+RANK = {"observed": 3, "documented": 2, "measured": 1, "inferred": 0}
+
+
+def segment_id(street, osm_way):
+    if street == "Yasaka-dori":
+        return "yasaka_dori_west" if int(osm_way) == 24516359 else "yasaka_dori_east"
+    return {"Ninenzaka": "ninenzaka", "Sannenzaka": "sannenzaka", "Ichinenzaka": "ichinenzaka"}.get(street, street.lower())
+
+
+def _evidence_for(street, piece, osm_way=0):
+    """(detail_class, evidence_ref, confidence) from docs/evidence/building_evidence.json street_segments.
+
+    observed -> detail_class "observed"; documented (district design standard) -> "inferred" with the documented
+    source cited (confidence kept in the evidence_confidence prop); nothing found -> "inferred"."""
     ev = evidence()
-    feats = {"K_Koshi": "koshi", "K_Koshi_Lit": "koshi", "K_Door": "door", "K_Hisashi": "hisashi", "K_Bracket": "hisashi",
-             "K_Mushiko": "mushiko", "K_Window2F": "sudare", "K_Inuyarai": "inuyarai", "K_Kanban": "sign",
-             "K_Chochin_Red": "chochin", "K_Chochin_White": "chochin", "K_Andon": "andon", "K_ShopFront": "shop",
-             "K_Bench": "bench"}
-    f = feats.get(piece, "noren" if "Noren" in piece else ("plant" if "Pot" in piece else piece))
-    try:
-        for entry in _ev_entries(ev):
-            st = (entry.get("street") or entry.get("street_key") or "").lower()
-            if street.lower().split("-")[0] not in st and street not in st:
-                continue
-            blob = json.dumps(entry, ensure_ascii=False).lower()
-            if f in blob:
-                conf = str(entry.get("confidence") or entry.get("confidence_class") or "").lower()
-                cls = "observed" if conf.startswith(("observed", "high", "a")) else "inferred"
-                return cls, "docs/evidence/building_evidence.json#%s" % (entry.get("id") or st)
-    except Exception:
-        pass
-    return "inferred", ""
-
-
-def _ev_entries(ev):
-    if isinstance(ev, list):
-        return ev
-    for k in ("streets", "entries", "evidence", "facades", "records"):
-        if isinstance(ev.get(k), list):
-            return ev[k]
-        if isinstance(ev.get(k), dict):
-            return [dict(v, street=k2) for k2, v in ev[k].items() if isinstance(v, dict)]
-    return []
+    seg_id = segment_id(street, osm_way)
+    segs = {sg.get("id"): sg for sg in ev.get("street_segments", [])} if isinstance(ev, dict) else {}
+    kws = KEYWORDS.get(piece, [])
+    best = None
+    for sid in ([seg_id, "ninenzaka"] if seg_id == "ichinenzaka" else [seg_id]):
+        for it in (segs.get(sid) or {}).get("items", []):
+            txt = (it.get("attribute", "") + " " + str(it.get("value", ""))).lower()
+            if any(k.lower() in txt for k in kws):
+                conf = it.get("confidence", "inferred")
+                if sid != seg_id:            # Ichinenzaka facades inferred from Ninenzaka (evidence note)
+                    conf = "inferred"
+                if best is None or RANK.get(conf, 0) > RANK.get(best[0], 0):
+                    src = (it.get("photos") or [it.get("source", "")])[0]
+                    best = (conf, "docs/evidence/building_evidence.json#%s/%s (%s: %s)" % (sid, it.get("attribute"), conf, src))
+    if best is None:
+        return "inferred", "", "inferred"
+    return ("observed" if best[0] == "observed" else "inferred"), best[1], best[0]
 
 
 def _pois():
@@ -489,11 +543,12 @@ def _dress(s, a, b, u, L, lib, root, pois):
     use_ref = "plateau:usage=%s" % s["usage"] if s["usage"] else ""
 
     def props(piece, cls=None, extra=""):
-        c, ref = _evidence_for(s["street"], piece)
-        refs = [r for r in (ref, extra, ("commons:" + " | ".join(commons)) if commons else "",
+        c, ref, conf = _evidence_for(s["street"], piece, s["street_osm"])
+        refs = [r for r in (ref, extra, ("commons-near:" + " | ".join(commons)) if commons else "",
                             "docs/art_direction.md#machiya-kit") if r]
         d = dict(base)
         d["detail_class"] = cls or c
+        d["evidence_confidence"] = "artistic" if cls == "artistic" else conf
         d["evidence_ref"] = "; ".join(refs)
         return d
 
@@ -525,16 +580,16 @@ def _dress(s, a, b, u, L, lib, root, pois):
                 nk = ["K_Noren_Indigo", "K_Noren_Brown", "K_Noren_Cream", "K_Noren_Persimmon"][int(rng.integers(0, 4))]
                 out.append(_inst(lib, nk, coll, P(k * bw, z0), rot, bw / BAY, props(nk, extra=poi_ref or use_ref)))
             if shop:
-                ck = "K_Chochin_Red" if food else "K_Chochin_White"
+                ck = "K_Chochin_Red" if food else ("K_Lantern_Black" if rng.random() < 0.6 else "K_Chochin_White")
                 out.append(_inst(lib, ck, coll, P(k * bw + 0.15, z0), rot, 1.0, props(ck, extra=poi_ref or use_ref)))
-                if rng.random() < 0.5:
+                if rng.random() < 0.35:
                     out.append(_inst(lib, "K_Andon", coll, P(k * bw + bw + 0.05, z0), rot, 1.0, props("K_Andon", cls="artistic")))
             if rng.random() < 0.8:
                 pk = ["K_Pot_A", "K_Pot_B", "K_Pot_C"][int(rng.integers(0, 3))]
                 tt = k * bw - 0.35 if k > 0 else k * bw + bw + 0.3
                 out.append(_inst(lib, pk, coll, P(min(max(tt, 0.2), L - 0.2), gz(*P(tt, 0)[:2])), rot + rng.uniform(-0.3, 0.3), 1.0,
                                  props(pk, cls="artistic")))
-        elif shop and rng.random() < 0.6:
+        elif shop and rng.random() < 0.7:
             out.append(_inst(lib, "K_ShopFront", coll, P(k * bw, z0), rot, bw / BAY, props("K_ShopFront", extra=poi_ref or use_ref)))
             if rng.random() < 0.5:
                 out.append(_inst(lib, "K_Noren_Cream" if rng.random() < 0.5 else "K_Noren_Indigo", coll, P(k * bw, z0), rot, bw / BAY,
@@ -542,7 +597,7 @@ def _dress(s, a, b, u, L, lib, root, pois):
         else:
             lit = rng.random() < 0.45
             out.append(_inst(lib, "K_Koshi_Lit" if lit else "K_Koshi", coll, P(k * bw, z0), rot, bw / BAY, props("K_Koshi", extra=use_ref)))
-            if not shop and rng.random() < 0.4:
+            if not shop and rng.random() < 0.12:
                 out.append(_inst(lib, "K_Inuyarai", coll, P(k * bw, z0), rot, bw / BAY, props("K_Inuyarai", extra=use_ref)))
             elif rng.random() < 0.25:
                 pk = ["K_Pot_A", "K_Pot_C"][int(rng.integers(0, 2))]
@@ -561,12 +616,29 @@ def _dress(s, a, b, u, L, lib, root, pois):
                 out.append(_inst(lib, "K_Bracket", coll, P(min(max(k * bw, 0.06), L - 0.06), zh), rot, 1.0, props("K_Hisashi")))
             z2 = zh + 0.45
             room = s["top_min"] - 0.12 - z2
-            low = eave_h < 6.3
+            low = eave_h < 6.0
+            for k in range(nb + 1):                                   # exposed posts (shinkabe)
+                if room > 0.4:
+                    out.append(_inst(lib, "K_Post", coll, P(min(max(k * bw, 0.06), L - 0.06), zh + 0.1), rot, 1.0,
+                                     props("K_Post", extra=use_ref)))
+                    out[-1].scale = (1, 1, s["top_min"] - zh - 0.1)
+            if room > 0.4:
+                out.append(_inst(lib, "K_Beam", coll, P(0, s["top_min"] - 0.02), rot, L, props("K_Post", extra=use_ref)))
             for k in range(nb):
-                if low and room > 0.7 and k % 2 == (0 if nb > 1 else 0):
+                r = rng.random()
+                if low and room > 0.7 and r < 0.3:
                     out.append(_inst(lib, "K_Mushiko", coll, P(k * bw, z2 + min(0.15, room - 0.7)), rot, bw / BAY,
                                      props("K_Mushiko", extra=use_ref + " storeys=%s eave %.1f m" % (storeys, eave_h))))
-                elif not low and room > 1.1 and rng.random() < 0.75:
-                    out.append(_inst(lib, "K_Window2F", coll, P(k * bw, z2 + 0.25), rot, bw / BAY,
+                elif room > 1.0 and r < 0.85:
+                    zw = z2 + min(0.25, room - 1.0)
+                    out.append(_inst(lib, "K_Window2F", coll, P(k * bw, zw), rot, bw / BAY,
                                      props("K_Window2F", extra=use_ref + " storeys=%s" % storeys)))
+                    if rng.random() < 0.3:
+                        out.append(_inst(lib, "K_Railing2F", coll, P(k * bw, zw), rot, bw / BAY, props("K_Railing2F", extra=use_ref)))
+    # old-style lamp post in front of roughly every third street-facing facade (type observed, position artistic)
+    if rng.random() < 0.3 and L > 3.0:
+        tt = rng.uniform(0.6, L - 0.6)
+        out.append(_inst(lib, "K_LampPost", coll, P(tt, gz(*P(tt, 0)[:2]) - 0.05), rot, 1.0,
+                         props("K_LampPost", cls="artistic")))
+        out[-1]["evidence_ref"] = "type observed (building_evidence.json street_furniture: old-style lamp posts); position artistic"
     return out

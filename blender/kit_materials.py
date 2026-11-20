@@ -9,10 +9,16 @@ import bpy
 
 # ------------------------------------------------------------------ palette (linear RGB)
 PAL = dict(
-    kawara=(0.105, 0.118, 0.140), kawara_hi=(0.20, 0.215, 0.245),
-    plaster=(0.66, 0.58, 0.45), plaster_shadow=(0.42, 0.36, 0.33),
-    wood_dark=(0.045, 0.027, 0.017), wood_bengara=(0.115, 0.036, 0.020), wood_weather=(0.16, 0.12, 0.085),
-    granite=(0.34, 0.32, 0.29), granite_warm=(0.40, 0.35, 0.29), asphalt=(0.065, 0.066, 0.072),
+    # evidence (docs/evidence/building_evidence.json suggested_colours, observed sRGB -> linear) pushed slightly
+    # toward the warm, muted storybook palette
+    kawara=(0.165, 0.175, 0.195), kawara_hi=(0.26, 0.27, 0.29),               # #7d8085
+    plaster=(0.70, 0.59, 0.40), plaster_ochre=(0.52, 0.37, 0.19),              # #e6d6b0 / #c8a878
+    plaster_shadow=(0.42, 0.36, 0.33),
+    wood_dark=(0.075, 0.032, 0.012), wood_bengara=(0.115, 0.036, 0.018),       # #5a3418 (dark timber)
+    wood_weather=(0.16, 0.12, 0.085),
+    granite=(0.36, 0.335, 0.30), granite_warm=(0.42, 0.37, 0.31),              # #a9a39a
+    sett=(0.24, 0.225, 0.195),                                                 # #8a857a
+    asphalt=(0.065, 0.066, 0.072),
     moss=(0.10, 0.16, 0.04), moss_dry=(0.20, 0.21, 0.08), soil=(0.15, 0.10, 0.06),
     indigo=(0.018, 0.032, 0.095), persimmon=(0.55, 0.16, 0.05), cream=(0.62, 0.55, 0.42),
     lantern=(1.0, 0.42, 0.13), glow=(1.0, 0.58, 0.28),
@@ -116,14 +122,14 @@ def brush_group():
     w = vmath(nt, "SCALE", w, scale=inv)
     p = vmath(nt, "ADD", gi.outputs["Vector"], w)
     p = vmath(nt, "DIVIDE", p, gi.outputs["Stretch"])
-    v1 = node(nt, "ShaderNodeTexVoronoi", {"Vector": p, "Smoothness": 0.55}, feature="SMOOTH_F1")
+    # F1 cells (cheap: 27 cells) give the dabs; a noise octave gives the second, softer factor
+    v1 = node(nt, "ShaderNodeTexVoronoi", {"Vector": p, "Randomness": 0.9}, feature="F1")
     link(nt, gi.outputs["Scale"], v1.inputs["Scale"])
     s2 = math(nt, "MULTIPLY", gi.outputs["Scale"], 2.7)
-    v2 = node(nt, "ShaderNodeTexVoronoi", {"Vector": p, "Smoothness": 0.4}, feature="SMOOTH_F1")
-    link(nt, s2, v2.inputs["Scale"])
+    n2 = node(nt, "ShaderNodeTexNoise", {"Vector": p, "Detail": 1.0, "Roughness": 0.5})
+    link(nt, s2, n2.inputs["Scale"])
     r1 = sep(nt, v1.outputs["Color"])[0]
-    r2 = sep(nt, v2.outputs["Color"])[1]
-    f = mix(nt, 0.4, r1, r2, dtype="FLOAT")
+    f = mix(nt, 0.35, r1, n2.outputs["Factor"], dtype="FLOAT")
     link(nt, f, go.inputs["Fac"])
     link(nt, sep(nt, v1.outputs["Color"])[2], go.inputs["Fac2"])
     return g
@@ -187,7 +193,7 @@ def bump(nt, h, strength=0.4, dist=0.02, normal=None):
     return n.outputs[0]
 
 
-def edge_mask(nt, radius=0.03, samples=6):
+def edge_mask(nt, radius=0.03, samples=3):
     """1 at softened edges (bevel normal vs true normal)."""
     bv = node(nt, "ShaderNodeBevel", {"Radius": radius}, samples=samples)
     geo = node(nt, "ShaderNodeNewGeometry")
@@ -317,11 +323,12 @@ def m_backdrop(name="ART_Backdrop"):
 
 
 # ------------------------------------------------------------------ ground
-def _ishidatami(nt, uv_vec, P, width_socket=None):
-    """Granite slab pattern on a 2D vector (x across, y along) in metres. Returns colour, height, joint."""
-    br = node(nt, "ShaderNodeTexBrick", {"Vector": uv_vec, "Scale": 1.0, "Mortar Size": 0.018, "Mortar Smooth": 0.35,
-                                         "Bias": 0.0, "Brick Width": 0.78, "Row Height": 0.42,
-                                         "Color1": rgb(PAL["granite"]), "Color2": rgb(PAL["granite_warm"]),
+def _ishidatami(nt, uv_vec, P, width_socket=None, bw=0.62, rh=0.31, c1=None, c2=None, mortar=0.016):
+    """Granite slab pattern on a 2D vector (x across, y along) in metres. Returns colour, joint.
+    Defaults: ishidatami slabs ~0.3 x 0.6 m in running bond (building_evidence.json, Ninenzaka paving, observed)."""
+    br = node(nt, "ShaderNodeTexBrick", {"Vector": uv_vec, "Scale": 1.0, "Mortar Size": mortar, "Mortar Smooth": 0.35,
+                                         "Bias": 0.0, "Brick Width": bw, "Row Height": rh,
+                                         "Color1": rgb(c1 or PAL["granite"]), "Color2": rgb(c2 or PAL["granite_warm"]),
                                          "Mortar": (0, 0, 0, 1)}, offset=0.45, offset_frequency=2)
     joint = br.outputs["Factor"]   # 1 in mortar
     col = br.outputs["Color"]
@@ -331,14 +338,18 @@ def _ishidatami(nt, uv_vec, P, width_socket=None):
     return col, joint
 
 
-def m_paving(name="ART_Ishidatami"):
-    """UV ribbon along P2 streets: u = along (m), v = across (m). Granite slabs, gutters, wet sheen."""
+def m_paving(name="ART_Ishidatami", sett=False):
+    """UV ribbon along P2 streets: u = along (m), v = across (m). Granite slabs (or small setts on Yasaka-dori west,
+    OSM surface=sett), gutters, wet sheen."""
     m, nt, out = new_mat(name)
     uv = node(nt, "ShaderNodeUVMap", uv_map="UVMap").outputs[0]
     u, v, _ = sep(nt, uv)
     P = world_pos(nt)
     vec = comb(nt, v, u, 0.0)
-    col, joint = _ishidatami(nt, vec, P)
+    if sett:
+        col, joint = _ishidatami(nt, vec, P, bw=0.24, rh=0.12, c1=PAL["sett"], c2=PAL["granite"], mortar=0.012)
+    else:
+        col, joint = _ishidatami(nt, vec, P)
     # edge band (gutter stones) |v| > half-width - 0.35 : stored in UV w via second attribute "edge"
     ue = node(nt, "ShaderNodeUVMap", uv_map="UVEdge").outputs[0]
     edge = mrange(nt, sep(nt, ue)[1], 0.30, 0.26)
@@ -399,13 +410,13 @@ def m_terrain(name="ART_Terrain", mask_img=None):
 def m_steps(name="ART_Stone_Steps"):
     m, nt, out = new_mat(name)
     P = world_pos(nt)
-    e, bn = edge_mask(nt, 0.04, 6)
+    e, bn = edge_mask(nt, 0.04, 3)
     vc = node(nt, "ShaderNodeTexVoronoi", {"Vector": P, "Scale": 1.4}).outputs["Color"]
     base = mix(nt, math(nt, "MULTIPLY", sep(nt, vc)[0], 0.7), PAL["granite"], PAL["granite_warm"])
     speck = node(nt, "ShaderNodeTexNoise", {"Vector": P, "Scale": 40.0}).outputs["Factor"]
     base = mix(nt, mrange(nt, speck, 0.45, 0.7, 0, 0.25), base, (0.55, 0.53, 0.5))
     base = mix(nt, math(nt, "MULTIPLY", e, 0.55), base, (0.62, 0.6, 0.55))           # worn bright edges
-    ao = node(nt, "ShaderNodeAmbientOcclusion", {"Distance": 0.35}, samples=4).outputs["AO"]
+    ao = node(nt, "ShaderNodeAmbientOcclusion", {"Distance": 0.35}, samples=2).outputs["AO"]
     mz = node(nt, "ShaderNodeTexNoise", {"Vector": P, "Scale": 2.0, "Detail": 3.0}).outputs["Factor"]
     moss = math(nt, "MULTIPLY", mrange(nt, ao, 0.8, 0.4), mrange(nt, mz, 0.4, 0.6))
     base = mix(nt, moss, base, PAL["moss"])
@@ -451,7 +462,7 @@ def m_simple(name, col, rough=0.75, brush_scale=4.0, stretch=(1, 1, 4), val=0.16
     base = paint(nt, base, f1, f2, val, 0.02)
     nrm = None
     if bevel:
-        e, nrm = edge_mask(nt, bevel, 4)
+        e, nrm = edge_mask(nt, bevel, 2)
         base = mix(nt, math(nt, "MULTIPLY", e, 0.25), base, tuple(min(1, c * 1.8 + 0.03) for c in col))
     extra = {}
     if sheen:
@@ -487,6 +498,12 @@ def m_noren(name, col, crest=(0.85, 0.82, 0.74)):
     return m
 
 
+def lamp_scale(nt, strength):
+    """strength x per-shot lamp multiplier (Value node "LampScale", set by kit_light.apply_preset)."""
+    v = nt.nodes.new("ShaderNodeValue"); v.name = "LampScale"; v.outputs[0].default_value = 1.0
+    return math(nt, "MULTIPLY", v.outputs[0], strength)
+
+
 def m_lantern(name="ART_Chochin", col=PAL["lantern"], strength=5.0, stripes=True):
     m, nt, out = new_mat(name)
     P = node(nt, "ShaderNodeTexCoord").outputs["Object"]
@@ -499,19 +516,19 @@ def m_lantern(name="ART_Chochin", col=PAL["lantern"], strength=5.0, stripes=True
         mk = node(nt, "ShaderNodeTexNoise", {"Vector": comb(nt, math(nt, "MULTIPLY", x, 3.0), math(nt, "MULTIPLY", z, 9.0), 0), "Scale": 2.0, "Detail": 1.0}).outputs["Factor"]
         ink = math(nt, "MULTIPLY", mrange(nt, mk, 0.55, 0.62), mrange(nt, math(nt, "ABSOLUTE", z), 0.16, 0.12))
         e = mix(nt, ink, e, (0.03, 0.01, 0.01))
-    em = node(nt, "ShaderNodeEmission", {"Color": e, "Strength": strength})
+    em = node(nt, "ShaderNodeEmission", {"Color": e, "Strength": lamp_scale(nt, strength)})
     tr = node(nt, "ShaderNodeBsdfTranslucent", {"Color": e})
     add = node(nt, "ShaderNodeAddShader", {0: em.outputs[0], 1: tr.outputs[0]})
     link(nt, add.outputs[0], out.inputs["Surface"])
     return m
 
 
-def m_glow(name="ART_ShopGlow", col=PAL["glow"], strength=3.0):
+def m_glow(name="ART_ShopGlow", col=PAL["glow"], strength=1.1):
     m, nt, out = new_mat(name)
     P = node(nt, "ShaderNodeTexCoord").outputs["Object"]
     nz = node(nt, "ShaderNodeTexNoise", {"Vector": P, "Scale": 2.0, "Detail": 2.0}).outputs["Factor"]
     s = mrange(nt, nz, 0.3, 0.7, strength * 0.6, strength * 1.2)
-    em = node(nt, "ShaderNodeEmission", {"Color": rgb(col), "Strength": s})
+    em = node(nt, "ShaderNodeEmission", {"Color": rgb(col), "Strength": lamp_scale(nt, s)})
     link(nt, em.outputs[0], out.inputs["Surface"])
     return m
 
@@ -545,7 +562,7 @@ def M(name):
         return _LIB[name]
     f = {
         "roof": m_roof, "facade": m_facade, "plinth": m_plinth, "backdrop": m_backdrop,
-        "paving": m_paving, "steps": m_steps, "stonewall": m_stonewall,
+        "paving": m_paving, "paving_sett": lambda: m_paving("ART_Sett", sett=True), "steps": m_steps, "stonewall": m_stonewall,
         "wood_dark": lambda: m_simple("ART_Wood_Dark", PAL["wood_dark"], 0.7, grain=True, bevel=0.012),
         "wood_lattice": lambda: m_simple("ART_Wood_Bengara", PAL["wood_bengara"], 0.65, grain=True, bevel=0.006),
         "wood_weather": lambda: m_simple("ART_Wood_Weathered", PAL["wood_weather"], 0.8, grain=True, bevel=0.01),
@@ -564,12 +581,12 @@ def M(name):
         "noren_brown": lambda: m_noren("ART_Noren_Brown", (0.10, 0.05, 0.025)),
         "noren_cream": lambda: m_noren("ART_Noren_Cream", (0.55, 0.48, 0.36), (0.05, 0.05, 0.08)),
         "noren_persimmon": lambda: m_noren("ART_Noren_Persimmon", PAL["persimmon"]),
-        "chochin_red": lambda: m_lantern("ART_Chochin_Red", (1.0, 0.18, 0.06), 6.0),
-        "chochin_white": lambda: m_lantern("ART_Chochin_White", (1.0, 0.68, 0.38), 5.0),
-        "andon": lambda: m_lantern("ART_Andon_Paper", (1.0, 0.72, 0.42), 4.0, stripes=False),
-        "lantern_fire": lambda: m_lantern("ART_Lantern_Fire", (1.0, 0.5, 0.18), 12.0, stripes=False),
+        "chochin_red": lambda: m_lantern("ART_Chochin_Red", (1.0, 0.18, 0.06), 2.2),
+        "chochin_white": lambda: m_lantern("ART_Chochin_White", (1.0, 0.68, 0.38), 1.6),
+        "andon": lambda: m_lantern("ART_Andon_Paper", (1.0, 0.72, 0.42), 1.6, stripes=False),
+        "lantern_fire": lambda: m_lantern("ART_Lantern_Fire", (1.0, 0.5, 0.18), 6.0, stripes=False),
         "glow": m_glow,
-        "glow_soft": lambda: m_glow("ART_ShopGlow_Soft", (1.0, 0.66, 0.38), 1.6),
+        "glow_soft": lambda: m_glow("ART_ShopGlow_Soft", (1.0, 0.55, 0.25), 0.3),
         "bark": lambda: m_simple("ART_Bark", (0.05, 0.04, 0.035), 0.9, 4.0, (1, 1, 6), 0.25),
         "bark_cherry": lambda: m_simple("ART_Bark_Cherry", (0.07, 0.035, 0.03), 0.8, 4.0, (6, 6, 1), 0.25),
         "leaf_maple": lambda: m_leaf("ART_Leaf_Maple", (0.55, 0.035, 0.012), (0.75, 0.22, 0.02), (0.55, 0.42, 0.05)),

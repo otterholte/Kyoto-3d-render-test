@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T21:33:28.013Z",
+  "generated": "2026-11-20T22:04:07.693Z",
   "world": {
     "file": "world.glb",
     "source": "assets/world.glb",
@@ -17,7 +17,15 @@
     },
     "kind": "blockout"
   },
-  "pagoda": null,
+  "pagoda": {
+    "file": "pagoda.glb",
+    "source": "assets/pagoda.glb",
+    "bytes": 497748,
+    "sourceBytes": 2402164,
+    "colours": null,
+    "join": null,
+    "hides": "LM_Yasaka_Pagoda_PLATEAU_LOD2"
+  },
   "minimap": "assets/minimap.json",
   "surfaceMask": {
     "file": "assets/surface_mask.png",

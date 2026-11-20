@@ -119,8 +119,8 @@ export function painterly(mat, { scale = 0.6, amount = 0.22, hue = 0.05, streak 
 export function makeRoleMaterials() {
   const std = (o) => new THREE.MeshStandardMaterial({ roughness: 0.88, metalness: 0, ...o });
   const M = {
-    roof: painterly(std({ vertexColors: true, roughness: 0.62, color: 0xdfe2ea }), { scale: 1.3, amount: 0.18, hue: 0.03, lift: [0.14, 0.78, 1.1] }),
-    wall: painterly(std({ vertexColors: true, roughness: 0.9, color: 0xfff1e0 }), { scale: 0.9, amount: 0.2, hue: 0.05, lift: [0.2, 0.8, 1.2] }),
+    roof: painterly(std({ vertexColors: true, roughness: 0.62, color: 0xdfe2ea }), { scale: 1.3, amount: 0.18, hue: 0.03, lift: [0.2, 0.74, 1.1] }),
+    wall: painterly(std({ vertexColors: true, roughness: 0.9, color: 0xfff1e0 }), { scale: 0.9, amount: 0.2, hue: 0.05, lift: [0.27, 0.74, 1.2] }),
     plinth: painterly(std({ vertexColors: false, roughness: 0.95, color: 0x8a7f72 }), { scale: 1.6, amount: 0.25 }),
     steps: painterly(std({ color: 0x8d8780, roughness: 0.7 }), { scale: 2.2, amount: 0.22 }),
     barrier: painterly(std({ color: 0xa69a88, roughness: 0.92 }), { scale: 1.2, amount: 0.25 }),
@@ -169,14 +169,17 @@ export function makeGroundMaterial(maskTex) {
           vec3 gravel = vec3( 0.47, 0.41, 0.32 ) * ( 0.82 + 0.3 * fine + 0.15 * mid );
           // asphalt with patching
           vec3 asph = vec3( 0.105, 0.105, 0.115 ) * ( 0.85 + 0.25 * mid ) + 0.02 * step( 0.72, hw_noise( p * 0.35 ) );
-          // granite ishidatami: running-bond slabs ~0.9 x 0.45 m with darker joints and per-slab tint
-          vec2 sp = p / vec2( 0.9, 0.45 );
-          sp.x += 0.5 * mod( floor( sp.y ), 2.0 );
+          // granite ishidatami: running-bond slabs (~0.62 x 0.31 m), random row offsets and slab lengths,
+          // darker joints and per-slab tint (artistic texture over the measured surface class)
+          vec2 sp = p / vec2( 0.62, 0.31 );
+          float row = floor( sp.y );
+          sp.x += hw_hash( vec2( row, 7.0 ) ) * 3.0;
+          sp.x *= mix( 0.7, 1.3, hw_hash( vec2( row, 3.0 ) ) );
           vec2 cell = floor( sp ), f = fract( sp );
-          float joint = smoothstep( 0.0, 0.06, min( min( f.x, 1.0 - f.x ) * 0.5, min( f.y, 1.0 - f.y ) ) );
-          float slab = hw_hash( cell );
-          vec3 pave = mix( vec3( 0.36, 0.34, 0.31 ), vec3( 0.50, 0.46, 0.40 ), slab ) * ( 0.88 + 0.2 * fine );
-          pave *= mix( 0.55, 1.0, joint );
+          float joint = smoothstep( 0.0, 0.05, min( min( f.x, 1.0 - f.x ) * 0.6, min( f.y, 1.0 - f.y ) ) );
+          float slab = hw_hash( cell + row * 0.37 );
+          vec3 pave = mix( vec3( 0.40, 0.37, 0.33 ), vec3( 0.56, 0.51, 0.44 ), slab ) * ( 0.86 + 0.22 * fine ) * ( 0.92 + 0.16 * mid );
+          pave *= mix( 0.6, 1.0, joint );
           vec3 c = soil;
           c = mix( c, gravel, m.b );
           c = mix( c, asph, m.r );

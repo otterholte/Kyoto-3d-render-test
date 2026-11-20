@@ -19,11 +19,16 @@ from kit_materials import M, node, link, mix, mrange, math as mth, sep, comb
 
 # ------------------------------------------------------------------ presets
 PRESETS = {
-    # sun elevation/azimuth in degrees (azimuth from north, clockwise); sky strength; sun strength;
-    # lantern emission multiplier; fog density; exposure; mist (aerial perspective) amount
-    "golden": dict(sun_el=6.5, sun_az=238.0, sky=0.28, sun=3.2, sun_k=3100, lamps=0.55, fog=0.0035, exposure=0.15, mist=0.22),
-    "dusk": dict(sun_el=2.0, sun_az=242.0, sky=0.30, sun=2.0, sun_k=2600, lamps=0.9, fog=0.004, exposure=0.35, mist=0.25),
-    "blue": dict(sun_el=-3.5, sun_az=246.0, sky=1.1, sun=0.0, sun_k=2400, lamps=1.6, fog=0.0045, exposure=0.9, mist=0.3),
+    # sun elevation/azimuth in degrees (azimuth from north, clockwise; late November Kyoto sets at ~242 deg);
+    # sky strength (lighting) / skycam (sky as seen by camera); sun strength + colour temperature;
+    # lantern emission multiplier; fog density (1/m, homogeneous street-level shell); exposure;
+    # amb/tint: share of the sky light replaced by an art-directed tint; city: basin lights; haze: far hills
+    "golden": dict(sun_el=6.0, sun_az=238.0, sky=0.6, skycam=0.55, sun=5.5, sun_k=3300, lamps=0.4, fog=0.0025,
+                   exposure=0.9, amb=0.6, tint=(0.86, 0.66, 0.42), city=0.0, haze=(0.62, 0.52, 0.52), mist=0.0),
+    "dusk": dict(sun_el=1.5, sun_az=242.0, sky=0.8, skycam=0.5, sun=3.0, sun_k=2700, lamps=0.8, fog=0.003,
+                 exposure=1.15, amb=0.55, tint=(0.80, 0.62, 0.50), city=0.3, haze=(0.42, 0.36, 0.44), mist=0.0),
+    "blue": dict(sun_el=-4.0, sun_az=246.0, sky=2.4, skycam=0.55, sun=0.0, sun_k=2400, lamps=1.25, fog=0.0035,
+                 exposure=1.5, amb=0.35, tint=(0.50, 0.46, 0.75), city=1.0, haze=(0.10, 0.11, 0.20), mist=0.0, flood=1.0),
 }
 
 
@@ -44,13 +49,20 @@ def world_setup():
     sky.sun_disc = False
     sky.altitude = 60.0
     sky.air_density = 1.0; sky.aerosol_density = 1.6; sky.ozone_density = 1.0
-    lav = (0.30, 0.30, 0.52, 1)
-    # lavender ambient lift: added mostly for diffuse (non-camera) rays so the sky in frame stays a sky
+    # ambient tint for non-camera rays: part of the (very blue) physical sky is REPLACED by an art-directed tint
+    # (warm peach in the golden hour, lavender at blue hour) -> lavender-blue shadows without a navy cast
+    tint = nt.nodes.new("ShaderNodeRGB"); tint.name = "AmbientTint"; tint.outputs[0].default_value = (0.75, 0.55, 0.45, 1)
     lp = nt.nodes.new("ShaderNodeLightPath")
-    amb = mix(nt, 0.0, (0, 0, 0), lav)
-    amb.node.name = "AmbientMix"
+    amb = nt.nodes.new("ShaderNodeValue"); amb.name = "AmbientMix"; amb.outputs[0].default_value = 0.4
     camray = lp.outputs["Is Camera Ray"]
-    c = mix(nt, mth(nt, "SUBTRACT", 1.0, camray), sky.outputs[0], amb, blend="ADD")
+    lum = node(nt, "ShaderNodeRGBToBW", {"Color": sky.outputs[0]}).outputs[0]
+    tinted = mix(nt, 1.0, tint.outputs[0], comb(nt, lum, lum, lum), blend="MULTIPLY")
+    fac = mth(nt, "MULTIPLY", mth(nt, "SUBTRACT", 1.0, camray), amb.outputs[0])
+    c = mix(nt, fac, sky.outputs[0], mix(nt, 1.0, tinted, (2.2, 2.2, 2.2), blend="MULTIPLY"))
+    # the sky seen directly by the camera is scaled separately (keeps a saturated, not blown, sky)
+    skycam = nt.nodes.new("ShaderNodeValue"); skycam.name = "SkyCam"; skycam.outputs[0].default_value = 0.6
+    camf = mix(nt, camray, 1.0, skycam.outputs[0], dtype="FLOAT")
+    c = mix(nt, 1.0, c, comb(nt, camf, camf, camf), blend="MULTIPLY")
     bg = nt.nodes.new("ShaderNodeBackground"); bg.name = "BG"
     link(nt, c, bg.inputs["Color"])
     link(nt, bg.outputs[0], out.inputs["Surface"])
@@ -78,8 +90,13 @@ def apply_preset(name, scene=None):
     sky.sun_elevation = math.radians(p["sun_el"])
     sky.sun_rotation = math.radians((90 - p["sun_az"]) % 360)   # Blender sky: rotation CCW from +X
     w.node_tree.nodes["BG"].inputs["Strength"].default_value = p["sky"]
-    amb = w.node_tree.nodes["AmbientMix"]
-    amb.inputs[0].default_value = 0.35 if name != "blue" else 0.12
+    w.node_tree.nodes["AmbientMix"].outputs[0].default_value = p["amb"]
+    w.node_tree.nodes["AmbientTint"].outputs[0].default_value = (*p["tint"], 1)
+    w.node_tree.nodes["SkyCam"].outputs[0].default_value = p["skycam"]
+    far = bpy.data.materials.get("ART_Far_Land")
+    if far and "CityLights" in far.node_tree.nodes:
+        far.node_tree.nodes["CityLights"].outputs[0].default_value = p["city"]
+        far.node_tree.nodes["FarHaze"].outputs[0].default_value = (*p["haze"], 1)
     sun = bpy.data.objects["Sun"]
     v = _sun_vec(p["sun_el"], p["sun_az"])
     # light points along -Z of the object: rotate -Z onto -v
@@ -91,14 +108,15 @@ def apply_preset(name, scene=None):
     for ob in bpy.data.objects:
         if ob.type == "LIGHT" and ob.get("lamp_base_energy") is not None:
             ob.data.energy = ob["lamp_base_energy"] * p["lamps"]
+        if ob.type == "LIGHT" and ob.get("flood_base_energy") is not None:
+            ob.data.energy = ob["flood_base_energy"] * p.get("flood", 0.0)
+            ob.hide_render = p.get("flood", 0.0) <= 0
     for m in bpy.data.materials:
-        if m.get("emit_base") is not None:
-            for n in m.node_tree.nodes:
-                if n.type == "EMISSION":
-                    n.inputs["Strength"].default_value = m["emit_base"] * p["lamps"]
+        if m.node_tree and "LampScale" in m.node_tree.nodes:
+            m.node_tree.nodes["LampScale"].outputs[0].default_value = p["lamps"]
     fog = bpy.data.materials.get("ART_Fog")
     if fog:
-        fog.node_tree.nodes["FogDensity"].outputs[0].default_value = p["fog"]
+        fog.node_tree.nodes["FogVol"].inputs["Density"].default_value = p["fog"]
     scene.view_settings.exposure = p["exposure"]
     cn = scene.compositing_node_group
     if cn and "MistAmount" in cn.nodes:
@@ -218,13 +236,17 @@ def lanterns():
     # kit chochin / andon get a small real light each (emission alone is too weak to model the pool of light)
     n_art = 0
     for e in bpy.data.objects:
-        if e.type == "EMPTY" and e.get("kit_piece", "").startswith(("K_Chochin", "K_Andon")):
+        kp = e.get("kit_piece", "") if e.type == "EMPTY" else ""
+        if kp.startswith(("K_Chochin", "K_Andon", "K_LampPost", "K_Lantern_Black")):
             mw = e.matrix_world
             from mathutils import Vector
-            local = Vector((0.0, -0.55, 2.33)) if "Chochin" in e["kit_piece"] else Vector((0.0, -0.23, 0.88))
+            local, en = {"K_Chochin_Red": ((0.0, -0.55, 2.33), 9.0), "K_Chochin_White": ((0.0, -0.55, 2.33), 9.0),
+                         "K_Andon": ((0.0, -0.23, 0.88), 6.0), "K_LampPost": ((0.0, -0.6, 2.9), 22.0),
+                         "K_Lantern_Black": ((0.0, -0.54, 2.25), 9.0)}[kp]
+            local = Vector(local)
             ld = bpy.data.lights.new("KitLight", "POINT")
-            ld.energy = 9.0 if "Chochin" in e["kit_piece"] else 6.0
-            ld.color = (1.0, 0.45, 0.18) if "Red" in e["kit_piece"] else (1.0, 0.62, 0.32)
+            ld.energy = en
+            ld.color = (1.0, 0.45, 0.18) if "Red" in kp else (1.0, 0.62, 0.32)
             ld.shadow_soft_size = 0.15
             lo = bpy.data.objects.new("KitLight_" + e.name, ld)
             lo.location = mw @ local
@@ -238,33 +260,43 @@ def lanterns():
 
 # ------------------------------------------------------------------ fog
 def fog_volume():
+    """Thin, homogeneous fog in a terrain-following shell (ground-2 m .. ground+16 m) over the box: the haze sits
+    between the buildings and thins out above the roofs.  Homogeneous density = no ray-marching cost."""
+    import bmesh
+    from kit_common import gz as _gz
     coll = get_coll("80_Atmosphere")
     m = bpy.data.materials.get("ART_Fog") or bpy.data.materials.new("ART_Fog")
     nt = m.node_tree
     for n in list(nt.nodes):
         nt.nodes.remove(n)
     out = nt.nodes.new("ShaderNodeOutputMaterial")
-    dens = nt.nodes.new("ShaderNodeValue"); dens.name = "FogDensity"; dens.outputs[0].default_value = 0.004
-    # height falloff: denser in the lower 6-10 m (between buildings), fading out above the roofs.
-    # Uses height above a tilted plane approximating the district slope (48 m west -> 75 m east).
-    P = node(nt, "ShaderNodeNewGeometry").outputs["Position"]
-    x, y, z = sep(nt, P)
-    base = mth(nt, "MULTIPLY_ADD", x, 0.07, 58.0)
-    base = mth(nt, "MULTIPLY_ADD", y, -0.05, base)
-    hz = mth(nt, "SUBTRACT", z, base)
-    fall = mrange(nt, hz, 4.0, 22.0, 1.0, 0.15)
-    d = mth(nt, "MULTIPLY", dens.outputs[0], fall)
-    vol = node(nt, "ShaderNodeVolumePrincipled", {"Color": (0.86, 0.82, 0.92, 1), "Anisotropy": 0.45})
-    link(nt, d, vol.inputs["Density"])
+    vol = node(nt, "ShaderNodeVolumePrincipled", {"Color": (0.88, 0.84, 0.94, 1), "Anisotropy": 0.5, "Density": 0.003})
+    vol.name = "FogVol"
     link(nt, vol.outputs[0], out.inputs["Volume"])
-    import bmesh
-    bm = bmesh.new(); bmesh.ops.create_cube(bm, size=1.0)
+    step = 4.0
+    xs = np.arange(-200, 200 + step / 2, step)
+    n = len(xs)
+    GX, GY = np.meshgrid(xs, xs)
+    G = _gz(GX.ravel(), GY.ravel()).reshape(n, n)
+    bm = bmesh.new()
+    top = [[bm.verts.new((xs[i], xs[j], G[j, i] + 16.0)) for i in range(n)] for j in range(n)]
+    bot = [[bm.verts.new((xs[i], xs[j], G[j, i] - 2.0)) for i in range(n)] for j in range(n)]
+    for j in range(n - 1):
+        for i in range(n - 1):
+            bm.faces.new([top[j][i], top[j][i + 1], top[j + 1][i + 1], top[j + 1][i]])
+            bm.faces.new([bot[j][i], bot[j + 1][i], bot[j + 1][i + 1], bot[j][i + 1]])
+    ring = [(0, i) for i in range(n - 1)] + [(j, n - 1) for j in range(n - 1)] + \
+           [(n - 1, i) for i in range(n - 1, 0, -1)] + [(j, 0) for j in range(n - 1, 0, -1)]
+    for k in range(len(ring)):
+        (j0, i0), (j1, i1) = ring[k], ring[(k + 1) % len(ring)]
+        bm.faces.new([bot[j0][i0], bot[j1][i1], top[j1][i1], top[j0][i0]])
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    old = bpy.data.objects.get("FX_Fog_Volume")
+    if old:
+        bpy.data.objects.remove(old, do_unlink=True)
     me = bpy.data.meshes.new("FX_Fog_Volume"); bm.to_mesh(me); bm.free()
     me.materials.append(m)
-    ob = bpy.data.objects.get("FX_Fog_Volume")
-    if ob is None:
-        ob = bpy.data.objects.new("FX_Fog_Volume", me); coll.objects.link(ob)
-    ob.location = (20, 0, 75); ob.scale = (420, 420, 70)
+    ob = bpy.data.objects.new("FX_Fog_Volume", me); coll.objects.link(ob)
     ob.visible_shadow = False
     ob["artistic"] = True
     ob["exclude_web"] = True
@@ -305,10 +337,10 @@ SHOTS = {
                               look_z_rel=1.2),
     "c_sannenzaka_stairs": dict(way=1569088146, xy=(166.5, -142.0), look=(151.0, -177.0, None), lens=26, shift=0.12,
                                 preset="dusk", look_z_rel=3.6),
-    "d_bluehour_roofs": dict(way=710696944, xy=(118.0, 30.0), look=(9.7, 83.5, None), lens=40, shift=0.0, preset="blue",
-                             elev=14.0, look_z=78.0),
-    "e_yasaka_dori_upper_west": dict(way=710696944, xy=(80.9, 39.8), look=(9.7, 83.5, None), lens=32, shift=0.2, preset="golden",
-                                     look_z=70.0),
+    "d_bluehour_roofs": dict(way=710696944, xy=(118.0, 30.0), look=(9.7, 83.5, None), lens=50, shift=0.06, preset="blue",
+                             elev=14.0, look_z=72.0),
+    "e_yasaka_dori_upper_west": dict(way=710696944, xy=(91.8, 44.7), look=(9.7, 83.5, None), lens=35, shift=0.2, preset="dusk",
+                                     look_z=66.0),
 }
 
 
@@ -359,7 +391,7 @@ def compositor():
     rl = N.new("CompositorNodeRLayers")
     go = N.new("NodeGroupOutput")
     # aerial perspective from the mist pass
-    amt = N.new("ShaderNodeValue"); amt.name = "MistAmount"; amt.outputs[0].default_value = 0.22
+    amt = N.new("ShaderNodeValue"); amt.name = "MistAmount"; amt.outputs[0].default_value = 0.0
     mcol = N.new("CompositorNodeRGB"); mcol.name = "MistColour"; mcol.outputs[0].default_value = (0.78, 0.62, 0.52, 1)
     mf = N.new("ShaderNodeMath"); mf.operation = "MULTIPLY"
     ng.links.new(rl.outputs["Mist"], mf.inputs[0]); ng.links.new(amt.outputs[0], mf.inputs[1])
@@ -389,9 +421,10 @@ def compositor():
     img = km.outputs[2]
     # grade: cool lift, warm gain
     cb = N.new("CompositorNodeColorBalance")
-    cb.inputs["Color Lift"].default_value = (0.97, 0.97, 1.05, 1)
-    cb.inputs["Color Gamma"].default_value = (1.0, 0.99, 1.0, 1)
-    cb.inputs["Color Gain"].default_value = (1.05, 1.0, 0.94, 1)
+    cb.name = "Grade"
+    cb.inputs["Color Lift"].default_value = (1.0, 0.995, 1.01, 1)
+    cb.inputs["Color Gamma"].default_value = (1.02, 1.0, 0.97, 1)
+    cb.inputs["Color Gain"].default_value = (1.06, 1.02, 0.9, 1)
     ng.links.new(img, cb.inputs["Image"])
     img = cb.outputs[0]
     hs = N.new("CompositorNodeHueSat")
@@ -408,7 +441,7 @@ def compositor():
     inv = N.new("ShaderNodeMath"); inv.operation = "MULTIPLY_ADD"
     ng.links.new(bl.outputs[0], inv.inputs[0]); inv.inputs[1].default_value = -0.28; inv.inputs[2].default_value = 0.28
     ng.links.new(inv.outputs[0], vm.inputs[0])
-    ng.links.new(img, vm.inputs[6]); vm.inputs[7].default_value = (0.25, 0.22, 0.3, 1)
+    ng.links.new(img, vm.inputs[6]); vm.inputs[7].default_value = (0.22, 0.19, 0.17, 1)
     img = vm.outputs[2]
     ng.links.new(img, go.inputs[0])
     return ng
@@ -427,8 +460,8 @@ def render_settings(scene=None):
     c.denoiser = "OPENIMAGEDENOISE"
     c.denoising_input_passes = "RGB_ALBEDO_NORMAL"
     c.denoising_prefilter = "ACCURATE"
-    c.max_bounces = 6; c.diffuse_bounces = 3; c.glossy_bounces = 2; c.transmission_bounces = 4
-    c.volume_bounces = 0; c.transparent_max_bounces = 6
+    c.max_bounces = 4; c.diffuse_bounces = 2; c.glossy_bounces = 1; c.transmission_bounces = 2
+    c.volume_bounces = 0; c.transparent_max_bounces = 4
     c.volume_step_rate = 4.0
     c.volume_max_steps = 256
     c.sample_clamp_indirect = 6.0
@@ -444,7 +477,7 @@ def render_settings(scene=None):
     scene.render.film_transparent = False
     scene.view_settings.view_transform = "AgX"
     try:
-        scene.view_settings.look = "AgX - Medium High Contrast"
+        scene.view_settings.look = "AgX - Base Contrast"
     except TypeError:
         pass
     scene.render.image_settings.file_format = "PNG"
@@ -482,7 +515,7 @@ def pagoda(log=print):
         importlib.reload(hp)
         coll = get_coll("35_Landmarks")
         hero_c = get_coll("36_Hero_Pagoda", coll)
-        ob = hp.build_pagoda(hero_c, "render")
+        ob = hp.build_pagoda(hero_c, "high")
     except Exception as ex:  # keep the placeholder if the other workstream's module is mid-edit
         import traceback
         traceback.print_exc()
@@ -494,5 +527,24 @@ def pagoda(log=print):
         old.hide_set(True)
         old["replaced_by_hero"] = True
     bpy.context.scene["pagoda"] = "hero (blender/hero_pagoda.py build_pagoda)"
+    # night illumination (observed: Commons "Illuminated Yasakanoto Tower", "Views of Yasaka no To ... at night");
+    # fixture positions are artistic: four ground floods around the platform, only on in the blue-hour preset
+    from mathutils import Vector
+    cx, cy = 9.4, 83.3
+    z0 = gz(cx, cy)
+    coll = get_coll("75_Lanterns_Lights")
+    for k, (dx, dy) in enumerate(((-13, -9), (13, -10), (-12, 11), (12, 12))):
+        ld = bpy.data.lights.new("PagodaFlood_%d" % k, "SPOT")
+        ld.energy = 0.0; ld.color = (1.0, 0.78, 0.52); ld.spot_size = math.radians(48); ld.spot_blend = 0.6
+        ld.shadow_soft_size = 0.4
+        lo = bpy.data.objects.new("PagodaFlood_%d" % k, ld)
+        lo.location = (cx + dx, cy + dy, z0 + 0.6)
+        d = Vector((cx, cy, z0 + 20.0)) - Vector(lo.location)
+        lo.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
+        lo["flood_base_energy"] = 9000.0
+        lo["detail_class"] = "observed"; lo["artistic"] = True
+        lo["evidence_ref"] = "night illumination observed in Commons photos (docs/references/commons_geotagged.json); fixture position artistic"
+        lo.hide_render = True
+        coll.objects.link(lo)
     log("hero pagoda built:", ob.name if ob else None)
     return ob
