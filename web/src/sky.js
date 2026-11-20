@@ -107,6 +107,9 @@ export class Sky {
     scene.add(this.hemi);
     scene.fog = new THREE.Fog(0xffffff, 0.004, 0.035); // near = density, far = height falloff (see materials.js)
     this.sunDir = new THREE.Vector3();
+    this.lightDir = new THREE.Vector3(0, 1, 0);
+    this._s = { up: new THREE.Vector3(), right: new THREE.Vector3(), upL: new THREE.Vector3(), snapped: new THREE.Vector3(), last: new THREE.Vector3(NaN, 0, 0) };
+    this.shadowDirty = true;
     this.params = null;
     this.t = -1;
     this.lanternIntensity = 1;
@@ -131,7 +134,7 @@ export class Sky {
     // light: below the horizon the key light becomes a soft cool sky fill from the same side
     const lightEl = Math.max(p.el, 7);
     const le = THREE.MathUtils.degToRad(lightEl);
-    this.lightDir = new THREE.Vector3(Math.sin(az) * Math.cos(le), Math.sin(le), -Math.cos(az) * Math.cos(le)).normalize();
+    this.lightDir.set(Math.sin(az) * Math.cos(le), Math.sin(le), -Math.cos(az) * Math.cos(le)).normalize();
     this.sun.color.setRGB(...p.sun);
     this.sun.intensity = p.sunI;
     this.hemi.color.setRGB(...p.hemiSky);
@@ -146,6 +149,7 @@ export class Sky {
     shared.uWarm.value = 1 - t;
     this._envDirty = true;
     this._envTimer = 0.15;
+    this.shadowDirty = true;
   }
 
   // follow the camera, refresh the PMREM env (debounced) when time changes
@@ -167,14 +171,17 @@ export class Sky {
     }
   }
 
-  // tight shadow frustum that follows the player, snapped to texels to avoid shimmer
+  // tight shadow frustum that follows the player, snapped to texels to avoid shimmer.
+  // Returns true when the shadow camera moved (the shadow map must be re-rendered).
   placeShadow(center, range, mapSize) {
+    let changed = false;
     const L = this.sun;
     const cam = L.shadow.camera;
     if (cam.right !== range || L.shadow.mapSize.x !== mapSize) {
       cam.left = -range; cam.right = range; cam.top = range; cam.bottom = -range;
       cam.near = 1; cam.far = 420;
       cam.updateProjectionMatrix();
+      changed = true;
       if (L.shadow.mapSize.x !== mapSize) {
         L.shadow.mapSize.set(mapSize, mapSize);
         if (L.shadow.map) { L.shadow.map.dispose(); L.shadow.map = null; }
@@ -183,16 +190,20 @@ export class Sky {
     const texel = (2 * range) / mapSize;
     // snap in light space
     const d = this.lightDir;
-    const up = Math.abs(d.y) > 0.99 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(0, 1, 0);
-    const right = new THREE.Vector3().crossVectors(up, d).normalize();
-    const upL = new THREE.Vector3().crossVectors(d, right).normalize();
+    const { up, right, upL, snapped, last } = this._s;
+    if (Math.abs(d.y) > 0.99) up.set(0, 0, 1); else up.set(0, 1, 0);
+    right.crossVectors(up, d).normalize();
+    upL.crossVectors(d, right).normalize();
     const cx = Math.round(center.dot(right) / texel) * texel;
     const cy = Math.round(center.dot(upL) / texel) * texel;
-    const cz = center.dot(d);
-    const snapped = new THREE.Vector3().addScaledVector(right, cx).addScaledVector(upL, cy).addScaledVector(d, cz);
+    // depth along the light only matters coarsely (near/far are generous): quantise to 1 m
+    const cz = Math.round(center.dot(d));
+    snapped.set(0, 0, 0).addScaledVector(right, cx).addScaledVector(upL, cy).addScaledVector(d, cz);
+    if (!snapped.equals(last)) { changed = true; last.copy(snapped); }
     L.target.position.copy(snapped);
     L.position.copy(snapped).addScaledVector(d, 200);
     L.target.updateMatrixWorld();
     L.updateMatrixWorld();
+    return changed;
   }
 }

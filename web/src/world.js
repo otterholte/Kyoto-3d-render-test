@@ -65,6 +65,33 @@ function worldGeometry(mesh, { normal = true, color = false, uv = false, objId =
   return g;
 }
 
+// mergeGeometries needs identical attribute sets: fill missing attributes with defaults instead of letting a
+// whole group silently vanish; on a remaining failure return the parts unmerged
+const ATTR_DEFAULT = { normal: [0, 1, 0], color: [1, 1, 1], uv: [0, 0], objId: [0] };
+export function mergeSafe(list, label) {
+  if (list.length === 1) return [list[0]];
+  const names = new Set();
+  for (const g of list) for (const n of Object.keys(g.attributes)) names.add(n);
+  let filled = 0;
+  for (const n of names) {
+    const ref = list.find((g) => g.attributes[n]);
+    const size = ref.attributes[n].itemSize;
+    for (const g of list) {
+      if (g.attributes[n]) continue;
+      const cnt = g.attributes.position.count, d = ATTR_DEFAULT[n] || new Array(size).fill(0);
+      const arr = new Float32Array(cnt * size);
+      for (let i = 0; i < cnt; i++) for (let k = 0; k < size; k++) arr[i * size + k] = d[k] ?? 0;
+      g.setAttribute(n, new THREE.BufferAttribute(arr, size));
+      filled++;
+    }
+  }
+  if (filled) console.warn(`merge ${label}: filled ${filled} missing attribute(s) with defaults`);
+  const merged = mergeGeometries(list, false);
+  if (merged) return [merged];
+  console.warn(`merge ${label}: incompatible geometries, kept ${list.length} separate meshes`);
+  return list;
+}
+
 function roleOf(obj, matName) {
   const n = obj.name || '';
   const pn = nodeOf(obj) !== obj ? nodeOf(obj).name : '';
@@ -130,24 +157,38 @@ export async function loadWorld(scene, renderer, progress) {
     if (await exists('assets/pagoda.glb')) pagodaUrl = 'assets/pagoda.glb';
   }
 
+  // cache-bust the big files per build (static hosts often cache aggressively)
+  const ver = manifest && manifest.generated ? '?v=' + encodeURIComponent(manifest.generated) : '';
+  worldUrl += ver;
+  if (pagodaUrl) pagodaUrl += ver;
   const onProg = (a, b, label) => (e) => {
-    if (e.total) progress(a + (b - a) * (e.loaded / e.total), `${label} ${(e.loaded / 1048576).toFixed(1)} / ${(e.total / 1048576).toFixed(1)} MB`);
+    if (e.total) progress(a + (b - a) * Math.min(1, e.loaded / e.total), `${label} ${(e.loaded / 1048576).toFixed(1)} / ${(e.total / 1048576).toFixed(1)} MB`);
     else progress(a + (b - a) * 0.5, `${label} ${(e.loaded / 1048576).toFixed(1)} MB`);
   };
   // '*.b64.txt' = GLB shipped as base64 text (static hosts that do not serve .glb)
   const load = (url, a, b, label) => new Promise((res, rej) => {
-    if (!url.endsWith('.b64.txt')) { loader.load(url, res, onProg(a, b, label), rej); return; }
+    if (!/\.b64\.txt(\?|$)/.test(url)) { loader.load(url, res, onProg(a, b, label), rej); return; }
     const fl = new THREE.FileLoader(); fl.setResponseType('text');
     fl.load(url, (txt) => {
       try {
-        const bin = atob(txt.trim()); const buf = new Uint8Array(bin.length);
-        for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+        let buf;
+        if (typeof Uint8Array.fromBase64 === 'function') buf = Uint8Array.fromBase64(txt.trim());
+        else {
+          const bin = atob(txt.trim()); buf = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+        }
         loader.parse(buf.buffer, '', res, rej);
       } catch (err) { rej(err); }
     }, onProg(a, b, label), rej);
   });
 
-  const maskPromise = new THREE.TextureLoader().loadAsync('assets/surface_mask.png');
+  // surface mask: on failure fall back to plain ground (1x1 "soil") instead of failing the whole walk
+  const maskPromise = new THREE.TextureLoader().loadAsync('assets/surface_mask.png').catch((e) => {
+    console.warn('surface_mask.png unavailable, plain ground used', e && e.type ? e.type : e);
+    const t = new THREE.DataTexture(new Uint8Array([0, 0, 0, 255]), 1, 1);
+    t.needsUpdate = true;
+    return t;
+  });
   progress(0.05, 'Downloading the district…');
   const gltf = await load(worldUrl, 0.05, 0.62, 'Downloading the district…');
   let hero = null;
@@ -284,16 +325,16 @@ export async function loadWorld(scene, renderer, progress) {
   let drawCalls = 0;
   for (const [key, list] of groups) {
     const role = key.split('|')[0];
-    const g = list.length === 1 ? list[0] : mergeGeometries(list, false);
-    if (!g) continue;
-    g.computeBoundingSphere();
-    const m = new THREE.Mesh(g, M[role]);
-    m.name = 'Merged_' + key;
-    m.castShadow = role !== 'plinth';
-    m.receiveShadow = true;
-    m.matrixAutoUpdate = false;
-    root.add(m);
-    drawCalls++;
+    for (const g of mergeSafe(list, key)) {
+      g.computeBoundingSphere();
+      const m = new THREE.Mesh(g, M[role]);
+      m.name = 'Merged_' + key;
+      m.castShadow = role !== 'plinth';
+      m.receiveShadow = true;
+      m.matrixAutoUpdate = false;
+      root.add(m);
+      drawCalls++;
+    }
   }
   for (const m of extraMeshes) { root.add(m); drawCalls++; }
 
@@ -318,9 +359,7 @@ export async function loadWorld(scene, renderer, progress) {
     im.name = 'Instanced_' + (list[0].parent ? list[0].parent.name : list[0].name).replace(/\d+.*$/, '');
     root.add(im); drawCalls++; instanced += list.length;
   }
-  for (const [key, { mat, geoms }] of ownGroups) {
-    const g = geoms.length === 1 ? geoms[0] : mergeGeometries(geoms, false);
-    if (!g) continue;
+  for (const [key, { mat, geoms }] of ownGroups) for (const g of mergeSafe(geoms, (mat.name || 'material') + '|' + key.split('|')[1])) {
     g.computeBoundingSphere();
     const m = new THREE.Mesh(g, mat);
     m.name = 'MergedOwn_' + (mat.name || '') + '_' + key.split('|')[1];
@@ -336,7 +375,13 @@ export async function loadWorld(scene, renderer, progress) {
 
   progress(0.88, 'Building the collision world…');
   await new Promise((r) => setTimeout(r, 0));
-  const colGeom = mergeGeometries(collide, false);
+  const colGeom = mergeGeometries(collide.map((g) => {
+    // collider needs exactly position + objId
+    for (const n of Object.keys(g.attributes)) if (n !== 'position' && n !== 'objId') g.deleteAttribute(n);
+    if (!g.attributes.objId) g.setAttribute('objId', new THREE.BufferAttribute(new Float32Array(g.attributes.position.count), 1));
+    return g;
+  }), false);
+  if (!colGeom) throw new Error('could not build the collision world');
   const t0 = performance.now();
   const bvh = new MeshBVH(colGeom, { maxLeafTris: 8 });
   colGeom.boundsTree = bvh;
@@ -352,8 +397,11 @@ export async function loadWorld(scene, renderer, progress) {
     if (m && m.emissive && /glow|emiss/i.test(m.name || '') && !glowMats.includes(m)) { m.userData.baseEmissive = m.emissiveIntensity; glowMats.push(m); }
   });
 
+  // vegetation casters (shadow casting is switched per quality level)
+  const treeMeshes = root.children.filter((m) => m.isInstancedMesh && /^(Trees_|Instanced_(Tree|Shrub))/i.test(m.name));
+
   return {
-    root, bvh, glowMats, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
+    root, bvh, glowMats, treeMeshes, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
     stats: {
       worldUrl, pagodaUrl: hero ? pagodaUrl : null, worldKind, drawCalls, trees: treeInfo.count,
       colliderTris: colGeom.index.count / 3, bvhMs: Math.round(bvhMs), instanced, manifest,
@@ -425,6 +473,7 @@ function buildTrees(root, trees, M, worldKind, collide, addObj) {
     });
     im.castShadow = true; im.receiveShadow = true;
     im.computeBoundingSphere();
+    im.name = 'Trees_trunks';
     root.add(im); drawCalls++;
   }
   if (trees.crown.length) {
@@ -442,6 +491,7 @@ function buildTrees(root, trees, M, worldKind, collide, addObj) {
     if (im.instanceColor) im.instanceColor.needsUpdate = true;
     im.castShadow = true; im.receiveShadow = true;
     im.computeBoundingSphere();
+    im.name = 'Trees_crowns';
     root.add(im); drawCalls++;
   }
   return { count: trees.crown.length, drawCalls };

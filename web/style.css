@@ -51,8 +51,10 @@ button { font: inherit; color: inherit; }
 #load-text { font-size: 13px; opacity: .85; margin-top: 10px; min-height: 1.4em; }
 
 /* ---------------------------------------------------------------- HUD */
+/* the HUD layer itself never takes input; only real controls do (the hint strip, toast, joystick ring
+   and the gap between the title and the buttons stay click-through so joystick / look drags start there) */
 #hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
-#hud > * { pointer-events: auto; }
+#minimap-wrap, .panel, .run-btn, .title-chip, .btn-row { pointer-events: auto; }
 .topbar {
   position: absolute; left: 0; right: 0; top: 0; pointer-events: none;
   display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
@@ -77,7 +79,8 @@ button { font: inherit; color: inherit; }
 .icon-btn[aria-expanded="true"] { background: var(--accent); }
 .icon-btn[aria-expanded="true"] svg { stroke: var(--accent-ink); }
 .icon-btn[aria-expanded="true"] svg .fill { fill: var(--accent-ink); }
-.icon-btn:focus-visible, .panel button:focus-visible, .run-btn:focus-visible { outline: 3px solid #ffcf7a; outline-offset: 2px; }
+.icon-btn:focus-visible, .panel button:focus-visible, .run-btn:focus-visible, #minimap-wrap:focus-visible { outline: 3px solid #ffcf7a; outline-offset: 2px; }
+.panel h2:focus { outline: none; }
 
 #minimap-wrap {
   position: absolute; right: calc(var(--sar) + var(--gut)); top: calc(var(--sat) + var(--gut) + 54px);
@@ -138,6 +141,7 @@ button { font: inherit; color: inherit; }
 #joy.on { display: block; }
 #joy-knob { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; background: rgba(245,236,220,.85); box-shadow: var(--shadow); }
 .run-btn {
+  touch-action: none; -webkit-user-select: none; user-select: none;
   position: absolute; right: calc(var(--sar) + 20px); bottom: calc(var(--sab) + 28px);
   width: 72px; height: 72px; border-radius: 50%; border: 0; cursor: pointer;
   background: var(--glass); box-shadow: var(--shadow); font-weight: 700; font-size: 15px; letter-spacing: .03em;

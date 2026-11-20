@@ -15,7 +15,7 @@ export const PLACES = [
   { id: 'gate', ja: '八坂の塔 門前', en: 'Yasaka Pagoda gate', x: -5, n: 75, look: [PAGODA.x, PAGODA.n], verify: true, pitch: -0.3, dist: 4.5 },
   { id: 'ninenzaka', ja: '二寧坂', en: 'Ninenzaka', x: 153.6, n: 98, look: [155.5, 45] },
   { id: 'ninen-steps', ja: '二寧坂 石段上', en: 'Ninenzaka steps (top)', x: 152, n: 24, look: [155.9, 60] },
-  { id: 'ichinenzaka', ja: '一念坂', en: 'Ichinenzaka', x: 110, n: 152, look: [150, 150] },
+  { id: 'ichinenzaka', ja: '一念坂', en: 'Ichinenzaka', x: 110, n: 136.1, look: [143.9, 139.2] }, // on OSM way 157527438
   { id: 'sannen-stairs', ja: '産寧坂 石段下', en: 'Sannenzaka stairs (bottom)', x: 166.5, n: -142, look: [151, -177] },
   { id: 'koshindo', ja: '八坂庚申堂', en: 'Kōshin-dō', x: -36, n: 66, look: [PAGODA.x, PAGODA.n], verify: true },
 ];
@@ -25,7 +25,7 @@ export const SPAWN = PLACES[0];
 export const ZONES = [
   { ja: '八坂の塔', en: 'Yasaka Pagoda', test: (x, n) => Math.hypot(x - PAGODA.x, n - PAGODA.n) < 22 },
   { ja: '八坂庚申堂', en: 'Kōshin-dō', test: (x, n) => Math.hypot(x + 36, n - 62) < 14 },
-  { ja: '一念坂', en: 'Ichinenzaka', test: (x, n) => x > 95 && x < 146 && n > 134 && n < 162 },
+  { ja: '一念坂', en: 'Ichinenzaka', test: (x, n) => x > 62 && x < 146 && n > 128 && n < 164 && !(x > 140 && n > 141) },
   { ja: '二寧坂', en: 'Ninenzaka', test: (x, n) => x > 140 && x < 170 && n > 21 && n < 165 },
   { ja: '産寧坂', en: 'Sannenzaka', test: (x, n) => x > 140 && x < 185 && n > -185 && n <= 21 },
   { ja: '東大路通', en: 'Higashiōji-dōri', test: (x) => x < -168 },
@@ -34,7 +34,7 @@ export const ZONES = [
 ];
 
 export const QUALITY = {
-  low: { dprCap: 1.0, shadows: false, shadow: 1024, shadowRange: 26, bloom: false, msaa: false, particles: 120, petalsSize: 1 },
-  medium: { dprCap: 1.5, shadows: true, shadow: 1024, shadowRange: 32, bloom: false, msaa: false, particles: 220, petalsSize: 1 },
-  high: { dprCap: 2.0, shadows: true, shadow: 2048, shadowRange: 40, bloom: true, msaa: true, particles: 420, petalsSize: 1 },
+  low: { dprCap: 1.0, shadows: false, treeShadows: false, shadow: 1024, shadowRange: 26, bloom: false, msaa: false, particles: 120, petalsSize: 1 },
+  medium: { dprCap: 1.5, shadows: true, treeShadows: false, shadow: 1024, shadowRange: 32, bloom: false, msaa: false, particles: 220, petalsSize: 1 },
+  high: { dprCap: 2.0, shadows: true, treeShadows: true, shadow: 2048, shadowRange: 40, bloom: true, msaa: true, particles: 420, petalsSize: 1 },
 };

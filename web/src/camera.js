@@ -6,6 +6,8 @@ const _ray = new THREE.Ray();
 const _off = new THREE.Vector3();
 const _right = new THREE.Vector3();
 const _up = new THREE.Vector3();
+const _dir = new THREE.Vector3();
+const _fwd = new THREE.Vector3();
 
 export class FollowCamera {
   constructor(camera, bvh) {
@@ -22,7 +24,8 @@ export class FollowCamera {
     this.lastLook = -1e9;
   }
 
-  get forward() { return new THREE.Vector3(-Math.sin(this.yaw), 0, -Math.cos(this.yaw)); }
+  // shared scratch vector: copy it if you need to keep it
+  get forward() { return _fwd.set(-Math.sin(this.yaw), 0, -Math.cos(this.yaw)); }
 
   look(dx, dy, now) {
     this.yaw -= dx;
@@ -64,7 +67,7 @@ export class FollowCamera {
     }
 
     const cp = Math.cos(this.pitch);
-    const dir = new THREE.Vector3(Math.sin(this.yaw) * cp, Math.sin(this.pitch), Math.cos(this.yaw) * cp).normalize();
+    const dir = _dir.set(Math.sin(this.yaw) * cp, Math.sin(this.pitch), Math.cos(this.yaw) * cp).normalize();
     const free = this.clearance(this.target, dir, this.dist);
     // pull in fast, ease out slowly
     if (free < this.curDist) this.curDist += (free - this.curDist) * (1 - Math.exp(-30 * dt || 1));

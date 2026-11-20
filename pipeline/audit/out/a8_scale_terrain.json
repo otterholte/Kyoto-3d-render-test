@@ -1,0 +1,230 @@
+{
+ "outline_min_terrain_minus_plateau_base": {
+  "scene": {
+   "median": 0.024366989135742756,
+   "p95": 1.169456280517577,
+   "n_gt_1m": 39,
+   "n_gt_2m": 4
+  },
+  "plateau_tin": {
+   "median": 0.0013660654809335426,
+   "p95": 0.044240030316993695,
+   "n_gt_1m": 1,
+   "n_gt_2m": 0
+  }
+ },
+ "most_buried_buildings": [
+  {
+   "id": "bldg_6c3bac3e-14c9-4d91-ae97-f264b6e26401",
+   "centroid": [
+    108.7,
+    -113.3
+   ],
+   "base": 70.405,
+   "height": 13.2,
+   "area": 139,
+   "scene_min_above_base": 2.25,
+   "tin_min_above_base": 0.0,
+   "buried_fraction_of_height_at_lowest_wall": 0.17
+  },
+  {
+   "id": "bldg_42f2e3af-4ef2-4042-b227-858d8449d664",
+   "centroid": [
+    173.4,
+    -179.5
+   ],
+   "base": 80.446,
+   "height": 11.5,
+   "area": 192,
+   "scene_min_above_base": 2.23,
+   "tin_min_above_base": 0.0,
+   "buried_fraction_of_height_at_lowest_wall": 0.19
+  },
+  {
+   "id": "bldg_6591dce8-64d1-4d5e-b60c-5acd0647cc4c",
+   "centroid": [
+    182.2,
+    -9.8
+   ],
+   "base": 69.422,
+   "height": 11.6,
+   "area": 176,
+   "scene_min_above_base": 2.16,
+   "tin_min_above_base": 0.01,
+   "buried_fraction_of_height_at_lowest_wall": 0.19
+  },
+  {
+   "id": "bldg_032a4b3c-edab-42e4-b432-688c2c7b2af5",
+   "centroid": [
+    119.1,
+    -121.2
+   ],
+   "base": 70.693,
+   "height": 12.7,
+   "area": 144,
+   "scene_min_above_base": 2.13,
+   "tin_min_above_base": 0.05,
+   "buried_fraction_of_height_at_lowest_wall": 0.17
+  },
+  {
+   "id": "bldg_7b42ac43-4663-4a68-a56a-80ad35a580bd",
+   "centroid": [
+    154.5,
+    -146.5
+   ],
+   "base": 74.143,
+   "height": 10.8,
+   "area": 60,
+   "scene_min_above_base": 1.92,
+   "tin_min_above_base": 0.0,
+   "buried_fraction_of_height_at_lowest_wall": 0.18
+  },
+  {
+   "id": "bldg_6a5269ed-2ac6-4681-95b6-5a816d77d105",
+   "centroid": [
+    155.8,
+    -72.6
+   ],
+   "base": 70.289,
+   "height": 10.1,
+   "area": 33,
+   "scene_min_above_base": 1.75,
+   "tin_min_above_base": 0.03,
+   "buried_fraction_of_height_at_lowest_wall": 0.17
+  },
+  {
+   "id": "bldg_7119cfcb-0179-4247-91a4-6d7a31d270d4",
+   "centroid": [
+    108.8,
+    -141.5
+   ],
+   "base": 75.252,
+   "height": 12.2,
+   "area": 66,
+   "scene_min_above_base": 1.74,
+   "tin_min_above_base": -0.07,
+   "buried_fraction_of_height_at_lowest_wall": 0.14
+  },
+  {
+   "id": "bldg_4483372b-7d25-4121-9bd2-8ac6986ecb7c",
+   "centroid": [
+    103.5,
+    -136.6
+   ],
+   "base": 74.63,
+   "height": 11.4,
+   "area": 86,
+   "scene_min_above_base": 1.7,
+   "tin_min_above_base": -0.04,
+   "buried_fraction_of_height_at_lowest_wall": 0.15
+  },
+  {
+   "id": "bldg_499affe5-7b87-4228-8f59-e751f9872bbc",
+   "centroid": [
+    176.0,
+    12.3
+   ],
+   "base": 67.149,
+   "height": 10.5,
+   "area": 139,
+   "scene_min_above_base": 1.67,
+   "tin_min_above_base": -0.01,
+   "buried_fraction_of_height_at_lowest_wall": 0.16
+  },
+  {
+   "id": "bldg_3e026760-fda5-41ad-a500-6edaa885c5c7",
+   "centroid": [
+    112.0,
+    -129.1
+   ],
+   "base": 73.67,
+   "height": 11.5,
+   "area": 108,
+   "scene_min_above_base": 1.65,
+   "tin_min_above_base": 0.0,
+   "buried_fraction_of_height_at_lowest_wall": 0.14
+  }
+ ],
+ "plateau_height_by_storeys": {
+  "0": {
+   "n": 176,
+   "median": 6.800000000000001,
+   "p10": 3.4,
+   "p90": 10.649999999999999
+  },
+  "1": {
+   "n": 50,
+   "median": 7.8,
+   "p10": 4.49,
+   "p90": 11.02
+  },
+  "2": {
+   "n": 326,
+   "median": 8.7,
+   "p10": 6.9,
+   "p90": 11.75
+  },
+  "3": {
+   "n": 87,
+   "median": 10.9,
+   "p10": 8.4,
+   "p90": 12.620000000000003
+  },
+  "4": {
+   "n": 21,
+   "median": 14.3,
+   "p10": 7.9,
+   "p90": 17.0
+  },
+  "5": {
+   "n": 10,
+   "median": 15.8,
+   "p10": 8.15,
+   "p90": 19.89
+  },
+  "6": {
+   "n": 2,
+   "median": 20.55,
+   "p10": 19.790000000000003,
+   "p90": 21.31
+  },
+  "7": {
+   "n": 2,
+   "median": 23.95,
+   "p10": 21.99,
+   "p90": 25.91
+  }
+ },
+ "kit_height_above_terrain": {
+  "K_Door": {
+   "n": 158,
+   "median": -0.0092620849609375,
+   "p10": -0.16045875549316405,
+   "p90": 0.0
+  },
+  "K_Hisashi": {
+   "n": 109,
+   "median": 2.9632492065429688,
+   "p10": 2.812580871582031,
+   "p90": 3.2316970825195312
+  },
+  "K_Koshi": {
+   "n": 106,
+   "median": 0.0,
+   "p10": -0.11978721618652344,
+   "p90": 0.0
+  },
+  "K_Mushiko": {
+   "n": 44,
+   "median": 3.5853309631347656,
+   "p10": 3.499560546875,
+   "p90": 3.7208248138427735
+  },
+  "K_Window2F": {
+   "n": 206,
+   "median": 3.680004119873047,
+   "p10": 3.6056652069091797,
+   "p90": 3.893505096435547
+  }
+ }
+}

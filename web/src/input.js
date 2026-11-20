@@ -16,16 +16,23 @@ export class Input {
     this.anyInput = false;
     this.R = 58;
 
+    // physical keys (e.code): WASD works on AZERTY/Dvorak too
+    const CODES = { KeyW: 'w', KeyA: 'a', KeyS: 's', KeyD: 'd', ArrowUp: 'arrowup', ArrowDown: 'arrowdown',
+      ArrowLeft: 'arrowleft', ArrowRight: 'arrowright', ShiftLeft: 'shift', ShiftRight: 'shift' };
     addEventListener('keydown', (e) => {
-      if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName) && e.target.type !== 'range') return;
-      const k = e.key.toLowerCase();
-      if (['w', 'a', 's', 'd', 'arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'shift'].includes(k)) {
-        this.keys.add(k); this.anyInput = true;
-        if (k.startsWith('arrow') && e.target === document.body) e.preventDefault();
-      }
+      const k = CODES[e.code];
+      if (!k || e.ctrlKey || e.metaKey || e.altKey) return;
+      const t = e.target;
+      const field = t && /INPUT|TEXTAREA|SELECT/.test(t.tagName);
+      if (field && (t.type !== 'range' || k.startsWith('arrow'))) return;  // the slider keeps its arrow keys
+      this.keys.add(k); this.anyInput = true;
+      if (k.startsWith('arrow')) e.preventDefault();
     });
-    addEventListener('keyup', (e) => this.keys.delete(e.key.toLowerCase()));
-    addEventListener('blur', () => { this.keys.clear(); this.endJoy(); this.lookers.clear(); });
+    addEventListener('keyup', (e) => { const k = CODES[e.code]; if (k) this.keys.delete(k); });
+    addEventListener('blur', () => this.clear());
+    addEventListener('pagehide', () => this.clear());
+    document.addEventListener('visibilitychange', () => { if (document.hidden) this.clear(); });
+    canvas.addEventListener('lostpointercapture', (e) => { if (e.pointerType !== 'touch') this.lookers.delete(e.pointerId); });
 
     canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     canvas.addEventListener('pointerdown', (e) => this.down(e));
@@ -55,6 +62,11 @@ export class Input {
     }
   }
 
+  clear() {
+    this.keys.clear(); this.endJoy(); this.lookers.clear(); this.pinchD = 0;
+    this.lookDelta.x = this.lookDelta.y = 0;
+  }
+
   pinchDist() {
     const [a, b] = [...this.lookers.values()];
     return Math.hypot(a.x - b.x, a.y - b.y);
@@ -72,6 +84,7 @@ export class Input {
     }
     const L = this.lookers.get(e.pointerId);
     if (!L) return;
+    if (this.lookers.size > 2) { L.x = e.clientX; L.y = e.clientY; e.preventDefault(); return; } // 3+ fingers: ignore
     if (this.lookers.size === 2) {
       L.x = e.clientX; L.y = e.clientY;
       const d = this.pinchDist();

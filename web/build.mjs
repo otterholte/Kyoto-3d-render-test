@@ -292,3 +292,14 @@ for (const k of ['world', 'pagoda']) {
 manifest.surfaceMask = { file: 'assets/surface_mask.png', extent: [-300, 300, -300, 300], channels: 'R asphalt, G granite paving, B gravel, else soil' };
 fs.writeFileSync(path.join(DIST, 'manifest.json'), JSON.stringify(manifest, null, 2));
 console.log('dist/manifest.json written');
+
+// ---------------------------------------------------------------- artifact.html
+// The artifact host wraps the page in its own document skeleton: artifact.html = index.html without the
+// doctype / html / head / body wrapper lines. Regenerated on every build so the two never drift apart.
+{
+  const WRAP = /^\s*(<!doctype html>|<html\b[^>]*>|<\/html>|<head>|<\/head>|<body>|<\/body>|<meta charset="utf-8">)\s*$/i;
+  const src = fs.readFileSync(path.join(HERE, 'index.html'), 'utf8');
+  const out = src.split('\n').filter((l) => !WRAP.test(l)).join('\n');
+  fs.writeFileSync(path.join(HERE, 'artifact.html'), out);
+  console.log('artifact.html regenerated from index.html');
+}

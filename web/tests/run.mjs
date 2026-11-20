@@ -286,7 +286,31 @@ async function mobile(browser, url, devName, dev) {
   await shot(page, `mobile_${key}_01_spawn.png`);
   const { width: W, height: H } = R.viewport;
 
+  // the (visible) hint strip must not block a joystick start on top of it
+  const hb = await page.locator('#hint').boundingBox();
+  if (hb) {
+    await touch(cdp, 'touchStart', [[hb.x + 20, hb.y + hb.height / 2]]);
+    R.joyOnHint = await page.evaluate(() => document.getElementById('joy').classList.contains('on'));
+    await touch(cdp, 'touchEnd', []);
+    check(R.joyOnHint, `${devName}: joystick starts on top of the hint strip`);
+  }
+  // look-drag starting in the gap between the title chip and the buttons
+  const tb = await page.locator('.title-chip').boundingBox(), bb = await page.locator('.btn-row').boundingBox();
+  if (tb && bb && bb.x - (tb.x + tb.width) > 6) {
+    const gx = (tb.x + tb.width + bb.x) / 2, gy = tb.y + 10;
+    const yA = (await state(page)).camYaw;
+    await touch(cdp, 'touchStart', [[gx, gy]]);
+    for (let i = 1; i <= 4; i++) await touch(cdp, 'touchMove', [[gx - i * 3, gy + i * 25]]);
+    await touch(cdp, 'touchEnd', []);
+    await frames(page, 1);
+    const pB = await page.evaluate(() => __hw.follow.pitch);
+    R.gapLook = { yA, pB };
+    check(Math.abs(pB - 0.02) > 0.05, `${devName}: look-drag works from the top-bar gap (pitch ${pB.toFixed(2)})`);
+  }
+
   // joystick (left thumb) forward = east
+  await page.evaluate(() => __hw.teleport(__hw.places[0]));
+  await frames(page, 1);
   const a = await state(page);
   const jx = W * 0.2, jy = H * 0.78;
   await touch(cdp, 'touchStart', [[jx, jy]]);
@@ -324,6 +348,25 @@ async function mobile(browser, url, devName, dev) {
   R.runPressed = await page.getAttribute('#btn-run', 'aria-pressed');
   check(R.runPressed === 'true', `${devName}: run toggle`);
   await page.tap('#btn-run');
+  // run toggle with a second finger while the joystick is held
+  const rb = await page.locator('#btn-run').boundingBox();
+  const rc = [rb.x + rb.width / 2, rb.y + rb.height / 2];
+  await touch(cdp, 'touchStart', [[jx, jy]]);
+  await touch(cdp, 'touchMove', [[jx, jy - 60]]);
+  await touch(cdp, 'touchStart', [[jx, jy - 60], rc]);
+  await touch(cdp, 'touchEnd', [[jx, jy - 60]]);
+  R.runWhileHeld = await page.getAttribute('#btn-run', 'aria-pressed');
+  await touch(cdp, 'touchEnd', []);
+  check(R.runWhileHeld === 'true', `${devName}: run toggles while the joystick is held`);
+  await page.tap('#btn-run');
+
+  // minimap survives a rotation while a panel hides it
+  await page.tap('#btn-settings'); await sleep(200);
+  await page.setViewportSize({ width: H, height: W }); await sleep(400);
+  await page.setViewportSize({ width: W, height: H }); await sleep(400);
+  await page.keyboard.press('Escape'); await sleep(400);
+  R.minimapSize = await page.evaluate(() => [document.getElementById('minimap').width, document.getElementById('minimap').height]);
+  check(R.minimapSize[0] > 50 && R.minimapSize[1] > 50, `${devName}: minimap keeps its size after resize with a panel open (${R.minimapSize})`);
 
   // places menu + teleport by tapping
   await page.tap('#btn-places'); await sleep(300);
@@ -351,9 +394,43 @@ async function mobile(browser, url, devName, dev) {
   await page.context().close();
 }
 
+// ------------------------------------------------------------------ robustness
+async function robustness(browser, url) {
+  console.log('ROBUSTNESS');
+  // 1. CDN blocked -> watchdog / module error message instead of an endless "Preparing…"
+  {
+    const { page } = await newPage(browser, { viewport: { width: 800, height: 600 } });
+    await page.route(/cdn\.jsdelivr\.net/, (r) => r.abort());
+    const t0 = Date.now();
+    await page.goto(url);
+    await page.waitForSelector('#fatal:not([hidden])', { timeout: 30000 }).catch(() => {});
+    const msg = await page.evaluate(() => (document.getElementById('fatal').hidden ? '' : document.getElementById('fatal').textContent));
+    results.robust = { cdnBlocked: { msg, seconds: (Date.now() - t0) / 1000 } };
+    check(/3D engine/.test(msg), `CDN blocked: clear message after ${results.robust.cdnBlocked.seconds.toFixed(1)} s`);
+    await page.context().close();
+  }
+  // 2. missing surface mask -> plain ground, the walk still starts
+  {
+    const { page } = await newPage(browser, { viewport: { width: 800, height: 600 } });
+    await page.route(/surface_mask\.png/, (r) => r.fulfill({ status: 404, body: 'nf' }));
+    await page.goto(url);
+    await page.waitForFunction(() => window.__hw && (window.__hw.ready || !document.getElementById('fatal').hidden), null, { timeout: 300000 });
+    const ok = await page.evaluate(() => window.__hw.ready && document.getElementById('fatal').hidden);
+    results.robust.noMask = ok;
+    check(ok, 'missing surface_mask.png: walk starts with plain ground');
+    // 3. a throwing frame does not freeze the loop
+    await page.evaluate(() => { __hw.maxDt = 0.5; const T = __hw.traveller; T._u = T.update; let n = 2; T.update = function (...a) { if (n-- > 0) throw new Error('injected'); return T._u.apply(T, a); }; });
+    await sleep(6000);
+    const alive = await page.evaluate(() => new Promise((r) => { const p0 = __hw.traveller.idleT; setTimeout(() => r(__hw.traveller.idleT > p0), 4000); }));
+    check(alive, 'frame loop survives an exception in one frame');
+    await page.context().close();
+  }
+}
+
 const { srv, url } = await serve();
 const browser = await launch();
 try {
+  if (!ONLY || ONLY === 'robust') await robustness(browser, url);
   if (!ONLY || ONLY === 'desktop') await desktop(browser, url);
   if (!ONLY || ONLY === 'mobile') {
     await mobile(browser, url, 'iPhone 13', devices['iPhone 13']);

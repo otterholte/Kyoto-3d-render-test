@@ -11,16 +11,31 @@ export class MiniMap {
     this.full = false;
     this.ctx = canvas.getContext('2d');
     this.layer = this.drawStatic();
-    wrap.addEventListener('click', () => { this.full = !this.full; wrap.classList.toggle('full', this.full); this.resize(); });
+    this.dpr = Math.min(devicePixelRatio || 1, 2);
+    const toggle = () => {
+      this.full = !this.full;
+      wrap.classList.toggle('full', this.full);
+      wrap.setAttribute('aria-pressed', String(this.full));
+    };
+    wrap.setAttribute('role', 'button');
+    wrap.tabIndex = 0;
+    wrap.setAttribute('aria-pressed', 'false');
+    wrap.setAttribute('aria-label', 'Mini-map, north up. Activate to switch between the local view and the whole area.');
+    wrap.addEventListener('click', toggle);
+    wrap.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    // ResizeObserver also catches rotation / panel-hidden states; 0-sized (hidden) boxes are ignored
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => this.resize()).observe(wrap);
+    else addEventListener('resize', () => this.resize());
     this.resize();
-    addEventListener('resize', () => this.resize());
   }
 
   resize() {
     const r = this.wrap.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return;      // hidden: keep the last good size
     const dpr = Math.min(devicePixelRatio || 1, 2);
-    this.canvas.width = Math.max(1, Math.round(r.width * dpr));
-    this.canvas.height = Math.max(1, Math.round(r.height * dpr));
+    const w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
+    if (w === this.canvas.width && h === this.canvas.height) return;
+    this.canvas.width = w; this.canvas.height = h;
     this.dpr = dpr;
   }
 
