@@ -1,0 +1,3233 @@
+{
+ "schema": "building_evidence v1",
+ "frame": "Local scene frame of data/processed/boundary.json: x=east, y=north (m) from origin E=-20160, N=-111160 (EPSG:6674).",
+ "confidence_classes": {
+  "measured": "survey/measured dataset (PLATEAU CityGML attributes or LOD2 geometry, OSM traced geometry/tags)",
+  "documented": "official or published source (URL given; NOTE: in this session JP sites could only be read via web-search snippets, not fetched)",
+  "observed": "seen in a cited CC-licensed Wikimedia Commons photo (file title given); human visual reading, no photogrammetry",
+  "inferred": "typical Kyoto machiya / temple vocabulary, no direct evidence"
+ },
+ "caveats": [
+  "PLATEAU storeysAboveGround=0 means unknown.",
+  "PLATEAU LOD2 generally omits hisashi pent roofs and koshi; use photos for those.",
+  "Many Commons geotags are batch/approximate; see geotag_note in docs/references/commons_geotagged.json.",
+  "Not in box / no evidence: Ishibe-koji (石塀小路) lies north of the 400 m box; no licensed in-box photos of Ichinenzaka itself."
+ ],
+ "street_segments": [
+  {
+   "id": "yasaka_dori_west",
+   "name_ja": "八坂通（東大路通〜八坂庚申堂）/ 夢見坂",
+   "name_en": "Yasaka-dori west (Higashioji -> Koshin-do), a.k.a. Yumemi-zaka slope",
+   "osm_way_ids": [
+    24516359
+   ],
+   "local_extent": "x -178..-12, y 100..70 (rises eastwards toward the pagoda)",
+   "plateau_stats": {
+    "n_buildings_fronting": 28,
+    "measuredHeight_m": {
+     "p10": 7.0,
+     "median": 9.4,
+     "p90": 11.8
+    },
+    "main_roof_eave_height_m": {
+     "p10": 5.23,
+     "median": 6.47,
+     "p90": 9.21
+    },
+    "roof_pitch_deg_median": 24.2,
+    "storeysAboveGround_counts": {
+     "3": 8,
+     "unknown(0)": 3,
+     "2": 15,
+     "1": 2
+    },
+    "ridge_orientation_counts": {
+     "n/a": 3,
+     "oblique": 1,
+     "tsumairi": 8,
+     "hirairi": 16
+    },
+    "structure_counts": {
+     "wooden/earthen (木造・土蔵造)": 20,
+     "unknown": 3,
+     "steel": 5
+    },
+    "flat_roof_share": 0.14,
+    "confidence": "measured",
+    "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+    "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+   },
+   "items": [
+    {
+     "attribute": "name_note",
+     "value": "Commons categorises this segment as \"Yumemi-zaka\"; a \"夢見坂\" stone marker stands at the Koshin-do gate (OSM node 14102317343). One published guide calls the street on the west side of the pagoda 夢見坂.",
+     "confidence": "documented",
+     "source": "https://co-trip.jp/article/676277 ; File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg (marker visible)"
+    },
+    {
+     "attribute": "paving",
+     "value": "granite setts / rough-flamed granite blocks in running bond, small units, warm grey; narrow open side gutter",
+     "confidence": "observed",
+     "photos": [
+      "File:Tower of Yasaka (Hokanji).jpg",
+      "File:塔の下商店街（八坂の塔） - panoramio.jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923803716).jpg"
+     ],
+     "osm_surface": "sett"
+    },
+    {
+     "attribute": "street_character",
+     "value": "mixed: 2–3 storey traditional shops interleaved with modern RC/steel 3–4 storey buildings (tile/brick cladding, apartment blocks e.g. 夢見坂マンション), many projecting vertical lightbox / wooden signboards, overhead utility poles & wires, AC units",
+     "confidence": "observed",
+     "photos": [
+      "File:Tower of Yasaka (Hokanji).jpg",
+      "File:Yasaka-Dori - panoramio.jpg",
+      "File:法観寺八坂の塔 - panoramio.jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923803716).jpg"
+     ]
+    },
+    {
+     "attribute": "storefronts",
+     "value": "open shop fronts with glazed sliding doors, noren, vending machines; occasional sen-koshi lattice",
+     "confidence": "observed",
+     "photos": [
+      "File:法観寺八坂の塔 - panoramio.jpg",
+      "File:Yasaka Pagoda (24922466195).jpg"
+     ]
+    },
+    {
+     "attribute": "roofs",
+     "value": "grey kawara tiles, mostly hirairi with tiled hisashi over ground floor; flat roofs on modern blocks",
+     "confidence": "observed",
+     "photos": [
+      "File:Yasaka Pagoda (24922466195).jpg"
+     ],
+     "plateau_supports": "16 hirairi vs 8 tsumairi; 14% flat"
+    },
+    {
+     "attribute": "street_lights",
+     "value": "black post lanterns (square lamp heads) on shop fronts",
+     "confidence": "observed",
+     "photos": [
+      "File:Yasaka Pagoda (24922466195).jpg"
+     ]
+    },
+    {
+     "attribute": "width",
+     "value": "narrow, approx. 4–5 m between building lines (visual only; take exact width from OSM/PLATEAU)",
+     "confidence": "observed"
+    }
+   ]
+  },
+  {
+   "id": "koshindo_frontage",
+   "name_ja": "八坂庚申堂（大黒山金剛寺）",
+   "name_en": "Yasaka Koshin-do (Kongo-ji)",
+   "osm_way_ids": [
+    1316622873
+   ],
+   "plateau_main_hall": {
+    "osm_way": 568614207,
+    "plateau_buildingID": "26100-bldg-494505",
+    "measuredHeight_m": 9.0,
+    "confidence": "measured",
+    "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+   },
+   "items": [
+    {
+     "attribute": "location",
+     "value": "south side of Yasaka-dori, ~45 m west of the pagoda (precinct OSM 1316622873, local centroid -36,60); gate opens north onto the street",
+     "confidence": "measured",
+     "source": "OSM data/raw/osm/osm_wide.osm + camera heading 164 deg of File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg"
+    },
+    {
+     "attribute": "gate",
+     "value": "small tiled kirizuma gate (ridge parallel to street) painted vermilion (朱): posts, beams, door leaves; black iron strap fittings; white-painted beam ends (kigutchi); flanked by white plaster walls with vermilion side doors on a grey stone plinth",
+     "confidence": "observed",
+     "photos": [
+      "File:八坂庚申堂 - panoramio.jpg",
+      "File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg"
+     ]
+    },
+    {
+     "attribute": "gate_colour_hex",
+     "value": "#c0503a (vermilion, lighting-dependent; overcast sample #ab5a57)",
+     "confidence": "observed",
+     "photos": [
+      "File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg"
+     ]
+    },
+    {
+     "attribute": "kukurizaru",
+     "value": "dense clusters of multi-coloured cloth balls (kukuri-zaru) hung in front of the main hall and around a small hexagonal green-roofed shrine/jizo stand in the courtyard; dominant colours red, pink, orange, yellow, blue, green, purple",
+     "confidence": "observed",
+     "photos": [
+      "File:Kongoji (Yasaka Kōshindō) Temple (51473114223).jpg",
+      "File:Yasaka Koshindo, May 2017.jpg",
+      "File:Multi-coloured kukuri-zaru talismans at Kongoji Yasaka Koshin-do temple, Kyoto, Japan (2).jpg"
+     ]
+    },
+    {
+     "attribute": "main_hall",
+     "value": "natural (unpainted) dark timber, white plaster walls, carved bargeboard/kaeru-mata ornaments, black lattice panels; three-monkey (見ざる言わざる聞かざる) motifs",
+     "confidence": "observed",
+     "photos": [
+      "File:Kongoji (Yasaka Kōshindō) Temple (51473114223).jpg"
+     ],
+     "also_documented": "three monkeys statue on the gate roof; 朱色の山門 (https://www.jalan.net/kankou/spt_guide000000189909/)"
+    },
+    {
+     "attribute": "courtyard_paving",
+     "value": "granite slab path to gate; gravel courtyard",
+     "confidence": "observed",
+     "photos": [
+      "File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg"
+     ]
+    },
+    {
+     "attribute": "markers",
+     "value": "large natural stone stele 庚申尊 left of gate; square granite pillar 夢見坂 right of gate",
+     "confidence": "observed",
+     "photos": [
+      "File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg",
+      "File:八坂庚申堂 - panoramio.jpg"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yasaka_dori_east",
+   "name_ja": "八坂通（八坂の塔〜二寧坂・産寧坂分岐）",
+   "name_en": "Yasaka-dori east (pagoda -> Ninenzaka/Sannenzaka junction)",
+   "osm_way_ids": [
+    710696944
+   ],
+   "local_extent": "x -12..152, y 70..21",
+   "plateau_stats": {
+    "n_buildings_fronting": 31,
+    "measuredHeight_m": {
+     "p10": 3.8,
+     "median": 9.7,
+     "p90": 11.4
+    },
+    "main_roof_eave_height_m": {
+     "p10": 3.81,
+     "median": 6.24,
+     "p90": 7.9
+    },
+    "roof_pitch_deg_median": 24.2,
+    "storeysAboveGround_counts": {
+     "unknown(0)": 13,
+     "2": 16,
+     "1": 2
+    },
+    "ridge_orientation_counts": {
+     "n/a": 11,
+     "tsumairi": 4,
+     "hirairi": 16
+    },
+    "structure_counts": {
+     "unknown": 13,
+     "wooden/earthen (木造・土蔵造)": 16,
+     "steel": 2
+    },
+    "flat_roof_share": 0.19,
+    "confidence": "measured",
+    "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+    "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+   },
+   "items": [
+    {
+     "attribute": "paving",
+     "value": "rectangular granite slabs (ishidatami) in running bond, larger units than west segment, light grey; granite kerb lines at building edges; slight camber, manhole covers",
+     "confidence": "observed",
+     "photos": [
+      "File:150124 At Yasakakamimachi Kyoto Japan02n.jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924003837).jpg",
+      "File:Gojunoto Tower (Yasaka Tower) of Hokanji Temple from Sanneizaka.jpg"
+     ],
+     "osm_surface": "paving_stones"
+    },
+    {
+     "attribute": "storeys",
+     "value": "predominantly 2 storeys; main eave ~6.2 m, ridge ~9.7 m (median)",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "roof_orientation",
+     "value": "mostly hirairi (16 hirairi / 4 tsumairi of the classifiable LOD2 roofs)",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "facade_upper",
+     "value": "cream / pale-ochre plaster (聚楽-like) upper walls with exposed dark-brown posts and beams; 2F glazed wooden-framed windows, several with projecting wooden balcony railings (手摺); round 丸窓 windows on some gables",
+     "confidence": "observed",
+     "photos": [
+      "File:150124 At Yasakakamimachi Kyoto Japan01n.jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923805641).jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924001697).jpg"
+     ]
+    },
+    {
+     "attribute": "facade_ground",
+     "value": "vertical dark-brown wooden boards (板張り) and wooden sliding doors; tiled hisashi at ~1F head height; tall board fences (板塀) with plaster upper band and tile coping on rubble-stone plinths on the south side",
+     "confidence": "observed",
+     "photos": [
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923271673).jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924001697).jpg"
+     ]
+    },
+    {
+     "attribute": "retaining_walls",
+     "value": "rough rubble-stone (野面積み) retaining walls ~0.5–1.0 m high where plots sit above the sloping street",
+     "confidence": "observed",
+     "photos": [
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923271673).jpg"
+     ]
+    },
+    {
+     "attribute": "lanterns_signs",
+     "value": "black hanging lanterns with white panels; white cloth banner-noren with shop names; red paper chochin at eaves; green-painted large octagonal lantern (常夜燈-style) at the bend near the pagoda",
+     "confidence": "observed",
+     "photos": [
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923805641).jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924003837).jpg",
+      "File:Gojunoto Tower (Yasaka Tower) of Hokanji Temple from Sanneizaka.jpg"
+     ]
+    },
+    {
+     "attribute": "street_lights",
+     "value": "cast-iron style lamp posts with lantern heads; overhead wires mostly absent on this segment",
+     "confidence": "observed",
+     "photos": [
+      "File:150124 At Yasakakamimachi Kyoto Japan01n.jpg"
+     ]
+    },
+    {
+     "attribute": "landmark_Bunnosuke_chaya",
+     "value": "文の助茶屋 (OSM node 14104475724, local 53,69): large red-and-white paper lanterns, white lanterns, dense name-plaque (千社札) stickers, dark timber",
+     "confidence": "observed",
+     "photos": [
+      "File:文の助茶屋 - panoramio.jpg"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ninenzaka",
+   "name_ja": "二寧坂（二年坂）",
+   "name_en": "Ninenzaka",
+   "osm_way_ids": [
+    30913263,
+    30882783,
+    550360170
+   ],
+   "local_extent": "x ~150-156, y 103 -> 21 (north end low, south end climbs via steps to Sannenzaka)",
+   "plateau_stats": {
+    "n_buildings_fronting": 17,
+    "measuredHeight_m": {
+     "p10": 7.2,
+     "median": 8.1,
+     "p90": 9.3
+    },
+    "main_roof_eave_height_m": {
+     "p10": 4.56,
+     "median": 5.69,
+     "p90": 6.2
+    },
+    "roof_pitch_deg_median": 24.6,
+    "storeysAboveGround_counts": {
+     "unknown(0)": 9,
+     "2": 7,
+     "1": 1
+    },
+    "ridge_orientation_counts": {
+     "hirairi": 10,
+     "n/a": 3,
+     "tsumairi": 4
+    },
+    "structure_counts": {
+     "unknown": 10,
+     "wooden/earthen (木造・土蔵造)": 7
+    },
+    "flat_roof_share": 0.06,
+    "confidence": "measured",
+    "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+    "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+   },
+   "items": [
+    {
+     "attribute": "roof_form",
+     "value": "kirizuma (gable), hirairi (ridge parallel to street) for むしこ造り町家 standard",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html",
+     "note": "Kyoto City Sanneizaka preservation plan design standards (as quoted in search results; page itself not fetchable from this sandbox)."
+    },
+    {
+     "attribute": "roof_material",
+     "value": "日本瓦 (Japanese clay tile, grey); hisashi also tiled",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "upper_floor",
+     "value": "中2階 (tsushi-2kai, low upper storey) with 虫籠窓 mushiko-mado for Edo–Meiji machiya; Meiji 本2階建 (full two-storey) types also present",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "walls",
+     "value": "真壁 (exposed-timber) construction; plaster (漆喰/プラスター) or earthen finish; Sanneizaka machiya often keep bare earth-plaster (土壁)",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "ground_floor_front",
+     "value": "出格子 (projecting lattice) or 平格子 (flush lattice)",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "timber_finish",
+     "value": "べんがら (bengara red-brown) or similar stain",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "district_status",
+     "value": "重要伝統的建造物群保存地区 (Sanneizaka), selected 1976 (~5.3 ha; Ishibe-koji area added 1996, total ~8.2 ha); ~65% of buildings are traditional",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html ; https://online.bunka.go.jp/heritages/detail/125134"
+    },
+    {
+     "attribute": "paving",
+     "value": "granite slab ishidatami (rectangular slabs ~0.3 x 0.6 m visual, running bond), granite kerbs, side gutters with grates",
+     "confidence": "observed",
+     "photos": [
+      "File:Pedestrian road with pavements and paper umbrellas, Higashiyama-ku, Kyoto, Japan, early morning.jpg",
+      "File:Nineizaka,Kyoto 二寧坂 - panoramio.jpg"
+     ],
+     "osm_surface": "paving_stones"
+    },
+    {
+     "attribute": "paving_origin",
+     "value": "stones said to be re-used Kyoto tram (市電) paving setts; street improved in Taisho era",
+     "confidence": "documented",
+     "source": "search-result snippet (kyoto-meguri.jp / kinabal.co.jp, not fetched); treat as weak"
+    },
+    {
+     "attribute": "stairs",
+     "value": "one flight of granite steps at the south end; OSM step_count=17 (way 30882783, width 4); JR West article: \"about 15 steps\"",
+     "confidence": "documented",
+     "source": "OSM data/raw/osm/osm_wide.osm ; https://www.westjr.co.jp/company/info/issue/bsignal/04_vol_95/feature02.html",
+     "note": "do not invent a number beyond 15–17"
+    },
+    {
+     "attribute": "storeys",
+     "value": "2 storeys (where PLATEAU gives a count); main eave ~5.7 m, height ~8.1 m (median)",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "roof_orientation",
+     "value": "mainly hirairi (10) with some tsumairi gables facing the street (4); visible cross-gables with round windows",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+     "photos": [
+      "File:Pedestrian road with pavements and paper umbrellas, Higashiyama-ku, Kyoto, Japan, early morning.jpg",
+      "File:Kyoto - Nineizaka (51472101082).jpg"
+     ]
+    },
+    {
+     "attribute": "facades",
+     "value": "continuous rows of 2-storey timber machiya; 2F: wooden glazed lattice windows, sudare blinds, projecting wooden railings; ochre/cream plaster panels; 1F: open shopfronts with glazed wooden sliding doors, sen-koshi on closed bays, tiled hisashi; occasional round 丸窓 in 2F walls",
+     "confidence": "observed",
+     "photos": [
+      "File:Nineizaka,Kyoto 二寧坂 - panoramio.jpg",
+      "File:Ninen-zaka 2018-04-14.jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923272228).jpg",
+      "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924001697).jpg"
+     ]
+    },
+    {
+     "attribute": "street_furniture",
+     "value": "wooden sign 二寧坂（二年坂） on a granite post at the top of the steps; white wagasa umbrellas displayed on a façade; black vertical shop signs (e.g. きんつば); old-style lamp posts with hexagonal glass lanterns; potted plants; bamboo screens",
+     "confidence": "observed",
+     "photos": [
+      "File:Pedestrian road with pavements and paper umbrellas, Higashiyama-ku, Kyoto, Japan, early morning.jpg",
+      "File:Kyoto - Nineizaka (51472101082).jpg"
+     ]
+    },
+    {
+     "attribute": "landmark_starbucks_yasaka_chaya",
+     "value": "Starbucks Ninenzaka Yasaka Chaya: traditional 2-storey, ochre plaster, 2F round lattice window, indigo noren, rubble-stone plinth, no corporate signage except small hanging board",
+     "confidence": "observed",
+     "photos": [
+      "File:Starbucks Coffee Kyoto Ninenzaka Yasaka Chaya.jpg"
+     ],
+     "osm": "node 10844279757 (local 152,53)"
+    }
+   ]
+  },
+  {
+   "id": "sannenzaka",
+   "name_ja": "産寧坂（三年坂）",
+   "name_en": "Sannenzaka",
+   "osm_way_ids": [
+    526198271,
+    1569088146,
+    1569088147,
+    179116810,
+    1251544286
+   ],
+   "local_extent": "x ~150-172, y 21 (north, junction) -> -181 (south, Kiyomizu-zaka)",
+   "plateau_stats": {
+    "n_buildings_fronting": 35,
+    "measuredHeight_m": {
+     "p10": 7.4,
+     "median": 9.7,
+     "p90": 12.1
+    },
+    "main_roof_eave_height_m": {
+     "p10": 4.15,
+     "median": 7.0,
+     "p90": 9.3
+    },
+    "roof_pitch_deg_median": 24.1,
+    "storeysAboveGround_counts": {
+     "unknown(0)": 17,
+     "2": 15,
+     "1": 3
+    },
+    "ridge_orientation_counts": {
+     "hirairi": 24,
+     "tsumairi": 3,
+     "n/a": 8
+    },
+    "structure_counts": {
+     "unknown": 18,
+     "wooden/earthen (木造・土蔵造)": 12,
+     "RC": 3,
+     "steel": 2
+    },
+    "flat_roof_share": 0.06,
+    "confidence": "measured",
+    "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+    "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+   },
+   "items": [
+    {
+     "attribute": "roof_form",
+     "value": "kirizuma (gable), hirairi (ridge parallel to street) for むしこ造り町家 standard",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html",
+     "note": "Kyoto City Sanneizaka preservation plan design standards (as quoted in search results; page itself not fetchable from this sandbox)."
+    },
+    {
+     "attribute": "roof_material",
+     "value": "日本瓦 (Japanese clay tile, grey); hisashi also tiled",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "upper_floor",
+     "value": "中2階 (tsushi-2kai, low upper storey) with 虫籠窓 mushiko-mado for Edo–Meiji machiya; Meiji 本2階建 (full two-storey) types also present",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "walls",
+     "value": "真壁 (exposed-timber) construction; plaster (漆喰/プラスター) or earthen finish; Sanneizaka machiya often keep bare earth-plaster (土壁)",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "ground_floor_front",
+     "value": "出格子 (projecting lattice) or 平格子 (flush lattice)",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "timber_finish",
+     "value": "べんがら (bengara red-brown) or similar stain",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html"
+    },
+    {
+     "attribute": "district_status",
+     "value": "重要伝統的建造物群保存地区 (Sanneizaka), selected 1976 (~5.3 ha; Ishibe-koji area added 1996, total ~8.2 ha); ~65% of buildings are traditional",
+     "confidence": "documented",
+     "source": "https://www.city.kyoto.lg.jp/tokei/page/0000281761.html ; https://online.bunka.go.jp/heritages/detail/125134"
+    },
+    {
+     "attribute": "stairs",
+     "value": "main stone staircase at the south (upper) end: 46 steps (OSM way 179116810 step_count=46, width 4; multiple published sources also state 46). One source gives average riser ~14.5 cm (unverified)",
+     "confidence": "documented",
+     "source": "OSM data/raw/osm/osm_wide.osm ; https://aoharu2015.benzi.jp/archives/1796"
+    },
+    {
+     "attribute": "stairs_form",
+     "value": "granite block treads in several flights separated by landings, following a bend; rubble-stone and cut-stone retaining walls on both sides; buildings step down with the stair",
+     "confidence": "observed",
+     "photos": [
+      "File:Illuminated Sanneizaka near Kiyomizudera Temple.jpg",
+      "File:Sanneizaka Street, Kyoto on June 5th, 2017.jpg",
+      "File:Kimodos Down the Stairs (40134007830).jpg",
+      "File:Backstreets of Kyoto - panoramio.jpg"
+     ]
+    },
+    {
+     "attribute": "paving",
+     "value": "granite slab ishidatami on the gently sloping northern part; rough flamed granite slabs near the Kiyomizu-zaka end; a strip of river cobbles in places",
+     "confidence": "observed",
+     "photos": [
+      "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 2.jpg",
+      "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 3.jpg",
+      "File:At Kyoto 2024 171.jpg"
+     ],
+     "osm_surface": "paving_stones"
+    },
+    {
+     "attribute": "length_note",
+     "value": "~60 m stone-stepped section plus ~220 m gentle stone-paved section to the Ninenzaka junction",
+     "confidence": "documented",
+     "source": "search-result snippet citing ja.wikipedia 産寧坂 (not fetched)"
+    },
+    {
+     "attribute": "storeys",
+     "value": "2 storeys typical; main eave ~7.0 m, height ~9.7 m (median; eave biased by slope)",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "roof_orientation",
+     "value": "strongly hirairi (24 hirairi / 3 tsumairi)",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "walls_retaining",
+     "value": "massive rough granite boulder retaining wall (野面積み) on the east side of the upper stair; cut-granite ashlar (切石積み) base under Akebonotei with dark plank wainscot, ochre plaster and tile coping above",
+     "confidence": "observed",
+     "photos": [
+      "File:Sanneizaka Street, Kyoto on June 5th, 2017.jpg",
+      "File:明保野亭.jpg",
+      "File:Backstreets of Kyoto - panoramio.jpg"
+     ]
+    },
+    {
+     "attribute": "facades",
+     "value": "2-storey machiya with sudare, dark-stained plank wainscots, white or ochre plaster; some white kura-style plastered buildings (e.g. Kiyomizu Sannenzaka Museum, OSM way 550360162) with grey plaster base and tiled pent roofs",
+     "confidence": "observed",
+     "photos": [
+      "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 2.jpg",
+      "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 3.jpg",
+      "File:Backstreets of Kyoto - panoramio.jpg"
+     ]
+    },
+    {
+     "attribute": "landmarks",
+     "value": "Akebonotei (明保野亭) tall black vertical signboard and weeping willow at the stair; stone direction markers (京都霊山護国神社 pillar, OSM node 8817872724) with stone balustrade at the Kiyomizu-zaka end",
+     "confidence": "observed",
+     "photos": [
+      "File:明保野亭.jpg",
+      "File:Kimodos Down the Stairs (40134007830).jpg",
+      "File:At Kyoto 2024 171.jpg"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ichinenzaka",
+   "name_ja": "一念坂",
+   "name_en": "Ichinenzaka",
+   "osm_way_ids": [
+    157527438
+   ],
+   "plateau_stats": {
+    "n_buildings_fronting": 12,
+    "measuredHeight_m": {
+     "p10": 7.5,
+     "median": 8.6,
+     "p90": 9.1
+    },
+    "main_roof_eave_height_m": {
+     "p10": 6.22,
+     "median": 6.52,
+     "p90": 6.88
+    },
+    "roof_pitch_deg_median": 23.0,
+    "storeysAboveGround_counts": {
+     "2": 7,
+     "unknown(0)": 4,
+     "3": 1
+    },
+    "ridge_orientation_counts": {
+     "hirairi": 8,
+     "oblique": 2,
+     "tsumairi": 1,
+     "n/a": 1
+    },
+    "structure_counts": {
+     "wooden/earthen (木造・土蔵造)": 8,
+     "unknown": 4
+    },
+    "flat_roof_share": 0.08,
+    "confidence": "measured",
+    "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+    "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+   },
+   "items": [
+    {
+     "attribute": "paving",
+     "value": "stone paving (OSM surface=paving_stones); no licensed geotagged photo of this lane found in the box",
+     "confidence": "documented",
+     "source": "OSM data/raw/osm/osm_wide.osm"
+    },
+    {
+     "attribute": "storeys",
+     "value": "2 storeys typical (7 of 8 with counts); main eave ~6.5 m, height ~8.6 m",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "roof_orientation",
+     "value": "hirairi dominant (8 hirairi / 1 tsumairi / 2 oblique)",
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "facades",
+     "value": "assume same machiya vocabulary as Ninenzaka (preservation-district standards)",
+     "confidence": "inferred"
+    }
+   ]
+  },
+  {
+   "id": "ishin_no_michi_kodaiji_minamimon",
+   "name_ja": "維新の道 / 高台寺南門通",
+   "name_en": "Ishin-no-michi / Kodaiji Minamimon-dori (north edge of box)",
+   "osm_way_ids": [
+    1569088148,
+    522894750,
+    1272414885
+   ],
+   "plateau_stats": {
+    "ishin_no_michi": {
+     "n_buildings_fronting": 4,
+     "measuredHeight_m": {
+      "p10": 4.4,
+      "median": 8.0,
+      "p90": 8.3
+     },
+     "main_roof_eave_height_m": {
+      "p10": 5.67,
+      "median": 6.26,
+      "p90": 6.26
+     },
+     "roof_pitch_deg_median": 25.3,
+     "storeysAboveGround_counts": {
+      "unknown(0)": 2,
+      "2": 1,
+      "3": 1
+     },
+     "ridge_orientation_counts": {
+      "hirairi": 2,
+      "tsumairi": 1,
+      "n/a": 1
+     },
+     "structure_counts": {
+      "unknown": 2,
+      "RC": 2
+     },
+     "flat_roof_share": 0.0,
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+     "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+    },
+    "kodaiji_minamimon": {
+     "n_buildings_fronting": 13,
+     "measuredHeight_m": {
+      "p10": 7.1,
+      "median": 10.6,
+      "p90": 15.1
+     },
+     "main_roof_eave_height_m": {
+      "p10": 3.58,
+      "median": 6.29,
+      "p90": 8.8
+     },
+     "roof_pitch_deg_median": 31.8,
+     "storeysAboveGround_counts": {
+      "5": 2,
+      "unknown(0)": 3,
+      "2": 5,
+      "4": 3
+     },
+     "ridge_orientation_counts": {
+      "n/a": 6,
+      "hirairi": 3,
+      "tsumairi": 4
+     },
+     "structure_counts": {
+      "RC": 2,
+      "unknown": 3,
+      "wooden/earthen (木造・土蔵造)": 5,
+      "steel": 3
+     },
+     "flat_roof_share": 0.38,
+     "confidence": "measured",
+     "source": "PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script",
+     "method": "Buildings whose lod0RoofEdge lies within 6 m of the OSM street centreline. Heights = bldg:measuredHeight. Eave = lowest sloped (>8 deg) LOD2 RoofSurface minus lowest Ground/Wall z (hisashi pent roofs are generally NOT modelled in PLATEAU LOD2, so this is the main-roof eave; on slopes it is biased high by the ground fall). Ridge orientation: area-weighted principal downslope axis of sloped faces, only where axis_strength>=0.3; hirairi = ridge within 30 deg of street bearing, tsumairi = >60 deg."
+    }
+   },
+   "items": [
+    {
+     "attribute": "paving",
+     "value": "asphalt with white edge lines (vehicular); parking along the south side near Ryozen",
+     "confidence": "observed",
+     "photos": [
+      "File:HIgashiyama @ Kyoto (13406248253).jpg",
+      "File:A street in Kyoto (52411170563).jpg"
+     ]
+    },
+    {
+     "attribute": "facades",
+     "value": "row of 2-storey wooden houses, hirairi tile roofs with small gabled dormer-fronts, 2F glazed windows and sudare, 1F glazed doors; bamboo inuyarai at a wall base; white plaster kura-style shops with round windows near the torii",
+     "confidence": "observed",
+     "photos": [
+      "File:A street in Kyoto (52411170563).jpg",
+      "File:HIgashiyama @ Kyoto (13406248253).jpg"
+     ]
+    }
+   ]
+  }
+ ],
+ "landmarks": [
+  {
+   "id": "hokanji_precinct",
+   "name_ja": "法観寺",
+   "osm_way": 371717423,
+   "items": [
+    {
+     "attribute": "precinct_outline",
+     "value": "OSM polygon ~35 x 43 m (min. rotated rectangle), aligned within ~2 deg of grid north",
+     "confidence": "measured",
+     "source": "OSM data/raw/osm/osm_wide.osm"
+    },
+    {
+     "attribute": "minor_halls",
+     "value": "太子堂 (OSM 371717418, ~3.3 x 4.1 m), 薬師堂 (OSM 371717424, ~4.1 x 3.3 m), 八坂稲荷大明神 (OSM 371717417, ~3.4 x 2.4 m; PLATEAU 2.4 m high)",
+     "confidence": "measured",
+     "source": "OSM data/raw/osm/osm_wide.osm ; PLATEAU 52353692_bldg_6697_op.gml (data/raw/plateau/udx/bldg), LOD2 roof surfaces analysed by Phase-3 script"
+    },
+    {
+     "attribute": "street_fence",
+     "value": "timber slat fence (vertical boards with gaps) between granite posts, small tiled coping, on a cut-stone plinth; stone entrance steps; city notice board and stone markers at the corner",
+     "confidence": "observed",
+     "photos": [
+      "File:Kyoto Pagoda.jpg",
+      "File:Yasakanoto Tower of Hokanji Temple.jpg"
+     ]
+    },
+    {
+     "attribute": "pagoda",
+     "value": "see docs/evidence/yasaka_pagoda_spec.json",
+     "confidence": "n/a"
+    }
+   ]
+  }
+ ],
+ "buildings_by_street": {
+  "yasaka_dori_west": [
+   {
+    "osm_way": 568614353,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494612",
+    "local_centroid_xy": [
+     -167.77,
+     89.31
+    ],
+    "footprint_area_m2": 98.1,
+    "measuredHeight_m": 9.4,
+    "storeys": 2,
+    "yearOfConstruction": "1912",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.2,
+    "roof_pitch_deg": 34.9,
+    "ridge_axis_deg_from_north": 8.6,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614355,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494611",
+    "local_centroid_xy": [
+     -162.47,
+     87.97
+    ],
+    "footprint_area_m2": 54.0,
+    "measuredHeight_m": 10.1,
+    "storeys": 3,
+    "yearOfConstruction": "1969",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 8.86,
+    "roof_pitch_deg": 15.2,
+    "ridge_axis_deg_from_north": 8.2,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614459,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494805",
+    "local_centroid_xy": [
+     -162.01,
+     110.18
+    ],
+    "footprint_area_m2": 272.4,
+    "measuredHeight_m": 8.8,
+    "storeys": 2,
+    "yearOfConstruction": "1907",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.91,
+    "roof_pitch_deg": 21.6,
+    "ridge_axis_deg_from_north": 7.9,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614352,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494510",
+    "local_centroid_xy": [
+     -156.76,
+     88.85
+    ],
+    "footprint_area_m2": 52.4,
+    "measuredHeight_m": 9.4,
+    "storeys": 2,
+    "yearOfConstruction": "2024",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 8.35,
+    "roof_pitch_deg": 10.8,
+    "ridge_axis_deg_from_north": 98.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614351,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494764",
+    "local_centroid_xy": [
+     -151.56,
+     86.91
+    ],
+    "footprint_area_m2": 68.7,
+    "measuredHeight_m": 13.6,
+    "storeys": 3,
+    "yearOfConstruction": "1990",
+    "structure": "steel",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614451,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494866",
+    "local_centroid_xy": [
+     -145.7,
+     103.57
+    ],
+    "footprint_area_m2": 216.7,
+    "measuredHeight_m": 8.7,
+    "storeys": 2,
+    "yearOfConstruction": "1907",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.86,
+    "roof_pitch_deg": 24.5,
+    "ridge_axis_deg_from_north": 97.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614347,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494600",
+    "local_centroid_xy": [
+     -144.77,
+     82.0
+    ],
+    "footprint_area_m2": 128.8,
+    "measuredHeight_m": 11.5,
+    "storeys": 3,
+    "yearOfConstruction": "1977",
+    "structure": "steel",
+    "main_roof_eave_h_m": 6.57,
+    "roof_pitch_deg": 23.1,
+    "ridge_axis_deg_from_north": 8.6,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614349,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494599",
+    "local_centroid_xy": [
+     -141.09,
+     87.13
+    ],
+    "footprint_area_m2": 43.3,
+    "measuredHeight_m": 8.5,
+    "storeys": 2,
+    "yearOfConstruction": "2011",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.98,
+    "roof_pitch_deg": 28.5,
+    "ridge_axis_deg_from_north": 95.9,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614432,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494875",
+    "local_centroid_xy": [
+     -131.03,
+     102.67
+    ],
+    "footprint_area_m2": 34.8,
+    "measuredHeight_m": 7.4,
+    "storeys": 3,
+    "yearOfConstruction": "1995",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.35,
+    "roof_pitch_deg": 40.1,
+    "ridge_axis_deg_from_north": 6.7,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614431,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494876",
+    "local_centroid_xy": [
+     -127.11,
+     101.71
+    ],
+    "footprint_area_m2": 51.2,
+    "measuredHeight_m": 10.4,
+    "storeys": 2,
+    "yearOfConstruction": "1980",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.66,
+    "roof_pitch_deg": 33.6,
+    "ridge_axis_deg_from_north": 95.6,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614323,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494579",
+    "local_centroid_xy": [
+     -121.64,
+     86.5
+    ],
+    "footprint_area_m2": 216.2,
+    "measuredHeight_m": 11.0,
+    "storeys": 1,
+    "yearOfConstruction": "1909",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.47,
+    "roof_pitch_deg": 20.5,
+    "ridge_axis_deg_from_north": 96.6,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614400,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494877",
+    "local_centroid_xy": [
+     -120.21,
+     101.76
+    ],
+    "footprint_area_m2": 104.3,
+    "measuredHeight_m": 11.9,
+    "storeys": 3,
+    "yearOfConstruction": "2007",
+    "structure": "steel",
+    "main_roof_eave_h_m": 9.7,
+    "roof_pitch_deg": 22.7,
+    "ridge_axis_deg_from_north": 96.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614429,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494835",
+    "local_centroid_xy": [
+     -112.32,
+     100.02
+    ],
+    "footprint_area_m2": 61.0,
+    "measuredHeight_m": 7.7,
+    "storeys": 2,
+    "yearOfConstruction": "1965",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.09,
+    "roof_pitch_deg": 23.9,
+    "ridge_axis_deg_from_north": 95.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614385,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494883",
+    "local_centroid_xy": [
+     -100.79,
+     99.96
+    ],
+    "footprint_area_m2": 122.7,
+    "measuredHeight_m": 11.2,
+    "storeys": 1,
+    "yearOfConstruction": "1934",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 9.97,
+    "roof_pitch_deg": 17.4,
+    "ridge_axis_deg_from_north": 95.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614297,
+    "osm_name": "％アラビカ食堂",
+    "plateau_buildingID": "26100-bldg-494464",
+    "local_centroid_xy": [
+     -90.37,
+     84.11
+    ],
+    "footprint_area_m2": 120.2,
+    "measuredHeight_m": 8.3,
+    "storeys": 2,
+    "yearOfConstruction": "1914",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.06,
+    "roof_pitch_deg": 34.1,
+    "ridge_axis_deg_from_north": 96.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614387,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494826",
+    "local_centroid_xy": [
+     -87.19,
+     101.62
+    ],
+    "footprint_area_m2": 325.8,
+    "measuredHeight_m": 11.4,
+    "storeys": 3,
+    "yearOfConstruction": "1986",
+    "structure": "steel",
+    "main_roof_eave_h_m": 9.28,
+    "roof_pitch_deg": 13.4,
+    "ridge_axis_deg_from_north": 97.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614250,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494530",
+    "local_centroid_xy": [
+     -75.55,
+     79.42
+    ],
+    "footprint_area_m2": 76.5,
+    "measuredHeight_m": 7.9,
+    "storeys": 2,
+    "yearOfConstruction": "1911",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.46,
+    "roof_pitch_deg": 25.6,
+    "ridge_axis_deg_from_north": 9.4,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614383,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494885",
+    "local_centroid_xy": [
+     -71.62,
+     97.79
+    ],
+    "footprint_area_m2": 217.2,
+    "measuredHeight_m": 9.9,
+    "storeys": 2,
+    "yearOfConstruction": "1897",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.98,
+    "roof_pitch_deg": 24.1,
+    "ridge_axis_deg_from_north": 96.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614248,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494529",
+    "local_centroid_xy": [
+     -68.76,
+     77.43
+    ],
+    "footprint_area_m2": 41.5,
+    "measuredHeight_m": 9.9,
+    "storeys": 3,
+    "yearOfConstruction": "2002",
+    "structure": "steel",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614246,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494506",
+    "local_centroid_xy": [
+     -63.05,
+     76.24
+    ],
+    "footprint_area_m2": 62.3,
+    "measuredHeight_m": 11.8,
+    "storeys": 3,
+    "yearOfConstruction": "2002",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 9.21,
+    "roof_pitch_deg": 32.4,
+    "ridge_axis_deg_from_north": 6.5,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": null,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494903",
+    "local_centroid_xy": [
+     -59.42,
+     92.96
+    ],
+    "footprint_area_m2": 14.4,
+    "measuredHeight_m": 4.8,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.11,
+    "roof_pitch_deg": 26.2,
+    "ridge_axis_deg_from_north": 145.1,
+    "orientation": "oblique",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614218,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494432",
+    "local_centroid_xy": [
+     -48.56,
+     78.75
+    ],
+    "footprint_area_m2": 171.7,
+    "measuredHeight_m": 12.4,
+    "storeys": 2,
+    "yearOfConstruction": "1892",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.83,
+    "roof_pitch_deg": 38.5,
+    "ridge_axis_deg_from_north": 95.8,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 1550470795,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494466",
+    "local_centroid_xy": [
+     -33.86,
+     78.59
+    ],
+    "footprint_area_m2": 11.1,
+    "measuredHeight_m": 6.0,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.1,
+    "roof_pitch_deg": 52.1,
+    "ridge_axis_deg_from_north": 93.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356805,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489318",
+    "local_centroid_xy": [
+     -28.64,
+     89.29
+    ],
+    "footprint_area_m2": 52.0,
+    "measuredHeight_m": 7.0,
+    "storeys": 2,
+    "yearOfConstruction": "1954",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.73,
+    "roof_pitch_deg": 24.0,
+    "ridge_axis_deg_from_north": 1.3,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 568614188,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494514",
+    "local_centroid_xy": [
+     -25.97,
+     75.32
+    ],
+    "footprint_area_m2": 107.2,
+    "measuredHeight_m": 8.7,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.36,
+    "roof_pitch_deg": 24.2,
+    "ridge_axis_deg_from_north": 93.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356806,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489320",
+    "local_centroid_xy": [
+     -21.74,
+     89.46
+    ],
+    "footprint_area_m2": 38.2,
+    "measuredHeight_m": 9.6,
+    "storeys": 2,
+    "yearOfConstruction": "1990",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.59,
+    "roof_pitch_deg": 37.4,
+    "ridge_axis_deg_from_north": 91.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356809,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-494465",
+    "local_centroid_xy": [
+     -18.56,
+     73.87
+    ],
+    "footprint_area_m2": 93.2,
+    "measuredHeight_m": 9.9,
+    "storeys": 2,
+    "yearOfConstruction": "1996",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.0,
+    "roof_pitch_deg": 27.3,
+    "ridge_axis_deg_from_north": 93.8,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356808,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489321",
+    "local_centroid_xy": [
+     -13.34,
+     88.96
+    ],
+    "footprint_area_m2": 83.4,
+    "measuredHeight_m": 7.6,
+    "storeys": 2,
+    "yearOfConstruction": "1991",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.23,
+    "roof_pitch_deg": 24.2,
+    "ridge_axis_deg_from_north": 91.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   }
+  ],
+  "yasaka_dori_east": [
+   {
+    "osm_way": 545613640,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489194",
+    "local_centroid_xy": [
+     -9.1,
+     60.05
+    ],
+    "footprint_area_m2": 80.0,
+    "measuredHeight_m": 11.2,
+    "storeys": 2,
+    "yearOfConstruction": "1997",
+    "structure": "steel",
+    "main_roof_eave_h_m": 8.74,
+    "roof_pitch_deg": 25.3,
+    "ridge_axis_deg_from_north": 99.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 1550718339,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489313",
+    "local_centroid_xy": [
+     -3.57,
+     60.39
+    ],
+    "footprint_area_m2": 39.5,
+    "measuredHeight_m": 9.6,
+    "storeys": 2,
+    "yearOfConstruction": "2016",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.53,
+    "roof_pitch_deg": 22.1,
+    "ridge_axis_deg_from_north": 99.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 545613641,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489315",
+    "local_centroid_xy": [
+     0.52,
+     59.9
+    ],
+    "footprint_area_m2": 43.4,
+    "measuredHeight_m": 9.8,
+    "storeys": 2,
+    "yearOfConstruction": "1993",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.98,
+    "roof_pitch_deg": 28.3,
+    "ridge_axis_deg_from_north": 99.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356828,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489314",
+    "local_centroid_xy": [
+     6.94,
+     58.81
+    ],
+    "footprint_area_m2": 89.9,
+    "measuredHeight_m": 10.0,
+    "storeys": 2,
+    "yearOfConstruction": "1978",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.22,
+    "roof_pitch_deg": 28.1,
+    "ridge_axis_deg_from_north": 99.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 371717421,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489183",
+    "local_centroid_xy": [
+     13.07,
+     70.49
+    ],
+    "footprint_area_m2": 16.6,
+    "measuredHeight_m": 3.8,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 3.14,
+    "roof_pitch_deg": 18.7,
+    "ridge_axis_deg_from_north": 98.8,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356829,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489316",
+    "local_centroid_xy": [
+     13.44,
+     56.48
+    ],
+    "footprint_area_m2": 51.9,
+    "measuredHeight_m": 10.5,
+    "storeys": 2,
+    "yearOfConstruction": "1984",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.73,
+    "roof_pitch_deg": 24.2,
+    "ridge_axis_deg_from_north": 99.4,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356830,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489317",
+    "local_centroid_xy": [
+     18.29,
+     42.42
+    ],
+    "footprint_area_m2": 254.0,
+    "measuredHeight_m": 11.0,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.68,
+    "roof_pitch_deg": 20.4,
+    "ridge_axis_deg_from_north": 99.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550356791,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489210",
+    "local_centroid_xy": [
+     31.02,
+     74.12
+    ],
+    "footprint_area_m2": 118.6,
+    "measuredHeight_m": 7.7,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 3.83,
+    "roof_pitch_deg": 16.6,
+    "ridge_axis_deg_from_north": 8.8,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 545613645,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489186",
+    "local_centroid_xy": [
+     34.94,
+     50.77
+    ],
+    "footprint_area_m2": 95.7,
+    "measuredHeight_m": 10.8,
+    "storeys": 1,
+    "yearOfConstruction": "1984",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.28,
+    "roof_pitch_deg": 27.1,
+    "ridge_axis_deg_from_north": 100.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193827,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489192",
+    "local_centroid_xy": [
+     37.9,
+     65.64
+    ],
+    "footprint_area_m2": 16.9,
+    "measuredHeight_m": 7.5,
+    "storeys": 2,
+    "yearOfConstruction": "2001",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.47,
+    "roof_pitch_deg": 25.9,
+    "ridge_axis_deg_from_north": 8.4,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": null,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489309",
+    "local_centroid_xy": [
+     42.45,
+     51.55
+    ],
+    "footprint_area_m2": 53.8,
+    "measuredHeight_m": 6.5,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": null,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489191",
+    "local_centroid_xy": [
+     42.59,
+     63.88
+    ],
+    "footprint_area_m2": 6.7,
+    "measuredHeight_m": 3.6,
+    "storeys": 2,
+    "yearOfConstruction": "2001",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193825,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489190",
+    "local_centroid_xy": [
+     45.81,
+     72.98
+    ],
+    "footprint_area_m2": 94.8,
+    "measuredHeight_m": 9.8,
+    "storeys": 2,
+    "yearOfConstruction": "2016",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 3.81,
+    "roof_pitch_deg": 25.6,
+    "ridge_axis_deg_from_north": 100.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 545613644,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489185",
+    "local_centroid_xy": [
+     50.74,
+     50.16
+    ],
+    "footprint_area_m2": 133.1,
+    "measuredHeight_m": 9.8,
+    "storeys": 2,
+    "yearOfConstruction": "1979",
+    "structure": "steel",
+    "main_roof_eave_h_m": 6.24,
+    "roof_pitch_deg": 20.2,
+    "ridge_axis_deg_from_north": 101.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550352980,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489188",
+    "local_centroid_xy": [
+     51.5,
+     62.51
+    ],
+    "footprint_area_m2": 10.9,
+    "measuredHeight_m": 3.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193824,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489189",
+    "local_centroid_xy": [
+     53.78,
+     72.65
+    ],
+    "footprint_area_m2": 114.4,
+    "measuredHeight_m": 8.4,
+    "storeys": 2,
+    "yearOfConstruction": "1998",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 3.22,
+    "roof_pitch_deg": 32.4,
+    "ridge_axis_deg_from_north": 101.3,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550352977,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489334",
+    "local_centroid_xy": [
+     63.06,
+     42.97
+    ],
+    "footprint_area_m2": 72.4,
+    "measuredHeight_m": 9.7,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.7,
+    "roof_pitch_deg": 37.1,
+    "ridge_axis_deg_from_north": 119.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550352978,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489150",
+    "local_centroid_xy": [
+     68.53,
+     38.03
+    ],
+    "footprint_area_m2": 77.1,
+    "measuredHeight_m": 9.6,
+    "storeys": 2,
+    "yearOfConstruction": "2024",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.9,
+    "roof_pitch_deg": 19.3,
+    "ridge_axis_deg_from_north": 119.6,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": null,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489306",
+    "local_centroid_xy": [
+     75.63,
+     34.25
+    ],
+    "footprint_area_m2": 52.8,
+    "measuredHeight_m": 9.2,
+    "storeys": 2,
+    "yearOfConstruction": "1921",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.39,
+    "roof_pitch_deg": 22.8,
+    "ridge_axis_deg_from_north": 119.6,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550343121,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489162",
+    "local_centroid_xy": [
+     81.47,
+     61.79
+    ],
+    "footprint_area_m2": 641.0,
+    "measuredHeight_m": 12.4,
+    "storeys": 2,
+    "yearOfConstruction": "2003",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 4.53,
+    "roof_pitch_deg": 19.8,
+    "ridge_axis_deg_from_north": 33.8,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550352975,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489168",
+    "local_centroid_xy": [
+     85.14,
+     30.16
+    ],
+    "footprint_area_m2": 117.8,
+    "measuredHeight_m": 8.5,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.13,
+    "roof_pitch_deg": 21.4,
+    "ridge_axis_deg_from_north": 113.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": null,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489307",
+    "local_centroid_xy": [
+     86.14,
+     46.32
+    ],
+    "footprint_area_m2": 2.6,
+    "measuredHeight_m": 3.9,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550343119,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489163",
+    "local_centroid_xy": [
+     88.07,
+     43.11
+    ],
+    "footprint_area_m2": 10.8,
+    "measuredHeight_m": 4.2,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193820,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489244",
+    "local_centroid_xy": [
+     100.42,
+     43.86
+    ],
+    "footprint_area_m2": 113.4,
+    "measuredHeight_m": 11.4,
+    "storeys": null,
+    "yearOfConstruction": "1970",
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.84,
+    "roof_pitch_deg": 22.9,
+    "ridge_axis_deg_from_north": 19.2,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193821,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489245",
+    "local_centroid_xy": [
+     114.33,
+     40.06
+    ],
+    "footprint_area_m2": 170.9,
+    "measuredHeight_m": 9.4,
+    "storeys": null,
+    "yearOfConstruction": "1970",
+    "structure": "unknown",
+    "main_roof_eave_h_m": 7.05,
+    "roof_pitch_deg": 23.2,
+    "ridge_axis_deg_from_north": 89.7,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 546326165,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489152",
+    "local_centroid_xy": [
+     118.74,
+     12.98
+    ],
+    "footprint_area_m2": 412.6,
+    "measuredHeight_m": 11.3,
+    "storeys": 2,
+    "yearOfConstruction": "2004",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 4.11,
+    "roof_pitch_deg": 32.5,
+    "ridge_axis_deg_from_north": 102.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985020,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489212",
+    "local_centroid_xy": [
+     125.02,
+     36.38
+    ],
+    "footprint_area_m2": 48.3,
+    "measuredHeight_m": 12.7,
+    "storeys": 2,
+    "yearOfConstruction": "1993",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 10.26,
+    "roof_pitch_deg": 24.2,
+    "ridge_axis_deg_from_north": 99.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464930,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489301",
+    "local_centroid_xy": [
+     129.55,
+     24.66
+    ],
+    "footprint_area_m2": 3.4,
+    "measuredHeight_m": 2.5,
+    "storeys": 2,
+    "yearOfConstruction": "2004",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193822,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489253",
+    "local_centroid_xy": [
+     133.96,
+     34.34
+    ],
+    "footprint_area_m2": 151.5,
+    "measuredHeight_m": 11.0,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 9.04,
+    "roof_pitch_deg": 24.7,
+    "ridge_axis_deg_from_north": 99.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550343124,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489153",
+    "local_centroid_xy": [
+     142.69,
+     4.45
+    ],
+    "footprint_area_m2": 744.1,
+    "measuredHeight_m": 11.9,
+    "storeys": 1,
+    "yearOfConstruction": "1924",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 4.82,
+    "roof_pitch_deg": 26.6,
+    "ridge_axis_deg_from_north": 93.3,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193823,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489254",
+    "local_centroid_xy": [
+     143.14,
+     32.95
+    ],
+    "footprint_area_m2": 65.7,
+    "measuredHeight_m": 10.1,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.89,
+    "roof_pitch_deg": 28.3,
+    "ridge_axis_deg_from_north": 9.5,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   }
+  ],
+  "ninenzaka": [
+   {
+    "osm_way": 534193813,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489259",
+    "local_centroid_xy": [
+     139.45,
+     55.93
+    ],
+    "footprint_area_m2": 171.0,
+    "measuredHeight_m": 7.9,
+    "storeys": 2,
+    "yearOfConstruction": "2000",
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.72,
+    "roof_pitch_deg": 24.6,
+    "ridge_axis_deg_from_north": 91.9,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 522894756,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489198",
+    "local_centroid_xy": [
+     143.8,
+     102.14
+    ],
+    "footprint_area_m2": 106.6,
+    "measuredHeight_m": 9.1,
+    "storeys": 2,
+    "yearOfConstruction": "2004",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.07,
+    "roof_pitch_deg": 33.0,
+    "ridge_axis_deg_from_north": 82.0,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985830,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489262",
+    "local_centroid_xy": [
+     145.42,
+     74.04
+    ],
+    "footprint_area_m2": 59.3,
+    "measuredHeight_m": 7.2,
+    "storeys": 2,
+    "yearOfConstruction": "2012",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.2,
+    "roof_pitch_deg": 23.6,
+    "ridge_axis_deg_from_north": 88.7,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550352956,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489264",
+    "local_centroid_xy": [
+     145.85,
+     90.69
+    ],
+    "footprint_area_m2": 42.8,
+    "measuredHeight_m": 6.9,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.58,
+    "roof_pitch_deg": 18.5,
+    "ridge_axis_deg_from_north": 172.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985831,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489263",
+    "local_centroid_xy": [
+     146.04,
+     81.91
+    ],
+    "footprint_area_m2": 117.7,
+    "measuredHeight_m": 7.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.1,
+    "roof_pitch_deg": 25.9,
+    "ridge_axis_deg_from_north": 71.2,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 534193817,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489261",
+    "local_centroid_xy": [
+     146.33,
+     68.56
+    ],
+    "footprint_area_m2": 70.3,
+    "measuredHeight_m": 8.1,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.91,
+    "roof_pitch_deg": 35.7,
+    "ridge_axis_deg_from_north": 0.1,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985829,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489260",
+    "local_centroid_xy": [
+     146.5,
+     62.81
+    ],
+    "footprint_area_m2": 66.6,
+    "measuredHeight_m": 8.8,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.06,
+    "roof_pitch_deg": 25.9,
+    "ridge_axis_deg_from_north": 0.1,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986026,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489265",
+    "local_centroid_xy": [
+     147.25,
+     95.74
+    ],
+    "footprint_area_m2": 34.9,
+    "measuredHeight_m": 7.6,
+    "storeys": 1,
+    "yearOfConstruction": "1910",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.68,
+    "roof_pitch_deg": 36.6,
+    "ridge_axis_deg_from_north": 172.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985018,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489251",
+    "local_centroid_xy": [
+     148.44,
+     42.28
+    ],
+    "footprint_area_m2": 55.1,
+    "measuredHeight_m": 8.1,
+    "storeys": 2,
+    "yearOfConstruction": "1990",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.49,
+    "roof_pitch_deg": 27.0,
+    "ridge_axis_deg_from_north": 179.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985017,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489252",
+    "local_centroid_xy": [
+     148.46,
+     47.08
+    ],
+    "footprint_area_m2": 40.6,
+    "measuredHeight_m": 7.7,
+    "storeys": 2,
+    "yearOfConstruction": "1947",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.97,
+    "roof_pitch_deg": 27.6,
+    "ridge_axis_deg_from_north": 178.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338985022,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489255",
+    "local_centroid_xy": [
+     149.42,
+     32.27
+    ],
+    "footprint_area_m2": 78.9,
+    "measuredHeight_m": 10.7,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 3.52,
+    "roof_pitch_deg": 22.8,
+    "ridge_axis_deg_from_north": 9.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338983834,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489290",
+    "local_centroid_xy": [
+     159.29,
+     124.5
+    ],
+    "footprint_area_m2": 464.6,
+    "measuredHeight_m": 9.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.52,
+    "roof_pitch_deg": 21.7,
+    "ridge_axis_deg_from_north": 177.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338983387,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489282",
+    "local_centroid_xy": [
+     160.79,
+     92.78
+    ],
+    "footprint_area_m2": 155.4,
+    "measuredHeight_m": 7.5,
+    "storeys": 2,
+    "yearOfConstruction": "1927",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.63,
+    "roof_pitch_deg": 38.2,
+    "ridge_axis_deg_from_north": 177.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338983391,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489288",
+    "local_centroid_xy": [
+     162.53,
+     80.56
+    ],
+    "footprint_area_m2": 115.1,
+    "measuredHeight_m": 7.8,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.31,
+    "roof_pitch_deg": 10.2,
+    "ridge_axis_deg_from_north": 87.8,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550360174,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489199",
+    "local_centroid_xy": [
+     163.32,
+     56.55
+    ],
+    "footprint_area_m2": 212.5,
+    "measuredHeight_m": 8.8,
+    "storeys": 2,
+    "yearOfConstruction": "1987",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 4.56,
+    "roof_pitch_deg": 23.1,
+    "ridge_axis_deg_from_north": 177.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338983385,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489286",
+    "local_centroid_xy": [
+     163.46,
+     71.21
+    ],
+    "footprint_area_m2": 110.5,
+    "measuredHeight_m": 8.1,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.34,
+    "roof_pitch_deg": 24.0,
+    "ridge_axis_deg_from_north": 177.6,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338983386,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489200",
+    "local_centroid_xy": [
+     164.38,
+     40.04
+    ],
+    "footprint_area_m2": 106.0,
+    "measuredHeight_m": 9.3,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.69,
+    "roof_pitch_deg": 21.6,
+    "ridge_axis_deg_from_north": 178.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   }
+  ],
+  "sannenzaka": [
+   {
+    "osm_way": 338084520,
+    "osm_name": "ひろ吉",
+    "plateau_buildingID": "26100-bldg-489494",
+    "local_centroid_xy": [
+     149.84,
+     -165.58
+    ],
+    "footprint_area_m2": 189.0,
+    "measuredHeight_m": 15.0,
+    "storeys": 2,
+    "yearOfConstruction": "1957",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 10.6,
+    "roof_pitch_deg": 26.7,
+    "ridge_axis_deg_from_north": 113.2,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053785,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489498",
+    "local_centroid_xy": [
+     152.04,
+     -151.16
+    ],
+    "footprint_area_m2": 71.5,
+    "measuredHeight_m": 11.3,
+    "storeys": 2,
+    "yearOfConstruction": "1992",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.35,
+    "roof_pitch_deg": 28.1,
+    "ridge_axis_deg_from_north": 20.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053784,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489519",
+    "local_centroid_xy": [
+     154.55,
+     -146.51
+    ],
+    "footprint_area_m2": 59.8,
+    "measuredHeight_m": 10.8,
+    "storeys": 2,
+    "yearOfConstruction": "1992",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 8.48,
+    "roof_pitch_deg": 26.5,
+    "ridge_axis_deg_from_north": 20.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053783,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489499",
+    "local_centroid_xy": [
+     155.69,
+     -141.9
+    ],
+    "footprint_area_m2": 65.8,
+    "measuredHeight_m": 10.8,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 8.71,
+    "roof_pitch_deg": 21.6,
+    "ridge_axis_deg_from_north": 20.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464928,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489154",
+    "local_centroid_xy": [
+     156.77,
+     12.85
+    ],
+    "footprint_area_m2": 10.5,
+    "measuredHeight_m": 4.2,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053782,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489500",
+    "local_centroid_xy": [
+     158.48,
+     -138.1
+    ],
+    "footprint_area_m2": 37.8,
+    "measuredHeight_m": 8.8,
+    "storeys": 2,
+    "yearOfConstruction": "1901",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.22,
+    "roof_pitch_deg": 21.9,
+    "ridge_axis_deg_from_north": 20.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053781,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489501",
+    "local_centroid_xy": [
+     160.77,
+     -133.44
+    ],
+    "footprint_area_m2": 60.4,
+    "measuredHeight_m": 9.9,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.71,
+    "roof_pitch_deg": 31.1,
+    "ridge_axis_deg_from_north": 15.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338980790,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489497",
+    "local_centroid_xy": [
+     161.59,
+     -128.0
+    ],
+    "footprint_area_m2": 64.1,
+    "measuredHeight_m": 9.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.86,
+    "roof_pitch_deg": 25.7,
+    "ridge_axis_deg_from_north": 17.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053786,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489354",
+    "local_centroid_xy": [
+     162.85,
+     -117.33
+    ],
+    "footprint_area_m2": 196.0,
+    "measuredHeight_m": 9.7,
+    "storeys": 2,
+    "yearOfConstruction": "1902",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 4.21,
+    "roof_pitch_deg": 28.9,
+    "ridge_axis_deg_from_north": 3.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464912,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489222",
+    "local_centroid_xy": [
+     163.07,
+     -79.33
+    ],
+    "footprint_area_m2": 105.0,
+    "measuredHeight_m": 11.3,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 8.41,
+    "roof_pitch_deg": 22.2,
+    "ridge_axis_deg_from_north": 3.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 546326162,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489503",
+    "local_centroid_xy": [
+     163.1,
+     -103.64
+    ],
+    "footprint_area_m2": 155.4,
+    "measuredHeight_m": 8.2,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.15,
+    "roof_pitch_deg": 23.4,
+    "ridge_axis_deg_from_north": 176.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337385257,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489486",
+    "local_centroid_xy": [
+     163.44,
+     -171.59
+    ],
+    "footprint_area_m2": 169.8,
+    "measuredHeight_m": 11.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 7.23,
+    "roof_pitch_deg": 25.4,
+    "ridge_axis_deg_from_north": 112.9,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464923,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489235",
+    "local_centroid_xy": [
+     163.46,
+     -36.53
+    ],
+    "footprint_area_m2": 90.2,
+    "measuredHeight_m": 10.7,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 8.1,
+    "roof_pitch_deg": 26.7,
+    "ridge_axis_deg_from_north": 5.4,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464921,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489230",
+    "local_centroid_xy": [
+     164.03,
+     -51.19
+    ],
+    "footprint_area_m2": 193.5,
+    "measuredHeight_m": 9.5,
+    "storeys": 2,
+    "yearOfConstruction": "1990",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.63,
+    "roof_pitch_deg": 22.7,
+    "ridge_axis_deg_from_north": 4.8,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 316169251,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489170",
+    "local_centroid_xy": [
+     164.38,
+     21.89
+    ],
+    "footprint_area_m2": 189.5,
+    "measuredHeight_m": 13.1,
+    "storeys": 2,
+    "yearOfConstruction": "1992",
+    "structure": "RC",
+    "main_roof_eave_h_m": 6.86,
+    "roof_pitch_deg": 25.4,
+    "ridge_axis_deg_from_north": 128.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 546326169,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489234",
+    "local_centroid_xy": [
+     164.43,
+     -41.5
+    ],
+    "footprint_area_m2": 67.9,
+    "measuredHeight_m": 7.4,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.39,
+    "roof_pitch_deg": 12.4,
+    "ridge_axis_deg_from_north": 5.8,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464914,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489223",
+    "local_centroid_xy": [
+     164.86,
+     -73.37
+    ],
+    "footprint_area_m2": 47.0,
+    "measuredHeight_m": 8.9,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 7.43,
+    "roof_pitch_deg": 20.9,
+    "ridge_axis_deg_from_north": 3.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464915,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489226",
+    "local_centroid_xy": [
+     165.79,
+     -68.24
+    ],
+    "footprint_area_m2": 50.0,
+    "measuredHeight_m": 8.8,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 7.34,
+    "roof_pitch_deg": 21.0,
+    "ridge_axis_deg_from_north": 3.1,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464916,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489225",
+    "local_centroid_xy": [
+     166.24,
+     -62.07
+    ],
+    "footprint_area_m2": 62.2,
+    "measuredHeight_m": 7.7,
+    "storeys": 2,
+    "yearOfConstruction": "1989",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.78,
+    "roof_pitch_deg": 22.6,
+    "ridge_axis_deg_from_north": 3.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 546326166,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489233",
+    "local_centroid_xy": [
+     166.54,
+     -31.99
+    ],
+    "footprint_area_m2": 57.3,
+    "measuredHeight_m": 8.6,
+    "storeys": 2,
+    "yearOfConstruction": "1992",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.56,
+    "roof_pitch_deg": 13.7,
+    "ridge_axis_deg_from_north": 4.5,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464925,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489236",
+    "local_centroid_xy": [
+     168.97,
+     -20.48
+    ],
+    "footprint_area_m2": 134.5,
+    "measuredHeight_m": 8.7,
+    "storeys": 2,
+    "yearOfConstruction": "1907",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.98,
+    "roof_pitch_deg": 25.4,
+    "ridge_axis_deg_from_north": 179.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338464926,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489241",
+    "local_centroid_xy": [
+     169.19,
+     -6.12
+    ],
+    "footprint_area_m2": 6.0,
+    "measuredHeight_m": 2.2,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": null,
+    "roof_pitch_deg": null,
+    "ridge_axis_deg_from_north": null,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337928446,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489491",
+    "local_centroid_xy": [
+     170.05,
+     -157.01
+    ],
+    "footprint_area_m2": 141.3,
+    "measuredHeight_m": 12.1,
+    "storeys": 1,
+    "yearOfConstruction": "1969",
+    "structure": "RC",
+    "main_roof_eave_h_m": 9.48,
+    "roof_pitch_deg": 22.6,
+    "ridge_axis_deg_from_north": 23.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337928448,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489375",
+    "local_centroid_xy": [
+     175.02,
+     -146.36
+    ],
+    "footprint_area_m2": 103.2,
+    "measuredHeight_m": 12.8,
+    "storeys": 1,
+    "yearOfConstruction": "1969",
+    "structure": "RC",
+    "main_roof_eave_h_m": 9.61,
+    "roof_pitch_deg": 35.7,
+    "ridge_axis_deg_from_north": 119.8,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541053776,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489489",
+    "local_centroid_xy": [
+     176.04,
+     -139.52
+    ],
+    "footprint_area_m2": 59.7,
+    "measuredHeight_m": 8.4,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 7.0,
+    "roof_pitch_deg": 15.0,
+    "ridge_axis_deg_from_north": 30.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338978765,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489298",
+    "local_centroid_xy": [
+     176.05,
+     12.32
+    ],
+    "footprint_area_m2": 138.9,
+    "measuredHeight_m": 10.5,
+    "storeys": 1,
+    "yearOfConstruction": "2015",
+    "structure": "steel",
+    "main_roof_eave_h_m": 9.3,
+    "roof_pitch_deg": 15.3,
+    "ridge_axis_deg_from_north": 138.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337928447,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489490",
+    "local_centroid_xy": [
+     177.76,
+     -135.2
+    ],
+    "footprint_area_m2": 56.0,
+    "measuredHeight_m": 8.7,
+    "storeys": 2,
+    "yearOfConstruction": "2000",
+    "structure": "steel",
+    "main_roof_eave_h_m": 5.1,
+    "roof_pitch_deg": 27.0,
+    "ridge_axis_deg_from_north": 31.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550342449,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489193",
+    "local_centroid_xy": [
+     179.98,
+     -37.87
+    ],
+    "footprint_area_m2": 21.2,
+    "measuredHeight_m": 5.2,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 3.97,
+    "roof_pitch_deg": 35.2,
+    "ridge_axis_deg_from_north": 0.9,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337929800,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489377",
+    "local_centroid_xy": [
+     181.03,
+     -124.45
+    ],
+    "footprint_area_m2": 163.5,
+    "measuredHeight_m": 8.0,
+    "storeys": 2,
+    "yearOfConstruction": "1986",
+    "structure": "unknown",
+    "main_roof_eave_h_m": 3.28,
+    "roof_pitch_deg": 17.8,
+    "ridge_axis_deg_from_north": 2.8,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338978767,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489300",
+    "local_centroid_xy": [
+     181.73,
+     1.93
+    ],
+    "footprint_area_m2": 112.1,
+    "measuredHeight_m": 14.0,
+    "storeys": 2,
+    "yearOfConstruction": "1987",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 12.54,
+    "roof_pitch_deg": 24.1,
+    "ridge_axis_deg_from_north": 71.8,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338979634,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489240",
+    "local_centroid_xy": [
+     182.19,
+     -9.84
+    ],
+    "footprint_area_m2": 175.6,
+    "measuredHeight_m": 11.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 9.24,
+    "roof_pitch_deg": 20.6,
+    "ridge_axis_deg_from_north": 177.4,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337931747,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489204",
+    "local_centroid_xy": [
+     187.98,
+     -84.91
+    ],
+    "footprint_area_m2": 383.6,
+    "measuredHeight_m": 8.9,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.04,
+    "roof_pitch_deg": 27.0,
+    "ridge_axis_deg_from_north": 1.6,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 337931744,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489205",
+    "local_centroid_xy": [
+     188.25,
+     -60.24
+    ],
+    "footprint_area_m2": 471.7,
+    "measuredHeight_m": 10.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 4.1,
+    "roof_pitch_deg": 25.9,
+    "ridge_axis_deg_from_north": 93.2,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 550360164,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489207",
+    "local_centroid_xy": [
+     190.41,
+     -26.6
+    ],
+    "footprint_area_m2": 177.0,
+    "measuredHeight_m": 10.7,
+    "storeys": 2,
+    "yearOfConstruction": "2017",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 5.36,
+    "roof_pitch_deg": 28.2,
+    "ridge_axis_deg_from_north": 89.6,
+    "orientation": null,
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541034923,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489173",
+    "local_centroid_xy": [
+     191.25,
+     -44.76
+    ],
+    "footprint_area_m2": 168.5,
+    "measuredHeight_m": 9.8,
+    "storeys": 2,
+    "yearOfConstruction": "2000",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.44,
+    "roof_pitch_deg": 23.6,
+    "ridge_axis_deg_from_north": 89.5,
+    "orientation": null,
+    "confidence": "measured"
+   }
+  ],
+  "ichinenzaka": [
+   {
+    "osm_way": 534193839,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489181",
+    "local_centroid_xy": [
+     53.81,
+     151.92
+    ],
+    "footprint_area_m2": 78.6,
+    "measuredHeight_m": 9.5,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.5,
+    "roof_pitch_deg": 23.3,
+    "ridge_axis_deg_from_north": 174.7,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986917,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489293",
+    "local_centroid_xy": [
+     77.38,
+     151.51
+    ],
+    "footprint_area_m2": 57.8,
+    "measuredHeight_m": 8.6,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.88,
+    "roof_pitch_deg": 19.7,
+    "ridge_axis_deg_from_north": 92.6,
+    "orientation": "oblique",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986919,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489294",
+    "local_centroid_xy": [
+     89.36,
+     150.36
+    ],
+    "footprint_area_m2": 193.6,
+    "measuredHeight_m": 10.0,
+    "storeys": 3,
+    "yearOfConstruction": "1951",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.26,
+    "roof_pitch_deg": 28.6,
+    "ridge_axis_deg_from_north": 90.7,
+    "orientation": "oblique",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986918,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489338",
+    "local_centroid_xy": [
+     89.38,
+     139.78
+    ],
+    "footprint_area_m2": 87.6,
+    "measuredHeight_m": 8.0,
+    "storeys": 2,
+    "yearOfConstruction": "1897",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.58,
+    "roof_pitch_deg": 24.4,
+    "ridge_axis_deg_from_north": 90.8,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541034945,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489269",
+    "local_centroid_xy": [
+     92.32,
+     124.32
+    ],
+    "footprint_area_m2": 92.5,
+    "measuredHeight_m": 9.1,
+    "storeys": 2,
+    "yearOfConstruction": "1925",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.72,
+    "roof_pitch_deg": 25.9,
+    "ridge_axis_deg_from_north": 86.9,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338987315,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489270",
+    "local_centroid_xy": [
+     101.19,
+     120.24
+    ],
+    "footprint_area_m2": 142.2,
+    "measuredHeight_m": 9.1,
+    "storeys": 2,
+    "yearOfConstruction": "1944",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.66,
+    "roof_pitch_deg": 23.8,
+    "ridge_axis_deg_from_north": 87.0,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986915,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489296",
+    "local_centroid_xy": [
+     102.33,
+     140.19
+    ],
+    "footprint_area_m2": 79.0,
+    "measuredHeight_m": 7.2,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 5.83,
+    "roof_pitch_deg": 24.3,
+    "ridge_axis_deg_from_north": 85.2,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 541034944,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489271",
+    "local_centroid_xy": [
+     109.61,
+     122.12
+    ],
+    "footprint_area_m2": 153.6,
+    "measuredHeight_m": 9.0,
+    "storeys": 2,
+    "yearOfConstruction": "1982",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.61,
+    "roof_pitch_deg": 18.6,
+    "ridge_axis_deg_from_north": 86.9,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986915,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489148",
+    "local_centroid_xy": [
+     115.61,
+     142.84
+    ],
+    "footprint_area_m2": 137.0,
+    "measuredHeight_m": 7.5,
+    "storeys": null,
+    "yearOfConstruction": null,
+    "structure": "unknown",
+    "main_roof_eave_h_m": 6.22,
+    "roof_pitch_deg": 21.7,
+    "ridge_axis_deg_from_north": 85.6,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338987316,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489272",
+    "local_centroid_xy": [
+     126.26,
+     128.42
+    ],
+    "footprint_area_m2": 34.0,
+    "measuredHeight_m": 8.0,
+    "storeys": 2,
+    "yearOfConstruction": "1984",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.52,
+    "roof_pitch_deg": 19.9,
+    "ridge_axis_deg_from_north": 82.3,
+    "orientation": "hirairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 338986024,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489292",
+    "local_centroid_xy": [
+     130.87,
+     142.81
+    ],
+    "footprint_area_m2": 71.3,
+    "measuredHeight_m": 8.9,
+    "storeys": 2,
+    "yearOfConstruction": "1912",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 7.09,
+    "roof_pitch_deg": 18.3,
+    "ridge_axis_deg_from_north": 178.6,
+    "orientation": "tsumairi",
+    "confidence": "measured"
+   },
+   {
+    "osm_way": 522894758,
+    "osm_name": null,
+    "plateau_buildingID": "26100-bldg-489273",
+    "local_centroid_xy": [
+     134.52,
+     133.18
+    ],
+    "footprint_area_m2": 76.4,
+    "measuredHeight_m": 7.8,
+    "storeys": 2,
+    "yearOfConstruction": "1995",
+    "structure": "wooden/earthen (木造・土蔵造)",
+    "main_roof_eave_h_m": 6.47,
+    "roof_pitch_deg": 23.0,
+    "ridge_axis_deg_from_north": 82.1,
+    "orientation": null,
+    "confidence": "measured"
+   }
+  ]
+ },
+ "suggested_colours": {
+  "machiya_plaster_cream": {
+   "hex": "#e6d6b0",
+   "confidence": "observed",
+   "note": "sunlit sample #fdefcb (overexposed) in File:150124 At Yasakakamimachi Kyoto Japan01n.jpg"
+  },
+  "machiya_plaster_ochre": {
+   "hex": "#c8a878",
+   "confidence": "observed",
+   "note": "shade sample #7f6644 in File:明保野亭.jpg; 聚楽-type ochre"
+  },
+  "machiya_timber_dark": {
+   "hex": "#5a3418",
+   "confidence": "observed",
+   "note": "samples #752f0f (sun) / #50260c (shade)"
+  },
+  "kawara_tile": {
+   "hex": "#7d8085",
+   "confidence": "observed",
+   "note": "sunlit sample #a8aaad; use neutral mid-grey with slight blue"
+  },
+  "granite_slab_paving": {
+   "hex": "#a9a39a",
+   "confidence": "observed",
+   "note": "samples #bfae9f (overcast, File:Pedestrian road with pavements and paper umbrellas...) / #616775 (shade)"
+  },
+  "granite_sett_west": {
+   "hex": "#8a857a",
+   "confidence": "observed",
+   "note": "wet/overcast sample #524f45 in File:Tower of Yasaka (Hokanji).jpg"
+  },
+  "koshindo_vermilion": {
+   "hex": "#c0503a",
+   "confidence": "observed"
+  },
+  "cut_granite_retaining": {
+   "hex": "#aeacad",
+   "confidence": "observed",
+   "note": "File:明保野亭.jpg"
+  }
+ }
+}

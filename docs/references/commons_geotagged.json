@@ -30,7 +30,11 @@
   "categories": [
    "Jinrikisha in Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": "coordinate is the pagoda (object); camera was on Yasaka-dori east of the pagoda looking west (observed)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "000.jpg"
  },
  {
   "title": "File:150124 At Yasakakamimachi Kyoto Japan02n.jpg",
@@ -62,7 +66,11 @@
   "description": "At Yasakakamimachi, Higashiyama-ku, Kyoto, Kyoto prefecture, Japan.",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": "coordinate is the pagoda (object); camera was on Yasaka-dori east of the pagoda looking west (observed)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "001.jpg"
  },
  {
   "title": "File:3D photo-cross view,kyoto yasaka tower(立体写真-交差法、八坂の塔を見上げる） - panoramio.jpg",
@@ -95,7 +103,11 @@
   "categories": [
    "Crosseye-view stereo images",
    "Worm's-eye view of Yasaka no Tō"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "002.jpg"
  },
  {
   "title": "File:3D photo-cross view,kyoto yasaka(立体写真-交差法、八坂） - panoramio.jpg",
@@ -127,7 +139,11 @@
   "description": "3D photo-cross view,kyoto yasaka(立体写真-交差法、八坂）",
   "categories": [
    "Crosseye-view stereo images"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "088.jpg"
  },
  {
   "title": "File:A street in Kyoto (52411170563).jpg",
@@ -161,7 +177,11 @@
    "Buildings in Higashiyama-ku, Kyoto",
    "Houses in Kyoto",
    "Ishin-no-michi"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "073.jpg"
  },
  {
   "title": "File:Anonymous way - panoramio.jpg",
@@ -193,7 +213,11 @@
   "description": "Anonymous way",
   "categories": [
    "Neighborhoods in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:At Kyoto 2024 169.jpg",
@@ -227,7 +251,11 @@
    "Alleys in Japan",
    "Kiyomizu-zaka",
    "Remote views of Yasaka no Tō"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "071.jpg"
  },
  {
   "title": "File:At Kyoto 2024 170.jpg",
@@ -260,7 +288,11 @@
   "categories": [
    "Hotels in Higashiyama-ku, Kyoto",
    "Kiyomizu-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:At Kyoto 2024 171.jpg",
@@ -293,7 +325,11 @@
   "categories": [
    "Kiyomizu-zaka",
    "Stone signs in Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "072.jpg"
  },
  {
   "title": "File:At Kyoto 2024 187.jpg",
@@ -328,7 +364,11 @@
    "Figurines in Japan",
    "National flag of Japan in art",
    "Shops in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Backstreets of Kyoto - panoramio.jpg",
@@ -360,7 +400,11 @@
   "description": "Backstreets of Kyoto",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "066.jpg"
  },
  {
   "title": "File:Daiei Fujimori store.JPG",
@@ -392,7 +436,11 @@
   "description": "ダイエー藤森店",
   "categories": [
    "Shops in Fushimi-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Fukagusa Sobukatown Fukushimi-ku Kyotocity Kyotopref.JPG",
@@ -424,7 +472,11 @@
   "description": "京都府京都市深草相深町",
   "categories": [
    "Roads in Fushimi-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Fukakusa Hasuiketown Fushimi-ku Kyotocity Kyotopref.JPG",
@@ -456,7 +508,11 @@
   "description": "京都府京都市深草蓮池町",
   "categories": [
    "Roads in Fushimi-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Fukakusa Kitorotown Fukushimi-ku Kyotocity Kyotopref.JPG",
@@ -489,7 +545,11 @@
   "categories": [
    "Roads in Fushimi-ku, Kyoto",
    "Shidan Kaidō"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Fukakusa elementary school.JPG",
@@ -521,7 +581,11 @@
   "description": "京都市立深草小学校",
   "categories": [
    "Schools in Fushimi-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Fukakusa naochigaibashikita1 Fushimi-ku Kyotocity Kyotopref.JPG",
@@ -554,7 +618,11 @@
   "categories": [
    "Roads in Fushimi-ku, Kyoto",
    "Shiga Prefectural Road and Kyoto Prefectural Road Route 35"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923269278).jpg",
@@ -586,7 +654,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923269328).jpg",
@@ -618,7 +690,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Worm's-eye view of Yasaka no Tō"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "003.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923271673).jpg",
@@ -650,7 +726,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "004.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923272228).jpg",
@@ -682,7 +762,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "045.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923274238).jpg",
@@ -714,7 +798,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "046.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923331853).jpg",
@@ -746,7 +834,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "047.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923334473).jpg",
@@ -778,7 +870,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "057.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923334793).jpg",
@@ -810,7 +906,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Café Garakuta"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923801861).jpg",
@@ -842,7 +942,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "005.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923803716).jpg",
@@ -874,7 +978,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "006.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923805211).jpg",
@@ -907,7 +1015,11 @@
   "categories": [
    "Wooden buildings in Kyoto",
    "Yasaka Dori"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "007.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923805641).jpg",
@@ -939,7 +1051,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "008.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923807161).jpg",
@@ -971,7 +1087,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "009.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923807466).jpg",
@@ -1003,7 +1123,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "058.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923807891).jpg",
@@ -1035,7 +1159,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923809071).jpg",
@@ -1067,7 +1195,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Kiyomizu-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923809076).jpg",
@@ -1099,7 +1231,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923809241).jpg",
@@ -1131,7 +1267,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Kiyomizu-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923865671).jpg",
@@ -1164,7 +1304,11 @@
   "categories": [
    "Ishibe Kōji",
    "Tamahan Ryokan"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923866801).jpg",
@@ -1196,7 +1340,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "048.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923867241).jpg",
@@ -1228,7 +1376,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923867786).jpg",
@@ -1260,7 +1412,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924001622).jpg",
@@ -1294,7 +1450,11 @@
    "Rosa in Japan",
    "Unidentified red Rosa cultivars",
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924001697).jpg",
@@ -1326,7 +1486,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "010.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924001702).jpg",
@@ -1358,7 +1522,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "059.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924003837).jpg",
@@ -1390,7 +1558,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Yasaka Dori"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "011.jpg"
  },
  {
   "title": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48924067407).jpg",
@@ -1422,7 +1594,11 @@
   "description": "Gion - Nineizaka (Ninenzaka), Kyoto, Japan",
   "categories": [
    "Kasagiya"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Gojunoto Tower (Yasaka Tower) of Hokanji Temple at dusk.JPG",
@@ -1455,7 +1631,11 @@
   "categories": [
    "September 2015 in Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "012.jpg"
  },
  {
   "title": "File:Gojunoto Tower (Yasaka Tower) of Hokanji Temple from Sanneizaka.jpg",
@@ -1487,7 +1667,11 @@
   "description": "産寧坂より望む八坂の塔",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "013.jpg"
  },
  {
   "title": "File:Goryukaku Kyoto Japan01s5.jpg",
@@ -1519,7 +1703,11 @@
   "description": "At Goryukaku in Kyoto, Kyoto prefecture, Japan",
   "categories": [
    "Goryukaku"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Goryukaku Kyoto Japan02s5.jpg",
@@ -1551,7 +1739,11 @@
   "description": "At Goryukaku in Kyoto, Kyoto prefecture, Japan",
   "categories": [
    "Goryukaku"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:HIgashiyama @ Kyoto (13406248253).jpg",
@@ -1583,7 +1775,11 @@
   "description": "HIgashiyama @ Kyoto",
   "categories": [
    "Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "074.jpg"
  },
  {
   "title": "File:Higashiyama county hall.JPG",
@@ -1615,7 +1811,11 @@
   "description": "東山区役所",
   "categories": [
    "Buildings in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Higashiyama, Kyoto (37590307252).jpg",
@@ -1647,7 +1847,11 @@
   "description": "Higashiyama, Kyoto",
   "categories": [
    "Jinrikisha in Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "037.jpg"
  },
  {
   "title": "File:Hitotsubashino-honmachi Higashiyama-ku Kyotocity Kyotopref.JPG",
@@ -1680,7 +1884,11 @@
   "categories": [
    "May 2013 in Kyoto",
    "Roads in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Hokan-ji, Goju-no-to (Five-storied Pagoda) -1 (March 2016) - panoramio.jpg",
@@ -1713,7 +1921,11 @@
   "categories": [
    "March 2016 in Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "014.jpg"
  },
  {
   "title": "File:Hokan-ji, Goju-no-to (Five-storied Pagoda) -2 (March 2016) - panoramio.jpg",
@@ -1748,7 +1960,11 @@
    "Remote views of Yasaka no Tō",
    "Skyglow in Kyoto",
    "Yasaka no Tō at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "087.jpg"
  },
  {
   "title": "File:Illuminated Sanneizaka near Kiyomizudera Temple.jpg",
@@ -1780,7 +1996,11 @@
   "description": "ライトアップされた産寧坂",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "060.jpg"
  },
  {
   "title": "File:Illuminated Yasakanoto Tower (Hokanji Temple) 1.jpg",
@@ -1813,7 +2033,11 @@
   "categories": [
    "Higashiyama Hanatōro",
    "Views of Yasaka no Tō from Yasaka Dōri at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "015.jpg"
  },
  {
   "title": "File:Illuminated Yasakanoto Tower (Hokanji Temple) 2.jpg",
@@ -1846,7 +2070,11 @@
   "categories": [
    "Higashiyama Hanatōro",
    "Views of Yasaka no Tō from Yasaka Dōri at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "016.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in 1343pm June 2026 N13P 112.jpg",
@@ -1878,7 +2106,11 @@
   "description": "JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in in June 2026",
   "categories": [
    "2026 in Chion-in, Kyoto Japan"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in 1343pm June 2026 N13P 118.jpg",
@@ -1910,7 +2142,11 @@
   "description": "JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in in June 2026",
   "categories": [
    "2026 in Chion-in, Kyoto Japan"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in 1343pm June 2026 N13P 119.jpg",
@@ -1942,7 +2178,11 @@
   "description": "JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in in June 2026",
   "categories": [
    "2026 in Chion-in, Kyoto Japan"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in 1343pm June 2026 N13P 120.jpg",
@@ -1974,7 +2214,11 @@
   "description": "JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in in June 2026",
   "categories": [
    "2026 in Chion-in, Kyoto Japan"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in 1343pm June 2026 N13P 121.jpg",
@@ -2006,7 +2250,11 @@
   "description": "JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in in June 2026",
   "categories": [
    "2026 in Chion-in, Kyoto Japan"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in 1343pm June 2026 N13P 122.jpg",
@@ -2038,7 +2286,11 @@
   "description": "JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in in June 2026",
   "categories": [
    "2026 in Chion-in, Kyoto Japan"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in outdoor stairs n golden ring sculpture June 2026 N13P 01.jpg",
@@ -2077,7 +2329,11 @@
    "Outside stairs in Japan",
    "Outside stairs of temples in Kyoto",
    "Sculptures in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in outdoor stairs n golden ring sculpture June 2026 N13P 02.jpg",
@@ -2116,7 +2372,11 @@
    "Outside stairs in Japan",
    "Outside stairs of temples in Kyoto",
    "Sculptures in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto tourism 東山區 Higashiyama-ku 知恩院 Chion-in outdoor stairs n golden ring sculpture June 2026 N13P 03.jpg",
@@ -2155,7 +2415,11 @@
    "Outside stairs in Japan",
    "Outside stairs of temples in Kyoto",
    "Sculptures in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 01.jpg",
@@ -2187,7 +2451,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 02.jpg",
@@ -2219,7 +2487,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 03.jpg",
@@ -2251,7 +2523,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 04.jpg",
@@ -2283,7 +2559,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 05.jpg",
@@ -2315,7 +2595,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 06.jpg",
@@ -2347,7 +2631,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 07.jpg",
@@ -2379,7 +2667,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 08.jpg",
@@ -2411,7 +2703,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 09.jpg",
@@ -2443,7 +2739,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 10.jpg",
@@ -2475,7 +2775,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 11.jpg",
@@ -2507,7 +2811,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 12.jpg",
@@ -2539,7 +2847,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 13.jpg",
@@ -2571,7 +2883,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 14.jpg",
@@ -2603,7 +2919,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 15.jpg",
@@ -2635,7 +2955,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am June 2026 N13P 16.jpg",
@@ -2667,7 +2991,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 京都靈山護國神社 Kyoto Ryozen Gokoku Shrine morning 09am in June 2026",
   "categories": [
    "2026 in Kyoto Ryozen Gokoku Shrine, Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 01.jpg",
@@ -2699,7 +3027,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "Kōdai-ji in 2026"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 02.jpg",
@@ -2731,7 +3063,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 03.jpg",
@@ -2763,7 +3099,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 04.jpg",
@@ -2795,7 +3135,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 05.jpg",
@@ -2827,7 +3171,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 06.jpg",
@@ -2859,7 +3207,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 07.jpg",
@@ -2891,7 +3243,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple June 2026 N13P 08.jpg",
@@ -2923,7 +3279,11 @@
   "description": "JP 日本 Japan 京都 Kyoto 右京都 Ukyo-ku 高台寺 Kōdai-ji Temple in June 2026",
   "categories": [
    "2026 in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 01.jpg",
@@ -2956,7 +3316,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "082.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 02.jpg",
@@ -2989,7 +3353,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 03.jpg",
@@ -3022,7 +3390,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 04.jpg",
@@ -3055,7 +3427,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 05.jpg",
@@ -3088,7 +3464,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 06.jpg",
@@ -3121,7 +3501,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 07.jpg",
@@ -3154,7 +3538,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 08.jpg",
@@ -3187,7 +3575,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 09.jpg",
@@ -3220,7 +3612,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "083.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 10.jpg",
@@ -3253,7 +3649,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 11.jpg",
@@ -3286,7 +3686,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 12.jpg",
@@ -3320,7 +3724,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori",
    "Seiryū-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 13.jpg",
@@ -3354,7 +3762,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori",
    "Seiryū-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 14.jpg",
@@ -3388,7 +3800,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori",
    "Seiryū-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 15.jpg",
@@ -3422,7 +3838,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori",
    "Seiryū-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 16.jpg",
@@ -3456,7 +3876,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori",
    "Seiryū-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 17.jpg",
@@ -3490,7 +3914,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Jinrikisha in Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "084.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 18.jpg",
@@ -3524,7 +3952,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Jinrikisha in Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 19.jpg",
@@ -3558,7 +3990,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Jinrikisha in Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 20.jpg",
@@ -3592,7 +4028,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Jinrikisha in Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 21.jpg",
@@ -3625,7 +4065,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 22.jpg",
@@ -3659,7 +4103,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Jinrikisha in Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 23.jpg",
@@ -3692,7 +4140,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 24.jpg",
@@ -3725,7 +4177,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 25.jpg",
@@ -3759,7 +4215,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori",
    "Sugi Drugstore, Japan"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 26.jpg",
@@ -3792,7 +4252,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 27.jpg",
@@ -3825,7 +4289,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 28.jpg",
@@ -3858,7 +4326,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 29.jpg",
@@ -3891,7 +4363,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 30.jpg",
@@ -3924,7 +4400,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 右京都 YuKyoto 高台寺南門通 KodaiJi Minamimon South Gate Dori Street morning 10am June 2026 N13P 31.jpg",
@@ -3957,7 +4437,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Kodaiji-minamimon-dori"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 01.jpg",
@@ -3992,7 +4476,11 @@
    "Itoh Kyuemon",
    "Morning in Kyoto prefecture",
    "Restaurants in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 02.jpg",
@@ -4027,7 +4515,11 @@
    "Itoh Kyuemon",
    "Morning in Kyoto prefecture",
    "Restaurants in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 03.jpg",
@@ -4060,7 +4552,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 04.jpg",
@@ -4093,7 +4589,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 05.jpg",
@@ -4127,7 +4627,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture",
    "Restaurants in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 06.jpg",
@@ -4161,7 +4665,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture",
    "Restaurants in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 07.jpg",
@@ -4195,7 +4703,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture",
    "Restaurants in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 08.jpg",
@@ -4229,7 +4741,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture",
    "Restaurants in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 09.jpg",
@@ -4262,7 +4778,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku ramp shop morning 0611am June 2026 N13P 10.jpg",
@@ -4295,7 +4815,11 @@
   "categories": [
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku taxi tour view morning 0607am June 2026 N13P 06.jpg",
@@ -4329,7 +4853,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture",
    "Views from taxis in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku taxi tour view morning 0607am June 2026 N13P 07.jpg",
@@ -4363,7 +4891,11 @@
    "2026 in Higashiyama-ku, Kyoto",
    "Morning in Kyoto prefecture",
    "Views from taxis in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 02.jpg",
@@ -4396,7 +4928,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "075.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 03.jpg",
@@ -4429,7 +4965,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 04.jpg",
@@ -4462,7 +5002,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 05.jpg",
@@ -4496,7 +5040,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Izutsuyatsuhashihonpo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 06.jpg",
@@ -4530,7 +5078,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Izutsuyatsuhashihonpo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 07.jpg",
@@ -4563,7 +5115,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 08.jpg",
@@ -4596,7 +5152,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "076.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 09.jpg",
@@ -4629,7 +5189,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 10.jpg",
@@ -4662,7 +5226,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 11.jpg",
@@ -4695,7 +5263,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 12.jpg",
@@ -4728,7 +5300,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 13.jpg",
@@ -4761,7 +5337,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 14.jpg",
@@ -4794,7 +5374,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "077.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 15.jpg",
@@ -4827,7 +5411,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 16.jpg",
@@ -4860,7 +5448,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 17.jpg",
@@ -4893,7 +5485,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 18.jpg",
@@ -4926,7 +5522,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 19.jpg",
@@ -4959,7 +5559,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 20.jpg",
@@ -4992,7 +5596,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "078.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 21.jpg",
@@ -5025,7 +5633,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 22.jpg",
@@ -5058,7 +5670,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Café Garakuta"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 23.jpg",
@@ -5091,7 +5707,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Kasagiya"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 24.jpg",
@@ -5124,7 +5744,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Café Garakuta"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 25.jpg",
@@ -5157,7 +5781,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Apple Pie Lab Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 26.jpg",
@@ -5190,7 +5818,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Apple Pie Lab Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "079.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 27.jpg",
@@ -5223,7 +5855,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Café Garakuta"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 28.jpg",
@@ -5256,7 +5892,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Gekka Bijin (wagashi shop)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 29.jpg",
@@ -5289,7 +5929,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Gekka Bijin (wagashi shop)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 30.jpg",
@@ -5322,7 +5966,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Gekka Bijin (wagashi shop)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 31.jpg",
@@ -5355,7 +6003,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Gekka Bijin (wagashi shop)"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 32.jpg",
@@ -5388,7 +6040,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 33.jpg",
@@ -5421,7 +6077,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Starbucks Coffee Kyoto Nineizaka Yasaka Chaya"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 34.jpg",
@@ -5454,7 +6114,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Starbucks Coffee Kyoto Nineizaka Yasaka Chaya"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 35.jpg",
@@ -5487,7 +6151,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 36.jpg",
@@ -5520,7 +6188,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 37.jpg",
@@ -5553,7 +6225,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 38.jpg",
@@ -5586,7 +6262,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 39.jpg",
@@ -5619,7 +6299,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 40.jpg",
@@ -5652,7 +6336,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 41.jpg",
@@ -5685,7 +6373,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 42.jpg",
@@ -5718,7 +6410,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 43.jpg",
@@ -5751,7 +6447,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 44.jpg",
@@ -5785,7 +6485,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka",
    "Park Hyatt Kyoto"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist morning 0922pm June 2026 N13P 45.jpg",
@@ -5819,7 +6523,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Kyotoyamato",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 01.jpg",
@@ -5852,7 +6560,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "080.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 02.jpg",
@@ -5885,7 +6597,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 03.jpg",
@@ -5918,7 +6634,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 04.jpg",
@@ -5951,7 +6671,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 05.jpg",
@@ -5985,7 +6709,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ryozenhonbyo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 06.jpg",
@@ -6019,7 +6747,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ryozenhonbyo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 07.jpg",
@@ -6053,7 +6785,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ryozenhonbyo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "081.jpg"
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 08.jpg",
@@ -6087,7 +6823,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ryozenhonbyo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 09.jpg",
@@ -6121,7 +6861,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ryozenhonbyo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku tourist 三年坂 Sannen-zaka Street n temple June 2026 N13P 10.jpg",
@@ -6155,7 +6899,11 @@
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ryozenhonbyo",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku 清水寺 Kiyomizu-dera Temple morning June 2026 N13P 139.jpg",
@@ -6188,7 +6936,11 @@
   "categories": [
    "Kiyomizu-dera in 2026",
    "Morning in Kyoto prefecture"
-  ]
+  ],
+  "geotag_note": "suspect: batch/approximate geotag; title names a site outside or at edge of box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP 日本 Japan 京都 Kyoto 東山區 Higashiyama-ku 維新之道 Ishin-no-michi Road sign June 2026 N13P 01.jpg",
@@ -6221,7 +6973,11 @@
   "categories": [
    "2026 in Ishin-no-michi, Kyoto Japan",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": "approximate: many files share one coordinate (batch geotag)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:JP-Kyoto-Tower-Of-Hokan-Ji(Temple).jpg",
@@ -6253,7 +7009,11 @@
   "description": "京都 法観寺 八坂の塔",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "017.jpg"
  },
  {
   "title": "File:Japan - Flickr - GregTheBusker (14).jpg",
@@ -6286,7 +7046,11 @@
   "categories": [
    "February 2015 in Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "018.jpg"
  },
  {
   "title": "File:Japanese Clothes - Flickr - mrhayata.jpg",
@@ -6319,7 +7083,11 @@
   "categories": [
    "Higashiyama-ku, Kyoto",
    "Women wearing kimono"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Japanese traditional lifestyle 12.jpg",
@@ -6354,7 +7122,11 @@
    "Women taking smartphone selfies",
    "Women wearing kimono",
    "Young women of Japan"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kamogawa-higahsi in.JPG",
@@ -6386,7 +7158,11 @@
   "description": "鴨川東入口",
   "categories": [
    "Hanshin Expressway Route 8 Kyoto Route"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kimodos Down the Stairs (40134007830).jpg",
@@ -6418,7 +7194,11 @@
   "description": "OLYMPUS DIGITAL CAMERA",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "065.jpg"
  },
  {
   "title": "File:Kongoji (Yasaka Kōshindō) Temple (51473114223).jpg",
@@ -6451,7 +7231,11 @@
   "categories": [
    "Kongō-ji (Kyoto)",
    "March 2020 in Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "041.jpg"
  },
  {
   "title": "File:Kongoji (Yasaka Kōshindō) Temple (51473806620).jpg",
@@ -6484,7 +7268,11 @@
   "categories": [
    "Kongō-ji (Kyoto)",
    "March 2020 in Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "042.jpg"
  },
  {
   "title": "File:Kyoto (49071381327).jpg",
@@ -6516,7 +7304,11 @@
   "description": "Kyoto",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "019.jpg"
  },
  {
   "title": "File:Kyoto - Nineizaka (51472101082).jpg",
@@ -6549,7 +7341,11 @@
   "categories": [
    "March 2020 in Kyoto",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "054.jpg"
  },
  {
   "title": "File:Kyoto - Nineizaka (51472101182).jpg",
@@ -6582,7 +7378,11 @@
   "categories": [
    "March 2020 in Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "022.jpg"
  },
  {
   "title": "File:Kyoto - Nineizaka (51473588144).jpg",
@@ -6615,7 +7415,11 @@
   "categories": [
    "March 2020 in Kyoto",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "055.jpg"
  },
  {
   "title": "File:Kyoto National Museum in2013.JPG",
@@ -6647,7 +7451,11 @@
   "description": "京都国立博物館",
   "categories": [
    "Kyoto National Museum"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyoto Pagoda.jpg",
@@ -6679,7 +7487,11 @@
   "description": "Japan photo to be renamed",
   "categories": [
    "Worm's-eye view of Yasaka no Tō"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "020.jpg"
  },
  {
   "title": "File:Kyoto old city - panoramio.jpg",
@@ -6711,7 +7523,11 @@
   "description": "Kyoto old city",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "021.jpg"
  },
  {
   "title": "File:Kyoto shimizu post office.JPG",
@@ -6744,7 +7560,11 @@
   "categories": [
    "Buildings in Higashiyama-ku, Kyoto",
    "Post offices in Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyoto streets (51472100822).jpg",
@@ -6776,7 +7596,11 @@
   "description": "京都の街並み",
   "categories": [
    "Sakura in Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: categories name sites outside box (Nishiki Tenmangu, Yata-dera)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyoto streets (51472869996).jpg",
@@ -6809,7 +7633,11 @@
   "categories": [
    "Haiden, Nishiki Tenmangu",
    "March 2020 in Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: categories name sites outside box (Nishiki Tenmangu, Yata-dera)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyoto streets (51473114573).jpg",
@@ -6844,7 +7672,11 @@
    "March 2020 in Kyoto",
    "Paper lanterns in Kyoto",
    "Yata-dera (Kyoto)"
-  ]
+  ],
+  "geotag_note": "suspect: categories name sites outside box (Nishiki Tenmangu, Yata-dera)",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyoto zongzi japonais.jpg",
@@ -6877,7 +7709,11 @@
   "categories": [
    "Food in Kyoto",
    "Zongzi"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyotocity Higashiyama Fire Department.JPG",
@@ -6911,7 +7747,11 @@
    "Buildings in Higashiyama-ku, Kyoto",
    "Fire stations in Kyoto prefecture",
    "Kyoto City Fire Department"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Kyotopref Police school.JPG",
@@ -6944,7 +7784,11 @@
   "categories": [
    "Police academies and colleges in Japan",
    "Schools in Fushimi-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Momoyama Fukushima Dayunishi town Fushimi-ku Kyotocity Kyotopref Route 24.JPG",
@@ -6977,7 +7821,11 @@
   "categories": [
    "Roads in Fushimi-ku, Kyoto",
    "Route 24 (Japan)"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Momoyama Tanshita town Fushimi-ku Kyotocity Kyotopref Route 24.JPG",
@@ -7010,7 +7858,11 @@
   "categories": [
    "Roads in Fushimi-ku, Kyoto",
    "Route 24 (Japan)"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Mukaijimamarutown Fushimi-ku Kyotocity Kyotopref Route 24.JPG",
@@ -7044,7 +7896,11 @@
    "Footbridges in Kyoto prefecture",
    "Roads in Fushimi-ku, Kyoto",
    "Route 24 (Japan)"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Multi-coloured kukuri-zaru talismans at Kongoji Yasaka Koshin-do temple, Kyoto, Japan (2).jpg",
@@ -7079,7 +7935,11 @@
    "Colorful objects in Japan",
    "Kongō-ji (Kyoto)",
    "Kukuri-zaru"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "043.jpg"
  },
  {
   "title": "File:Multi-coloured kukuri-zaru talismans at Kongoji Yasaka Koshin-do temple, Kyoto, Japan (large view).jpg",
@@ -7114,7 +7974,11 @@
    "Colorful objects in Japan",
    "Kongō-ji (Kyoto)",
    "Kukuri-zaru"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Multi-coloured kukuri-zaru talismans at Kongoji Yasaka Kōshin-dō temple, Kyoto, Japan.jpg",
@@ -7151,7 +8015,11 @@
    "Kukuri-zaru",
    "Multi-colored objects",
    "Published photographs by Basile Morin"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:New Wayside Shrine in Kyoto on 2026-05-04.jpeg",
@@ -7187,7 +8055,11 @@
   "categories": [
    "Buddhist shrines in Japan",
    "Wayside Shrines in Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Nineizaka,Kyoto 二寧坂 - panoramio.jpg",
@@ -7219,7 +8091,11 @@
   "description": "Nineizaka,Kyoto 二寧坂",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "049.jpg"
  },
  {
   "title": "File:Ninen-zaka 2018-04-14.jpg",
@@ -7251,7 +8127,11 @@
   "description": "Streets of old Kyoto; shopping area",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "050.jpg"
  },
  {
   "title": "File:Ninenzaka near Kiyomizudera Temple.jpg",
@@ -7283,7 +8163,11 @@
   "description": "産寧坂より北へ分ける二年坂",
   "categories": [
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "051.jpg"
  },
  {
   "title": "File:Pedestrian road with pavements and paper umbrellas, Higashiyama-ku, Kyoto, Japan, early morning.jpg",
@@ -7321,7 +8205,11 @@
    "Pedestrian zones in Japan",
    "Published photographs by Basile Morin",
    "Views of Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "052.jpg"
  },
  {
   "title": "File:Pedestrian road with pavements, paper umbrellas and people in yukata, Higashiyama-ku, Kyoto, Japan.jpg",
@@ -7358,7 +8246,11 @@
    "People wearing yukata",
    "Published photographs by Basile Morin",
    "Views of Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "053.jpg"
  },
  {
   "title": "File:Rainbow pendula from shrine in Kyoto; August 2009.jpg",
@@ -7393,7 +8285,11 @@
    "Gion, Kyoto",
    "Pendulums",
    "Shintō items"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Saiwai hospital.JPG",
@@ -7426,7 +8322,11 @@
   "categories": [
    "Buildings in Fushimi-ku, Kyoto",
    "Hospitals in Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 2.jpg",
@@ -7458,7 +8358,11 @@
   "description": "清水寺近くの産寧坂(三年坂)",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "061.jpg"
  },
  {
   "title": "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 3.jpg",
@@ -7490,7 +8394,11 @@
   "description": "清水寺近くの産寧坂(三年坂)",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "062.jpg"
  },
  {
   "title": "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 4.jpg",
@@ -7522,7 +8430,11 @@
   "description": "清水寺近くの産寧坂(三年坂)",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple 5.JPG",
@@ -7554,7 +8466,11 @@
   "description": "清水寺近くの産寧坂(三年坂)",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Sanneizaka (Sannenzaka) near Kiyomizudera Temple.JPG",
@@ -7586,7 +8502,11 @@
   "description": "清水寺近くの産寧坂(三年坂)",
   "categories": [
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Sanneizaka Street, Kyoto on June 5th, 2017.jpg",
@@ -7619,7 +8539,11 @@
   "categories": [
    "June 2017 in Kyoto",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "063.jpg"
  },
  {
   "title": "File:Sanneizaka Street, Kyoto on May 14th, 2018.jpg",
@@ -7652,7 +8576,11 @@
   "categories": [
    "May 2018 in Kyoto",
    "Sannei-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "064.jpg"
  },
  {
   "title": "File:Sett in front of Yasaka Tower (Hokanji Temple).jpg",
@@ -7685,7 +8613,11 @@
   "categories": [
    "Machiya in Kyoto",
    "Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "023.jpg"
  },
  {
   "title": "File:Starbucks Coffee Kyoto Ninenzaka Yasaka Chaya.jpg",
@@ -7718,7 +8650,11 @@
   "categories": [
    "May 2018 in Kyoto",
    "Starbucks Coffee Kyoto Nineizaka Yasaka Chaya"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "056.jpg"
  },
  {
   "title": "File:Sunagawa elementary school.JPG",
@@ -7750,7 +8686,11 @@
   "description": "京都市立砂川小学校",
   "categories": [
    "Schools in Fushimi-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": "suspect: batch geotag; content is Fushimi-ku/elsewhere, not in box",
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:The Yasaka Tower, Kyoto - panoramio.jpg",
@@ -7782,7 +8722,11 @@
   "description": "The Yasaka Tower, Kyoto",
   "categories": [
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Torii of Yasui Kompira Shrine across road.jpg",
@@ -7814,7 +8758,11 @@
   "description": "道の向こう側より望む安井金比羅宮の鳥居",
   "categories": [
    "Yasui Kompira-gu"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Torii on Sando of Kyoto Ryozen Gokoku Shrine.JPG",
@@ -7846,7 +8794,11 @@
   "description": "霊山護国神社参道にある鳥居",
   "categories": [
    "Kyoto Ryozen Gokoku Shrine"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Tower of Yasaka (Hokanji).jpg",
@@ -7879,7 +8831,11 @@
   "categories": [
    "December 2013 in Kyoto",
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "024.jpg"
  },
  {
   "title": "File:View from a pedestrian tunnel with bamboo walls and symmetrical centered perspective, Higashiyama-ku, Kyoto, Japan.jpg",
@@ -7924,7 +8880,11 @@
    "Symmetry impressions of building interiors",
    "Tunnels less than 0.1 kilometers",
    "Views from tunnels"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:Yasaka Koshin-do on Yumemizaka of Kyoto.jpg",
@@ -7956,7 +8916,11 @@
   "description": "夢見坂にある金剛寺",
   "categories": [
    "Kongō-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "039.jpg"
  },
  {
   "title": "File:Yasaka Koshindo, May 2017.jpg",
@@ -7989,7 +8953,11 @@
   "categories": [
    "Kongō-ji (Kyoto)",
    "Kukuri-zaru"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "040.jpg"
  },
  {
   "title": "File:Yasaka Pagoda (24922466195).jpg",
@@ -8026,7 +8994,11 @@
    "People of Japan in 2015",
    "Views of Yasaka no Tō from Yumemi-zaka",
    "Walking people seen from behind on roads"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "025.jpg"
  },
  {
   "title": "File:Yasaka no Tō.jpg",
@@ -8059,7 +9031,11 @@
   "categories": [
    "September 2018 in Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "026.jpg"
  },
  {
   "title": "File:Yasaka-Dori - panoramio.jpg",
@@ -8091,7 +9067,11 @@
   "description": "Yasaka-Dori",
   "categories": [
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "027.jpg"
  },
  {
   "title": "File:Yasaka-dori early morning with street lanterns and the Tower of Yasaka (Hokan-ji Temple), Kyoto, Japan.jpg",
@@ -8127,7 +9107,11 @@
    "Street lights in Kyōto",
    "Views of Kyoto",
    "Views of Yasaka no Tō from Yasaka Dōri"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "028.jpg"
  },
  {
   "title": "File:Yasakanoto Tower of Hokanji Temple 2.jpg",
@@ -8160,7 +9144,11 @@
   "categories": [
    "September 2015 in Kyoto",
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "029.jpg"
  },
  {
   "title": "File:Yasakanoto Tower of Hokanji Temple.jpg",
@@ -8193,7 +9181,11 @@
   "categories": [
    "September 2015 in Kyoto",
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "030.jpg"
  },
  {
   "title": "File:「洛水」 (32472510363).jpg",
@@ -8234,7 +9226,11 @@
    "Laid objects",
    "Matcha tea",
    "Shop benches in Japan"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:二寧坂 - panoramio - 米田賢一.jpg",
@@ -8267,7 +9263,11 @@
   "categories": [
    "December 2009 in Kyoto",
    "Ninen-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "067.jpg"
  },
  {
   "title": "File:二寧坂 - panoramio.jpg",
@@ -8302,7 +9302,11 @@
    "Ninen-zaka",
    "People wearing yukata",
    "People with cameras in Japan"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:八ツ橋 抹茶ニッキ (32472599633).jpg",
@@ -8338,7 +9342,11 @@
    "Honke Nishio Yatsuhashi",
    "Matcha confectionery",
    "Tasting services in Japan"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:八坂 - panoramio.jpg",
@@ -8371,7 +9379,11 @@
   "categories": [
    "Remote views of Yasaka no Tō",
    "September 2009 in Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "086.jpg"
  },
  {
   "title": "File:八坂の塔 - panoramio.jpg",
@@ -8404,7 +9416,11 @@
   "categories": [
    "Buildings during blue hour in Japan",
    "Yasaka no Tō at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "031.jpg"
  },
  {
   "title": "File:八坂の塔への道 - panoramio.jpg",
@@ -8436,7 +9452,11 @@
   "description": "八坂の塔への道",
   "categories": [
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "032.jpg"
  },
  {
   "title": "File:八坂庚申堂 - panoramio.jpg",
@@ -8468,7 +9488,11 @@
   "description": "八坂庚申堂",
   "categories": [
    "Kongō-ji (Kyoto)"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "044.jpg"
  },
  {
   "title": "File:塔の下商店街（八坂の塔） - panoramio.jpg",
@@ -8500,7 +9524,11 @@
   "description": "塔の下商店街（八坂の塔）",
   "categories": [
    "Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "033.jpg"
  },
  {
   "title": "File:夜櫻 Night Sakura - panoramio.jpg",
@@ -8532,7 +9560,11 @@
   "description": "夜櫻 Night Sakura",
   "categories": [
    "Sakura in Japan at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:安田陶器店 Yasuda Pottery Shop - panoramio.jpg",
@@ -8565,7 +9597,11 @@
   "categories": [
    "Pottery shops in Japan",
    "Shops in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "070.jpg"
  },
  {
   "title": "File:成人式の前撮り@京都 (50660188362).jpg",
@@ -8606,7 +9642,11 @@
    "Photographers from Japan",
    "Red kimono",
    "Seijin shiki"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:成人式の前撮り@京都 (50660192962).jpg",
@@ -8640,7 +9680,11 @@
    "November 2020 in Kyoto",
    "People photographing other people in Japan",
    "Seijin shiki"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "038.jpg"
  },
  {
   "title": "File:文の助茶屋 - panoramio.jpg",
@@ -8673,7 +9717,11 @@
   "categories": [
    "Ochaya",
    "Shops in Higashiyama-ku, Kyoto"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "035.jpg"
  },
  {
   "title": "File:明保野亭 Akebonotei - panoramio.jpg",
@@ -8705,7 +9753,11 @@
   "description": "明保野亭 Akebonotei",
   "categories": [
    "Akebonotei"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "069.jpg"
  },
  {
   "title": "File:明保野亭 Akebonotei Inn - panoramio (1).jpg",
@@ -8737,7 +9789,11 @@
   "description": "明保野亭 Akebonotei Inn",
   "categories": [
    "Akebonotei"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:明保野亭 Akebonotei Inn - panoramio (2).jpg",
@@ -8769,7 +9825,11 @@
   "description": "明保野亭 Akebonotei Inn",
   "categories": [
    "Akebonotei"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:明保野亭 Akebonotei Inn - panoramio.jpg",
@@ -8801,7 +9861,11 @@
   "description": "明保野亭 Akebonotei Inn",
   "categories": [
    "Akebonotei"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:明保野亭.jpg",
@@ -8833,7 +9897,11 @@
   "description": "明保野亭（京都市東山区）",
   "categories": [
    "Akebonotei"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "068.jpg"
  },
  {
   "title": "File:明保野亭前之藝妓 Geisha Girls in front of Akebo Inn - panoramio.jpg",
@@ -8865,7 +9933,11 @@
   "description": "明保野亭前之藝妓 Geisha Girls in front of Akebo Inn",
   "categories": [
    "Akebonotei"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:法観寺八坂の塔 - panoramio - くろふね.jpg",
@@ -8897,7 +9969,11 @@
   "description": "法観寺八坂の塔",
   "categories": [
    "Remote views of Yasaka no Tō"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "085.jpg"
  },
  {
   "title": "File:法観寺八坂の塔 - panoramio.jpg",
@@ -8929,7 +10005,11 @@
   "description": "法観寺八坂の塔",
   "categories": [
    "Views of Yasaka no Tō from Yumemi-zaka"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": true,
+  "scratch_ref_id": "034.jpg"
  },
  {
   "title": "File:竹ベンチ (32904338710).jpg",
@@ -8963,7 +10043,11 @@
    "Bamboo benches",
    "Bambooworks of Japan",
    "Shop benches in Japan"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:霊山観音 - 予科練十八期の碑.jpg",
@@ -8996,7 +10080,11 @@
   "categories": [
    "Cenotaphs in Japan",
    "Monuments and memorials at Ryozen Kannon"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:霊山観音 - 入口.jpg",
@@ -9028,7 +10116,11 @@
   "description": "霊山観音 - 入口",
   "categories": [
    "Main Gate, Ryozen Kannon"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:霊山観音 - 入口2.jpg",
@@ -9060,7 +10152,11 @@
   "description": "霊山観音 - 入口",
   "categories": [
    "Main Gate, Ryozen Kannon"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  },
  {
   "title": "File:青空 京都 2015 (31868548931).jpg",
@@ -9092,7 +10188,11 @@
   "description": "",
   "categories": [
    "Views of Yasaka no Tō from Yasaka Dōri at night"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": true,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": "036.jpg"
  },
  {
   "title": "File:高台寺 - panoramio.jpg",
@@ -9124,6 +10224,10 @@
   "description": "高台寺",
   "categories": [
    "Gardens of Kōdai-ji"
-  ]
+  ],
+  "geotag_note": null,
+  "thumbnail_downloaded": false,
+  "viewed_by_reviewer": false,
+  "scratch_ref_id": null
  }
 ]

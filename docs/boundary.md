@@ -14,7 +14,7 @@ Aerial alignment check: [master_map_aerial.png](master_map_aerial.png)
 | Footprint area (OSM) | 172.1 m² | OSM polygon |
 | PLATEAU building | `bldg_2b477621-2b5c-480b-a960-d2b3972db237`, roof-edge area 229.2 m², ground 61.04 m T.P. | PLATEAU 2025 |
 | Ground elevation | 61.4 m T.P. (DEM5A), 61.04 m (PLATEAU LOD1 base) | GSI / PLATEAU |
-| Height | 46 m documented (OSM tag, published sources), **PLATEAU measuredHeight = 28.7 m** (airborne survey under-reads the slender tiered tower and its finial) | see accuracy report |
+| Height | **38.8 m incl. sōrin (adopted)** — NDL reference entry; consistent with PLATEAU LOD2 top-roof apex 28.7 m above ground + ~10 m sōrin measured from photo ratios. The popular figure 46 m (also the OSM `height` tag) would require a ~17 m sōrin, contradicted by photos → recorded as disputed. PLATEAU `measuredHeight` 28.7 m = roof apex only. | docs/evidence/yasaka_pagoda_spec.json |
 
 ## Coordinate reference system
 

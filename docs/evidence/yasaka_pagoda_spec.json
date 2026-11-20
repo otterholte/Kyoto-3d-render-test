@@ -1,0 +1,103 @@
+{
+ "schema": "yasaka_pagoda_spec v1",
+ "name": {"ja": "法観寺五重塔（八坂の塔）", "en": "Five-storied pagoda of Hokan-ji (Yasaka-no-To)"},
+ "confidence_classes": {
+  "measured": "PLATEAU CityGML (bldg 26100-bldg-489160) or OSM traced geometry",
+  "documented": "published source (URL); JP sites were readable only via web-search snippets in this session",
+  "observed": "read by eye from a cited CC-licensed Commons photo",
+  "estimated_from_photo": "pixel ratios measured on Commons thumbnails (no photogrammetry), scaled with a measured dimension",
+  "inferred": "typical Japanese five-storey pagoda practice, no direct evidence"
+ },
+ "identity": {
+  "osm_way": 371717416, "osm_tags": {"building": "pagoda", "building:levels": "5", "height": "46", "heritage": "2"},
+  "plateau_buildingID": "26100-bldg-489160", "plateau_gml_id": "bldg_2b477621-2b5c-480b-a960-d2b3972db237",
+  "confidence": "measured"
+ },
+ "placement": {
+  "centroid_local_xy_m": {"value": [9.4, 83.3], "confidence": "measured", "note": "OSM centroid (9.67, 83.46); PLATEAU roof-edge centroid (9.09, 83.22)"},
+  "ground_z_TP_m": {"value": 61.03, "confidence": "measured", "source": "PLATEAU LOD2 GroundSurface z"},
+  "plan_rotation_deg_ccw_from_grid_east": {"value": 1.4, "range": [0.9, 1.9], "confidence": "measured", "note": "side bearings 89.1 deg (PLATEAU) / 88.1 deg (OSM)"}
+ },
+ "documented_facts": {
+  "storeys": {"value": 5, "confidence": "documented", "source": "all sources; OSM building:levels=5"},
+  "plan": {"value": "square, 3 x 3 bays (三間五重塔婆 / 方三間)", "confidence": "documented", "source": "souda-kyoto.jp/guide/spot/houkanji.html ; kyoto-design.jp/spot/2833 (search snippets quoting the designation text '三間五重塔婆、本瓦葺')"},
+  "roof_material": {"value": "hongawara (本瓦葺) clay tile", "confidence": "documented", "source": "same as plan"},
+  "style": {"value": "pure wayo (純和様)", "confidence": "documented", "source": "kyoto-design.jp/spot/2833 ; ja.kyoto.travel (search snippets)"},
+  "rebuild": {"value": "1440 (永享12年), with support of shogun Ashikaga Yoshinori, after the 1436 fire", "confidence": "documented", "source": "https://souda-kyoto.jp/guide/spot/houkanji.html ; https://www.gltjp.com/en/directory/item/17413/"},
+  "designation": {"value": "Important Cultural Property (重要文化財), building", "confidence": "documented", "source": "souda-kyoto / kyoto-design snippets; OSM heritage=2"},
+  "central_pillar": {"value": "shinbashira runs from the original (Hakuho-style, tuff) foundation stone to the top of the sorin without intermediate support", "confidence": "documented", "source": "http://www7b.biglobe.ne.jp/~s_minaga/hoso_yasaka.htm (snippet)"},
+  "interior_access": {"value": "storeys 1-2 open to visitors irregularly; Five Wisdom Buddhas on storey 1", "confidence": "documented", "source": "https://www.ne.jp/asahi/tokyo/ono/temple/Yasakanotou/Yasakanotou.htm (snippet)"},
+  "first_storey_side_m": {"value": 6.4, "alternatives": [5.5], "confidence": "documented", "note": "sources disagree: '6.4 m四方' vs '四辺三間（約5.5m）'; not from an official survey"}
+ },
+ "total_height_m": {
+  "recommended": 38.8,
+  "range": [37.5, 40.0],
+  "confidence": "documented + corroborated by measured data",
+  "basis": [
+   "NDL Collaborative Reference entry (https://crd.ndl.go.jp/reference/entry/index.php?page=ref_view&id=1000061716) lists several published heights: 塔身 36.4 m, 総高 38.8 m, ~46 m, 40 m (as summarised by web search; page not fetchable here).",
+   "PLATEAU measuredHeight 28.7 m = top-roof apex (thin sorin not captured by aerial survey) [measured].",
+   "Photo ratio sorin / (apex - first eave) = 0.51 (File:Yasaka-Dori - panoramio.jpg, telephoto from ~160 m) with PLATEAU first-eave 8.3 m and apex 28.7 m gives sorin ~10.4 m and total ~39.1 m [estimated_from_photo].",
+   "Frontal ratio top-roof eave width / tier spacing = 3.2 with measured lowest-roof outline 15.1 m and ~5 %/tier taper gives tier spacing ~3.8 m, consistent with PLATEAU's ~4.0 m stepped tiers; first-eave-to-tip = 7.4 tier spacings ~29 m -> tip ~37-38 m."
+  ],
+  "popular_figure": {"value": 46.0, "confidence": "documented", "note": "Most tourist sources and OSM height=46. Not consistent with the measured footprint/roof apex: for 46 m the sorin would have to be ~17 m (37 % of the total) or every tier ~5.1 m apart with ~19.6 m-wide lowest eaves, both contradicted by the photos and the 15.1 m roof outline. 49 m and 40 m also appear. DECISION FOR LEAD: use 38.8 for geometric consistency, or 46 if matching the popular figure matters more."}
+ },
+ "base_platform": {
+  "w": {"value": 9.4, "confidence": "inferred", "note": "body 6.4 m + ~1.5 m margin each side; stone kidan partly visible behind the street fence"},
+  "h": {"value": 1.0, "confidence": "inferred"},
+  "material": {"value": "cut granite/stone kerbs, stone steps up from the precinct gate", "confidence": "observed", "photos": ["File:Kyoto Pagoda.jpg", "File:Yasakanoto Tower of Hokanji Temple.jpg"]}
+ },
+ "lowest_roof_outline_m": {"value": 15.1, "dims": [15.31, 14.96], "confidence": "measured", "source": "PLATEAU lod0RoofEdge (aerial roof outline)", "note": "OSM traced outline is 13.26 x 12.99 m (area 172 m2) - probably traced inside the eave edge; PLATEAU preferred"},
+ "tiers": [
+  {"storey": 1, "body_width_m": 6.4, "roof_eave_width_m": 15.1, "eave_height_above_ground_m": 8.3, "storey_height_m": 7.3, "confidence": {"body_width_m": "documented (disputed 5.5)", "roof_eave_width_m": "measured", "eave_height_above_ground_m": "measured (PLATEAU LOD2, generalised model)", "storey_height_m": "estimated (eave1 minus inferred 1.0 m platform)"}},
+  {"storey": 2, "body_width_m": 6.08, "roof_eave_width_m": 14.35, "eave_height_above_ground_m": 12.2, "storey_height_m": 3.9, "confidence": {"body_width_m": "estimated_from_photo", "roof_eave_width_m": "estimated_from_photo", "eave_height_above_ground_m": "estimated_from_photo + measured PLATEAU step 12.23", "storey_height_m": "estimated_from_photo"}},
+  {"storey": 3, "body_width_m": 5.76, "roof_eave_width_m": 13.6, "eave_height_above_ground_m": 16.1, "storey_height_m": 3.9, "confidence": {"body_width_m": "estimated_from_photo", "roof_eave_width_m": "estimated_from_photo", "eave_height_above_ground_m": "estimated_from_photo + measured PLATEAU step 16.07", "storey_height_m": "estimated_from_photo"}},
+  {"storey": 4, "body_width_m": 5.45, "roof_eave_width_m": 12.85, "eave_height_above_ground_m": 20.0, "storey_height_m": 3.9, "confidence": {"body_width_m": "estimated_from_photo", "roof_eave_width_m": "estimated_from_photo", "eave_height_above_ground_m": "estimated_from_photo + measured PLATEAU step 20.47", "storey_height_m": "estimated_from_photo"}},
+  {"storey": 5, "body_width_m": 5.13, "roof_eave_width_m": 12.1, "eave_height_above_ground_m": 23.9, "storey_height_m": 3.9, "top_roof_apex_m": 28.7, "confidence": {"body_width_m": "estimated_from_photo", "roof_eave_width_m": "estimated_from_photo", "eave_height_above_ground_m": "estimated_from_photo + measured PLATEAU step 24.32", "storey_height_m": "estimated_from_photo", "top_roof_apex_m": "measured (PLATEAU measuredHeight)"}}
+ ],
+ "tier_rules": {
+  "eave_width_taper": {"value": "about 5 % of the lowest eave width per storey (top/lowest ~0.80)", "confidence": "estimated_from_photo", "evidence": "eave widths 5th:4th:3rd = 415:440:465 px (File:Yasaka Pagoda (24922466195).jpg, frontal from W), 255:270:285 px (File:Yasaka no Tō.jpg, oblique), 175:183:190 px (File:法観寺八坂の塔 - panoramio - くろふね.jpg, oblique, near-level)"},
+  "body_to_eave_ratio": {"value": 0.42, "confidence": "estimated_from_photo", "evidence": "3rd-storey body ~190 px vs 3rd eave ~465 px in File:Yasaka Pagoda (24922466195).jpg; matches documented 6.4 m / measured 15.1 m"},
+  "tier_spacing_m": {"value": 3.9, "range": [3.8, 4.0], "confidence": "estimated_from_photo", "evidence": "regular eave-to-eave spacing ~61 px vs top eave width 195 px (ratio 3.2) in File:Yasaka-Dori - panoramio.jpg; PLATEAU stepped tiers 3.84-4.40 m"},
+  "top_roof_rise": {"value": "apex ~0.85-1.2 tier spacings above the 5th eave", "confidence": "estimated_from_photo"},
+  "roof_curve": {"value": "gently concave roof planes, modest upturn at corners (soft 反り); deep eaves", "confidence": "observed", "photos": ["File:150124 At Yasakakamimachi Kyoto Japan02n.jpg", "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923801861).jpg"]}
+ },
+ "sorin": {
+  "sorin_height_m": {"value": 10.1, "range": [9.0, 10.4], "confidence": "estimated_from_photo", "note": "2.3-2.5 tier spacings (Files 'Yasaka-Dori - panoramio', 'Yasaka no Tō', 'くろふね'); 10.1 m makes apex 28.7 + sorin = 38.8"},
+  "kurin_rings": {"value": 9, "confidence": "observed", "photos": ["File:150124 At Yasakakamimachi Kyoto Japan02n.jpg", "File:Yasaka-Dori - panoramio.jpg"], "note": "nine rings counted on enhanced crop; 9 is also the standard count"},
+  "components_bottom_to_top": {"value": ["roban (square base box)", "fukubachi", "ukebana", "9 kurin rings", "suien (openwork flame panels, visible as a cage-like element)", "ryusha", "hoju"], "confidence": "observed (silhouette) + inferred (names)"},
+  "material_colour": {"value": "dark bronze / blackened copper alloy, matt", "hex": "#504c43", "confidence": "observed", "photos": ["File:150124 At Yasakakamimachi Kyoto Japan02n.jpg"]},
+  "lightning_conductor": {"value": "thin cable from the finial down one corner of the tiers to the ground", "confidence": "observed", "photos": ["File:Kyoto Pagoda.jpg", "File:Yasakanoto Tower of Hokanji Temple.jpg"]}
+ },
+ "details": {
+  "timber_finish": {"value": "unpainted (no vermilion), weathered dark brown-black timber", "confidence": "observed", "photos": ["File:150124 At Yasakakamimachi Kyoto Japan02n.jpg", "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923269328).jpg", "File:Kyoto Pagoda.jpg"]},
+  "infill_panels": {"value": "small light (white/cream plaster) panels between bracket sets and in frieze zones", "confidence": "observed", "photos": ["File:Kyoto Pagoda.jpg", "File:Yasaka Pagoda (24922466195).jpg"]},
+  "bracketing": {"value": "multi-step projecting bracket sets carrying deep eaves (likely mitesaki 三手先)", "confidence": "observed (multi-step) / inferred (name)", "photos": ["File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923269328).jpg"]},
+  "rafters": {"value": "two layers of closely spaced rafters (二軒繁垂木)", "confidence": "observed", "photos": ["File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923269328).jpg", "File:3D photo-cross view,kyoto yasaka tower(立体写真-交差法、八坂の塔を見上げる） - panoramio.jpg"]},
+  "eave_tile_edge": {"value": "row of round tile end-caps (tomoe-gawara) reading as light discs along every eave", "confidence": "observed", "photos": ["File:3D photo-cross view,kyoto yasaka tower(立体写真-交差法、八坂の塔を見上げる） - panoramio.jpg"]},
+  "hip_ridges": {"value": "tiled hip ridges ending in onigawara at each corner", "confidence": "observed", "photos": ["File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923269328).jpg"]},
+  "wind_bells": {"value": "futaku bells hanging at the four corners of each roof", "confidence": "observed", "photos": ["File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923801861).jpg", "File:Kyoto Pagoda.jpg"]},
+  "balconies": {"value": "railed balconies (高欄) visible above roofs on upper storeys", "confidence": "observed", "photos": ["File:150124 At Yasakakamimachi Kyoto Japan02n.jpg", "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923801861).jpg"]},
+  "first_storey_front": {"value": "central plank double doors with flanking lattice (renji) windows", "confidence": "observed (partial view)", "photos": ["File:塔の下商店街（八坂の塔） - panoramio.jpg", "File:Kyoto Pagoda.jpg"]},
+  "precinct_fence_street_side": {"value": "vertical timber slat fence between granite posts with small tile coping on a stone plinth; gate with stone steps on the Yasaka-dori side", "confidence": "observed", "photos": ["File:Kyoto Pagoda.jpg", "File:Yasakanoto Tower of Hokanji Temple.jpg"]},
+  "night_lighting": {"value": "floodlit warm-white/amber from below in the evening", "confidence": "observed", "photos": ["File:Hokan-ji, Goju-no-to (Five-storied Pagoda) -2 (March 2016) - panoramio.jpg", "File:JP-Kyoto-Tower-Of-Hokan-Ji(Temple).jpg"]}
+ },
+ "colours": {
+  "timber": {"hex": "#2e2420", "sample": "#29201f", "confidence": "observed", "source": "File:Gion - Nineizaka (Ninenzaka), Kyoto, Japan (48923801861).jpg"},
+  "roof_tiles": {"hex": "#7f8279", "sample": "#929384 (sunlit)", "confidence": "observed", "source": "File:150124 At Yasakakamimachi Kyoto Japan02n.jpg"},
+  "sorin": {"hex": "#504c43", "confidence": "observed"},
+  "plaster_infill": {"hex": "#e8e2d4", "confidence": "observed (small areas, approximate)"},
+  "note": "Median pixel samples from daylight thumbnails; lighting-dependent, use as starting points only."
+ },
+ "photo_measurements_raw": [
+  {"photo": "File:Yasaka-Dori - panoramio.jpg", "view": "frontal from W, ~160 m, near-level", "px_y_orig_960w": {"finial_tip": 416, "top_apex": 568, "eave5": 620, "eave4": 680, "eave3": 742, "eave2": 805, "eave1": 865}, "eave5_width_px": 195},
+  {"photo": "File:Yasaka Pagoda (24922466195).jpg", "view": "frontal from W, ~90 m, looking up", "px": {"sorin_len": 150, "eave_spacing": "65-70", "eave_width_5_4_3": [415, 440, 465], "body3_width": 190}, "note": "crop scaled x2 for widths"},
+  {"photo": "File:Yasaka no Tō.jpg", "view": "oblique from ESE", "px": {"tip": 72, "roban": 215, "eave5": 268, "eave4": 330, "eave3": 392, "eave_width_5_4_3": [255, 270, 285]}},
+  {"photo": "File:法観寺八坂の塔 - panoramio - くろふね.jpg", "view": "oblique from NE, ~170 m, elevated", "px": {"tip": 97, "apex": 205, "eave5": 245, "eave4": 290, "eave3": 330, "eave_width_5_4_3": [175, 183, 190]}}
+ ],
+ "not_verified": [
+  "Official survey dimensions (修理工事報告書 not found online); first-storey side 6.4 vs 5.5 m unresolved.",
+  "Total height: 38.8 vs popular 46 m (see total_height_m).",
+  "Base platform (kidan) size and height.",
+  "Exact sorin height; whether hoju/suien are gilded (photos show dark metal)."
+ ]
+}

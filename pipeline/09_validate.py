@@ -156,7 +156,7 @@ pl = next(x for x in BLD["buildings"] if x["id"] == "bldg_2b477621-2b5c-480b-a96
 plc = Polygon(pl["footprint"]).centroid
 R["pagoda"] = dict(osm_centroid=[pg["local_x"], pg["local_y"]], plateau_centroid=[round(plc.x, 2), round(plc.y, 2)],
                    offset_m=round(Point(pg["local_x"], pg["local_y"]).distance(plc), 2), plateau_height=pl["height"],
-                   documented_height=46.0, plateau_base_z=pl["base_z"], dem_ground=round(float(ground(pg["local_x"], pg["local_y"])), 2))
+                   documented_height=38.8, disputed_popular_height=46.0, plateau_base_z=pl["base_z"], dem_ground=round(float(ground(pg["local_x"], pg["local_y"])), 2))
 
 # 10. sightline Yasaka-dori (-79,88,eye) -> pagoda upper tiers, using LOD2 roof heights (2.5D)
 eye = np.array([-79.0, 88.2, float(ground(-79, 88.2)) + 1.6])
@@ -202,7 +202,7 @@ h("| Building base vs DEM5A terrain | median %+.2f m, 5–95%% [%+.2f, %+.2f], %
     R["foundation_minus_terrain_m"]["median"], R["foundation_minus_terrain_m"]["p5"], R["foundation_minus_terrain_m"]["p95"],
     100 * R["foundation_minus_terrain_m"]["share_within_1m"], "PASS (plinths absorb residual)"))
 h("| Yasaka Pagoda: OSM vs PLATEAU centroid | %.2f m apart | %s |" % (R["pagoda"]["offset_m"], "PASS" if R["pagoda"]["offset_m"] < 3 else "REVIEW"))
-h("| Yasaka Pagoda height | PLATEAU %.1f m vs documented 46 m | PLATEAU under-reads; hero model uses documented value |" % R["pagoda"]["plateau_height"])
+h("| Yasaka Pagoda height | PLATEAU roof apex %.1f m; adopted 38.8 m total incl. sōrin (NDL ref + photo-measured sōrin); popular 46 m disputed | hero model uses 38.8 m |" % R["pagoda"]["plateau_height"])
 h("| Sightline Yasaka-dōri (−79, 88) → pagoda upper tiers | blocked by %d buildings | %s |" % (
     len(blocked), "PASS — pagoda visible at head of street" if not blocked else "REVIEW"))
 h("| Scale | all layers in metres in one CRS (EPSG:6674); Blender 1 unit = 1 m | PASS |\n")
