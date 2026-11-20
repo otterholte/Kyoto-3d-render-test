@@ -522,6 +522,13 @@ def pagoda(log=print):
         log("hero pagoda build failed (%s) -> keeping placeholder" % ex)
         bpy.context.scene["pagoda"] = "placeholder (hero build failed: %s)" % ex
         return None
+    # hidden collider must never render; painterly brushwork on top of the hero's procedural materials
+    hero_objs = [o for o in bpy.data.objects if o.name.startswith("LM_Yasaka_Pagoda_") and o.name != "LM_Yasaka_Pagoda_PLATEAU_LOD2"]
+    hero_objs += [c for o in list(hero_objs) for c in o.children_recursive]
+    for o in hero_objs:
+        if "COLLIDER" in o.name:
+            o.hide_render = True
+    _paint_hero_materials({m for o in hero_objs if o.type == "MESH" for m in o.data.materials if m})
     if old is not None:
         old.hide_render = True
         old.hide_set(True)
@@ -548,3 +555,24 @@ def pagoda(log=print):
         coll.objects.link(lo)
     log("hero pagoda built:", ob.name if ob else None)
     return ob
+
+
+def _paint_hero_materials(mats):
+    """Insert the shared G_Brush hue/value jitter in front of every Principled Base Color (colour only)."""
+    from kit_materials import brush, paint
+    n = 0
+    for m in mats:
+        if not m.node_tree or m.get("art_painted"):
+            continue
+        nt = m.node_tree
+        for b in [x for x in nt.nodes if x.type == "BSDF_PRINCIPLED"]:
+            inp = b.inputs["Base Color"]
+            src = inp.links[0].from_socket if inp.is_linked else None
+            col = src if src is not None else tuple(inp.default_value)
+            P = nt.nodes.new("ShaderNodeTexCoord").outputs["Object"]
+            f1, f2 = brush(nt, P, 2.5, (1, 1, 2.5))
+            out = paint(nt, col, f1, f2, 0.12, 0.02, 0.08)
+            nt.links.new(out, inp)
+            n += 1
+        m["art_painted"] = True
+    return n

@@ -103,7 +103,7 @@ cherries bronze and thinning, ginkgo yellow, pines and evergreen broadleaves dar
 * **Grade.** AgX (Base Contrast), then a compositor soft bloom (Glare/Bloom), anisotropic Kuwahara (55 %), a cool-lift/warm-gain colour balance, slight desaturation and a vignette.
 
 ## 5. Hero pagoda
-`kit_light.pagoda()` imports `blender/hero_pagoda.py` and calls `build_pagoda(collection, "high")`, which uses the documented 46 m height. The PLATEAU placeholder
+`kit_light.pagoda()` imports `blender/hero_pagoda.py` and calls `build_pagoda(collection, "high")` (hero model by the pagoda workstream: measured position, 38.8 m total, +1.4° orientation; the hidden `LM_Yasaka_Pagoda_COLLIDER` stays non-rendering). Its procedural materials get the shared `G_Brush` colour jitter for consistency. The PLATEAU placeholder
 `LM_Yasaka_Pagoda_PLATEAU_LOD2` is hidden. If the import fails, the placeholder stays and `scene["pagoda"]` records why.
 
 ## 6. Shots

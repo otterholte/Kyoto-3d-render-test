@@ -1,4 +1,5 @@
-// exercise the art-pass code path by flagging the blockout as kind "art" via a manifest override
+// Exercise the art-pass code path (authored materials, merged per material+section) by flagging the current
+// world GLB as kind "art" via a manifest override.  node tests/artpath.mjs
 import fs from 'node:fs';
 import { serve, launch, newPage, sleep } from './harness.mjs';
 const { srv, url } = await serve();
@@ -9,6 +10,6 @@ await page.goto(url);
 await page.waitForFunction(() => window.__hw && (window.__hw.ready || window.__hw.errors.length), null, { timeout: 300000 });
 await sleep(5000);
 console.log(JSON.stringify(await page.evaluate(() => { const s = __hw.stats(); delete s.manifest; return s; })));
-await page.screenshot({ path: '/tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/web/artpath.png' });
+await page.screenshot({ path: (process.argv[2] || '/tmp') + '/artpath.png' });
 console.log(errors);
 await b.close(); srv.close();
