@@ -25,6 +25,7 @@ from remotezip import open_remote_zip
 URL = "https://assets.cms.plateau.reearth.io/assets/c8/4c6540-2bcf-4773-b21d-74ad2d9f1ba1/26100_kyoto-shi_city_2025_citygml_1_op.zip"
 CACHE = os.path.join(RAW, "plateau", "backdrop")
 LOD2_RADIUS = 1300.0      # m from the box centre; LOD2 roofs/walls kept inside, LOD1 prisms everywhere
+LANDMARK_H = 45.0        # m; taller structures (e.g. Kyoto Tower) keep LOD2 wherever they are
 G = "{http://www.opengis.net/gml}"
 B = "{http://www.opengis.net/citygml/building/2.0}"
 _bnd = load_boundary()
@@ -93,7 +94,7 @@ def parse_bldg(z, mesh):
         # LOD2 surfaces, only near the box (cheap enough there; the far city stays LOD1)
         r0 = rings[-1][2]
         cx, cy = _to_local(r0[:, 0].mean(), r0[:, 1].mean())
-        if float(np.hypot(cx, cy)) < LOD2_RADIUS:
+        if float(np.hypot(cx, cy)) < LOD2_RADIUS or rec["height"] > LANDMARK_H:
             for kind, tag in ((0, "RoofSurface"), (1, "WallSurface")):
                 for surf in el.iter(B + tag):
                     for pl in surf.iter(G + "posList"):
