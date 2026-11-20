@@ -1,0 +1,569 @@
+{
+ "n_highway_ways_in_box": 180,
+ "by_type": {
+  "residential": 19,
+  "unclassified": 8,
+  "pedestrian": 11,
+  "service": 36,
+  "steps": 15,
+  "tertiary": 2,
+  "secondary": 2,
+  "footway": 79,
+  "path": 8
+ },
+ "connectivity": {
+  "components": 6,
+  "sizes": [
+   448,
+   19,
+   9,
+   1,
+   1,
+   1
+  ],
+  "isolated_ways": [
+   {
+    "osm_id": 157527393,
+    "highway": "service",
+    "access": null,
+    "name": null,
+    "len_in_box": 148.5,
+    "comp_size": 9
+   },
+   {
+    "osm_id": 157527409,
+    "highway": "service",
+    "access": null,
+    "name": null,
+    "len_in_box": 65.5,
+    "comp_size": 9
+   },
+   {
+    "osm_id": 371717425,
+    "highway": "pedestrian",
+    "access": null,
+    "name": null,
+    "len_in_box": 128.8,
+    "comp_size": 19
+   },
+   {
+    "osm_id": 371717426,
+    "highway": "footway",
+    "access": null,
+    "name": null,
+    "len_in_box": 3.5,
+    "comp_size": 19
+   },
+   {
+    "osm_id": 371717427,
+    "highway": "footway",
+    "access": null,
+    "name": null,
+    "len_in_box": 8.6,
+    "comp_size": 19
+   },
+   {
+    "osm_id": 371717428,
+    "highway": "footway",
+    "access": null,
+    "name": null,
+    "len_in_box": 11.0,
+    "comp_size": 19
+   },
+   {
+    "osm_id": 532546295,
+    "highway": "service",
+    "access": null,
+    "name": null,
+    "len_in_box": 19.2,
+    "comp_size": 9
+   },
+   {
+    "osm_id": 541053788,
+    "highway": "footway",
+    "access": null,
+    "name": null,
+    "len_in_box": 28.7,
+    "comp_size": 1
+   },
+   {
+    "osm_id": 545607512,
+    "highway": "footway",
+    "access": null,
+    "name": null,
+    "len_in_box": 10.3,
+    "comp_size": 1
+   },
+   {
+    "osm_id": 551671281,
+    "highway": "service",
+    "access": null,
+    "name": null,
+    "len_in_box": 21.9,
+    "comp_size": 1
+   }
+  ]
+ },
+ "steps": [
+  {
+   "osm_id": 30882783,
+   "name": "二寧坂",
+   "step_count": "17",
+   "incline": "up",
+   "width": "4",
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 15.89,
+   "in_box_fully": true,
+   "xy0": [
+    155.93,
+    39.35
+   ],
+   "xy1": [
+    152.39,
+    23.9
+   ]
+  },
+  {
+   "osm_id": 179116810,
+   "name": "産寧坂",
+   "step_count": "46",
+   "incline": "down",
+   "width": "4",
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 31.93,
+   "in_box_fully": true,
+   "xy0": [
+    151.41,
+    -177.23
+   ],
+   "xy1": [
+    163.96,
+    -147.88
+   ]
+  },
+  {
+   "osm_id": 179116812,
+   "name": null,
+   "step_count": "21",
+   "incline": "down",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 19.31,
+   "in_box_fully": true,
+   "xy0": [
+    137.97,
+    188.44
+   ],
+   "xy1": [
+    150.92,
+    178.1
+   ]
+  },
+  {
+   "osm_id": 527257294,
+   "name": null,
+   "step_count": null,
+   "incline": "down",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 3.28,
+   "in_box_fully": true,
+   "xy0": [
+    69.05,
+    185.78
+   ],
+   "xy1": [
+    72.32,
+    185.69
+   ]
+  },
+  {
+   "osm_id": 545611312,
+   "name": null,
+   "step_count": "6",
+   "incline": null,
+   "width": "2",
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 4.01,
+   "in_box_fully": true,
+   "xy0": [
+    176.8,
+    66.68
+   ],
+   "xy1": [
+    180.81,
+    66.77
+   ]
+  },
+  {
+   "osm_id": 550352951,
+   "name": null,
+   "step_count": "9",
+   "incline": "up",
+   "width": "2",
+   "end_connections": [
+    0,
+    1
+   ],
+   "length": 9.54,
+   "in_box_fully": true,
+   "xy0": [
+    142.59,
+    174.81
+   ],
+   "xy1": [
+    142.7,
+    165.27
+   ]
+  },
+  {
+   "osm_id": 893851279,
+   "name": null,
+   "step_count": null,
+   "incline": "up",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 3.7,
+   "in_box_fully": true,
+   "xy0": [
+    94.95,
+    -170.52
+   ],
+   "xy1": [
+    98.35,
+    -171.97
+   ]
+  },
+  {
+   "osm_id": 893851280,
+   "name": null,
+   "step_count": null,
+   "incline": "down",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 2.56,
+   "in_box_fully": true,
+   "xy0": [
+    92.65,
+    -172.32
+   ],
+   "xy1": [
+    91.17,
+    -174.42
+   ]
+  },
+  {
+   "osm_id": 893851282,
+   "name": null,
+   "step_count": null,
+   "incline": "up",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 2.57,
+   "in_box_fully": true,
+   "xy0": [
+    95.01,
+    -164.83
+   ],
+   "xy1": [
+    94.77,
+    -167.39
+   ]
+  },
+  {
+   "osm_id": 893851284,
+   "name": null,
+   "step_count": null,
+   "incline": "up",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 1.91,
+   "in_box_fully": true,
+   "xy0": [
+    92.42,
+    -163.22
+   ],
+   "xy1": [
+    94.27,
+    -163.68
+   ]
+  },
+  {
+   "osm_id": 893851288,
+   "name": null,
+   "step_count": "2",
+   "incline": "down",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 0.6,
+   "in_box_fully": true,
+   "xy0": [
+    90.35,
+    -174.76
+   ],
+   "xy1": [
+    89.8,
+    -174.53
+   ]
+  },
+  {
+   "osm_id": 893851292,
+   "name": null,
+   "step_count": "4",
+   "incline": "up",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 2.95,
+   "in_box_fully": true,
+   "xy0": [
+    91.5,
+    -154.03
+   ],
+   "xy1": [
+    93.13,
+    -151.57
+   ]
+  },
+  {
+   "osm_id": 893851294,
+   "name": null,
+   "step_count": "4",
+   "incline": "up",
+   "width": null,
+   "end_connections": [
+    1,
+    1
+   ],
+   "length": 3.88,
+   "in_box_fully": true,
+   "xy0": [
+    83.79,
+    -140.3
+   ],
+   "xy1": [
+    86.73,
+    -142.84
+   ]
+  },
+  {
+   "osm_id": 1550466024,
+   "name": null,
+   "step_count": "23",
+   "incline": "up",
+   "width": null,
+   "end_connections": [
+    2,
+    1
+   ],
+   "length": 14.7,
+   "in_box_fully": true,
+   "xy0": [
+    -88.72,
+    25.72
+   ],
+   "xy1": [
+    -74.18,
+    23.57
+   ]
+  },
+  {
+   "osm_id": 1554873118,
+   "name": null,
+   "step_count": null,
+   "incline": null,
+   "width": null,
+   "end_connections": [
+    0,
+    1
+   ],
+   "length": 0.41,
+   "in_box_fully": true,
+   "xy0": [
+    -78.7,
+    -45.2
+   ],
+   "xy1": [
+    -79.09,
+    -45.06
+   ]
+  }
+ ],
+ "surface_mask": {
+  "n_ways": 180,
+  "ways_fully_paved": 180,
+  "ways_below_90pct": [],
+  "points": 3439,
+  "points_soil": 0
+ },
+ "xsections": {
+  "Yasaka-dori": {
+   "n": 59,
+   "gsi_width": {
+    "n": 51,
+    "median": 4.58,
+    "p10": 3.57,
+    "p90": 5.31
+   },
+   "plateau_width": {
+    "n": 59,
+    "median": 4.65,
+    "p10": 3.61,
+    "p90": 14.33
+   },
+   "mask_width": {
+    "n": 59,
+    "median": 4.75,
+    "p10": 4.2,
+    "p90": 23.2
+   },
+   "scene_width_used": {
+    "n": 59,
+    "median": 4.26,
+    "p10": 4.26,
+    "p90": 4.87
+   },
+   "osm_offset_from_gsi_mid": {
+    "n": 51,
+    "median": 0.24,
+    "p10": 0.03,
+    "p90": 0.56
+   },
+   "n_with_both_gsi_edges": 51
+  },
+  "Ninenzaka": {
+   "n": 26,
+   "gsi_width": {
+    "n": 22,
+    "median": 4.49,
+    "p10": 3.93,
+    "p90": 7.08
+   },
+   "plateau_width": {
+    "n": 26,
+    "median": 4.98,
+    "p10": 3.93,
+    "p90": 14.76
+   },
+   "mask_width": {
+    "n": 26,
+    "median": 5.62,
+    "p10": 4.38,
+    "p90": 15.5
+   },
+   "scene_width_used": {
+    "n": 26,
+    "median": 4.34,
+    "p10": 4.17,
+    "p90": 8.87
+   },
+   "osm_offset_from_gsi_mid": {
+    "n": 22,
+    "median": 0.18,
+    "p10": 0.06,
+    "p90": 0.75
+   },
+   "n_with_both_gsi_edges": 22
+  },
+  "Sannenzaka": {
+   "n": 38,
+   "gsi_width": {
+    "n": 34,
+    "median": 4.65,
+    "p10": 3.27,
+    "p90": 5.68
+   },
+   "plateau_width": {
+    "n": 38,
+    "median": 4.8,
+    "p10": 3.28,
+    "p90": 6.03
+   },
+   "mask_width": {
+    "n": 38,
+    "median": 5.75,
+    "p10": 4.0,
+    "p90": 9.08
+   },
+   "scene_width_used": {
+    "n": 38,
+    "median": 5.0,
+    "p10": 3.83,
+    "p90": 5.0
+   },
+   "osm_offset_from_gsi_mid": {
+    "n": 34,
+    "median": 0.44,
+    "p10": 0.14,
+    "p90": 0.66
+   },
+   "n_with_both_gsi_edges": 34
+  },
+  "Higashioji": {
+   "n": 25,
+   "gsi_width": {
+    "n": 21,
+    "median": 16.06,
+    "p10": 15.83,
+    "p90": 16.36
+   },
+   "plateau_width": {
+    "n": 25,
+    "median": 16.09,
+    "p10": 15.86,
+    "p90": 36.53
+   },
+   "mask_width": {
+    "n": 25,
+    "median": 16.75,
+    "p10": 16.5,
+    "p90": 37.15
+   },
+   "scene_width_used": {
+    "n": 25,
+    "median": 16.28,
+    "p10": 16.15,
+    "p90": 16.28
+   },
+   "osm_offset_from_gsi_mid": {
+    "n": 21,
+    "median": 0.19,
+    "p10": 0.06,
+    "p90": 0.31
+   },
+   "n_with_both_gsi_edges": 21
+  }
+ }
+}

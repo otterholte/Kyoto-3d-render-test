@@ -1,0 +1,115 @@
+{
+ "candidates": [
+  [
+   102164638,
+   "三重塔",
+   "pagoda",
+   null
+  ],
+  [
+   371717416,
+   "八坂の塔",
+   "pagoda",
+   "46"
+  ]
+ ],
+ "pagoda": {
+  "osm_way": 371717416,
+  "tags": {
+   "building": "pagoda",
+   "building:levels": "5",
+   "height": "46",
+   "heritage": "2",
+   "heritage:operator": "文部科学省",
+   "heritage:since": "1897-12-28",
+   "heritage:type": "重要文化財",
+   "heritage:wikidata": "Q858308",
+   "historic": "yes",
+   "name": "八坂の塔",
+   "name:de": "Yasaka Pagode",
+   "name:en": "Yasaka-no-To Pagoda",
+   "name:fr": "Pagode de Yasaka",
+   "name:ja-Hira": "やさかのとう",
+   "name:ja-Latn": "Yasaka-no-to",
+   "source": "Bing",
+   "source:heritage": "https://kunishitei.bunka.go.jp/heritage/detail/102/1728",
+   "start_date": "1440"
+  },
+  "centroid_e": -20150.328871424572,
+  "centroid_n": -111076.54163699632,
+  "lon": 135.77924880000046,
+  "lat": 34.998556450008124,
+  "area": 172.1249538005245
+ },
+ "origin_offset_from_pagoda_m": {
+  "dE": -9.671128575428156,
+  "dN": -83.45836300367955
+ },
+ "corners_lonlat_rederived": [
+  [
+   135.77695875613037,
+   34.995996967360746
+  ],
+  [
+   135.78134067729246,
+   34.9960049387785
+  ],
+  [
+   135.78133108552242,
+   34.99961080821269
+  ],
+  [
+   135.7769489721456,
+   34.999602835733405
+  ]
+ ],
+ "corners_lonlat_doc": [
+  [
+   135.7769588,
+   34.995997
+  ],
+  [
+   135.7813407,
+   34.9960049
+  ],
+  [
+   135.7813311,
+   34.9996108
+  ],
+  [
+   135.776949,
+   34.9996028
+  ]
+ ],
+ "corner_max_diff_deg": 4.3869619048564346e-08,
+ "geodesic_side_lengths_m": [
+  400.0380005953886,
+  400.03804021377,
+  400.0380005994927,
+  400.03796071629995
+ ],
+ "lat_SW_minus_lat_SE_deg": -7.971417751662102e-06,
+ "lon_SW_minus_lon_NW_deg": 9.783984779687671e-06,
+ "grid_convergence_deg": 0.12667236771051585,
+ "pagoda_local": [
+  9.671128575428156,
+  83.45836300367955
+ ],
+ "mesh3_in_box": [
+  "52353692"
+ ],
+ "mesh3_in_box_plus_100m_margin": [
+  "52353692",
+  "52354602"
+ ],
+ "mesh_52353692_bounds": {
+  "lat": [
+   34.99166666666667,
+   35.0
+  ],
+  "lon": [
+   135.775,
+   135.7875
+  ]
+ }
+}

@@ -1,0 +1,641 @@
+[
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-81.9,
+88.6
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.82,
+"gsi": 2.33,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "observed",
+"art": null,
+"empty": "K_ShopFront.fda29f82.005",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-76.0,
+88.0
+],
+"hz": "0.5",
+"side": "R",
+"d": 2.02,
+"gsi": 2.34,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "observed",
+"art": null,
+"empty": "K_ShopFront.39e7a8b7.001",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-70.0,
+87.4
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.92,
+"gsi": 2.32,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "observed",
+"art": null,
+"empty": "K_ShopFront.39e7a8b7.004",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-64.0,
+86.8
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.81,
+"gsi": 2.31,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "observed",
+"art": null,
+"empty": "K_ShopFront.39e7a8b7.006",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-58.1,
+86.2
+],
+"hz": "0.5",
+"side": "L",
+"d": 0.71,
+"gsi": 2.09,
+"obj": "Barrier_retaining_wall_osm1550469426",
+"coll": [
+"40_Walls_Barriers"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-52.1,
+85.7
+],
+"hz": "0.5",
+"side": "L",
+"d": 0.59,
+"gsi": 1.96,
+"obj": "Barrier_retaining_wall_osm1550469426",
+"coll": [
+"40_Walls_Barriers"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-52.1,
+85.7
+],
+"hz": "1.2",
+"side": "L",
+"d": 1.62,
+"gsi": 1.96,
+"obj": "B_f77e14bd",
+"coll": [
+"30_N_Yasaka_Pagoda_Precinct"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-10.9,
+81.7
+],
+"hz": "0.5",
+"side": "R",
+"d": 3.18,
+"gsi": 9.14,
+"obj": "Terrain_GSI_DEM5A",
+"coll": [
+"10_Terrain"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-10.9,
+81.7
+],
+"hz": "1.2",
+"side": "R",
+"d": 7.91,
+"gsi": 9.14,
+"obj": "Terrain_GSI_DEM5A",
+"coll": [
+"10_Terrain"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 24516359,
+"xy": [
+-11.5,
+75.8
+],
+"hz": "0.5",
+"side": "R",
+"d": 3.86,
+"gsi": 10.17,
+"obj": "Terrain_GSI_DEM5A",
+"coll": [
+"10_Terrain"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+24.3,
+63.8
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.93,
+"gsi": 2.32,
+"obj": "Barrier_fence_osm371717409",
+"coll": [
+"40_Walls_Barriers"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+24.3,
+63.8
+],
+"hz": "1.2",
+"side": "R",
+"d": 1.93,
+"gsi": 2.32,
+"obj": "Barrier_fence_osm371717409",
+"coll": [
+"40_Walls_Barriers"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+30.2,
+62.7
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.6,
+"gsi": 2.37,
+"obj": "Barrier_fence_osm371717409",
+"coll": [
+"40_Walls_Barriers"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+30.2,
+62.7
+],
+"hz": "1.2",
+"side": "R",
+"d": 1.6,
+"gsi": 2.37,
+"obj": "Barrier_fence_osm371717409",
+"coll": [
+"40_Walls_Barriers"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+68.6,
+49.1
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.33,
+"gsi": 2.55,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.27cf722b.001",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+68.6,
+49.1
+],
+"hz": "1.2",
+"side": "R",
+"d": 1.9,
+"gsi": 2.55,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.27cf722b.001",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+73.6,
+45.9
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.2,
+"gsi": 2.45,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.27cf722b.002",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+73.6,
+45.9
+],
+"hz": "1.2",
+"side": "R",
+"d": 1.77,
+"gsi": 2.45,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.27cf722b.002",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+78.9,
+43.0
+],
+"hz": "0.5",
+"side": "R",
+"d": 0.69,
+"gsi": 2.01,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.27cf722b.005",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Yasaka-dori",
+"osm": 710696944,
+"xy": [
+78.9,
+43.0
+],
+"hz": "1.2",
+"side": "R",
+"d": 1.27,
+"gsi": 2.01,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.27cf722b.005",
+"ecoll": [
+"60_Kit_Yasaka-dori"
+]
+},
+{
+"street": "Ninenzaka",
+"osm": 550360170,
+"xy": [
+152.1,
+22.9
+],
+"hz": "0.5",
+"side": "R",
+"d": 2.86,
+"gsi": 3.72,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.b4a0dc78.003",
+"ecoll": [
+"60_Kit_Sannenzaka"
+]
+},
+{
+"street": "Ninenzaka",
+"osm": 1491152444,
+"xy": [
+149.6,
+121.1
+],
+"hz": "0.5",
+"side": "L",
+"d": 2.51,
+"gsi": 3.12,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "observed",
+"art": null,
+"empty": "K_ShopFront.6eca279d.001",
+"ecoll": [
+"60_Kit_Ninenzaka"
+]
+},
+{
+"street": "Sannenzaka",
+"osm": 526198271,
+"xy": [
+155.6,
+18.4
+],
+"hz": "0.5",
+"side": "L",
+"d": 2.16,
+"gsi": 2.88,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.b4a0dc78.004",
+"ecoll": [
+"60_Kit_Sannenzaka"
+]
+},
+{
+"street": "Sannenzaka",
+"osm": 179116810,
+"xy": [
+151.8,
+-176.3
+],
+"hz": "0.5",
+"side": "R",
+"d": 1.55,
+"gsi": 2.07,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.19395d1d",
+"ecoll": [
+"60_Kit_Sannenzaka"
+]
+},
+{
+"street": "Sannenzaka",
+"osm": 179116810,
+"xy": [
+154.2,
+-170.8
+],
+"hz": "1.2",
+"side": "R",
+"d": 1.63,
+"gsi": 2.13,
+"obj": "K_ShopFront",
+"coll": [
+"K_ShopFront"
+],
+"piece": "K_ShopFront",
+"dc": "inferred",
+"art": null,
+"empty": "K_ShopFront.19395d1d.002",
+"ecoll": [
+"60_Kit_Sannenzaka"
+]
+},
+{
+"street": "Higashioji",
+"osm": 1193882822,
+"xy": [
+-182.8,
+69.7
+],
+"hz": "0.5",
+"side": "L",
+"d": 7.98,
+"gsi": 8.3,
+"obj": "B_e5c420c9",
+"coll": [
+"90_Backdrop_Outside_Boundary"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Higashioji",
+"osm": 1193882822,
+"xy": [
+-182.8,
+69.7
+],
+"hz": "1.2",
+"side": "L",
+"d": 7.98,
+"gsi": 8.3,
+"obj": "B_e5c420c9",
+"coll": [
+"90_Backdrop_Outside_Boundary"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Higashioji",
+"osm": 1193882822,
+"xy": [
+-184.2,
+59.8
+],
+"hz": "0.5",
+"side": "L",
+"d": 7.85,
+"gsi": 8.49,
+"obj": "B_e5c420c9",
+"coll": [
+"90_Backdrop_Outside_Boundary"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+},
+{
+"street": "Higashioji",
+"osm": 1193882822,
+"xy": [
+-184.2,
+59.8
+],
+"hz": "1.2",
+"side": "L",
+"d": 7.85,
+"gsi": 8.49,
+"obj": "B_e5c420c9",
+"coll": [
+"90_Backdrop_Outside_Boundary"
+],
+"piece": null,
+"dc": null,
+"art": null,
+"empty": null,
+"ecoll": null
+}
+]
