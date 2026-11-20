@@ -116,8 +116,8 @@ def m_farland():
     b = principled(nt, None, c, 0.95, 0.2)
     # blue-hour city lights in the basin (artistic): sparse warm specks
     cl = nt.nodes.new("ShaderNodeValue"); cl.name = "CityLights"; cl.outputs[0].default_value = 0.0
-    sp = node(nt, "ShaderNodeTexVoronoi", {"Vector": P, "Scale": 0.045, "Randomness": 1.0}, feature="F1")
-    spec = mth(nt, "MULTIPLY", mrange(nt, sp.outputs["Distance"], 0.12, 0.04), mrange(nt, sep(nt, sp.outputs["Color"])[0], 0.45, 0.5))
+    sp = node(nt, "ShaderNodeTexVoronoi", {"Vector": P, "Scale": 0.09, "Randomness": 1.0}, feature="F1")
+    spec = mth(nt, "MULTIPLY", mrange(nt, sp.outputs["Distance"], 0.09, 0.03), mrange(nt, sep(nt, sp.outputs["Color"])[0], 0.5, 0.52))
     spec = mth(nt, "MULTIPLY", spec, mth(nt, "SUBTRACT", 1.0, hill))
     em2 = node(nt, "ShaderNodeEmission", {"Color": (1.0, 0.62, 0.32, 1)})
     link(nt, mth(nt, "MULTIPLY", spec, mth(nt, "MULTIPLY", cl.outputs[0], 8.0)), em2.inputs["Strength"])

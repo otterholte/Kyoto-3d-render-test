@@ -29,7 +29,7 @@ and an `evidence_ref` custom property. The `evidence_confidence` property keeps 
 The new wall tops are ray-cast onto the underside of the real roof, so gables and stepped roofs stay closed. A 0.35 m stone plinth band follows the terrain.
 
 **Machiya kit** (hidden collection `A_Asset_Library`, one collection per piece, placed as collection instances in
-`60_Machiya_Kit/60_Kit_<street>`). There are 1,700+ placements. Proportions follow `docs/evidence/building_evidence.md`:
+`60_Machiya_Kit/60_Kit_<street>`). There are 2,428 placements: 1,040 `observed`, 1,146 `inferred` and 242 `artistic`. Proportions follow `docs/evidence/building_evidence.md`:
 * bays of 1 ken (1.82 m);
 * a tiled 1F hisashi with its outer edge at about 2.6 m and attached at about 3.0 m (PLATEAU has no hisashi; the evidence gives 2.7–3.2 m);
 * oya-ko sen-gōshi at a 56 mm slat pitch;
@@ -103,7 +103,7 @@ cherries bronze and thinning, ginkgo yellow, pines and evergreen broadleaves dar
 * **Grade.** AgX (Base Contrast), then a compositor soft bloom (Glare/Bloom), anisotropic Kuwahara (55 %), a cool-lift/warm-gain colour balance, slight desaturation and a vignette.
 
 ## 5. Hero pagoda
-`kit_light.pagoda()` imports `blender/hero_pagoda.py` and calls `build_pagoda(collection, "high")` (hero model by the pagoda workstream: measured position, 38.8 m total, +1.4° orientation; the hidden `LM_Yasaka_Pagoda_COLLIDER` stays non-rendering). Its procedural materials get the shared `G_Brush` colour jitter for consistency. The PLATEAU placeholder
+`kit_light.pagoda()` imports `blender/hero_pagoda.py` and calls `build_pagoda(collection, "high")` (hero model by the pagoda workstream: measured position, 38.8 m total, +1.4° orientation; the hidden `LM_Yasaka_Pagoda_COLLIDER` stays non-rendering). Its procedural materials get the shared `G_Brush` colour jitter for consistency. Shot (d) switches on four artistic ground floods, because the night illumination of the pagoda is observed in Commons photos. The PLATEAU placeholder
 `LM_Yasaka_Pagoda_PLATEAU_LOD2` is hidden. If the import fails, the placeholder stays and `scene["pagoda"]` records why.
 
 ## 6. Shots

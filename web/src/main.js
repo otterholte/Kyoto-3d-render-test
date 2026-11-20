@@ -225,6 +225,7 @@ async function main() {
     sky.placeShadow(ctrl.pos, Q.shadowRange, Q.shadow);
     sky.update(dt, camera, world.groundMat);
     lanterns.update(sky.lanternIntensity);
+    for (const m of world.glowMats) m.emissiveIntensity = m.userData.baseEmissive * (0.12 + 0.26 * sky.lanternIntensity);
     lightCol.copy(sky.sun.color).multiplyScalar(0.35 + 0.2 * sky.sun.intensity).add(sky.hemi.color.clone().multiplyScalar(sky.hemi.intensity * 0.6));
     leaves.update(dt, camera, lightCol, renderer.domElement.height);
     if (bloom) bloom.strength = 0.25 + 0.18 * sky.lanternIntensity;

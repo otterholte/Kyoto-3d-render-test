@@ -26,7 +26,8 @@ from PIL import Image, ImageDraw, ImageFilter  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "web", "assets", "world_art.glb")
-TEX = os.path.join("/tmp", "kyoto_web_tex")
+import tempfile  # noqa: E402
+TEX = tempfile.mkdtemp(prefix="kyoto_web_tex_")
 A = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
 if "--tex" in A:
     TEX = A[A.index("--tex") + 1]

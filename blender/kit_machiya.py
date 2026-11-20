@@ -416,7 +416,7 @@ KEYWORDS = {
     "K_Chochin_White": ["hanging lantern", "white panels", "lantern"], "K_ShopFront": ["shopfront", "shop fronts", "open shop"],
     "K_Noren_Indigo": ["noren"], "K_Noren_Brown": ["noren"], "K_Noren_Cream": ["noren"], "K_Noren_Persimmon": ["noren"],
     "K_Pot_A": ["potted"], "K_Pot_B": ["potted"], "K_Pot_C": ["potted"], "K_Post": ["exposed-timber", "posts", "真壁"],
-    "K_LampPost": ["lamp post"],
+    "K_LampPost": ["lamp post"], "K_Lantern_Black": ["black hanging lantern", "hanging lanterns"],
 }
 RANK = {"observed": 3, "documented": 2, "measured": 1, "inferred": 0}
 

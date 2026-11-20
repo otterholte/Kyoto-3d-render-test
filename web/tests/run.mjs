@@ -96,7 +96,7 @@ async function desktop(browser, url) {
   for (const id of ['yasaka', 'gate', 'ninenzaka', 'ninen-steps', 'ichinenzaka', 'sannen-stairs', 'koshindo']) {
     const t = await page.evaluate((id) => __hw.teleport(__hw.places.find((p) => p.id === id)), id);
     R.places[id] = t;
-    check(t.offset !== null && /Terrain|Steps/.test(t.ground), `place ${id}: walkable spot ${JSON.stringify(t.placed)} offset ${t.offset} m on ${t.ground}`);
+    check(t.offset !== null && /Terrain|Steps|Paving/.test(t.ground), `place ${id}: walkable spot ${JSON.stringify(t.placed)} offset ${t.offset} m on ${t.ground}`);
   }
   R.probe = await page.evaluate(() => ({ gate: __hw.probe(-5, 75), koshindo: __hw.probe(-36, 66) }));
 

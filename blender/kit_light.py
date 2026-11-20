@@ -28,7 +28,7 @@ PRESETS = {
     "dusk": dict(sun_el=1.5, sun_az=242.0, sky=0.8, skycam=0.5, sun=3.0, sun_k=2700, lamps=0.8, fog=0.003,
                  exposure=1.15, amb=0.55, tint=(0.80, 0.62, 0.50), city=0.3, haze=(0.42, 0.36, 0.44), mist=0.0),
     "blue": dict(sun_el=-4.0, sun_az=246.0, sky=2.4, skycam=0.55, sun=0.0, sun_k=2400, lamps=1.25, fog=0.0035,
-                 exposure=1.5, amb=0.35, tint=(0.50, 0.46, 0.75), city=1.0, haze=(0.10, 0.11, 0.20), mist=0.0, flood=1.0),
+                 exposure=1.5, amb=0.35, tint=(0.50, 0.46, 0.75), city=1.0, haze=(0.05, 0.055, 0.11), mist=0.0, flood=1.0),
 }
 
 
@@ -337,8 +337,8 @@ SHOTS = {
                               look_z_rel=1.2),
     "c_sannenzaka_stairs": dict(way=1569088146, xy=(166.5, -142.0), look=(151.0, -177.0, None), lens=26, shift=0.12,
                                 preset="dusk", look_z_rel=3.6),
-    "d_bluehour_roofs": dict(way=710696944, xy=(118.0, 30.0), look=(9.7, 83.5, None), lens=50, shift=0.06, preset="blue",
-                             elev=14.0, look_z=72.0),
+    "d_bluehour_roofs": dict(way=710696944, xy=(118.0, 30.0), look=(9.7, 83.5, None), lens=45, shift=0.08, preset="blue",
+                             elev=14.0, look_z=69.0, fog_scale=0.3),
     "e_yasaka_dori_upper_west": dict(way=710696944, xy=(91.8, 44.7), look=(9.7, 83.5, None), lens=35, shift=0.2, preset="dusk",
                                      look_z=66.0),
 }
@@ -372,6 +372,7 @@ def cameras():
         co.rotation_euler = (pitch, 0, e[2])
         co["walkable_position"] = "osm:way/%d (snapped from %s), z = walkable surface + %.1f m" % (sh["way"], sh["xy"], 1.6 + sh.get("elev", 0.0))
         co["preset"] = sh["preset"]
+        co["fog_scale"] = sh.get("fog_scale", 1.0)
         out[name] = co
     return out
 
@@ -548,7 +549,7 @@ def pagoda(log=print):
         lo.location = (cx + dx, cy + dy, z0 + 0.6)
         d = Vector((cx, cy, z0 + 20.0)) - Vector(lo.location)
         lo.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
-        lo["flood_base_energy"] = 9000.0
+        lo["flood_base_energy"] = 16000.0
         lo["detail_class"] = "observed"; lo["artistic"] = True
         lo["evidence_ref"] = "night illumination observed in Commons photos (docs/references/commons_geotagged.json); fixture position artistic"
         lo.hide_render = True

@@ -89,6 +89,12 @@ function nodeOf(obj) {
   const isPrimGroup = p && p.isGroup && p.parent && p.children.length > 1 && p.children.every((c) => c.isMesh);
   return isPrimGroup ? p : obj;
 }
+// extras of the node and all its ancestors (closest wins), e.g. art trees: Tree_osm* (extras) > Tree_osm*_mesh
+function extrasUp(obj) {
+  const chain = [];
+  for (let o = obj; o && o.parent; o = o.parent) chain.push(o.userData || {});
+  return Object.assign({}, ...chain.reverse());
+}
 function extrasOf(obj) {
   const n = nodeOf(obj);
   return Object.assign({}, n !== obj ? n.userData : {}, obj.userData);
@@ -124,10 +130,22 @@ export async function loadWorld(scene, renderer, progress) {
     if (await exists('assets/pagoda.glb')) pagodaUrl = 'assets/pagoda.glb';
   }
 
-  const load = (url, a, b, label) => new Promise((res, rej) => loader.load(url, res, (e) => {
+  const onProg = (a, b, label) => (e) => {
     if (e.total) progress(a + (b - a) * (e.loaded / e.total), `${label} ${(e.loaded / 1048576).toFixed(1)} / ${(e.total / 1048576).toFixed(1)} MB`);
     else progress(a + (b - a) * 0.5, `${label} ${(e.loaded / 1048576).toFixed(1)} MB`);
-  }, rej));
+  };
+  // '*.b64.txt' = GLB shipped as base64 text (static hosts that do not serve .glb)
+  const load = (url, a, b, label) => new Promise((res, rej) => {
+    if (!url.endsWith('.b64.txt')) { loader.load(url, res, onProg(a, b, label), rej); return; }
+    const fl = new THREE.FileLoader(); fl.setResponseType('text');
+    fl.load(url, (txt) => {
+      try {
+        const bin = atob(txt.trim()); const buf = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+        loader.parse(buf.buffer, '', res, rej);
+      } catch (err) { rej(err); }
+    }, onProg(a, b, label), rej);
+  });
 
   const maskPromise = new THREE.TextureLoader().loadAsync('assets/surface_mask.png');
   progress(0.05, 'Downloading the district…');
@@ -159,10 +177,17 @@ export async function loadWorld(scene, renderer, progress) {
   };
   const groupPush = (map, key, item) => { if (!map.has(key)) map.set(key, []); map.get(key).push(item); };
   const ownGroups = new Map();    // material uuid|section -> { mat, geoms }
-  const addOwn = (o) => {
+  const artMeshes = [];           // authored-material meshes: instanced when the mesh is reused, else merged
+  const prepMat = (o) => {
     const mat = Array.isArray(o.material) ? o.material[0] : o.material;
+    // the art export ships no normals (faceted look): shade flat from screen-space derivatives
+    if (!o.geometry.attributes.normal && !mat.flatShading) { mat.flatShading = true; mat.needsUpdate = true; }
+    return mat;
+  };
+  const addOwn = (o) => {
+    const mat = prepMat(o);
     const useColor = !!mat.vertexColors, useUv = !!(mat.map || mat.normalMap || mat.roughnessMap || mat.emissiveMap);
-    const g = worldGeometry(o, { normal: true, color: useColor, uv: useUv });
+    const g = worldGeometry(o, { normal: !!o.geometry.attributes.normal, color: useColor, uv: useUv });
     const key = `${mat.uuid}|${sectionKey(g)}`;
     if (!ownGroups.has(key)) ownGroups.set(key, { mat, geoms: [] });
     ownGroups.get(key).geoms.push(g);
@@ -174,10 +199,19 @@ export async function loadWorld(scene, renderer, progress) {
     const role = roleOf(o, matName);
     const ex = extrasOf(o);
     const nodeName = nodeOf(o).name || o.name;
+    const artTree = worldKind !== 'blockout' && /^(Tree|Shrub)/i.test(nodeName) || (worldKind !== 'blockout' && o.parent && /^(Tree|Shrub)/i.test(o.parent.name));
+    if (artTree) {
+      if (extrasUp(o).collide === true) trees.trunk.push(o);   // trunk collider only
+      artMeshes.push(o);
+      return;
+    }
     if (role === 'trunk' || role === 'crown') { trees[role].push(o); return; }
     if (role === 'pagodaLM') { pagodaLM = pagodaLM || []; pagodaLM.push(o); return; }
     const walkable = role === 'terrain' || role === 'steps' || ex.walkable === true;
-    const collides = walkable || ex.collide === true || ['roof', 'wall', 'plinth', 'barrier'].includes(role);
+    // street furniture of the art kit (benches, pots, signs, lamps) collides so walls of the visible scene match
+    // the physical one, even where the export flags the merged kit as collide=false
+    const furniture = /^(Kit_|StreetLamp|Lantern_osm)/i.test(nodeName);
+    const collides = walkable || furniture || ex.collide === true || ['roof', 'wall', 'plinth', 'barrier'].includes(role);
     if (collides) {
       // joined sections (build.mjs) keep every source object: per-vertex _member -> extras.members[i].name
       const mem = o.geometry.attributes._member;
@@ -201,8 +235,8 @@ export async function loadWorld(scene, renderer, progress) {
       return;
     }
     // art pass (and unknown objects): keep the authored material, merge per material + section
-    if (role === 'other' || (worldKind === 'art' && role !== 'terrain')) {
-      addOwn(o);
+    if (role === 'other' || worldKind !== 'blockout') {
+      artMeshes.push(o);
       return;
     }
     const g = worldGeometry(o, { normal: true, color: M[role].vertexColors, defaultColor: [0.8, 0.78, 0.72] });
@@ -263,8 +297,27 @@ export async function loadWorld(scene, renderer, progress) {
   }
   for (const m of extraMeshes) { root.add(m); drawCalls++; }
 
-  // instanced documented trees (art crowns/trunks that are not shared fall back to merging)
-  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj, addOwn);
+  // documented trees: procedural instanced trees (blockout) / trunk colliders (art)
+  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj);
+  // authored meshes: instance every geometry+material used >= 4 times (glTF mesh reuse), merge the rest
+  const reuse = new Map();
+  for (const o of artMeshes) {
+    const mat = Array.isArray(o.material) ? o.material[0] : o.material;
+    const k = o.geometry.uuid + '|' + mat.uuid;
+    if (!reuse.has(k)) reuse.set(k, []);
+    reuse.get(k).push(o);
+  }
+  let instanced = 0;
+  for (const list of reuse.values()) {
+    if (list.length < 4) { list.forEach(addOwn); continue; }
+    const mat = prepMat(list[0]);
+    const im = new THREE.InstancedMesh(list[0].geometry, mat, list.length);
+    list.forEach((o, i) => im.setMatrixAt(i, o.matrixWorld));
+    im.castShadow = !mat.transparent; im.receiveShadow = true;
+    im.computeBoundingSphere();
+    im.name = 'Instanced_' + (list[0].parent ? list[0].parent.name : list[0].name).replace(/\d+.*$/, '');
+    root.add(im); drawCalls++; instanced += list.length;
+  }
   for (const [key, { mat, geoms }] of ownGroups) {
     const g = geoms.length === 1 ? geoms[0] : mergeGeometries(geoms, false);
     if (!g) continue;
@@ -292,11 +345,18 @@ export async function loadWorld(scene, renderer, progress) {
   colliderMesh.visible = false;
   colliderMesh.name = 'Collider';
 
+  // authored emissive "glow" materials (shop fronts, lamps) follow the time of day
+  const glowMats = [];
+  root.traverse((o) => {
+    const m = o.material;
+    if (m && m.emissive && /glow|emiss/i.test(m.name || '') && !glowMats.includes(m)) { m.userData.baseEmissive = m.emissiveIntensity; glowMats.push(m); }
+  });
+
   return {
-    root, bvh, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
+    root, bvh, glowMats, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
     stats: {
       worldUrl, pagodaUrl: hero ? pagodaUrl : null, worldKind, drawCalls, trees: treeInfo.count,
-      colliderTris: colGeom.index.count / 3, bvhMs: Math.round(bvhMs), manifest,
+      colliderTris: colGeom.index.count / 3, bvhMs: Math.round(bvhMs), instanced, manifest,
     },
   };
 }
@@ -332,7 +392,7 @@ function mulberry(a) {
   return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 
-function buildTrees(root, trees, M, worldKind, collide, addObj, addOwn) {
+function buildTrees(root, trees, M, worldKind, collide, addObj) {
   let drawCalls = 0;
   const box = new THREE.Box3(), c = new THREE.Vector3(), s = new THREE.Vector3();
   const tmp = new THREE.Object3D();
@@ -340,7 +400,8 @@ function buildTrees(root, trees, M, worldKind, collide, addObj, addOwn) {
   // trunk colliders (both modes): prism slightly larger than the visible trunk
   for (const o of trees.trunk) {
     box.setFromObject(o); box.getCenter(c); box.getSize(s);
-    const r = Math.max(0.12, Math.min(s.x, s.z) / 2);
+    // art trees are one mesh (trunk + crown): use a fixed trunk radius at the plan centre
+    const r = worldKind === 'blockout' ? Math.max(0.12, Math.min(s.x, s.z) / 2) : 0.2;
     const cg = new THREE.CylinderGeometry(r + 0.06, r + 0.06, s.y, 6, 1, false);
     cg.translate(c.x, box.min.y + s.y / 2, c.z);
     cg.deleteAttribute('normal'); cg.deleteAttribute('uv');
@@ -348,25 +409,7 @@ function buildTrees(root, trees, M, worldKind, collide, addObj, addOwn) {
     collide.push(cg);
   }
 
-  if (worldKind !== 'blockout') {
-    // art pass: authored geometry + material, instanced per shared mesh; unshared ones are merged statically
-    const groups = new Map();
-    for (const o of [...trees.trunk, ...trees.crown]) {
-      const mat = Array.isArray(o.material) ? o.material[0] : o.material;
-      const k = o.geometry.uuid + '|' + mat.uuid;
-      if (!groups.has(k)) groups.set(k, []);
-      groups.get(k).push(o);
-    }
-    for (const list of groups.values()) {
-      if (list.length < 4) { list.forEach(addOwn); continue; }
-      const im = new THREE.InstancedMesh(list[0].geometry, list[0].material, list.length);
-      list.forEach((o, i) => im.setMatrixAt(i, o.matrixWorld));
-      im.castShadow = im.receiveShadow = true;
-      im.computeBoundingSphere();
-      root.add(im); drawCalls++;
-    }
-    return { count: trees.crown.length || trees.trunk.length, drawCalls };
-  }
+  if (worldKind !== 'blockout') return { count: trees.trunk.length, drawCalls };
 
   // blockout: procedural painterly trees placed on the documented OSM tree positions/sizes
   const autumn = [[0.55, 0.12, 0.05], [0.72, 0.28, 0.06], [0.62, 0.45, 0.08], [0.2, 0.3, 0.1], [0.16, 0.26, 0.09], [0.16, 0.26, 0.09]];

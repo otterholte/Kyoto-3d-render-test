@@ -63,6 +63,9 @@ for sh in shots:
     cam = cams[name]
     scene.camera = cam
     kit_light.apply_preset(arg("--preset", cam["preset"]), scene)
+    fog = bpy.data.materials.get("ART_Fog")
+    if fog and cam.get("fog_scale", 1.0) != 1.0:
+        fog.node_tree.nodes["FogVol"].inputs["Density"].default_value *= cam["fog_scale"]
     out = os.path.join(ROOT, prefix + name + ".png")
     scene.render.filepath = out
     t = time.time()

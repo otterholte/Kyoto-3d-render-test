@@ -280,6 +280,15 @@ fs.copyFileSync(path.join(PROC, 'surface_mask.png'), path.join(ASSETS, 'surface_
 console.log('assets/surface_mask.png copied');
 
 manifest.minimap = 'assets/minimap.json';
+// Artifact hosting serves no .glb type: also ship each GLB as base64 text (served as .txt);
+// the page decodes it (src/world.js) and still accepts plain .glb when served locally.
+for (const k of ['world', 'pagoda']) {
+  if (!manifest[k]) continue;
+  const b64Name = manifest[k].file + '.b64.txt';
+  fs.writeFileSync(path.join(DIST, b64Name), fs.readFileSync(path.join(DIST, manifest[k].file)).toString('base64'));
+  manifest[k].glb = manifest[k].file;
+  manifest[k].file = b64Name;
+}
 manifest.surfaceMask = { file: 'assets/surface_mask.png', extent: [-300, 300, -300, 300], channels: 'R asphalt, G granite paving, B gravel, else soil' };
 fs.writeFileSync(path.join(DIST, 'manifest.json'), JSON.stringify(manifest, null, 2));
 console.log('dist/manifest.json written');
