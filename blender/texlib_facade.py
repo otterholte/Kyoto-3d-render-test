@@ -56,7 +56,7 @@ def make_bases(force=False):
         "wood_dark": lambda: S.timber(palette="dark", size_m=(1, 1), res=1024, seams=False, write=False, seed=201, weather=0.45, grain_k=0.35),
         "wood_bengara": lambda: S.timber(palette="bengara", size_m=(1, 1), res=1024, seams=False, write=False, seed=202, weather=0.35, grain_k=0.35),
         "wood_honey": lambda: S.timber(palette="honey", size_m=(1, 1), res=1024, seams=False, write=False, seed=203, weather=0.15),
-        "wood_silver": lambda: S.timber(palette="silver", size_m=(1, 1), res=1024, seams=False, write=False, seed=204, weather=0.8),
+        "wood_silver": lambda: S.timber(palette="silver", size_m=(1, 1), res=1024, seams=False, write=False, seed=204, weather=0.5),
         "plaster_ochre": lambda: S.plaster(kind="ochre", size_m=(1, 1), res=1024, write=False, seed=211),
         "plaster_cream": lambda: S.plaster(kind="cream", size_m=(1, 1), res=1024, write=False, seed=212),
         "plaster_lime": lambda: S.plaster(kind="lime", size_m=(1, 1), res=1024, write=False, seed=213),
@@ -669,7 +669,7 @@ def m_itabari(fb):
     x = 0.06
     while x < W - 0.07:
         bw = min(rng.uniform(0.18, 0.26), W - 0.06 - x)
-        key = "wood_dark" if rng.random() < 0.75 else "wood_silver"
+        key = "wood_dark" if rng.random() < 0.88 else "wood_silver"
         fb.box(x + 0.002, x + bw - 0.002, 0.18, 2.05, -0.012, 0.008 + rng.uniform(0, 0.004), key)
         x += bw
     for yy in (0.7, 1.45):                                                           # oshibuchi battens
@@ -750,7 +750,7 @@ def m_uf_mushikomado(fb, plaster="plaster_cream", n=1):
     holes.append((x0, x0 + ww, 0.75, 1.32))
     fb.panel(0.0, W, 0.14, 2.28, 0.01, plaster, holes=holes, step=0.04, amp=0.003, reveal=0.1)
     interior(fb, 0.7, 1.4, z=-0.45)
-    fb.box(x0, x0 + ww, 0.75, 1.32, -0.33, -0.31, "shoji")
+    fb.box(x0, x0 + ww, 0.75, 1.32, -0.62, -0.6, "shoji")                 # paper screen far behind (reads dark)
     # plaster-coated bars (rounded look via two boxes)
     pitch = 0.085
     nb = int(ww / pitch)

@@ -52,7 +52,22 @@ nearest geotagged Commons photos.
 Modern blocks (≥3 storeys or >11.5 m) get no machiya dressing, only a lit shopfront where there is a shop. This keeps
 Yasaka-dōri west honest: the evidence describes it as mixed, with RC/steel blocks.
 
-## 2. Materials (`kit_materials.py`, all procedural)
+## 2. Materials
+
+**Realism revision (lead/user feedback "reads as boxes").** The image-based texture library (`blender/materials_textured.py`,
+`blender/textures/`, `docs/texture_library.md`) is now applied:
+* all 1,267 PLATEAU buildings: the facade atlas mapped per storey by `assign_facades` (machiya / modern / temple modules; the
+  structure class comes from `building_evidence.json`) and kawara tiles with eave and ridge strips (`apply_roof_uvs`);
+* paving ribbons: `ishidatami_granite`, or `setts_granite` on Yasaka-dōri west;
+* terrain: asphalt / setts / gravel / earth-moss blended by the surveyed surface mask (`kit_texground.py`);
+* steps: `stone_steps_trim`; walls: `ishigaki_mossy`; fences: `bamboo_fence_kenninji`.
+
+The machiya kit geometry stays on top of the Priority-2 street walls. It now has 6 mm geometric bevels on its pieces, plus
+inferred eave gutters and downpipes on every hisashi. Concrete utility poles and overhead wires were added on Yasaka-dōri west,
+where they are observed (positions inferred; the shot-(a) sightline to the pagoda is kept clear). The procedural
+materials below remain for the kit, the trees and the fallbacks. The brushwork is now subtle (`BRUSH_AMOUNT` 0.5, Kuwahara 18 %).
+
+### Procedural set (`kit_materials.py`)
 Palette (linear RGB), taken from the *observed* evidence colours and pushed warm/muted:
 
 | role | colour | source |
@@ -91,9 +106,9 @@ cherries bronze and thinning, ginkgo yellow, pines and evergreen broadleaves dar
 
 ## 4. Lighting & atmosphere (`kit_light.py`)
 * **Sky.** Blender 5.2's `MULTIPLE_SCATTERING` sky has its sun disc off. It is paired with a separate sun lamp from the WSW (azimuth 238–246°, the late-November sunset direction).
-* **Presets.**
-  * `golden`: sun at 6°, 3300 K;
-  * `dusk`: sun at 1.5°, 2600 K;
+* **Presets.** Real sun positions for Kyoto on 20 November:
+  * `golden`: 16:00 JST, azimuth 231°, altitude 11.5°;
+  * `dusk`: 16:25 JST, azimuth 237°, altitude 6.5°;
   * `blue`: sun at −4°, no sun lamp, sky only, lanterns ×1.25, pagoda floodlights on.
 * **Ambient.** For non-camera rays, part of the physical sky is replaced by an art-directed tint: warm peach in the golden hour, lavender at blue hour. This gives lavender-blue shadows without a navy cast. The sky as seen by the camera is scaled separately.
 * **Lanterns and lights.**
@@ -102,7 +117,7 @@ cherries bronze and thinning, ginkgo yellow, pines and evergreen broadleaves dar
   * Lit koshi and shopfronts glow (emission).
   * Yasaka Pagoda night illumination is observed in the Commons "Illuminated Yasakanoto Tower" photos. It is rendered with four ground floods; the fixture positions are artistic.
 * **Fog.** A thin, homogeneous fog fills a terrain-following shell (ground −2 m to +16 m) over the box. It hazes the space between buildings and thins above the roofs. Being homogeneous, it costs no ray-marching.
-* **Distant landscape.** The far landscape is real GSI DEM10B relief out to 15 km (Higashiyama, Atago-yama 916 m). The land cover is painted: forest on slopes, an impressionistic city with blue-hour lights in the basin, and per-preset haze.
+* **Distant landscape.** `blender/build_backdrop.py` `add_backdrop(scene, "render")` (backdrop workstream, `docs/backdrop.md`) provides GSI terrain rings to ±15 km, 69.6k PLATEAU city buildings and forest canopy. Each preset retunes its aerial perspective (nodes `BackdropHaze` / `BackdropHazeAmount`). My painted DEM10B backdrop (`kit_backdrop.py`) is only a fallback.
 * **Grade.** AgX (Base Contrast), then a compositor soft bloom (Glare/Bloom), anisotropic Kuwahara (55 %), a cool-lift/warm-gain colour balance, slight desaturation and a vignette.
 
 ## 5. Hero pagoda
@@ -123,7 +138,7 @@ All camera positions are snapped to OSM centrelines, at the walkable surface (te
 Audit F3: the model blocks the pagoda view from the upper Yasaka-dōri / Ninenzaka junction (x > ~135 m), which is unresolved. All hero cameras that feature the pagoda are therefore west of x = 130 m: (a) x −79, (e) x 91.8, (d) x 118.
 
 ## 7. Web export (`kit_export.py` → `web/assets/world_art.glb`)
-Y-up, extras on, no normals (flat shading), COLOR_0 vertex colours as normalised ushort, and 4 small textures:
+Y-up, extras on, no normals (flat shading). Textured buildings (Priority 2 and 3) carry one UV layer `WebUV` as TEXCOORD_0: facade faces use FacadeUV (u = bays, v = metres above the wall base) and roof faces use RoofUV (u = metres along the eave, v = metres up-slope). The web maps `web/assets/tex/` onto materials `W_Wall_Facade` and `W_Roof_Kawara` (see `docs/texture_library.md`); their base colour is a plaster or kawara fallback. Priority-4 massing uses two constant materials. Everything else has COLOR_0 vertex colours (normalised ushort). There are 4 small textures:
 * terrain 1024² from the surface mask and the palette;
 * ishidatami 512² and sett 256² repeat tiles;
 * kit atlas 1024².

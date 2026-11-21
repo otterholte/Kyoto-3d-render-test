@@ -10,6 +10,8 @@ import { serve, launch, newPage, devices, sleep, WEB } from './harness.mjs';
 const OUT = process.argv[2] || '/tmp/claude-0/-home-user/78aa4f15-d288-5fa7-835e-afbbfb9eb8f9/scratchpad/web';
 fs.mkdirSync(OUT, { recursive: true });
 const ONLY = process.env.ONLY || '';
+// functional runs use a cheap tier + render scale (SwiftShader); docs screenshots come from tests/views.mjs
+const DESK_Q = process.env.DESK_Q || '?q=low&scale=0.5', MOB_Q = process.env.MOB_Q || '?q=medium&scale=0.5';
 const results = { desktop: {}, mobile: {}, failures: [] };
 const check = (cond, msg) => { if (!cond) { results.failures.push(msg); console.log('  FAIL', msg); } else console.log('  ok  ', msg); };
 
@@ -28,7 +30,7 @@ const state = (page) => page.evaluate(() => __hw.state());
 async function frames(page, n = 2) {
   for (let i = 0; i < n; i++) await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => r())));
 }
-async function shot(page, name) { await frames(page, 2); await page.screenshot({ path: path.join(OUT, name) }); console.log('  shot', name); }
+async function shot(page, name) { await frames(page, 2); await page.screenshot({ path: path.join(OUT, name), timeout: 300000 }); console.log('  shot', name); }
 
 // steer the camera (as a mouse-drag would) so that "forward" points at (x, n), local frame
 async function steer(page, x, n) {
@@ -79,7 +81,7 @@ async function desktop(browser, url) {
   const { page, errors, ext, warnings } = await newPage(browser, { viewport: { width: 1440, height: 900 } });
   // hold the GLB back for a moment so the loading screen can be captured
   await page.route(/dist\/world(_art)?\.glb$/, async (r) => { await sleep(3000); await r.continue(); });
-  await page.goto(url);
+  await page.goto(url + DESK_Q);
   await sleep(1800);
   await page.screenshot({ path: path.join(OUT, 'desktop_00_loading.png') });
   const R = results.desktop;
@@ -248,13 +250,27 @@ async function desktop(browser, url) {
   await page.click('#btn-places'); await sleep(300); await shot(page, 'desktop_09_places.png');
   await page.keyboard.press('Escape');
 
+  // renders gallery (empty state until assets/renders/renders.json exists) and photo mode
+  await page.click('#btn-renders'); await sleep(800);
+  R.gallery = await page.evaluate(() => ({ items: document.querySelectorAll('#renders-list li').length, emptyShown: !document.getElementById('renders-empty').hidden }));
+  check(R.gallery.items > 0 || R.gallery.emptyShown, `renders gallery opens (${R.gallery.items} items, empty message ${R.gallery.emptyShown})`);
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => { __hw.setTime(0.15); __hw.teleport(__hw.places[0]); });
+  await page.click('#btn-photo'); await sleep(1500);
+  R.photo = await page.evaluate(() => ({ tier: __hw.tier, hud: document.getElementById('hud').hidden, bar: !document.getElementById('photo-bar').hidden, q: __hw.quality() }));
+  check(R.photo.tier === 'ultra' && R.photo.hud && R.photo.bar, `photo mode: UI hidden, ultra tier (${JSON.stringify(R.photo.q)})`);
+  await sleep(4000);
+  await page.screenshot({ path: path.join(OUT, 'desktop_11_photo_mode.png'), timeout: 300000 });
+  await page.click('#photo-exit'); await sleep(500);
+  R.photoExit = await page.evaluate(() => ({ tier: __hw.tier, hud: !document.getElementById('hud').hidden }));
+  check(R.photoExit.tier !== 'ultra' && R.photoExit.hud, 'photo mode exits back to the walk');
+
   // fps (SwiftShader software GL: pessimistic) at the spawn
   await page.evaluate(() => { __hw.setTime(0.35); __hw.teleport(__hw.places[0]); });
-  R.fps = { auto_high: await fpsWindow(page, 12), quality: await page.evaluate(() => __hw.quality()) };
-  await page.click('#btn-settings'); await page.click('.seg button[data-q="low"]', { noWaitAfter: true }); await page.keyboard.press('Escape');
-  await sleep(3000);
-  R.fps.low = await fpsWindow(page, 12);
-  await page.evaluate(() => document.querySelector('.seg button[data-q="auto"]').click());
+  R.fps = { [DESK_Q]: await fpsWindow(page, 12), quality: await page.evaluate(() => __hw.quality()) };
+  await page.click('#btn-settings'); await page.click('.seg button[data-q="high"]', { noWaitAfter: true }); await page.keyboard.press('Escape');
+  await sleep(5000);
+  R.fps.high_at_scale = await fpsWindow(page, 15);
   R.fps.renderInfo = await page.evaluate(() => __hw.stats());
   R.consoleErrors = errors; R.externalRequests = ext; R.warnings = warnings.filter((w) => !/GPU stall|GL Driver/.test(w)).slice(0, 10);
   check(errors.length === 0, `desktop: no console errors (${errors.length})`);
@@ -272,7 +288,7 @@ async function mobile(browser, url, devName, dev) {
   const key = devName.replace(/\s+/g, '_');
   const { page, errors, ext } = await newPage(browser, { ...dev });
   const cdp = await page.context().newCDPSession(page);
-  await page.goto(url);
+  await page.goto(url + MOB_Q);
   const R = (results.mobile[devName] = {});
   R.loadSeconds = await waitReady(page);
   await sleep(1500);
@@ -416,7 +432,7 @@ async function robustness(browser, url) {
   {
     const { page } = await newPage(browser, { viewport: { width: 800, height: 600 } });
     await page.route(/surface_mask\.png/, (r) => r.fulfill({ status: 404, body: 'nf' }));
-    await page.goto(url);
+    await page.goto(url + '?q=low&scale=0.25');
     await page.waitForFunction(() => window.__hw && (window.__hw.ready || !document.getElementById('fatal').hidden), null, { timeout: 300000 });
     const ok = await page.evaluate(() => window.__hw.ready && document.getElementById('fatal').hidden);
     results.robust.noMask = ok;
@@ -424,7 +440,7 @@ async function robustness(browser, url) {
     // 3. a throwing frame does not freeze the loop
     await page.evaluate(() => { __hw.maxDt = 0.5; const T = __hw.traveller; T._u = T.update; let n = 2; T.update = function (...a) { if (n-- > 0) throw new Error('injected'); return T._u.apply(T, a); }; });
     await sleep(6000);
-    const alive = await page.evaluate(() => new Promise((r) => { const p0 = __hw.traveller.idleT; setTimeout(() => r(__hw.traveller.idleT > p0), 4000); }));
+    const alive = await page.evaluate(() => new Promise((r) => { const p0 = __hw.traveller.idleT; setTimeout(() => r(__hw.traveller.idleT > p0), 20000); }));
     check(alive, 'frame loop survives an exception in one frame');
     await page.context().close();
   }

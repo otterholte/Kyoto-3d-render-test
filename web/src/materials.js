@@ -80,6 +80,7 @@ export const shared = {
   uWet: { value: 0.2 },
   uTime: { value: 0 },
   uWarm: { value: 1 },   // 1 = golden hour, 0 = blue hour
+  uNight: { value: 0 },  // 0 = daylight ... 1 = blue hour (lit interiors)
 };
 
 // ---------------------------------------------------------------- painterly surface

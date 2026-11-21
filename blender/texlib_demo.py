@@ -221,6 +221,28 @@ for o in bpy.data.objects:
     elif nm.startswith("Barrier_fence"):
         o.data.materials[0] = fence
 
+# ----------------------------------------------------------------------------- trees: leaf cards instead of blobs
+bark = box_mat("TX_Bark", "bark_pine")
+nt_ = 0
+for o in [o for o in bpy.data.objects if o.name.startswith("TreeCrown_")]:
+    v = Vector((o.location.x - cx, o.location.y - cy, 0))
+    if v.length > 160 or (v.length > 15 and v.normalized().dot(Vector((cam_dir.x, cam_dir.y, 0)).normalized()) < 0.5):
+        continue
+    sp = (o.get("species") or "") + o.name
+    cards = [("maple_green", 3), ("cherry_leaf", 1)] if nt_ % 3 else [("pine_needles", 3), ("maple_green", 1)]
+    if nt_ % 5 == 4:
+        cards = [("maple_autumn", 3), ("maple_green", 1)]
+    d = o.dimensions
+    MT.foliage_cards("Leaves_" + o.name, tuple(o.location), (d.x / 2, d.y / 2, d.z / 2), cards,
+                     n=int(90 * d.x * d.y * d.z / 30) + 60, seed=nt_, card_scale=1.4)
+    o.hide_render = True
+    nt_ += 1
+for o in bpy.data.objects:
+    if o.name.startswith("Tree_") and o.type == "MESH":
+        o.data.materials[0] = bark
+print("leaf-card crowns:", nt_)
+sc.cycles.transparent_max_bounces = 24
+
 # ----------------------------------------------------------------------------- light + render
 for o in [o for o in bpy.data.objects if o.type == "LIGHT"]:
     bpy.data.objects.remove(o)

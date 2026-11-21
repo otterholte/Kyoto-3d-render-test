@@ -340,8 +340,8 @@ SHOTS = {
                                look_z=58.0),
     "b_ninenzaka_south": dict(way=30913263, xy=(153.6, 98.0), look=(155.5, 45.0, None), lens=28, shift=0.08, preset="dusk",
                               look_z_rel=1.2),
-    "c_sannenzaka_stairs": dict(way=1569088146, xy=(166.5, -142.0), look=(151.0, -177.0, None), lens=26, shift=0.12,
-                                preset="dusk", look_z_rel=3.6),
+    "c_sannenzaka_stairs": dict(way=179116810, xy=(163.4, -149.3), look=(151.0, -177.0, None), lens=24, shift=0.12,
+                                preset="dusk", look_z_rel=2.2),   # just past documented OSM tree 5315712356 at the stair foot
     "d_bluehour_roofs": dict(way=710696944, xy=(118.0, 30.0), look=(9.7, 83.5, None), lens=45, shift=0.08, preset="blue",
                              elev=14.0, look_z=69.0, fog_scale=0.3),
     "e_yasaka_dori_upper_west": dict(way=710696944, xy=(91.8, 44.7), look=(9.7, 83.5, None), lens=35, shift=0.2, preset="dusk",
@@ -363,7 +363,7 @@ def cameras():
         # level the camera: pitch toward target but use lens shift for the rest (architectural verticals)
         cname = "Cam_" + name
         cd = bpy.data.cameras.get(cname) or bpy.data.cameras.new(cname)
-        cd.lens = sh["lens"]; cd.clip_start = 0.1; cd.clip_end = 3000
+        cd.lens = sh["lens"]; cd.clip_start = 0.1; cd.clip_end = 40000  # 15 km backdrop ring
         cd.shift_y = sh["shift"]
         cd.sensor_width = 36
         co = bpy.data.objects.get(cname) or bpy.data.objects.new(cname, cd)

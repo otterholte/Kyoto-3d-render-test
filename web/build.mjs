@@ -287,11 +287,15 @@ console.log('assets/surface_mask.png copied');
 
 manifest.minimap = 'assets/minimap.json';
 // optional inputs from other agents: listed only when present, so the page never requests missing files
-for (const p of ['assets/tex/facade_atlas.json', 'assets/facade_atlas.json']) {
-  if (fs.existsSync(path.join(HERE, p))) { manifest.textures = p; break; }
+{
+  const t = {};
+  for (const [k, p] of [['facade', 'assets/tex/facade_atlas.json'], ['library', 'assets/tex/library.json'], ['foliage', 'assets/tex/foliage_atlas.json']]) {
+    if (fs.existsSync(path.join(HERE, p))) t[k] = p;
+  }
+  if (Object.keys(t).length) manifest.textures = t;
 }
 if (fs.existsSync(path.join(ASSETS, 'renders', 'renders.json'))) manifest.renders = 'assets/renders/renders.json';
-console.log(`textures: ${manifest.textures || 'procedural (no facade_atlas.json)'}; renders: ${manifest.renders || 'none'}`);
+console.log(`textures: ${manifest.textures ? Object.values(manifest.textures).join(', ') : 'procedural (no assets/tex)'}; renders: ${manifest.renders || 'none'}`);
 // Artifact hosting serves no .glb type: also ship each GLB as base64 text (served as .txt);
 // the page decodes it (src/world.js) and still accepts plain .glb when served locally.
 for (const k of ['world', 'pagoda', 'backdrop']) {

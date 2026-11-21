@@ -50,7 +50,7 @@ def terrain_material(ter, mask_img, name="TX_Terrain"):
     T.l(uw, nz.inputs["Vector"])
 
     def mask(ch):
-        a = T.math("MULTIPLY_ADD", nz.outputs["Fac"], 0.5, -0.25)
+        a = T.math("SUBTRACT", T.math("MULTIPLY", nz.outputs["Fac"], 0.5), 0.25)
         b = T.math("ADD", sm.outputs[ch], a)
         mr = T.n("ShaderNodeMapRange"); mr.inputs[1].default_value = 0.4; mr.inputs[2].default_value = 0.6
         T.l(b, mr.inputs[0])

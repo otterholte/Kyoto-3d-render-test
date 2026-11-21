@@ -41,9 +41,16 @@ and `assets/pagoda.glb`. Those source GLBs are not meant for publishing (world.g
 index.html  style.css
 src/main.js src/config.js src/world.js src/materials.js src/sky.js src/controller.js src/camera.js
 src/character.js src/input.js src/lanterns.js src/particles.js src/minimap.js
-dist/manifest.json  dist/world_art.glb.b64.txt  dist/pagoda.glb.b64.txt   (the files the manifest names)
+src/textures.js src/pbr.js src/post.js src/backdrop.js src/gallery.js
+dist/manifest.json  dist/world_art.glb.b64.txt  dist/pagoda.glb.b64.txt  dist/backdrop.glb.b64.txt
 assets/minimap.json  assets/surface_mask.png
+assets/tex/facade_atlas.json assets/tex/library.json assets/tex/foliage_atlas.json + the image files they
+  reference that the page uses (see "Texture library" below)
+assets/renders/renders.json + its JPGs (when present)
 ```
+
+The page requests only what `dist/manifest.json` lists, so a missing optional input (textures, backdrop,
+renders) never causes a 404.
 
 For the claude.ai artifact, publish `artifact.html` as the page instead of `index.html`. `build.mjs`
 regenerates it from `index.html` on every build, so edit only `index.html`.
@@ -61,6 +68,29 @@ Do not publish `node_modules/`, `tests/`, `build.mjs`, `package*.json`, `assets/
 | menu | Places (teleport), time-of-day + quality, ⓘ about/credits; Esc closes panels | same, 44 px targets |
 
 Tap the mini-map to switch between the local view and the whole 400 m area.
+
+## Texture library (texture agent, `assets/tex/`)
+
+* `facade_atlas.json` ("facade_atlas v1": `files{albedo,normal,orm,emit}`, `modules{name:{uv_rect}}`). Slots
+  are mapped by name in `src/textures.js` (`LIB_MODULE`).
+* `library.json` (`sets{name:{files, size_m}}`). Roles map to sets in `LIB_SET`:
+  * roofs → `roof_kawara_sangawara`
+  * paving and steps → `ishidatami_granite`
+  * setts → `setts_granite`
+  * asphalt → `asphalt_worn`
+  * gravel → `gravel`
+  * soil → `earth_moss`
+  * stone walls → `ishigaki_mossy`
+* `foliage_atlas.json` (`cards{name:{uv_rect}}`): maple_autumn, maple_green, cherry_leaf, pine_needles,
+  shrub_azalea, bamboo_leaves.
+* Files actually loaded:
+  * the 4 facade atlas images;
+  * the foliage atlas albedo PNG (with alpha);
+  * albedo / normal / ORM for the 7 sets listed above.
+
+  Every other set in `assets/tex/` is unused for now and does not need publishing.
+* Anything missing falls back to the procedural textures generated in `src/textures.js` (artistic
+  stand-ins).
 
 ## Data contract (what the page expects)
 
@@ -94,13 +124,58 @@ Tap the mini-map to switch between the local view and the whole 400 m area.
   * Physics runs at a fixed ≤ 1/60 s sub-step. A soft invisible wall at ±199.5 m shows a message.
 * **Camera**: smooth orbit follow. Five rays approximate a sphere sweep and pull the camera in (fast) when
   geometry blocks the view, then ease it back out. On touch it gently auto-aligns behind the walker.
-* **Look**:
-  * Sky: gradient dome with a sun glow and painted hill silhouettes. A PMREM of the sky drives the
-    wet-paving reflections.
-  * Lights and grading: low WSW sun with a 1–2k PCF soft shadow map that follows the player (texel-snapped),
-    hemisphere fill, exponential height fog (shader-chunk patch) and ACES tone mapping.
-  * Bloom (UnrealBloom) only on High, and it is auto-dropped when slow.
-  * Artistic extras: instanced chōchin lanterns with halo sprites, and falling momiji leaves.
+* **Look (realism pass)**:
+  * **PBR role materials** (`src/pbr.js`) use the texture library (`src/textures.js`):
+    * **Facades:** each storey and bay picks a module from the facade atlas
+      (`assets/tex/facade_atlas.json`). UVs are computed in the shader: u = metres along the wall / 1.82 m bay,
+      v = metres above the building's wall base / storey height. Module choice comes from the PLATEAU extras:
+      * `usage`: temple, shop-house, residential;
+      * `storeys`, `year`, art `priority`;
+      * a deterministic per-building seed.
+
+      Bays vary (senkoshi, noren entrance, open shop, itabari, mushiko-mado, lattice and glazed windows,
+      plaster). The emissive mask lights interiors at dusk. If walls carry GLB UVs flagged `extras.facade_uv`
+      (u = bays, v = storeys), those UVs are used instead.
+    * **Roofs:** kawara with u along the eave and v down the slope; flat roofs get a membrane finish.
+    * **Stone:** box-mapped for plinths, steps and walls (ishigaki).
+    * **Ground:** ishidatami, asphalt, gravel and earth-moss by world UV, blended by the surveyed surface
+      mask. Street ribbons get ishidatami or setts by OSM `surface`. Wet sheen at dusk.
+    * The art/PLATEAU vertex colours are a gentle tint on all of these.
+    * Role geometry is non-indexed with exact per-face normals: UV frames built from screen-space
+      derivatives of world positions speckle at 150 m (float32). Per-building constants use a `flat` varying.
+  * **Trees:** alpha leaf-card canopies (foliage atlas cards by OSM/art species: autumn and green maple,
+    cherry, pine, shrubs) replace the low-poly crowns. Trunk colliders are unchanged.
+  * **Lighting:**
+    * Physically based sun for Kyoto, mid-November: the slider runs from about 16:00 JST (az 230°,
+      alt 12°) to civil twilight (alt −6°). Colour and illuminance follow a Rayleigh/Mie transmittance over
+      Kasten–Young airmass.
+    * Image-based lighting from the PMREM of the sky dome (`scene.environment`), with hemisphere fill reduced.
+    * Exponential height fog plus aerial perspective: the haze toward the sun is lit warm. This is a patch
+      on every material (`patchAtmos`).
+  * **Backdrop:** `dist/backdrop.glb` (real Kyoto terrain rings to ±15 km plus PLATEAU city massing, from
+    the backdrop agent). It loads after the walk starts, has no collision and no shadows, and is
+    fog-blended. The camera far plane is 18 km (near 0.12 m, normal 24-bit depth). When the backdrop is
+    present, the sky's painted ridge is switched off.
+  * **Post** (`src/post.js`, one composer): GTAO ambient occlusion (half resolution on High, full in Photo
+    mode; leaf cards, sky and particles excluded), UnrealBloom, ACES output, a colour grade (gentle
+    S-curve, split toning, vignette), then FXAA (Medium) or SMAA (Photo). High uses 4× MSAA.
+  * **Artistic extras:** instanced chōchin lanterns with halo sprites, falling momiji leaves, lit facade
+    interiors at blue hour.
+* **Quality tiers** (`src/config.js`): see the table.
+
+  | tier | used by | post | AO | AA | shadows |
+  |---|---|---|---|---|---|
+  | low | — | none | — | — | none |
+  | medium | default on phones | grade | — | FXAA | 1k PCF, trees don't cast; lite ground shader |
+  | high | default on desktop | grade, bloom | GTAO ½-res | MSAA 4× | 2k PCF-soft |
+  | ultra | Photo mode only | grade, bloom | full-res GTAO | SMAA + MSAA | 4k over ±60 m, DPR up to 2.5 |
+
+  `?q=low|medium|high|ultra` forces a tier for one visit.
+* **Photo mode** (camera button, bottom right): hides the UI and switches to Ultra. **Save image** downloads
+  a PNG; you can toggle the traveller; Esc or **Exit** returns.
+* **Renders gallery** (image button, top bar): lists `assets/renders/renders.json`. Accepted entries are a
+  file name (`"a.jpg"`) or `{file, title, caption, thumb}`, either as a plain list or under `{renders: [...]}`.
+  Shows "No renders published yet" when the list is missing or empty. Tap a render for a full-screen lightbox.
 * **Quality**: Auto picks High on desktop and Medium on touch devices. Pixel ratio is capped at 2 on desktop
   and 1.5 on mobile, and adaptive resolution (scale 0.6–1.0, refresh-aware: drops below target, recovers once fps sits at the display refresh; the first window after start, a quality change or a tab return is skipped; shaders are pre-compiled before the loader hides). Low turns
   shadows off. The choice and the time of day are remembered in localStorage (wrapped in try/catch).

@@ -7,7 +7,25 @@
 import * as THREE from 'three';
 
 // ---------------------------------------------------------------- facade module slots (shader indices)
-export const MODULES = ['koshi', 'noren', 'mushiko', 'lattice', 'shopfront', 'modern_upper', 'temple', 'plain'];
+// 0-7 exist in the procedural atlas; 8-12 are extra variants (fall back to a similar procedural slot)
+export const MODULES = ['koshi', 'noren', 'mushiko', 'lattice', 'shopfront', 'modern_upper', 'temple', 'plain',
+  'koshi_dark', 'shop_open', 'itabari', 'glazed_railing', 'plaster_base'];
+const PROC_FALLBACK = { koshi_dark: 'koshi', shop_open: 'noren', itabari: 'plain', glazed_railing: 'lattice', plaster_base: 'plain' };
+// texture-library module names (facade_atlas v1) for each slot
+const LIB_MODULE = {
+  koshi: 'machiya_gf_senkoshi', noren: 'machiya_gf_noren_entrance', mushiko: 'machiya_uf_mushikomado',
+  lattice: 'machiya_uf_window_lattice', shopfront: 'modern_gf_shopfront', modern_upper: 'modern_uf_window',
+  temple: 'white_plaster_timber', plain: 'machiya_uf_plaster', koshi_dark: 'machiya_gf_senkoshi_dark',
+  shop_open: 'machiya_gf_shop_open', itabari: 'machiya_gf_itabari', glazed_railing: 'machiya_uf_glazed_railing',
+  plaster_base: 'machiya_gf_plaster_base',
+};
+// texture-library set names (library.json) for each role
+const LIB_SET = {
+  kawara: 'roof_kawara_sangawara', ishidatami: 'ishidatami_granite', sett: 'setts_granite', asphalt: 'asphalt_worn',
+  gravel: 'gravel', soil: 'earth_moss', stonewall: 'ishigaki_mossy', stoneStep: 'ishidatami_granite',
+};
+// foliage cards by species
+export const LEAF_CARDS = { maple: 'maple_autumn', mapleGreen: 'maple_green', cherry: 'cherry_leaf', pine: 'pine_needles', broad: 'maple_green', shrub: 'shrub_azalea', bamboo: 'bamboo_leaves' };
 export const M = Object.fromEntries(MODULES.map((m, i) => [m, i]));
 export const ATLAS_GRID = [4, 2];          // columns, rows (procedural atlas)
 export const BAY_M = 1.82;                 // one ken: module width in metres
@@ -116,7 +134,7 @@ function facadeAtlas() {
   const [A, a] = canvas(W, Hh), [Hc, h] = canvas(W, Hh), [R, r] = canvas(W, Hh);
   const noise = noiseCanvas(256, 8, 4), fine = noiseCanvas(128, 32, 2);
   const BENGARA = [0.29, 0.13, 0.08], DARKWOOD = [0.16, 0.1, 0.07], PLASTER = [0.82, 0.74, 0.6], EARTH = [0.66, 0.5, 0.34];
-  for (let m = 0; m < MODULES.length; m++) {
+  for (let m = 0; m < cols * rows; m++) {
     const ox = (m % cols) * CW, oy = Math.floor(m / cols) * CH;
     // module-local helpers: x,y in 0..1 with y = 0 at the FLOOR (bottom of the cell)
     const R_ = (x0, y0, x1, y1, col, ht, ro) => {
@@ -324,62 +342,98 @@ function leafCard() {
 }
 
 // ---------------------------------------------------------------- external library (texture agent)
-// Accepted facade_atlas.json shapes (tolerant):
-//   { "grid":[cols,rows], "bay_m":1.82, "storey_m":3.0,
-//     "atlas": {"albedo":"tex/facade_albedo.jpg","normal":"tex/facade_normal.jpg","orm":"tex/facade_orm.jpg"},
-//     "modules": [{"name":"koshi","col":0,"row":0}, ...]   // row 0 = top row of the image
-//     "sets": {"kawara":{"albedo":..,"normal":..,"orm":..,"size_m":[w,h]}, "ishidatami":{..}, "sett":{..},
-//              "asphalt":{..}, "gravel":{..}, "soil":{..}, "stonewall":{..}, "leaf":{"albedo":"tex/leaf_maple.png"}} }
-// Paths are relative to web/assets/. Missing entries keep the procedural fallback.
-async function loadExternal(jsonUrl, json, procedural) {
-  const loader = new THREE.TextureLoader();
-  const dir = jsonUrl.replace(/[^/]*$/, '');
-  // "tex/x.jpg" is relative to web/assets/, anything else to the json's own folder
-  const resolve = (p) => (/^tex\//.test(p) ? 'assets/' + p : /^assets\//.test(p) ? p : dir + p);
-  const load = async (p, srgb, repeat = true) => {
-    if (!p) return null;
-    const t = await loader.loadAsync(resolve(p));
-    t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-    t.wrapS = t.wrapT = repeat ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
-    t.anisotropy = 8;
-    return t;
-  };
-  const loadSet = async (s, repeat = true) => {
-    const [map, normalMap, ormMap] = await Promise.all([load(s.albedo || s.map, true, repeat), load(s.normal, false, repeat), load(s.orm, false, repeat)]);
-    return { map, normalMap, ormMap, size_m: s.size_m || s.size || [1, 1], procedural: false };
-  };
-  const out = { ...procedural, source: 'assets/tex (texture library)' };
+// assets/tex/facade_atlas.json ("facade_atlas v1": files{albedo,normal,orm,emit}, modules{name:{uv_rect,...}}),
+// assets/tex/library.json (sets{name:{files{albedo,normal,orm}, size_m}}), assets/tex/foliage_atlas.json
+// (files, cards{name:{uv_rect,size_m}}). uv_rect = [u0, v0, u1, v1], origin bottom-left. Missing items keep
+// the procedural fallback.
+const texLoader = new THREE.TextureLoader();
+async function loadTex(url, srgb, repeat = true) {
+  const t = await texLoader.loadAsync(url);
+  t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+  t.wrapS = t.wrapT = repeat ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
+  t.anisotropy = 8;
+  return t;
+}
+async function loadSetFiles(dir, files, repeat) {
+  const [map, normalMap, ormMap] = await Promise.all([
+    files.albedo ? loadTex(dir + files.albedo, true, repeat) : null,
+    files.normal ? loadTex(dir + files.normal, false, repeat) : null,
+    files.orm ? loadTex(dir + files.orm, false, repeat) : null,
+  ]);
+  return { map, normalMap, ormMap };
+}
+async function fetchJson(url) {
+  const r = await fetch(url, { cache: 'no-store' });
+  if (!r.ok) throw new Error(url + ' ' + r.status);
+  return r.json();
+}
+async function loadExternal(cfg, lib) {
+  const out = { ...lib };
+  const used = [];
   const jobs = [];
-  if (json.atlas) {
-    jobs.push(loadSet(json.atlas, false).then((s) => {
-      const grid = json.grid || ATLAS_GRID;
-      // module slot -> [col,row in uv space] mapping
-      const slots = MODULES.map((name, i) => {
-        const m = (json.modules || []).find((q) => q.name === name || (q.tags || []).includes(name));
-        if (!m) return null;
-        return [m.col, grid[1] - 1 - m.row];
+  if (cfg.facade) {
+    jobs.push((async () => {
+      const dir = cfg.facade.replace(/[^/]*$/, '');
+      const j = await fetchJson(cfg.facade);
+      const f = j.files || {};
+      const [s, emitMap] = await Promise.all([loadSetFiles(dir, f, false), f.emit ? loadTex(dir + f.emit, false, false) : null]);
+      const rects = MODULES.map((name, i) => {
+        const m = j.modules && j.modules[LIB_MODULE[name]];
+        return m && m.uv_rect ? m.uv_rect : lib.facade.rects[i];
       });
-      out.facade = { ...s, grid, slots, bay_m: json.bay_m || BAY_M, storey_m: json.storey_m || 3.0 };
-      if (!s.normalMap) out.facade.normalMap = procedural.facade.normalMap;
-      if (!s.ormMap) out.facade.ormMap = procedural.facade.ormMap;
-    }).catch((e) => console.warn('facade atlas failed, procedural kept', e && e.type)));
+      if (!s.map) return;
+      out.facade = { ...lib.facade, ...Object.fromEntries(Object.entries(s).filter(([, v]) => v)), rects, emitMap, external: true };
+      // procedural normal/orm rects do not match the library atlas: drop them if the library has none
+      if (!s.normalMap) out.facade.normalMap = null;
+      if (!s.ormMap) out.facade.ormMap = null;
+      used.push('facade atlas');
+    })().catch((e) => console.warn('facade atlas failed, procedural kept', e)));
   }
-  for (const [k, s] of Object.entries(json.sets || {})) {
-    jobs.push(loadSet(s, k !== 'leaf').then((v) => {
-      const fb = procedural[k] || {};
-      out[k] = { ...fb, ...Object.fromEntries(Object.entries(v).filter(([, x]) => x)) };
-    }).catch((e) => console.warn(`texture set ${k} failed, procedural kept`, e && e.type)));
+  if (cfg.library) {
+    jobs.push((async () => {
+      const dir = cfg.library.replace(/[^/]*$/, '');
+      const j = await fetchJson(cfg.library);
+      const sets = j.sets || {};
+      const cache = new Map();
+      await Promise.all(Object.entries(LIB_SET).map(async ([role, name]) => {
+        const d = sets[name];
+        if (!d || !d.files) return;
+        if (!cache.has(name)) cache.set(name, loadSetFiles(dir, d.files, true));
+        const v = await cache.get(name);
+        if (!v.map) return;
+        out[role] = { ...lib[role], ...Object.fromEntries(Object.entries(v).filter(([, x]) => x)), size_m: d.size_m || lib[role].size_m, procedural: false, name };
+        used.push(role + '=' + name);
+      }));
+    })().catch((e) => console.warn('texture library failed, procedural kept', e)));
+  }
+  if (cfg.foliage) {
+    jobs.push((async () => {
+      const dir = cfg.foliage.replace(/[^/]*$/, '');
+      const j = await fetchJson(cfg.foliage);
+      const f = j.files || {};
+      const map = f.albedo ? await loadTex(dir + f.albedo, true, false) : null;
+      if (!map) return;
+      const cards = Object.fromEntries(Object.entries(j.cards || {}).map(([k, v]) => [k, v.uv_rect]));
+      out.leaf = { map, cards, procedural: false };
+      used.push('foliage cards');
+    })().catch((e) => console.warn('foliage atlas failed, procedural kept', e)));
   }
   await Promise.all(jobs);
+  out.source = used.length ? 'texture library: ' + used.join(', ') + (used.length < 10 ? ' (+ procedural fallbacks)' : '') : lib.source;
   return out;
 }
 
 // texUrl: path of the texture library json as listed by dist/manifest.json (null = procedural only;
 // the page never probes for files that may not exist, so a missing library logs no 404)
-export async function loadTextureLibrary(texUrl) {
+export async function loadTextureLibrary(texCfg) {
   const t0 = performance.now();
+  const procRect = (name) => {
+    const i = MODULES.indexOf(PROC_FALLBACK[name] || name), [c, r] = [i % ATLAS_GRID[0], Math.floor(i / ATLAS_GRID[0])];
+    const row = ATLAS_GRID[1] - 1 - r;
+    return [c / ATLAS_GRID[0], row / ATLAS_GRID[1], (c + 1) / ATLAS_GRID[0], (row + 1) / ATLAS_GRID[1]];
+  };
   const lib = {
-    facade: { ...facadeAtlas(), grid: ATLAS_GRID, slots: MODULES.map((_, i) => [i % ATLAS_GRID[0], ATLAS_GRID[1] - 1 - Math.floor(i / ATLAS_GRID[0])]), bay_m: BAY_M, storey_m: 3.0 },
+    facade: { ...facadeAtlas(), rects: MODULES.map(procRect), bay_m: BAY_M, storey_m: 3.0, emitMap: null },
     kawara: kawara(),
     ishidatami: slabs({ size_m: 2.4, rowH: 0.3, len: [0.45, 1.0], tone: [0.55, 0.5, 0.43] }),
     sett: slabs({ size_m: 1.2, rowH: 0.1, len: [0.09, 0.14], tone: [0.46, 0.42, 0.36], joint: 0.008, var_: 0.4 }),
@@ -388,16 +442,12 @@ export async function loadTextureLibrary(texUrl) {
     gravel: speckle({ size_m: 2, tone: [0.42, 0.37, 0.3], dotTone: [0.55, 0.5, 0.42], dots: 26000, rough: 0.92, h0: 0.4 }),
     soil: speckle({ size_m: 4, tone: [0.2, 0.16, 0.1], dotTone: [0.14, 0.2, 0.08], dots: 6000, rough: 0.95, cells: 8 }),
     stonewall: stoneWall(),
-    leaf: leafCard(),
+    leaf: { ...leafCard(), cards: {} },
     source: 'procedural (artistic stand-in)',
   };
   let out = lib;
-  if (texUrl) {
-    try {
-      const r = await fetch(texUrl, { cache: 'no-store' });
-      if (r.ok) out = await loadExternal(texUrl, await r.json(), lib);
-    } catch (e) { console.warn('texture library unavailable, procedural kept', e); }
-  }
+  const cfg = typeof texCfg === 'string' ? { facade: texCfg } : (texCfg || null);
+  if (cfg) out = await loadExternal(cfg, lib);
   out.ms = Math.round(performance.now() - t0);
   return out;
 }

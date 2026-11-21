@@ -582,3 +582,62 @@ def ensure_slots(obj, wall_mat, roof_mat, plinth_mat=None):
     me.materials[1] = wall_mat
     if plinth_mat is not None:
         me.materials[2] = plinth_mat
+
+
+def make_foliage_material(name="TX_Foliage_Cards", translucency=0.35):
+    """Alpha leaf-card material on the foliage atlas (mesh UVs = atlas UVs, see foliage_atlas.json card rects)."""
+    mat = bpy.data.materials.get(name) or bpy.data.materials.new(name)
+    T = _NT(mat)
+    uv = T.n("ShaderNodeUVMap", uv_map="UVMap")
+    alb = T.tex(uv.outputs[0], "foliage_atlas_albedo.png")
+    nrm = T.tex(uv.outputs[0], "foliage_atlas_normal.jpg", True)
+    orm = T.tex(uv.outputs[0], "foliage_atlas_orm.jpg", True)
+    bsdf = _surface(T, mat, alb.outputs[0], nrm.outputs[0], orm.outputs[0], uv_map="UVMap", alpha=alb.outputs["Alpha"])
+    out = [n for n in mat.node_tree.nodes if n.type == "OUTPUT_MATERIAL"][0]
+    tr = T.n("ShaderNodeBsdfTranslucent"); T.l(alb.outputs[0], tr.inputs[0])
+    mx = T.n("ShaderNodeMixShader"); mx.inputs[0].default_value = translucency
+    T.l(bsdf.outputs[0], mx.inputs[1]); T.l(tr.outputs[0], mx.inputs[2])
+    tp = T.n("ShaderNodeBsdfTransparent")
+    mx2 = T.n("ShaderNodeMixShader"); T.l(alb.outputs["Alpha"], mx2.inputs[0])
+    T.l(tp.outputs[0], mx2.inputs[1]); T.l(mx.outputs[0], mx2.inputs[2])
+    T.l(mx2.outputs[0], out.inputs[0])
+    try:
+        mat.surface_render_method = "DITHERED"
+    except Exception:
+        pass
+    return mat
+
+
+def foliage_cards(name, center, radii, cards, n=250, seed=0, card_scale=1.0, coll=None):
+    """Fill an ellipsoidal crown with randomly oriented alpha cards. cards: list of (card_name, weight)."""
+    F = json.load(open(os.path.join(TEX, "foliage_atlas.json")))["cards"]
+    rng = np.random.default_rng(seed)
+    names = [c for c, _ in cards]; w = np.array([x for _, x in cards], float); w /= w.sum()
+    verts, faces, uvs = [], [], []
+    for k in range(n):
+        while True:
+            p = rng.uniform(-1, 1, 3)
+            if (p * p).sum() < 1:
+                break
+        p = p * (0.55 + 0.45 * np.sqrt((p * p).sum()))     # bias outwards
+        c = np.array(center) + p * np.array(radii)
+        cn = names[rng.choice(len(names), p=w)]
+        r = F[cn]["uv_rect"]; s = F[cn]["size_m"][0] * card_scale * rng.uniform(0.8, 1.3)
+        a, b_ = rng.uniform(0, 2 * np.pi), rng.uniform(-0.6, 0.9)
+        out = np.array([math.cos(a), math.sin(a), 0.0])
+        up = np.array([0, 0, 1.0]) * math.cos(b_) + out * math.sin(b_)
+        side = np.cross(up, out); side /= np.linalg.norm(side)
+        up = np.cross(out, side)
+        base = c - up * s * 0.5
+        q = [base - side * s / 2, base + side * s / 2, base + side * s / 2 + up * s, base - side * s / 2 + up * s]
+        i0 = len(verts); verts += [tuple(v) for v in q]; faces.append((i0, i0 + 1, i0 + 2, i0 + 3))
+        uvs += [(r[0], r[1]), (r[2], r[1]), (r[2], r[3]), (r[0], r[3])]
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(verts, [], faces)
+    uvl = me.uv_layers.new(name="UVMap")
+    for i, uv in enumerate(uvs):
+        uvl.data[i].uv = uv
+    me.materials.append(make_foliage_material())
+    ob = bpy.data.objects.new(name, me)
+    (coll or bpy.context.scene.collection).objects.link(ob)
+    return ob

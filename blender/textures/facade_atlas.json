@@ -4,7 +4,7 @@
   4096,
   4096
  ],
- "px_per_m": 320.0,
+ "px_per_m": 300.0,
  "padding_px": 8,
  "uv_origin": "bottom-left (OpenGL/Blender UV); px_rect is top-left image pixels",
  "normal": "OpenGL tangent space (+Y up)",
@@ -16,18 +16,90 @@
   "emit": "facade_atlas_emit.jpg"
  },
  "modules": {
+  "board_fence_itabei": {
+   "uv_rect": [
+    0.001953,
+    0.151367,
+    0.135254,
+    0.327148
+   ],
+   "px_rect": [
+    8,
+    2756,
+    546,
+    720
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "fence",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "fence"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: tall board fences with plaster band and tile coping on rubble plinths (Yasaka-dori east, south side)"
+  },
+  "kura_white_namako": {
+   "uv_rect": [
+    0.825195,
+    0.554688,
+    0.958496,
+    0.774414
+   ],
+   "px_rect": [
+    3380,
+    924,
+    546,
+    900
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "kura"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: white kura-style plastered building (Kiyomizu Sannenzaka Museum); namako dado generic"
+  },
+  "machiya_gf_glazed_doors": {
+   "uv_rect": [
+    0.687988,
+    0.554688,
+    0.821289,
+    0.774414
+   ],
+   "px_rect": [
+    2818,
+    924,
+    546,
+    900
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "entrance",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "commercial"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: glazed wooden sliding doors with kick boards and short noren (renovated shops)"
+  },
   "machiya_gf_itabari": {
    "uv_rect": [
-    0.731934,
-    0.763672,
-    0.874023,
+    0.687988,
+    0.77832,
+    0.821289,
     0.998047
    ],
    "px_rect": [
-    2998,
+    2818,
     8,
-    582,
-    960
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -41,16 +113,16 @@
   },
   "machiya_gf_itabari_half": {
    "uv_rect": [
-    0.806885,
-    0.525391,
-    0.87793,
-    0.759766
+    0.209717,
+    0.331055,
+    0.276367,
+    0.550781
    ],
    "px_rect": [
-    3305,
-    984,
-    291,
-    960
+    859,
+    1840,
+    273,
+    900
    ],
    "width_m": 0.91,
    "height_m": 3.0,
@@ -65,16 +137,16 @@
   },
   "machiya_gf_noren_entrance": {
    "uv_rect": [
-    0.439941,
-    0.763672,
-    0.582031,
+    0.413574,
+    0.77832,
+    0.546875,
     0.998047
    ],
    "px_rect": [
-    1802,
+    1694,
     8,
-    582,
-    960
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -89,16 +161,16 @@
   },
   "machiya_gf_plaster_base": {
    "uv_rect": [
-    0.585938,
-    0.763672,
-    0.728027,
+    0.550781,
+    0.77832,
+    0.684082,
     0.998047
    ],
    "px_rect": [
-    2400,
+    2256,
     8,
-    582,
-    960
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -112,16 +184,16 @@
   },
   "machiya_gf_plaster_base_half": {
    "uv_rect": [
-    0.881836,
-    0.525391,
-    0.952881,
-    0.759766
+    0.280273,
+    0.331055,
+    0.346924,
+    0.550781
    ],
    "px_rect": [
-    3612,
-    984,
-    291,
-    960
+    1148,
+    1840,
+    273,
+    900
    ],
    "width_m": 0.91,
    "height_m": 3.0,
@@ -137,15 +209,15 @@
   "machiya_gf_senkoshi": {
    "uv_rect": [
     0.001953,
-    0.763672,
-    0.144043,
+    0.77832,
+    0.135254,
     0.998047
    ],
    "px_rect": [
     8,
     8,
-    582,
-    960
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -159,16 +231,16 @@
   },
   "machiya_gf_senkoshi_dark": {
    "uv_rect": [
-    0.147949,
-    0.763672,
-    0.290039,
+    0.13916,
+    0.77832,
+    0.272461,
     0.998047
    ],
    "px_rect": [
-    606,
+    570,
     8,
-    582,
-    960
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -182,16 +254,16 @@
   },
   "machiya_gf_senkoshi_half": {
    "uv_rect": [
-    0.731934,
-    0.525391,
-    0.802979,
-    0.759766
+    0.13916,
+    0.331055,
+    0.205811,
+    0.550781
    ],
    "px_rect": [
-    2998,
-    984,
-    291,
-    960
+    570,
+    1840,
+    273,
+    900
    ],
    "width_m": 0.91,
    "height_m": 3.0,
@@ -206,16 +278,16 @@
   },
   "machiya_gf_shop_open": {
    "uv_rect": [
-    0.293945,
-    0.763672,
-    0.436035,
+    0.276367,
+    0.77832,
+    0.409668,
     0.998047
    ],
    "px_rect": [
-    1204,
+    1132,
     8,
-    582,
-    960
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -228,18 +300,42 @@
    "has_emissive": true,
    "evidence": "observed: open shopfronts, short noren, display platforms; goods generic"
   },
-  "machiya_uf_glazed_railing": {
+  "machiya_gf_shop_open_b": {
    "uv_rect": [
-    0.439941,
-    0.333984,
-    0.582031,
-    0.521484
+    0.550781,
+    0.554688,
+    0.684082,
+    0.774414
    ],
    "px_rect": [
-    1802,
-    1960,
-    582,
-    768
+    2256,
+    924,
+    546,
+    900
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "shop",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "commercial"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: open shopfront with white noren; goods generic"
+  },
+  "machiya_uf_glazed_railing": {
+   "uv_rect": [
+    0.762451,
+    0.375,
+    0.895752,
+    0.550781
+   ],
+   "px_rect": [
+    3123,
+    1840,
+    546,
+    720
    ],
    "width_m": 1.82,
    "height_m": 2.4,
@@ -253,16 +349,16 @@
   },
   "machiya_uf_mushikomado": {
    "uv_rect": [
-    0.001953,
-    0.333984,
-    0.144043,
-    0.521484
+    0.35083,
+    0.375,
+    0.484131,
+    0.550781
    ],
    "px_rect": [
-    8,
-    1960,
-    582,
-    768
+    1437,
+    1840,
+    546,
+    720
    ],
    "width_m": 1.82,
    "height_m": 2.4,
@@ -274,18 +370,41 @@
    "has_emissive": true,
    "evidence": "documented: 虫籠窓 district rule; placed sparingly (photos mostly show glazed lattice windows)"
   },
-  "machiya_uf_plaster": {
+  "machiya_uf_mushikomado_ochre": {
    "uv_rect": [
-    0.293945,
-    0.333984,
-    0.436035,
-    0.521484
+    0.13916,
+    0.151367,
+    0.272461,
+    0.327148
    ],
    "px_rect": [
-    1204,
-    1960,
-    582,
-    768
+    570,
+    2756,
+    546,
+    720
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "window",
+   "floor": "uf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": true,
+   "evidence": "documented 虫籠窓, ochre plaster variant"
+  },
+  "machiya_uf_plaster": {
+   "uv_rect": [
+    0.625244,
+    0.375,
+    0.758545,
+    0.550781
+   ],
+   "px_rect": [
+    2561,
+    1840,
+    546,
+    720
    ],
    "width_m": 1.82,
    "height_m": 2.4,
@@ -299,16 +418,16 @@
   },
   "machiya_uf_plaster_half": {
    "uv_rect": [
-    0.585938,
-    0.333984,
-    0.656982,
-    0.521484
+    0.413574,
+    0.151367,
+    0.480225,
+    0.327148
    ],
    "px_rect": [
-    2400,
-    1960,
-    291,
-    768
+    1694,
+    2756,
+    273,
+    720
    ],
    "width_m": 0.91,
    "height_m": 2.4,
@@ -321,18 +440,41 @@
    "has_emissive": false,
    "evidence": "half-bay"
   },
-  "machiya_uf_window_lattice": {
+  "machiya_uf_plaster_ochre": {
    "uv_rect": [
-    0.147949,
-    0.333984,
-    0.290039,
-    0.521484
+    0.276367,
+    0.151367,
+    0.409668,
+    0.327148
    ],
    "px_rect": [
-    606,
-    1960,
-    582,
-    768
+    1132,
+    2756,
+    546,
+    720
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "wall",
+   "floor": "uf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: pale-ochre plaster variant"
+  },
+  "machiya_uf_window_lattice": {
+   "uv_rect": [
+    0.488037,
+    0.375,
+    0.621338,
+    0.550781
+   ],
+   "px_rect": [
+    1999,
+    1840,
+    546,
+    720
    ],
    "width_m": 1.82,
    "height_m": 2.4,
@@ -346,16 +488,16 @@
   },
   "machiya_uf_window_lattice_half": {
    "uv_rect": [
-    0.660889,
-    0.333984,
-    0.731934,
-    0.521484
+    0.484131,
+    0.151367,
+    0.550781,
+    0.327148
    ],
    "px_rect": [
-    2707,
-    1960,
-    291,
-    768
+    1983,
+    2756,
+    273,
+    720
    ],
    "width_m": 0.91,
    "height_m": 2.4,
@@ -368,18 +510,41 @@
    "has_emissive": true,
    "evidence": "half-bay"
   },
-  "modern_gf_shopfront": {
+  "modern_gf_entrance": {
    "uv_rect": [
     0.001953,
-    0.525391,
-    0.144043,
-    0.759766
+    0.331055,
+    0.135254,
+    0.550781
    ],
    "px_rect": [
     8,
-    984,
-    582,
-    960
+    1840,
+    546,
+    900
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "entrance",
+   "floor": "gf",
+   "tags": [
+    "modern"
+   ],
+   "has_emissive": false,
+   "evidence": "generic: modern house entrance, tile cladding + aluminium door"
+  },
+  "modern_gf_shopfront": {
+   "uv_rect": [
+    0.825195,
+    0.77832,
+    0.958496,
+    0.998047
+   ],
+   "px_rect": [
+    3380,
+    8,
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -394,16 +559,16 @@
   },
   "modern_uf_window": {
    "uv_rect": [
-    0.585938,
-    0.525391,
-    0.728027,
-    0.759766
+    0.413574,
+    0.554688,
+    0.546875,
+    0.774414
    ],
    "px_rect": [
-    2400,
-    984,
-    582,
-    960
+    1694,
+    924,
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -417,16 +582,16 @@
   },
   "temple_dobei": {
    "uv_rect": [
-    0.147949,
-    0.525391,
-    0.290039,
-    0.759766
+    0.001953,
+    0.554688,
+    0.135254,
+    0.774414
    ],
    "px_rect": [
-    606,
-    984,
-    582,
-    960
+    8,
+    924,
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -440,16 +605,16 @@
   },
   "white_plaster_timber": {
    "uv_rect": [
-    0.293945,
-    0.525391,
-    0.436035,
-    0.759766
+    0.13916,
+    0.554688,
+    0.272461,
+    0.774414
    ],
    "px_rect": [
-    1204,
-    984,
-    582,
-    960
+    570,
+    924,
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,
@@ -463,16 +628,16 @@
   },
   "white_plaster_vermilion": {
    "uv_rect": [
-    0.439941,
-    0.525391,
-    0.582031,
-    0.759766
+    0.276367,
+    0.554688,
+    0.409668,
+    0.774414
    ],
    "px_rect": [
-    1802,
-    984,
-    582,
-    960
+    1132,
+    924,
+    546,
+    900
    ],
    "width_m": 1.82,
    "height_m": 3.0,

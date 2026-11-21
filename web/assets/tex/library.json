@@ -23,10 +23,20 @@
     "normal": "asphalt_worn_normal.jpg",
     "orm": "asphalt_worn_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "bamboo_fence_kenninji": {
    "kind": "tileable",
@@ -44,10 +54,20 @@
     "normal": "bamboo_fence_kenninji_normal.jpg",
     "orm": "bamboo_fence_kenninji_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "bark_pine": {
    "kind": "tileable",
@@ -65,10 +85,20 @@
     "normal": "bark_pine_normal.jpg",
     "orm": "bark_pine_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "earth_moss": {
    "kind": "tileable",
@@ -87,10 +117,20 @@
     "normal": "earth_moss_normal.jpg",
     "orm": "earth_moss_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "foliage_atlas": {
    "kind": "alpha_atlas",
@@ -128,10 +168,20 @@
     "normal": "gravel_normal.jpg",
     "orm": "gravel_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "ishidatami_granite": {
    "kind": "tileable",
@@ -150,10 +200,20 @@
     "normal": "ishidatami_granite_normal.jpg",
     "orm": "ishidatami_granite_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "ishigaki_mossy": {
    "kind": "tileable",
@@ -172,10 +232,20 @@
     "normal": "ishigaki_mossy_normal.jpg",
     "orm": "ishigaki_mossy_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "kerb_granite": {
    "kind": "tileable",
@@ -194,10 +264,20 @@
     "normal": "kerb_granite_normal.jpg",
     "orm": "kerb_granite_orm.jpg"
    },
-   "resolution": [
-    1024,
-    256
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     256
+    ],
+    "normal": [
+     1024,
+     256
+    ],
+    "orm": [
+     512,
+     128
+    ]
+   }
   },
   "plaster_cream": {
    "kind": "tileable",
@@ -216,10 +296,20 @@
     "normal": "plaster_cream_normal.jpg",
     "orm": "plaster_cream_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "plaster_earth": {
    "kind": "tileable",
@@ -238,10 +328,20 @@
     "normal": "plaster_earth_normal.jpg",
     "orm": "plaster_earth_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "plaster_lime": {
    "kind": "tileable",
@@ -260,10 +360,20 @@
     "normal": "plaster_lime_normal.jpg",
     "orm": "plaster_lime_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "plaster_ochre": {
    "kind": "tileable",
@@ -282,10 +392,20 @@
     "normal": "plaster_ochre_normal.jpg",
     "orm": "plaster_ochre_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "roof_cement_slate": {
    "kind": "tileable",
@@ -303,10 +423,20 @@
     "normal": "roof_cement_slate_normal.jpg",
     "orm": "roof_cement_slate_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "roof_copper_patina": {
    "kind": "tileable",
@@ -324,10 +454,20 @@
     "normal": "roof_copper_patina_normal.jpg",
     "orm": "roof_copper_patina_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "roof_kawara_eave": {
    "kind": "strip",
@@ -345,10 +485,20 @@
     "normal": "roof_kawara_eave_normal.jpg",
     "orm": "roof_kawara_eave_orm.jpg"
    },
-   "resolution": [
-    1024,
-    256
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     256
+    ],
+    "normal": [
+     1024,
+     256
+    ],
+    "orm": [
+     512,
+     128
+    ]
+   }
   },
   "roof_kawara_hongawara": {
    "kind": "tileable",
@@ -366,10 +516,20 @@
     "normal": "roof_kawara_hongawara_normal.jpg",
     "orm": "roof_kawara_hongawara_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "roof_kawara_ridge": {
    "kind": "strip",
@@ -387,10 +547,20 @@
     "normal": "roof_kawara_ridge_normal.jpg",
     "orm": "roof_kawara_ridge_orm.jpg"
    },
-   "resolution": [
-    1024,
-    256
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     256
+    ],
+    "normal": [
+     1024,
+     256
+    ],
+    "orm": [
+     512,
+     128
+    ]
+   }
   },
   "roof_kawara_sangawara": {
    "kind": "tileable",
@@ -408,10 +578,20 @@
     "normal": "roof_kawara_sangawara_normal.jpg",
     "orm": "roof_kawara_sangawara_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "roof_metal_seam": {
    "kind": "tileable",
@@ -429,10 +609,20 @@
     "normal": "roof_metal_seam_normal.jpg",
     "orm": "roof_metal_seam_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "setts_granite": {
    "kind": "tileable",
@@ -451,10 +641,20 @@
     "normal": "setts_granite_normal.jpg",
     "orm": "setts_granite_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "stone_steps_trim": {
    "kind": "trim",
@@ -473,10 +673,20 @@
     "normal": "stone_steps_trim_normal.jpg",
     "orm": "stone_steps_trim_orm.jpg"
    },
-   "resolution": [
-    1024,
-    512
-   ],
+   "resolution": {
+    "albedo": [
+     1024,
+     512
+    ],
+    "normal": [
+     1024,
+     512
+    ],
+    "orm": [
+     512,
+     256
+    ]
+   },
    "bands_m": {
     "riser": [
      0.0,
@@ -513,10 +723,20 @@
     "normal": "timber_planks_bengara_normal.jpg",
     "orm": "timber_planks_bengara_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     512,
+     512
+    ],
+    "normal": [
+     512,
+     512
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   },
   "timber_planks_weathered": {
    "kind": "tileable",
@@ -535,10 +755,20 @@
     "normal": "timber_planks_weathered_normal.jpg",
     "orm": "timber_planks_weathered_orm.jpg"
    },
-   "resolution": [
-    1024,
-    1024
-   ]
+   "resolution": {
+    "albedo": [
+     1024,
+     1024
+    ],
+    "normal": [
+     1024,
+     1024
+    ],
+    "orm": [
+     512,
+     512
+    ]
+   }
   }
  }
 }

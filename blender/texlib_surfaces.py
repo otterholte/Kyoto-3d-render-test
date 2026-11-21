@@ -113,7 +113,7 @@ def wood_field(w, h, px_m, seed, ring_m=0.009, along="v", knot_density=0.6):
 WOOD_PALETTES = {
     # sRGB albedo: base, latewood, weathered-silver
     "dark": (hexc("#4e3a2b"), hexc("#2b1f17"), hexc("#8a8172")),      # sumi/kakishibu-stained machiya timber (obs. #5a3418 in sun)
-    "bengara": (hexc("#5a3126"), hexc("#3c2019"), hexc("#7a6660")),   # red-oxide (bengara) stain, weathered
+    "bengara": (hexc("#4b2a20"), hexc("#301a14"), hexc("#6e5c56")),   # red-oxide (bengara) stain, weathered
     "honey": (hexc("#a0703f"), hexc("#73492a"), hexc("#a8998a")),     # renovated cedar/hinoki, oiled, observed on many shops
     "silver": (hexc("#6f655a"), hexc("#4b4239"), hexc("#a39d92")),    # long-weathered unpainted boards
 }
@@ -302,9 +302,9 @@ def asphalt(name="asphalt_worn", size_m=(4.0, 4.0), seed=41, res=R, **kw):
         pw, ph = rng.uniform(0.4, 1.6) / px, rng.uniform(0.3, 1.2) / px
         dx = np.abs((xx - cx + w / 2) % w - w / 2); dy = np.abs((yy - cy + h / 2) % h - h / 2)
         patch = np.maximum(patch, (dx < pw / 2) & (dy < ph / 2))
-    patch = blur(patch.astype(np.float32), 1.0)
+    patch = blur(patch.astype(np.float32), 2.5)
     seam = np.clip(np.abs(np.gradient(patch)[0]) + np.abs(np.gradient(patch)[1]), 0, 1) * 4
-    col = lerp(col, col * 0.62, patch * 0.9)
+    col = lerp(col, col * 0.80, patch * 0.85)
     hgt = hgt + patch * 0.002
     # weathering (oxidised lighter grey), oil stains, cracks sealed with tar
     ox = smooth(-1.0, 1.5, fnoise((h, w), lo=1, hi=10, beta=2, seed=seed + 2))
@@ -394,7 +394,7 @@ def earth_moss(name="earth_moss", size_m=(2.0, 2.0), seed=61, res=R, **kw):
     # moss in the lower, damp areas: fluffy height, two greens
     mm = smooth(-0.1, 0.9, -big * 0.9 + 0.6 * fnoise((h, w), lo=4, hi=50, beta=1.4, seed=seed + 4))
     fluff = fnoise((h, w), lo=150, hi=None, beta=0.5, seed=seed + 5)
-    mcol = lerp(np.broadcast_to(hexc("#4b5a22"), (h, w, 3)), hexc("#6f7d2c"), np.clip(0.5 + 0.5 * fluff, 0, 1))
+    mcol = lerp(np.broadcast_to(hexc("#3d4720"), (h, w, 3)), hexc("#56602c"), np.clip(0.5 + 0.5 * fluff, 0, 1))
     mcol = lerp(mcol, hexc("#2f3a17"), smooth(0.5, 1.5, -fnoise((h, w), lo=10, hi=80, beta=1, seed=seed + 6)))
     col = lerp(col, mcol, mm)
     hm = hm + mm * (0.003 + fluff * 0.0006)
@@ -583,11 +583,11 @@ def copper_roof(name="roof_copper_patina", size_m=(1.8, 1.8), seed=121, res=R, *
     hm = seam * 0.003 + (1 - eyn) * 0.002 + fnoise((h, w), lo=10, hi=80, beta=2, seed=seed) * 0.0006
     pat = fnoise((h, w), lo=1, hi=40, beta=1.6, seed=seed + 1)
     streak = fnoise((h, w), lo=2, hi=80, beta=1.5, seed=seed + 2, aniso=(1, 0.06))
-    green = lerp(np.broadcast_to(hexc("#5f9a83"), (h, w, 3)), hexc("#3f7466"), np.clip(0.5 + 0.35 * pat, 0, 1))
+    green = lerp(np.broadcast_to(hexc("#6b9285"), (h, w, 3)), hexc("#4a6a60"), np.clip(0.5 + 0.35 * pat, 0, 1))
     brown = hexc("#5a4030")
     col = lerp(green, brown, smooth(0.8, 2.0, -pat + 0.5 * streak) * 0.7)
     col = col * (1 - 0.25 * smooth(0.3, 1.8, streak))[..., None]
-    col = lerp(col, hexc("#8fc0a8"), smooth(1.6, 2.4, fnoise((h, w), lo=40, beta=0.6, seed=seed + 3)) * 0.4)
+    col = lerp(col, hexc("#9bb8aa"), smooth(1.6, 2.4, fnoise((h, w), lo=40, beta=0.6, seed=seed + 3)) * 0.3)
     col = col * (1 - 0.3 * seam)[..., None]
     rough = 0.75 + 0.1 * pat
     metal = 0.15 + 0.2 * smooth(0.8, 2.0, -pat)
@@ -655,7 +655,7 @@ def build_all(only=None):
                   "(evidence: observed ~0.3 x 0.6 m). Rows run along u: put u across the street.")),
         ("setts_granite", lambda: granite_paving(
             "setts_granite", (1.6, 1.6), row_m=0.10, len_m=(0.16, 0.24), base_hex="#8a857a", seed=32,
-            joint_m=0.014, bevel_m=0.01, flamed=1.2, domed=0.004, wear=0.7, joint_col=(0.12, 0.11, 0.1),
+            joint_m=0.011, bevel_m=0.01, flamed=1.2, domed=0.004, wear=0.7, joint_col=(0.24, 0.22, 0.19),
             notes="Yasaka-dori west small rough-flamed granite setts ~0.10 x 0.16-0.24 m, running bond "
                   "(OSM surface=sett; size inferred)")),
         ("asphalt_worn", lambda: asphalt()),

@@ -31,7 +31,7 @@ const GradeShader = {
   uniforms: {
     tDiffuse: { value: null },
     uSat: { value: 1.06 }, uContrast: { value: 1.05 },
-    uShadowTint: { value: new THREE.Vector3(0.985, 0.995, 1.03) }, uHighTint: { value: new THREE.Vector3(1.03, 1.0, 0.965) },
+    uShadowTint: { value: new THREE.Vector3(1.0, 0.995, 1.0) }, uHighTint: { value: new THREE.Vector3(1.03, 1.0, 0.965) },
     uVignette: { value: 0.14 }, uAspect: { value: 1 },
   },
   vertexShader: /* glsl */`varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 ); }`,

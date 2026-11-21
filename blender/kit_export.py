@@ -195,12 +195,28 @@ def img_mat(name, path, rough=0.85, emissive=False, double=False, repeat=True):
     return m
 
 
-def vc_mat(name, rough=0.85, emissive=False):
+def vc_mat(name, rough=0.85, emissive=False, uv_map=None):
+    """Vertex-colour material. With uv_map, a 4x4 white placeholder texture is multiplied in through that UV layer
+    so the glTF exporter keeps the layer as TEXCOORD_0 (FacadeUV / RoofUV for web/assets/tex/ in Three.js)."""
     m = bpy.data.materials.new(name)
     nt = m.node_tree
     b = nt.nodes.get("Principled BSDF")
     vc = nt.nodes.new("ShaderNodeVertexColor"); vc.layer_name = "web_col"
-    nt.links.new(vc.outputs["Color"], b.inputs["Base Color"])
+    if uv_map:
+        im = bpy.data.images.get("web_uv_placeholder")
+        if im is None:
+            im = bpy.data.images.new("web_uv_placeholder", 4, 4)
+            im.pixels.foreach_set(np.ones(64, np.float32))
+            im.pack()
+        uv = nt.nodes.new("ShaderNodeUVMap"); uv.uv_map = uv_map
+        t = nt.nodes.new("ShaderNodeTexImage"); t.image = im
+        nt.links.new(uv.outputs[0], t.inputs[0])
+        mul = nt.nodes.new("ShaderNodeMix"); mul.data_type = "RGBA"; mul.blend_type = "MULTIPLY"; mul.inputs[0].default_value = 1.0
+        nt.links.new(t.outputs["Color"], mul.inputs[6]); nt.links.new(vc.outputs["Color"], mul.inputs[7])
+        nt.links.new(mul.outputs[2], b.inputs["Base Color"])
+        m["web_uv"] = uv_map
+    else:
+        nt.links.new(vc.outputs["Color"], b.inputs["Base Color"])
     b.inputs["Roughness"].default_value = rough
     if emissive:
         nt.links.new(vc.outputs["Color"], b.inputs["Emission Color"])
@@ -409,12 +425,17 @@ def build_web_trees():
         if k not in meshes:
             bpy.data.objects.remove(e, do_unlink=True)
             continue
-        e.instance_type = "NONE"
-        e.instance_collection = None
-        ch = bpy.data.objects.new(e.name + "_mesh", meshes[k])
+        # one node per tree: a mesh object sharing the species mesh, same name + props as the empty
+        ch = bpy.data.objects.new(e.name + "_w", meshes[k])
+        ch.matrix_world = e.matrix_world.copy()
+        for kk in e.keys():
+            ch[kk] = e[kk]
         for c in e.users_collection:
             c.objects.link(ch)
-        ch.parent = e
+        nm = e.name
+        bpy.data.objects.remove(e, do_unlink=True)
+        ch.name = nm
+        ch["web_tree"] = True
         n += 1
     return n
 
@@ -430,6 +451,23 @@ def main():
     p_set = tex_paving("sett.jpg", 0.24, 0.124, PAL["sett"], PAL["granite"], period=0.992, size=256, mortar=0.012)
     p_atl = tex_atlas()
     MAT["roof"] = vc_mat("W_Roof", 0.6); MAT["wall"] = vc_mat("W_Wall", 0.9); MAT["plinth"] = vc_mat("W_Plinth", 0.9)
+    for k_, nm_, col_ in (("p4roof", "W_Backdrop_Roof", PAL["kawara"]), ("p4wall", "W_Backdrop_Wall", (0.42, 0.38, 0.33))):
+        m_ = bpy.data.materials.new(nm_); b_ = m_.node_tree.nodes.get("Principled BSDF")
+        b_.inputs["Base Color"].default_value = (*col_, 1); b_.inputs["Roughness"].default_value = 0.85
+        MAT[k_] = m_
+
+    def uv_mat(name, col, rough):
+        """placeholder texture through WebUV x constant colour (web swaps in web/assets/tex/)"""
+        m_ = vc_mat(name, rough, uv_map="WebUV")
+        nt_ = m_.node_tree
+        vcn = next(n for n in nt_.nodes if n.type == "VERTEX_COLOR")
+        rgbn = nt_.nodes.new("ShaderNodeRGB"); rgbn.outputs[0].default_value = (*col, 1)
+        mul_ = next(n for n in nt_.nodes if n.type == "MIX")
+        nt_.links.new(rgbn.outputs[0], mul_.inputs[7]); nt_.nodes.remove(vcn)
+        return m_
+    MAT["roof_uv"] = uv_mat("W_Roof_Kawara", PAL["kawara"], 0.6)
+    MAT["wall_uv"] = uv_mat("W_Wall_Facade", (0.55, 0.47, 0.34), 0.9)
+    MAT["plinth_uv"] = uv_mat("W_Plinth_Stone", PAL["granite"], 0.9)
     MAT["stone"] = vc_mat("W_Stone", 0.85); MAT["leaf"] = vc_mat("W_Foliage", 0.8); MAT["glowvc"] = vc_mat("W_LampGlow", 0.5, emissive=True)
     MAT["terrain"] = img_mat("W_Terrain", p_ter, 0.9, repeat=False)
     MAT["paving"] = img_mat("W_Ishidatami", p_pav, 0.55); MAT["sett"] = img_mat("W_Sett", p_set, 0.6)
@@ -460,17 +498,51 @@ def main():
             continue
         me = ob.data
         nm = ob.name
+        if ob.get("web_tree"):
+            continue
+        if nm.startswith(("Steps_", "Barrier_", "UtilityPole", "UtilityWires")):
+            for uvl in list(me.uv_layers):
+                me.uv_layers.remove(uvl)
+        if nm.startswith(("UtilityPole", "UtilityWires")):
+            flat_colors(ob, (0.30, 0.29, 0.27) if nm.startswith("UtilityPole") else (0.02, 0.02, 0.02))
+            me.materials.clear(); me.materials.append(MAT["stone"])
+            continue
         if nm.startswith(("B_", "LM_")):
             pr = ob.get("priority", 3)
             building_colors(ob, pr)
-            ks = ("roof", "wall", "plinth")
+            if pr == 4:       # backdrop massing: constant materials, roof (normal up) vs wall split by face normal
+                mi_, lp_, nz_ = poly_loop_arrays(me)
+                me.polygons.foreach_set("material_index", np.where(nz_ > 0.3, 0, 1).astype(np.int32))
+                me.color_attributes.remove(me.color_attributes["web_col"])
+                me["web_p4"] = True
+            has_uv = pr != 4 and me.uv_layers.get("FacadeUV") is not None and me.uv_layers.get("RoofUV") is not None
+            ks = ("roof_uv", "wall_uv", "plinth_uv") if has_uv else (("p4roof", "p4wall", "p4wall") if pr == 4 else ("roof", "wall", "plinth"))
+            if has_uv:
+                # one UV layer for the web: FacadeUV on wall faces (u = bays, v = m), RoofUV on roof faces (m)
+                mi, lp, nz = poly_loop_arrays(me)
+                fa = np.empty(len(me.loops) * 2); me.uv_layers["FacadeUV"].data.foreach_get("uv", fa)
+                ra = np.empty(len(me.loops) * 2); me.uv_layers["RoofUV"].data.foreach_get("uv", ra)
+                isroof = (mi[lp] == 0)
+                w = np.where(np.repeat(isroof, 2), ra, fa)
+                w = np.round(w * 256) / 256
+                for uvl in list(me.uv_layers):
+                    me.uv_layers.remove(uvl)
+                me.uv_layers.new(name="WebUV").data.foreach_set("uv", w)
+                me.color_attributes.remove(me.color_attributes["web_col"])
+                me["web_p4"] = True       # (exported without vertex colours)
+            else:
+                for uvl in list(me.uv_layers):
+                    me.uv_layers.remove(uvl)
             for i in range(len(me.materials)):        # (materials.clear() would reset the face material indices)
                 me.materials[i] = MAT[ks[min(i, 2)]]
         elif nm.startswith("Terrain_"):
-            dec = ob.modifiers.new("dec", "DECIMATE"); dec.ratio = 0.4
+            dec = ob.modifiers.new("dec", "DECIMATE"); dec.ratio = 0.25
             bpy.context.view_layer.objects.active = ob
             with bpy.context.temp_override(object=ob, active_object=ob):
                 bpy.ops.object.modifier_apply(modifier="dec")
+            for uvl in list(me.uv_layers):
+                if uvl.name != "UVMap":
+                    me.uv_layers.remove(uvl)
             flat_colors(ob, (1, 1, 1), 0.0)
             me.materials.clear(); me.materials.append(MAT["terrain"])
         elif nm.startswith("Paving_"):
@@ -480,8 +552,9 @@ def main():
             a = a / (0.992 if sett else 1.24)
             a = a.reshape(-1, 2)[:, ::-1].ravel()          # texture x across, y along
             uv.data.foreach_set("uv", a)
-            if me.uv_layers.get("UVEdge"):
-                me.uv_layers.remove(me.uv_layers["UVEdge"])
+            for nmuv in ("UVEdge", "UVPave"):
+                if me.uv_layers.get(nmuv):
+                    me.uv_layers.remove(me.uv_layers[nmuv])
             flat_colors(ob, (1, 1, 1), 0.0)
             me.materials.clear(); me.materials.append(MAT["sett" if sett else "paving"])
         elif nm.startswith("Steps_"):
@@ -509,7 +582,7 @@ def main():
     for ob in bpy.data.objects:
         if ob.get("_skip"):
             continue
-        if ob.type == "MESH" and ob.data.color_attributes.get("web_col") is None:
+        if ob.type == "MESH" and ob.data.color_attributes.get("web_col") is None and not ob.data.get("web_p4"):
             continue
         if ob.type in ("MESH", "EMPTY"):
             if ob.type == "EMPTY" and not ob.name.startswith(("Tree", "Shrub")):
@@ -526,7 +599,7 @@ def main():
             unexclude(ch)
     unexclude(bpy.context.view_layer.layer_collection)
     for ob in bpy.data.objects:
-        if not ob.get("_skip") and (ob.type == "MESH" and ob.data.color_attributes.get("web_col") is not None
+        if not ob.get("_skip") and (ob.type == "MESH" and (ob.data.color_attributes.get("web_col") is not None or ob.data.get("web_p4"))
                                     or ob.type == "EMPTY" and ob.name.startswith(("Tree", "Shrub"))):
             try:
                 ob.hide_set(False); ob.hide_viewport = False; ob.select_set(True)

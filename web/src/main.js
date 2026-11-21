@@ -75,13 +75,18 @@ async function main() {
   renderer.setClearColor(0x1d2338, 1);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 2000);
+  // far plane 18 km for the backdrop (terrain rings to +-15 km); near 0.12 m keeps 24-bit depth at ~4 cm @ 300 m,
+  // so no logarithmic depth (which would break GTAO's depth reconstruction and early-z)
+  const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.12, 18000);
 
   // ---------------------------------------------------------------- quality
   let qualityPref = store.get('quality', 'auto');
   // ?q=low|medium|high|ultra forces a tier for this visit (testing, screenshots); not remembered
   const urlQ = new URLSearchParams(location.search).get('q');
   if (urlQ && QUALITY[urlQ]) qualityPref = urlQ;
+  // ?scale=0.25..1 pins the render scale (tests on software GL); disables adaptive resolution
+  const urlScale = parseFloat(new URLSearchParams(location.search).get('scale'));
+  const fixedScale = urlScale >= 0.25 && urlScale <= 1 ? urlScale : null;
   const autoQ = isMobile ? 'medium' : 'high';
   let Q = QUALITY[qualityPref === 'auto' ? autoQ : qualityPref] || QUALITY[autoQ];
   let dprScale = 1;
@@ -156,7 +161,7 @@ async function main() {
   function applyQuality() {
     Q = photo.on ? QUALITY.ultra : (QUALITY[qualityPref === 'auto' ? autoQ : qualityPref] || QUALITY[autoQ]);
     hw.tier = photo.on ? 'ultra' : (qualityPref === 'auto' ? autoQ : qualityPref);
-    dprScale = 1;
+    dprScale = fixedScale || 1;
     bloomAllowed = true;
     adapt.reset();
     leaves.points.geometry.setDrawRange(0, Q.particles);
@@ -380,7 +385,7 @@ async function main() {
       fpsHistory.push(hw.fps); if (fpsHistory.length > 30) fpsHistory.shift();
       frames = 0; fpsT = 0;
       if (adapt.skip > 0) adapt.skip--;
-      else if (qualityPref === 'auto' && !photo.on) {
+      else if (qualityPref === 'auto' && !photo.on && !fixedScale) {
         // peak ~ display refresh (60/90/120 Hz) once vsync-capped; decays slowly so a lower-refresh mode is learnt
         // again. Recovery needs fps >= target AND (at the refresh cap OR well above target): on a 60 Hz panel
         // that is >= 55 fps (the old rule needed an impossible 70 fps)

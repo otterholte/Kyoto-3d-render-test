@@ -6,7 +6,7 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { MeshBVH } from 'three-mesh-bvh';
 import { makeRoleMaterials } from './materials.js';
-import { loadTextureLibrary } from './textures.js';
+import { loadTextureLibrary, LEAF_CARDS } from './textures.js';
 import { facadeMaterial, roofMaterial, stoneMaterial, groundMaterial, pavingMaterial, leafMaterial, canopyGeometry, styleOf, hashStr } from './pbr.js';
 
 const SECTION = 100; // m
@@ -381,7 +381,7 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
 
   // documented trees: procedural instanced trees (blockout) / trunk colliders (art)
   const leafMat = leafMaterial(lib);
-  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj, leafMat);
+  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj, leafMat, lib, lite);
   // authored meshes: instance every geometry+material used >= 4 times (glTF mesh reuse), merge the rest
   const reuse = new Map();
   for (const o of artMeshes) {
@@ -391,7 +391,16 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
     reuse.get(k).push(o);
   }
   let instanced = 0;
-  const canopy = canopyGeometry(34);
+  const cardRect = (species) => {
+    const cards = lib.leaf.cards || {};
+    return cards[LEAF_CARDS[species] || LEAF_CARDS.broad] || Object.values(cards)[0] || [0, 0, 1, 1];
+  };
+  const canopies = new Map();
+  const canopyFor = (species) => {
+    const k = LEAF_CARDS[species] ? species : 'broad';
+    if (!canopies.has(k)) canopies.set(k, canopyGeometry(lite ? 48 : 72, 3 + canopies.size, cardRect(k)));
+    return canopies.get(k);
+  };
   for (const list of reuse.values()) {
     if (list.length < 4) { list.forEach(addOwn); continue; }
     let mat = prepMat(list[0]);
@@ -400,8 +409,9 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
       // authored low-poly crown -> alpha leaf-card canopy fitted to its bounds, tinted by its own colour
       geom.computeBoundingBox();
       const bb = geom.boundingBox, c = bb.getCenter(new THREE.Vector3()), sz = bb.getSize(new THREE.Vector3());
-      colour = averageColour(geom) || new THREE.Color(0.2, 0.3, 0.12);
-      geom = canopy.clone().scale(sz.x * 0.55, sz.y * 0.55, sz.z * 0.55).translate(c.x, c.y, c.z);
+      const species = String(extrasUp(list[0]).species || (/shrub/i.test(list[0].parent && list[0].parent.name) ? 'shrub' : 'broad')).toLowerCase();
+      colour = lib.leaf.procedural === false ? new THREE.Color(1, 1, 1) : (averageColour(geom) || new THREE.Color(0.2, 0.3, 0.12));
+      geom = canopyFor(species).clone().scale(sz.x * 0.55, sz.y * 0.55, sz.z * 0.55).translate(c.x, c.y, c.z);
       mat = leafMat;
     }
     const im = new THREE.InstancedMesh(geom, mat, list.length);
@@ -512,7 +522,7 @@ function facadeAttr(o, g, ex) {
   return new THREE.BufferAttribute(arr, 4);
 }
 
-function buildTrees(root, trees, M, worldKind, collide, addObj, leafMat) {
+function buildTrees(root, trees, M, worldKind, collide, addObj, leafMat, lib, lite) {
   let drawCalls = 0;
   const box = new THREE.Box3(), c = new THREE.Vector3(), s = new THREE.Vector3();
   const tmp = new THREE.Object3D();
@@ -549,7 +559,7 @@ function buildTrees(root, trees, M, worldKind, collide, addObj, leafMat) {
     root.add(im); drawCalls++;
   }
   if (trees.crown.length) {
-    const im = new THREE.InstancedMesh(canopyGeometry(34), leafMat, trees.crown.length);
+    const im = new THREE.InstancedMesh(canopyGeometry(lite ? 48 : 72, 3, (lib.leaf.cards || {})[LEAF_CARDS.maple] || [0, 0, 1, 1]), leafMat, trees.crown.length);
     im.userData.noAO = true;
     const col = new THREE.Color();
     trees.crown.forEach((o, i) => {
@@ -558,7 +568,7 @@ function buildTrees(root, trees, M, worldKind, collide, addObj, leafMat) {
       tmp.updateMatrix(); im.setMatrixAt(i, tmp.matrix);
       // late-November palette (artistic): some maples turn, others stay green
       const a = autumn[Math.floor(rnd() * autumn.length)];
-      col.setRGB(a[0] * 1.4, a[1] * 1.4, a[2] * 1.4);
+      if (lib.leaf.procedural === false) { const v = 0.85 + rnd() * 0.3; col.setRGB(v, v, v); } else col.setRGB(a[0] * 1.4, a[1] * 1.4, a[2] * 1.4);
       im.setColorAt(i, col);
     });
     if (im.instanceColor) im.instanceColor.needsUpdate = true;

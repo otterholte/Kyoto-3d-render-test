@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T23:42:38.547Z",
+  "generated": "2026-11-21T00:30:20.832Z",
   "world": {
     "file": "world_art.glb.b64.txt",
     "source": "assets/world_art.glb",
@@ -21,14 +21,29 @@
   "pagoda": {
     "file": "pagoda.glb.b64.txt",
     "source": "assets/pagoda.glb",
-    "bytes": 500632,
-    "sourceBytes": 2402172,
+    "bytes": 508808,
+    "sourceBytes": 2402808,
     "colours": null,
     "join": null,
     "hides": "LM_Yasaka_Pagoda_PLATEAU_LOD2",
     "glb": "pagoda.glb"
   },
+  "backdrop": {
+    "file": "backdrop.glb.b64.txt",
+    "source": "assets/backdrop.glb",
+    "bytes": 1058048,
+    "sourceBytes": 3560752,
+    "colours": null,
+    "join": null,
+    "note": "distant Kyoto massing + Higashiyama hills: render only, no collision",
+    "glb": "backdrop.glb"
+  },
   "minimap": "assets/minimap.json",
+  "textures": {
+    "facade": "assets/tex/facade_atlas.json",
+    "library": "assets/tex/library.json",
+    "foliage": "assets/tex/foliage_atlas.json"
+  },
   "surfaceMask": {
     "file": "assets/surface_mask.png",
     "extent": [

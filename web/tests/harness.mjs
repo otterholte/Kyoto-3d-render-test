@@ -37,6 +37,7 @@ export async function launch() {
 export async function newPage(browser, ctxOpts, log) {
   const ctx = await browser.newContext(ctxOpts);
   const page = await ctx.newPage();
+  page.setDefaultTimeout(300000);   // software GL: a frame can take tens of seconds at high tiers
   const ext = [];
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, async (route) => {
     const url = route.request().url();

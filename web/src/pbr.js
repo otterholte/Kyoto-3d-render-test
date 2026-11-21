@@ -88,13 +88,17 @@ export function facadeMaterial(lib, { tint = 0.18, glbUv = false } = {}) {
   // pushed back in depth so the art kit's facade cards (coplanar with the walls) always win: no z-fighting
   const m = baseMaterial({ vertexColors: true, color: 0xffffff, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 4 });
   if (glbUv) m.defines = { HW_GLB_UV: '' };
-  const slots = F.slots.map((s, i) => s || [i % F.grid[0], F.grid[1] - 1 - Math.floor(i / F.grid[0])]);
+  const defs = { ...(m.defines || {}) };
+  if (F.normalMap) defs.HW_NRM = '';
+  if (F.ormMap) defs.HW_ORM = '';
+  if (F.emitMap) defs.HW_EMIT = '';
+  m.defines = defs;
   m.onBeforeCompile = (sh) => {
     sh.uniforms.uAlb = { value: F.map }; sh.uniforms.uNrm = { value: F.normalMap }; sh.uniforms.uOrm = { value: F.ormMap };
-    sh.uniforms.uGrid = { value: new THREE.Vector2(F.grid[0], F.grid[1]) };
-    sh.uniforms.uSlots = { value: slots.map(([c, r]) => new THREE.Vector2(c, r)) };
+    sh.uniforms.uEmitT = { value: F.emitMap };
+    sh.uniforms.uRect = { value: F.rects.map((r) => new THREE.Vector4(...r)) };
     sh.uniforms.uBay = { value: F.bay_m };
-    sh.uniforms.uWet = shared.uWet;
+    sh.uniforms.uWet = shared.uWet; sh.uniforms.uNight = shared.uNight;
     addWorldPos(sh);
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nattribute vec4 aFac;\nflat varying vec4 vFac;\n#ifdef HW_GLB_UV\nvarying vec2 vHWUv;\n#endif')
@@ -106,22 +110,23 @@ export function facadeMaterial(lib, { tint = 0.18, glbUv = false } = {}) {
         #ifdef HW_GLB_UV
           varying vec2 vHWUv;
         #endif
-        uniform sampler2D uAlb, uNrm, uOrm; uniform vec2 uGrid; uniform vec2 uSlots[${MODULES.length}]; uniform float uBay, uWet;
+        uniform sampler2D uAlb, uNrm, uOrm, uEmitT; uniform vec4 uRect[${MODULES.length}]; uniform float uBay, uWet, uNight;
         vec3 hwT, hwB, hwN; vec3 hwNt; vec4 hwOrm; float hwAO;
         int hwModule( float storey, float nStorey, float style, float bay, float seed ) {
           float h = hw_hash( vec2( bay, seed * 31.7 ) ), hb = fract( seed * 7.31 );
-          if ( storey >= nStorey ) return ${MOD.plain};
-          if ( style > 4.5 ) return ${MOD.plain};
+          if ( storey >= nStorey ) return ${MOD.plain};          // gable / attic above the eave
+          if ( style > 4.5 ) return storey < 0.5 ? ${MOD.itabari} : ${MOD.plain};
           if ( style > 3.5 ) return ${MOD.temple};
           if ( style > 1.5 ) {                                   // modern / modern-shop
             if ( storey < 0.5 && style > 2.5 ) return h < 0.85 ? ${MOD.shopfront} : ${MOD.modern_upper};
             return ${MOD.modern_upper};
           }
           if ( storey < 0.5 ) {                                  // machiya ground floor
-            if ( style > 0.5 ) return h < 0.45 ? ${MOD.noren} : ( h < 0.9 ? ${MOD.koshi} : ${MOD.shopfront} );
-            return h < 0.18 ? ${MOD.noren} : ${MOD.koshi};
+            if ( style > 0.5 ) return h < 0.3 ? ${MOD.noren} : ( h < 0.62 ? ${MOD.shop_open} : ( h < 0.85 ? ${MOD.koshi} : ${MOD.koshi_dark} ) );
+            return h < 0.12 ? ${MOD.noren} : ( h < 0.55 ? ${MOD.koshi} : ( h < 0.75 ? ${MOD.koshi_dark} : ( h < 0.88 ? ${MOD.itabari} : ${MOD.plaster_base} ) ) );
           }
-          return hb < 0.55 ? ${MOD.mushiko} : ${MOD.lattice};
+          if ( h < 0.22 ) return ${MOD.plain};                   // some plain upper bays between windows
+          return hb < 0.35 ? ${MOD.mushiko} : ( hb < 0.72 ? ${MOD.lattice} : ( hb < 0.86 ? ${MOD.glazed_railing} : ${MOD.plain} ) );
         }`)
       .replace('#include <map_fragment>', `
         ${FLAT_N}
@@ -138,15 +143,29 @@ export function facadeMaterial(lib, { tint = 0.18, glbUv = false } = {}) {
         if ( abs( hwN.y ) > 0.6 ) uvc = vHWPos.xz / uBay;       // stray horizontal faces in the wall slot
         float storey = floor( uvc.y ), bay = floor( uvc.x );
         int mi = hwModule( max( storey, 0.0 ), max( nStorey, 1.0 ), style, bay, seed );
-        vec2 cell = uSlots[ mi ];
+        vec4 rc = uRect[ mi ];
         vec2 f = fract( uvc );
         if ( storey < 0.0 ) f.y = 0.02;                          // below the measured base: plinth-ish
         f = clamp( f, vec2( 0.004 ), vec2( 0.996 ) );
-        vec2 auv = ( cell + f ) / uGrid;
-        vec2 gx = dFdx( uvc ) / uGrid, gy = dFdy( uvc ) / uGrid;
+        vec2 rs = rc.zw - rc.xy;
+        vec2 auv = rc.xy + f * rs;
+        vec2 gx = dFdx( uvc ) * rs, gy = dFdy( uvc ) * rs;
         vec4 alb = textureGrad( uAlb, auv, gx, gy );
-        hwOrm = textureGrad( uOrm, auv, gx, gy );
-        hwNt = textureGrad( uNrm, auv, gx, gy ).xyz * 2.0 - 1.0;
+        #ifdef HW_ORM
+          hwOrm = textureGrad( uOrm, auv, gx, gy );
+        #else
+          hwOrm = vec4( 1.0, 0.85, 0.0, 1.0 );
+        #endif
+        #ifdef HW_NRM
+          hwNt = textureGrad( uNrm, auv, gx, gy ).xyz * 2.0 - 1.0;
+        #else
+          hwNt = vec3( 0.0, 0.0, 1.0 );
+        #endif
+        #ifdef HW_EMIT
+          float hwEmit = textureGrad( uEmitT, auv, gx, gy ).r;
+        #else
+          float hwEmit = 0.0;
+        #endif
         ${TINT}
         diffuseColor.rgb = alb.rgb * hwTint * ( 0.55 + 0.45 * hwOrm.r );
         // rain-darkened base at dusk
@@ -154,9 +173,12 @@ export function facadeMaterial(lib, { tint = 0.18, glbUv = false } = {}) {
       `)
       .replace('#include <color_fragment>', '')
       .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = clamp( hwOrm.g, 0.04, 1.0 );')
-      .replace('#include <normal_fragment_maps>', APPLY_NORMAL);
+      .replace('#include <normal_fragment_maps>', APPLY_NORMAL)
+      // lit interiors (shop fronts, shoji, windows) glow as the light fades
+      .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
+        totalEmissiveRadiance += vec3( 1.0, 0.62, 0.3 ) * hwEmit * uNight * 1.6;`);
   };
-  m.customProgramCacheKey = () => 'hw-facade-' + tint + (glbUv ? '-uv' : '');
+  m.customProgramCacheKey = () => 'hw-facade-' + tint + (glbUv ? '-uv' : '') + Object.keys(defs).join();
   m.userData.hwRole = 'facade';
   return m;
 }
@@ -340,7 +362,7 @@ export function pavingMaterial(set, { wetness = true } = {}) {
 // ---------------------------------------------------------------- leaf-card canopies
 export function leafMaterial(lib) {
   const m = new THREE.MeshStandardMaterial({
-    map: lib.leaf.map, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.85, metalness: 0, color: 0xffffff,
+    map: lib.leaf.map, alphaTest: lib.leaf.procedural === false ? 0.4 : 0.5, side: THREE.DoubleSide, roughness: 0.85, metalness: 0, color: 0xffffff,
   });
   // soft translucency: back-lit leaves glow a little (artistic approximation)
   m.onBeforeCompile = (sh) => {
@@ -352,7 +374,8 @@ export function leafMaterial(lib) {
 }
 
 // canopy of crossed alpha cards filling a unit sphere (radius 1); normals point outward for soft volume shading
-export function canopyGeometry(cards = 34, seed = 3) {
+// rect = [u0, v0, u1, v1] of one leaf card in the foliage atlas
+export function canopyGeometry(cards = 64, seed = 3, rect = [0, 0, 1, 1]) {
   let a = seed;
   const rnd = () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
   const pos = [], nrm = [], uv = [], idx = [];
@@ -363,14 +386,14 @@ export function canopyGeometry(cards = 34, seed = 3) {
     const th = rnd() * Math.PI * 2, ph = Math.acos(2 * rnd() - 1);
     c.set(Math.sin(ph) * Math.cos(th) * r, Math.cos(ph) * r * 0.85, Math.sin(ph) * Math.sin(th) * r);
     e.set((rnd() - 0.5) * 2.2, rnd() * Math.PI * 2, (rnd() - 0.5) * 2.2); q.setFromEuler(e);
-    const s = 0.75 + rnd() * 0.5;
+    const s = 0.5 + rnd() * 0.3;
     const base = pos.length / 3;
     for (const [x, y, u, w] of [[-1, -1, 0, 0], [1, -1, 1, 0], [1, 1, 1, 1], [-1, 1, 0, 1]]) {
       v.set(x * s * 0.5, y * s * 0.5, 0).applyQuaternion(q).add(c);
       pos.push(v.x, v.y, v.z);
       const n = v.clone().normalize().multiplyScalar(0.8).add(new THREE.Vector3(0, 0.45, 0)).normalize();
       nrm.push(n.x, n.y, n.z);
-      uv.push(u, w);
+      uv.push(rect[0] + u * (rect[2] - rect[0]), rect[1] + w * (rect[3] - rect[1]));
     }
     idx.push(base, base + 1, base + 2, base, base + 2, base + 3);
   }

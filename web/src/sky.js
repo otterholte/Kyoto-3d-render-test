@@ -170,6 +170,7 @@ export class Sky {
     this.lanternIntensity = p.lan;
     shared.uWet.value = p.wet;
     shared.uWarm.value = 1 - t;
+    shared.uNight.value = THREE.MathUtils.smoothstep(t, 0.25, 0.95);
     this._envDirty = true;
     this._envTimer = 0.15;
     this.shadowDirty = true;

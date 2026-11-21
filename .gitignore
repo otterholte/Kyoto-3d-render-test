@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 /tmp/
 data/raw/gsi/backdrop/
+blender/textures/   # 142 MB, regenerate with: python blender/texture_library.py
