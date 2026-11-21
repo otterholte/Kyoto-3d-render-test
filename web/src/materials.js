@@ -32,6 +32,10 @@ export function installHeightFog() {
   varying vec3 vFogWorldPos;
   uniform float fogNear;
   uniform float fogFar;
+  #ifdef HW_ATMOS
+    uniform vec3 hwSunDir;
+    uniform vec3 hwSunCol;
+  #endif
 #endif`;
   C.fog_fragment = /* glsl */`
 #ifdef USE_FOG
@@ -45,7 +49,13 @@ export function installHeightFog() {
     float dh = h1 - h0;
     float integ = abs( dh ) > 0.05 ? ( exp( -fk * h0 ) - exp( -fk * h1 ) ) / ( fk * dh ) : exp( -fk * h0 );
     float fogFactor = clamp( 1.0 - exp( -fd * dist * integ ), 0.0, 1.0 );
-    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
+    vec3 fogC = fogColor;
+    #ifdef HW_ATMOS
+      // aerial perspective: haze toward the sun is lit warm (forward scattering)
+      float sdot = max( dot( rv / max( dist, 1e-3 ), normalize( hwSunDir ) ), 0.0 );
+      fogC += hwSunCol * ( pow( sdot, 8.0 ) * 0.7 + pow( sdot, 2.0 ) * 0.12 );
+    #endif
+    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogC, fogFactor );
   }
 #endif`;
 }

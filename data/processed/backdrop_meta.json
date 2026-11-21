@@ -1,0 +1,1256 @@
+{
+ "crs": "EPSG:6674 (JGD2011 / Japan Plane Rectangular CS VI)",
+ "origin": [
+  -20160.0,
+  -111160.0
+ ],
+ "frame": "local x east, y north, z T.P. m (absolute)",
+ "inner_terrain": "data/processed/terrain.npz, |x|,|y| <= 300 m (2 m grid) - left as a hole; ring A zips onto its boundary vertices exactly",
+ "earth_curvature": "z -= d^2/(2R)*(1-0.13), d = horizontal distance from the box centre (viewer-centred)",
+ "sources": {
+  "dem15": [
+   {
+    "layer": "dem5a_png",
+    "z": 15,
+    "tiles": 56,
+    "tiles_ok": 56,
+    "tile_x": [
+     28739,
+     28746
+    ],
+    "tile_y": [
+     12976,
+     12982
+    ]
+   },
+   {
+    "layer": "dem5b_png",
+    "z": 15,
+    "tiles": 56,
+    "tiles_ok": 0,
+    "tile_x": [
+     28739,
+     28746
+    ],
+    "tile_y": [
+     12976,
+     12982
+    ]
+   },
+   {
+    "layer": "dem_png",
+    "z": 14,
+    "tiles": 20,
+    "tiles_ok": 20,
+    "tile_x": [
+     14369,
+     14373
+    ],
+    "tile_y": [
+     6488,
+     6491
+    ]
+   }
+  ],
+  "dem15_pixel_sources": {
+   "dem5a": 3638476,
+   "dem10b_z14_fill": 31540
+  },
+  "dem12": {
+   "layer": "dem_png",
+   "z": 12,
+   "tiles": 25,
+   "tiles_ok": 25,
+   "tile_x": [
+    3590,
+    3594
+   ],
+   "tile_y": [
+    1620,
+    1624
+   ]
+  },
+  "ortho16": {
+   "layer": "seamlessphoto",
+   "z": 16,
+   "tiles": 196,
+   "tiles_ok": 196,
+   "tile_x": [
+    57479,
+    57492
+   ],
+   "tile_y": [
+    25952,
+    25965
+   ]
+  },
+  "ortho12": {
+   "layer": "seamlessphoto",
+   "z": 12,
+   "tiles": 25,
+   "tiles_ok": 25,
+   "tile_x": [
+    3590,
+    3594
+   ],
+   "tile_y": [
+    1620,
+    1624
+   ]
+  },
+  "ortho_white_balance": [
+   1.037600040435791,
+   0.9753999710083008,
+   0.9891999959945679
+  ],
+  "plateau": "https://assets.cms.plateau.reearth.io/.../26100_kyoto-shi_city_2025_citygml_1_op.zip (bldg 52353670,52353671,52353672,52353673,52353674,52353680,52353681,52353682,52353683,52353684,52353690,52353691,52353692,52353693,52353694,52354600,52354601,52354602,52354603,52354604,52354610,52354611,52354612,52354613,52354614; luse 523536, 523546)",
+  "attribution": "出典: 国土地理院 (GSI tiles); PLATEAU 2025 Kyoto City (国土交通省 Project PLATEAU)"
+ },
+ "details": {
+  "render": {
+   "rings": [
+    {
+     "name": "A",
+     "hole": 300.0,
+     "outer": 1008.0,
+     "step": 4.0
+    },
+    {
+     "name": "B",
+     "hole": 1008.0,
+     "outer": 3024.0,
+     "step": 12.0
+    },
+    {
+     "name": "C",
+     "hole": 3024.0,
+     "outer": 15120.0,
+     "step": 72.0
+    }
+   ],
+   "canopy": "separate",
+   "objects": [
+    {
+     "name": "Backdrop_Terrain_A_4m",
+     "kind": "terrain",
+     "artistic": false,
+     "source": "GSI DEM5A z15 (DEM10B z14 fill) bare earth; colour GSI seamlessphoto z16 (white-balanced, muted)",
+     "step_m": 4.0,
+     "extent_m": [
+      300.0,
+      1008.0
+     ],
+     "verts": 234624,
+     "tris": 466032
+    },
+    {
+     "name": "Backdrop_Canopy_A",
+     "kind": "canopy",
+     "artistic": true,
+     "source": "forest extent: PLATEAU luse class 203 山林 (orthophoto-colour heuristic outside luse coverage); canopy height 12-20 m value noise and late-autumn palette are ARTISTIC",
+     "step_m": 4.0,
+     "extent_m": [
+      300.0,
+      1008.0
+     ],
+     "verts": 73266,
+     "tris": 142673
+    },
+    {
+     "name": "Backdrop_Terrain_B_12m",
+     "kind": "terrain",
+     "artistic": false,
+     "source": "GSI DEM5A z15 (DEM10B z14 fill) bare earth; colour GSI seamlessphoto z16 (white-balanced, muted)",
+     "step_m": 12.0,
+     "extent_m": [
+      1008.0,
+      3024.0
+     ],
+     "verts": 228480,
+     "tris": 452928
+    },
+    {
+     "name": "Backdrop_Canopy_B",
+     "kind": "canopy",
+     "artistic": true,
+     "source": "forest extent: PLATEAU luse class 203 山林 (orthophoto-colour heuristic outside luse coverage); canopy height 12-20 m value noise and late-autumn palette are ARTISTIC",
+     "step_m": 12.0,
+     "extent_m": [
+      1008.0,
+      3024.0
+     ],
+     "verts": 57631,
+     "tris": 106702
+    },
+    {
+     "name": "Backdrop_Terrain_C_72m",
+     "kind": "terrain",
+     "artistic": false,
+     "source": "GSI DEM10B z12 bare earth; colour GSI seamlessphoto z12 (white-balanced, muted)",
+     "step_m": 72.0,
+     "extent_m": [
+      3024.0,
+      15120.0
+     ],
+     "verts": 172032,
+     "tris": 340368
+    },
+    {
+     "name": "Backdrop_Canopy_C",
+     "kind": "canopy",
+     "artistic": true,
+     "source": "forest extent: PLATEAU luse class 203 山林 (orthophoto-colour heuristic outside luse coverage); canopy height 12-20 m value noise and late-autumn palette are ARTISTIC",
+     "step_m": 72.0,
+     "extent_m": [
+      3024.0,
+      15120.0
+     ],
+     "verts": 116333,
+     "tris": 220658
+    },
+    {
+     "name": "Backdrop_City_LOD2",
+     "kind": "city",
+     "artistic": false,
+     "source": "PLATEAU 2025 Kyoto City CityGML (LOD2 Roof/Wall), 3rd-order meshes 52353670..52354614; heights as surveyed, placed on GSI DEM; roof colour = GSI seamlessphoto z16 median in footprint (muted); wall colour drawn from measured PLATEAU texture means of mesh 52353692 by storey class",
+     "verts": 371192,
+     "tris": 363092
+    },
+    {
+     "name": "Backdrop_City_LOD1",
+     "kind": "city",
+     "artistic": false,
+     "source": "PLATEAU 2025 Kyoto City CityGML (LOD1 solids), 3rd-order meshes 52353670..52354614; heights as surveyed, placed on GSI DEM; roof colour = GSI seamlessphoto z16 median in footprint (muted); wall colour drawn from measured PLATEAU texture means of mesh 52353692 by storey class",
+     "verts": 1245165,
+     "tris": 1125687
+    }
+   ],
+   "city": {
+    "buildings": 69579,
+    "lod1": 59739,
+    "lod2": 9840,
+    "skipped_inner": 1268,
+    "skipped_web": 0
+   },
+   "landmarks": [
+    {
+     "id": "bldg_26c6a70a-3641-414e-9a1a-c20758720e79",
+     "name": "市立凌風小中学校",
+     "height": 26.9,
+     "mesh": "52353670",
+     "xy": [
+      -1976.1,
+      -2077.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_fc0ad503-e045-4785-ae57-7bd4ac059c0a",
+     "name": "京都第一赤十字病院",
+     "height": 41.5,
+     "mesh": "52353671",
+     "xy": [
+      -584.7,
+      -1863.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_95ec0f1f-9a1a-4f04-91ca-ea30e00f8009",
+     "name": null,
+     "height": 50.0,
+     "mesh": "52353680",
+     "xy": [
+      -2020.6,
+      -1118.8
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_92096cba-6956-4229-bdb6-00dabd128971",
+     "name": null,
+     "height": 46.0,
+     "mesh": "52353680",
+     "xy": [
+      -1673.0,
+      -1253.9
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_956b703b-d240-4483-b458-eb0ebbaec254",
+     "name": "近畿地方整備局京都国道事務所",
+     "height": 49.4,
+     "mesh": "52353680",
+     "xy": [
+      -2256.6,
+      -1265.9
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_636376b4-fdc2-49b5-a500-c87a48c3265c",
+     "name": "出光興産株式会社関西第一販売支店",
+     "height": 41.6,
+     "mesh": "52353680",
+     "xy": [
+      -2083.3,
+      -1113.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_d181759f-773f-4981-a376-1ac19216c676",
+     "name": "エヌ・ティ・ティ・コミュニケーションズ株式会社(京都支店)",
+     "height": 39.8,
+     "mesh": "52353680",
+     "xy": [
+      -2120.4,
+      -1131.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_8f949a58-7c01-4695-a3d0-2d934ae9ae41",
+     "name": null,
+     "height": 48.8,
+     "mesh": "52353680",
+     "xy": [
+      -2435.0,
+      -1286.1
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_94d5660b-c9cf-461b-99a0-d35ae72a59dc",
+     "name": "西日本旅客鉄道株式会社(京都支社)",
+     "height": 36.1,
+     "mesh": "52353680",
+     "xy": [
+      -2287.4,
+      -1398.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_40870c15-e06b-49b6-a10a-edc8947c6273",
+     "name": "京都中央郵便局",
+     "height": 40.7,
+     "mesh": "52353680",
+     "xy": [
+      -2042.2,
+      -1225.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_30bd5069-00d6-4d44-98c2-ab8f7ce657d5",
+     "name": "武田病院",
+     "height": 43.0,
+     "mesh": "52353680",
+     "xy": [
+      -2132.6,
+      -1203.0
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_77fc4997-b2c4-49b2-8109-850b99812dc9",
+     "name": null,
+     "height": 55.7,
+     "mesh": "52353680",
+     "xy": [
+      -2260.0,
+      -1219.3
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_345000bc-8ea3-41f8-a897-fe2b99e4ec3d",
+     "name": null,
+     "height": 46.4,
+     "mesh": "52353680",
+     "xy": [
+      -1737.0,
+      -1590.3
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_16fd21e7-2feb-458c-9025-cb86f84577f0",
+     "name": "関西電力株式会社(京都支店)",
+     "height": 42.4,
+     "mesh": "52353680",
+     "xy": [
+      -2000.6,
+      -1141.5
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_664bfc9c-d3a4-40a2-b3dc-eac15cd7aed8",
+     "name": "京都労働局京都七条公共職業安定所",
+     "height": 25.7,
+     "mesh": "52353680",
+     "xy": [
+      -2208.3,
+      -1307.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_e337ac33-306a-49a6-b1ba-a85f0f173d5d",
+     "name": null,
+     "height": 130.5,
+     "mesh": "52353680",
+     "xy": [
+      -1822.8,
+      -1136.5
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_36574b2c-17fb-4294-9380-4a27ec084dae",
+     "name": null,
+     "height": 58.7,
+     "mesh": "52353680",
+     "xy": [
+      -1675.2,
+      -1581.9
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_715decd8-65ed-44b0-a98f-a2a3e87c8c7f",
+     "name": "京都駅",
+     "height": 66.3,
+     "mesh": "52353680",
+     "xy": [
+      -1898.9,
+      -1298.8
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_e49402c5-be4e-4323-ad90-bc4fa21947ba",
+     "name": "私立京都女子中学校・私立京都女子高等学校",
+     "height": 37.3,
+     "mesh": "52353682",
+     "xy": [
+      -178.5,
+      -832.3
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_cbc04c71-437c-4956-bb9a-7429f1b4c0cc",
+     "name": "京都薬科大学(本校舎)",
+     "height": 31.7,
+     "mesh": "52353684",
+     "xy": [
+      2795.4,
+      -801.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_68cf5d99-abcc-49e0-ae4a-ea18304d4e68",
+     "name": null,
+     "height": 51.2,
+     "mesh": "52353690",
+     "xy": [
+      -1812.1,
+      -103.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_4ac756d2-e392-4156-99b4-54cd8f00f018",
+     "name": null,
+     "height": 45.7,
+     "mesh": "52353690",
+     "xy": [
+      -2513.9,
+      219.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_2df8f404-0bb4-4eac-9354-544e5d885788",
+     "name": null,
+     "height": 45.9,
+     "mesh": "52353690",
+     "xy": [
+      -2239.7,
+      -123.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_21327ac8-6889-447b-a27f-7d9608c70b97",
+     "name": null,
+     "height": 45.4,
+     "mesh": "52353690",
+     "xy": [
+      -1745.8,
+      -54.1
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_770cc13d-5924-4a5a-83c1-5312153c381b",
+     "name": null,
+     "height": 45.8,
+     "mesh": "52353690",
+     "xy": [
+      -2435.0,
+      210.1
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_b8850705-8285-467f-a866-29a5870b43d9",
+     "name": null,
+     "height": 45.6,
+     "mesh": "52353690",
+     "xy": [
+      -2275.7,
+      -196.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_25f6416f-fbc0-49d4-88a8-1676ac462be2",
+     "name": null,
+     "height": 50.6,
+     "mesh": "52353690",
+     "xy": [
+      -1537.7,
+      -134.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_2a77ebae-b083-43ae-9de0-5362f644a902",
+     "name": "風俗博物館",
+     "height": 30.1,
+     "mesh": "52353690",
+     "xy": [
+      -2357.4,
+      -534.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_b81df756-143f-469d-b43f-a2878f7423c2",
+     "name": null,
+     "height": 46.0,
+     "mesh": "52353690",
+     "xy": [
+      -1705.4,
+      -206.2
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_eaf3e6e2-901d-4b2b-942e-bce386a9b653",
+     "name": null,
+     "height": 50.2,
+     "mesh": "52353690",
+     "xy": [
+      -1970.3,
+      -117.1
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_92f6d49f-443a-4c2c-a63f-b218207a0434",
+     "name": null,
+     "height": 46.9,
+     "mesh": "52353690",
+     "xy": [
+      -1669.9,
+      -225.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_58727c40-13fd-409f-bfcb-cde2a92bf9d9",
+     "name": null,
+     "height": 46.4,
+     "mesh": "52353690",
+     "xy": [
+      -1995.5,
+      -213.2
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_26794e6d-ba9c-4d31-a592-5bc1e30834ea",
+     "name": null,
+     "height": 45.2,
+     "mesh": "52353691",
+     "xy": [
+      -1073.1,
+      -30.0
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_15e29d9e-a9b3-4092-b303-9176a5a5ab01",
+     "name": null,
+     "height": 53.5,
+     "mesh": "52353691",
+     "xy": [
+      -1196.8,
+      -156.1
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_6eecfc9d-31b2-4eb4-be43-2aafc88dc96f",
+     "name": null,
+     "height": 47.3,
+     "mesh": "52353691",
+     "xy": [
+      -1126.6,
+      -158.6
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_8b95cd2a-8f99-4e46-8f11-c7aee23ee16b",
+     "name": null,
+     "height": 48.6,
+     "mesh": "52354600",
+     "xy": [
+      -1577.7,
+      607.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_b0f0c543-d73c-432d-9e90-32529ebe0c61",
+     "name": null,
+     "height": 46.0,
+     "mesh": "52354600",
+     "xy": [
+      -2469.4,
+      1082.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_a03188bf-a6d7-422f-9b78-bc0a1fb04c16",
+     "name": "下京警察署",
+     "height": 35.5,
+     "mesh": "52354600",
+     "xy": [
+      -1807.3,
+      309.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_61c8f97a-44c6-4980-8155-790002c923f0",
+     "name": null,
+     "height": 47.9,
+     "mesh": "52354600",
+     "xy": [
+      -1937.6,
+      626.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_4384212b-ef19-47b0-ad05-44adad0223a5",
+     "name": "近畿厚生局京都事務所",
+     "height": 45.4,
+     "mesh": "52354600",
+     "xy": [
+      -1737.2,
+      746.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_fa5ed3bf-cba3-439b-8d42-1d80c821ae52",
+     "name": "京都労働局京都下労働基準監督署",
+     "height": 43.5,
+     "mesh": "52354600",
+     "xy": [
+      -1622.1,
+      689.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_69f1fb80-007b-459a-8c5c-1ece4903a49d",
+     "name": null,
+     "height": 53.2,
+     "mesh": "52354600",
+     "xy": [
+      -1704.4,
+      588.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_805e180c-1656-4c79-8d1f-642d321e9a2c",
+     "name": null,
+     "height": 47.2,
+     "mesh": "52354600",
+     "xy": [
+      -2279.2,
+      622.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_ffe0465f-3d98-4fe5-a37d-28ddcbab8d0a",
+     "name": null,
+     "height": 45.5,
+     "mesh": "52354600",
+     "xy": [
+      -1674.7,
+      1124.0
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_feb320ce-39bc-4fa7-a0d4-9113707227d0",
+     "name": null,
+     "height": 45.8,
+     "mesh": "52354600",
+     "xy": [
+      -2235.7,
+      686.5
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_b10c4c7c-5344-40b5-bf26-5790484a64f4",
+     "name": null,
+     "height": 49.0,
+     "mesh": "52354600",
+     "xy": [
+      -2423.5,
+      622.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_27dfd007-462f-4547-9225-4a4e1571d5b9",
+     "name": null,
+     "height": 53.4,
+     "mesh": "52354600",
+     "xy": [
+      -1739.8,
+      1138.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_d9d2139b-25db-47d8-9419-fb7356772484",
+     "name": null,
+     "height": 48.0,
+     "mesh": "52354600",
+     "xy": [
+      -1752.2,
+      1078.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_8cb197a8-8692-44fe-9432-afbd62a82c93",
+     "name": null,
+     "height": 51.3,
+     "mesh": "52354600",
+     "xy": [
+      -1815.5,
+      455.5
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_e35618a1-c5d5-4b33-b614-b32923e7355c",
+     "name": "市立高倉小学校",
+     "height": 25.7,
+     "mesh": "52354600",
+     "xy": [
+      -1548.5,
+      1004.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_cbeb846a-ec26-4040-8171-1374e4621996",
+     "name": null,
+     "height": 54.9,
+     "mesh": "52354600",
+     "xy": [
+      -1681.4,
+      307.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_5342c400-2f0d-48d9-9978-c8cfca3f7950",
+     "name": null,
+     "height": 50.7,
+     "mesh": "52354600",
+     "xy": [
+      -1821.0,
+      1104.7
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_f591a71c-cc41-4a4b-a0af-f075598f5de6",
+     "name": null,
+     "height": 47.1,
+     "mesh": "52354600",
+     "xy": [
+      -2229.0,
+      749.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_8e31f3d7-7a64-4ca1-a697-fd58966dca07",
+     "name": null,
+     "height": 46.5,
+     "mesh": "52354600",
+     "xy": [
+      -2092.8,
+      687.4
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_3caf522d-962d-407e-8946-99b1bae7d3b2",
+     "name": null,
+     "height": 46.9,
+     "mesh": "52354600",
+     "xy": [
+      -1811.0,
+      750.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_d84b7dd2-5e1f-4146-9c43-7f2a8397a5bd",
+     "name": "市立堀川高等学校",
+     "height": 29.7,
+     "mesh": "52354600",
+     "xy": [
+      -2407.3,
+      820.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_a29873f8-ee2e-4cab-96ad-eeb9a15a65c5",
+     "name": null,
+     "height": 45.8,
+     "mesh": "52354600",
+     "xy": [
+      -1742.1,
+      1168.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_cef444ac-51a8-4588-997d-4be683e30e64",
+     "name": null,
+     "height": 47.3,
+     "mesh": "52354601",
+     "xy": [
+      -1366.4,
+      705.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_3978ea79-6a7b-4cd5-bf8b-5c479ee49bda",
+     "name": null,
+     "height": 50.6,
+     "mesh": "52354601",
+     "xy": [
+      -1006.0,
+      579.6
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_c7ac85a9-de0e-4e04-929d-356e158857f3",
+     "name": null,
+     "height": 45.3,
+     "mesh": "52354601",
+     "xy": [
+      -859.0,
+      561.1
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_6cbc1876-193c-494b-8629-7f3121d3d5af",
+     "name": null,
+     "height": 51.3,
+     "mesh": "52354601",
+     "xy": [
+      -958.2,
+      1116.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_32c15c3a-c164-4082-8434-dba8d2a11aac",
+     "name": null,
+     "height": 50.2,
+     "mesh": "52354601",
+     "xy": [
+      -936.5,
+      743.6
+     ],
+     "lod2": true
+    },
+    {
+     "id": "bldg_a7dc95ab-5d94-41d0-8cd5-bafc8152d85c",
+     "name": "京都府京都文化博物館",
+     "height": 37.3,
+     "mesh": "52354610",
+     "xy": [
+      -1539.7,
+      1288.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_84b4fe03-3352-4c43-9fe7-3aaeb5edd085",
+     "name": null,
+     "height": 45.6,
+     "mesh": "52354610",
+     "xy": [
+      -1680.4,
+      1402.0
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_3e0dc4cc-c94e-4e64-9a9f-2fadbdfb2f6f",
+     "name": "西日本電信電話株式会社(京都支店)",
+     "height": 38.3,
+     "mesh": "52354610",
+     "xy": [
+      -1709.1,
+      1234.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_8b1b8a23-8766-4c71-bc9e-d446074e5b1c",
+     "name": "京都労働局",
+     "height": 31.2,
+     "mesh": "52354610",
+     "xy": [
+      -1881.4,
+      1514.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_180d1632-6151-464f-9920-9a9290a2b279",
+     "name": null,
+     "height": 46.0,
+     "mesh": "52354610",
+     "xy": [
+      -2290.1,
+      1417.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_1abbacb0-d37c-47dc-bf32-4b9b8186d3eb",
+     "name": "NHK京都放送局",
+     "height": 55.1,
+     "mesh": "52354610",
+     "xy": [
+      -1832.4,
+      1363.0
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_5eb39781-cb1c-4f7f-a15b-3c898f59907d",
+     "name": "大西清右衛門美術館",
+     "height": 30.2,
+     "mesh": "52354610",
+     "xy": [
+      -2133.5,
+      1173.3
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_8fc8fe15-7c13-422a-83f7-ad9e9f299be2",
+     "name": null,
+     "height": 45.4,
+     "mesh": "52354610",
+     "xy": [
+      -2168.8,
+      1491.5
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_3e4d7dab-4f8e-474b-8a74-cbb0808dcf70",
+     "name": null,
+     "height": 45.5,
+     "mesh": "52354610",
+     "xy": [
+      -2229.6,
+      1424.7
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_2a9930ac-eed8-41ad-9b36-6da5480c664e",
+     "name": null,
+     "height": 45.8,
+     "mesh": "52354611",
+     "xy": [
+      -1338.1,
+      1406.0
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_47f88f29-94bf-4cf9-8b1f-e5ddc674d930",
+     "name": "京都市役所",
+     "height": 34.1,
+     "mesh": "52354611",
+     "xy": [
+      -1005.0,
+      1533.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_3fc956d0-35e7-4ad1-b41e-0bcbaeca4e6c",
+     "name": null,
+     "height": 49.1,
+     "mesh": "52354611",
+     "xy": [
+      -1470.9,
+      1401.6
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_c9305240-7d83-45ed-bf01-25441c1a2fc3",
+     "name": null,
+     "height": 49.1,
+     "mesh": "52354611",
+     "xy": [
+      -1130.5,
+      1490.2
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_d7a1c1fa-2174-4d5c-a927-95d16ead3959",
+     "name": "市立京都御池中学校",
+     "height": 35.8,
+     "mesh": "52354611",
+     "xy": [
+      -1344.8,
+      1530.8
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_1f5a3dff-81a5-4098-bb0b-d27a50a704e3",
+     "name": "京都市消防局",
+     "height": 41.3,
+     "mesh": "52354611",
+     "xy": [
+      -983.9,
+      1617.5
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_8b48e1f5-4fc1-46fa-8e7b-db97ea85ce96",
+     "name": "京都市消防局中京消防署寺町出張所",
+     "height": 58.6,
+     "mesh": "52354611",
+     "xy": [
+      -995.6,
+      1571.7
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_fe5d58f7-2ff0-4bcb-8089-e4b00f7766b5",
+     "name": null,
+     "height": 46.1,
+     "mesh": "52354611",
+     "xy": [
+      -1109.5,
+      1399.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_37ea1407-9f01-47c7-bdad-89a20a4d368b",
+     "name": "京都三条大橋郵便局",
+     "height": 25.8,
+     "mesh": "52354611",
+     "xy": [
+      -489.2,
+      1244.2
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_529311c0-f01c-4ec2-8b04-ea6bc6941b83",
+     "name": null,
+     "height": 47.6,
+     "mesh": "52354611",
+     "xy": [
+      -1509.4,
+      1487.0
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_b1c9e266-b1cc-4691-a3a0-f6f7f5041f10",
+     "name": "京都市保健所",
+     "height": 42.3,
+     "mesh": "52354611",
+     "xy": [
+      -1403.8,
+      1402.7
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_f8004f1e-5170-4c7b-94ec-a210f5e8a438",
+     "name": null,
+     "height": 69.0,
+     "mesh": "52354611",
+     "xy": [
+      -879.4,
+      1536.9
+     ],
+     "lod2": false
+    },
+    {
+     "id": "bldg_e75c0582-8eae-4342-99ea-d6999f5570fe",
+     "name": null,
+     "height": 52.6,
+     "mesh": "52354613",
+     "xy": [
+      797.2,
+      1182.5
+     ],
+     "lod2": false
+    }
+   ]
+  },
+  "web": {
+   "rings": [
+    {
+     "name": "A",
+     "hole": 300.0,
+     "outer": 1008.0,
+     "step": 12.0
+    },
+    {
+     "name": "B",
+     "hole": 1008.0,
+     "outer": 3024.0,
+     "step": 48.0
+    },
+    {
+     "name": "C",
+     "hole": 3024.0,
+     "outer": 15120.0,
+     "step": 252.0
+    }
+   ],
+   "canopy": "integrated",
+   "objects": [
+    {
+     "name": "Backdrop_Terrain_A_12m",
+     "kind": "terrain",
+     "artistic": true,
+     "source": "GSI DEM5A z15 (DEM10B z14 fill) bare earth; colour GSI seamlessphoto z16 (white-balanced, muted); forest cells raised by the artistic canopy (12-20 m)",
+     "step_m": 12.0,
+     "extent_m": [
+      300.0,
+      1008.0
+     ],
+     "verts": 28360,
+     "tris": 54848
+    },
+    {
+     "name": "Backdrop_Terrain_B_48m",
+     "kind": "terrain",
+     "artistic": true,
+     "source": "GSI DEM5A z15 (DEM10B z14 fill) bare earth; colour GSI seamlessphoto z16 (white-balanced, muted); forest cells raised by the artistic canopy (12-20 m)",
+     "step_m": 48.0,
+     "extent_m": [
+      1008.0,
+      3024.0
+     ],
+     "verts": 14952,
+     "tris": 28728
+    },
+    {
+     "name": "Backdrop_Terrain_C_252m",
+     "kind": "terrain",
+     "artistic": true,
+     "source": "GSI DEM10B z12 bare earth; colour GSI seamlessphoto z12 (white-balanced, muted); forest cells raised by the artistic canopy (12-20 m)",
+     "step_m": 252.0,
+     "extent_m": [
+      3024.0,
+      15120.0
+     ],
+     "verts": 14520,
+     "tris": 28056
+    },
+    {
+     "name": "Backdrop_City_LOD2",
+     "kind": "city",
+     "artistic": false,
+     "source": "PLATEAU 2025 Kyoto City CityGML (LOD2 Roof/Wall), 3rd-order meshes 52353670..52354614; heights as surveyed, placed on GSI DEM; roof colour = GSI seamlessphoto z16 median in footprint (muted); wall colour drawn from measured PLATEAU texture means of mesh 52353692 by storey class",
+     "verts": 3731,
+     "tris": 3664
+    },
+    {
+     "name": "Backdrop_City_LOD1",
+     "kind": "city",
+     "artistic": false,
+     "source": "PLATEAU 2025 Kyoto City CityGML (LOD1 solids), 3rd-order meshes 52353670..52354614; heights as surveyed, placed on GSI DEM; roof colour = GSI seamlessphoto z16 median in footprint (muted); wall colour drawn from measured PLATEAU texture means of mesh 52353692 by storey class",
+     "verts": 88392,
+     "tris": 75874
+    }
+   ],
+   "city": {
+    "buildings": 6274,
+    "lod1": 6259,
+    "lod2": 15,
+    "skipped_inner": 1268,
+    "skipped_web": 63305
+   },
+   "landmarks": null
+  }
+ },
+ "forest": {
+  "near_res_m": 4.0,
+  "far_res_m": 32.0,
+  "rule": "PLATEAU luse class 203 (山林（樹林地）) where any luse polygon covers the cell; elsewhere orthophoto colour heuristic (2G-R-B>12, luminance<120, G>=R, 5-px median)"
+ }
+}

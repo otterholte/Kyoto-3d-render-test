@@ -1,0 +1,492 @@
+{
+ "schema": "facade_atlas v1",
+ "atlas_size_px": [
+  2048,
+  2048
+ ],
+ "px_per_m": 160.0,
+ "padding_px": 4,
+ "uv_origin": "bottom-left (OpenGL/Blender UV); px_rect is top-left image pixels",
+ "normal": "OpenGL tangent space (+Y up)",
+ "orm": "R=AO G=roughness B=metalness",
+ "files": {
+  "albedo": "facade_atlas_albedo.jpg",
+  "normal": "facade_atlas_normal.jpg",
+  "orm": "facade_atlas_orm.jpg",
+  "emit": "facade_atlas_emit.jpg"
+ },
+ "modules": {
+  "machiya_gf_itabari": {
+   "uv_rect": [
+    0.731934,
+    0.763672,
+    0.874023,
+    0.998047
+   ],
+   "px_rect": [
+    1499,
+    4,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: vertical dark board walls (板張り) with battens"
+  },
+  "machiya_gf_itabari_half": {
+   "uv_rect": [
+    0.806885,
+    0.525391,
+    0.87793,
+    0.759766
+   ],
+   "px_rect": [
+    1652,
+    492,
+    145,
+    480
+   ],
+   "width_m": 0.91,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "half"
+   ],
+   "has_emissive": false,
+   "evidence": "half-bay variant"
+  },
+  "machiya_gf_noren_entrance": {
+   "uv_rect": [
+    0.439941,
+    0.763672,
+    0.582031,
+    0.998047
+   ],
+   "px_rect": [
+    901,
+    4,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "entrance",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "commercial"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: glazed wooden sliding doors + indigo noren; crest/kana generic"
+  },
+  "machiya_gf_plaster_base": {
+   "uv_rect": [
+    0.585938,
+    0.763672,
+    0.728027,
+    0.998047
+   ],
+   "px_rect": [
+    1200,
+    4,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": false,
+   "evidence": "documented/observed: plaster with board skirting; inuyarai observed on Ishin-no-michi, inferred on slopes"
+  },
+  "machiya_gf_plaster_base_half": {
+   "uv_rect": [
+    0.881836,
+    0.525391,
+    0.952881,
+    0.759766
+   ],
+   "px_rect": [
+    1806,
+    492,
+    145,
+    480
+   ],
+   "width_m": 0.91,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "half"
+   ],
+   "has_emissive": false,
+   "evidence": "half-bay variant (no inuyarai)"
+  },
+  "machiya_gf_senkoshi": {
+   "uv_rect": [
+    0.001953,
+    0.763672,
+    0.144043,
+    0.998047
+   ],
+   "px_rect": [
+    4,
+    4,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "lattice",
+   "floor": "gf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": true,
+   "evidence": "documented: 出格子/平格子 on 1F, べんがら timber (Sanneizaka plan); slat 22 mm / gap 17 mm inferred"
+  },
+  "machiya_gf_senkoshi_dark": {
+   "uv_rect": [
+    0.147949,
+    0.763672,
+    0.290039,
+    0.998047
+   ],
+   "px_rect": [
+    303,
+    4,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "lattice",
+   "floor": "gf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: dark-stained sen-koshi on closed bays"
+  },
+  "machiya_gf_senkoshi_half": {
+   "uv_rect": [
+    0.731934,
+    0.525391,
+    0.802979,
+    0.759766
+   ],
+   "px_rect": [
+    1499,
+    492,
+    145,
+    480
+   ],
+   "width_m": 0.91,
+   "height_m": 3.0,
+   "kind": "lattice",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "half"
+   ],
+   "has_emissive": true,
+   "evidence": "half-bay variant"
+  },
+  "machiya_gf_shop_open": {
+   "uv_rect": [
+    0.293945,
+    0.763672,
+    0.436035,
+    0.998047
+   ],
+   "px_rect": [
+    602,
+    4,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "shop",
+   "floor": "gf",
+   "tags": [
+    "traditional",
+    "commercial"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: open shopfronts, short noren, display platforms; goods generic"
+  },
+  "machiya_uf_glazed_railing": {
+   "uv_rect": [
+    0.439941,
+    0.333984,
+    0.582031,
+    0.521484
+   ],
+   "px_rect": [
+    901,
+    980,
+    291,
+    384
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "window",
+   "floor": "uf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: glazed sliding windows, sudare, wooden balcony railings on 2F fronts"
+  },
+  "machiya_uf_mushikomado": {
+   "uv_rect": [
+    0.001953,
+    0.333984,
+    0.144043,
+    0.521484
+   ],
+   "px_rect": [
+    4,
+    980,
+    291,
+    384
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "window",
+   "floor": "uf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": true,
+   "evidence": "documented: 虫籠窓 district rule; placed sparingly (photos mostly show glazed lattice windows)"
+  },
+  "machiya_uf_plaster": {
+   "uv_rect": [
+    0.293945,
+    0.333984,
+    0.436035,
+    0.521484
+   ],
+   "px_rect": [
+    602,
+    980,
+    291,
+    384
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "wall",
+   "floor": "uf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: cream/pale-ochre plaster between dark posts and beams"
+  },
+  "machiya_uf_plaster_half": {
+   "uv_rect": [
+    0.585938,
+    0.333984,
+    0.656982,
+    0.521484
+   ],
+   "px_rect": [
+    1200,
+    980,
+    145,
+    384
+   ],
+   "width_m": 0.91,
+   "height_m": 2.4,
+   "kind": "wall",
+   "floor": "uf",
+   "tags": [
+    "traditional",
+    "half"
+   ],
+   "has_emissive": false,
+   "evidence": "half-bay"
+  },
+  "machiya_uf_window_lattice": {
+   "uv_rect": [
+    0.147949,
+    0.333984,
+    0.290039,
+    0.521484
+   ],
+   "px_rect": [
+    303,
+    980,
+    291,
+    384
+   ],
+   "width_m": 1.82,
+   "height_m": 2.4,
+   "kind": "window",
+   "floor": "uf",
+   "tags": [
+    "traditional"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: glazed wooden lattice windows on 2F"
+  },
+  "machiya_uf_window_lattice_half": {
+   "uv_rect": [
+    0.660889,
+    0.333984,
+    0.731934,
+    0.521484
+   ],
+   "px_rect": [
+    1353,
+    980,
+    145,
+    384
+   ],
+   "width_m": 0.91,
+   "height_m": 2.4,
+   "kind": "window",
+   "floor": "uf",
+   "tags": [
+    "traditional",
+    "half"
+   ],
+   "has_emissive": true,
+   "evidence": "half-bay"
+  },
+  "modern_gf_shopfront": {
+   "uv_rect": [
+    0.001953,
+    0.525391,
+    0.144043,
+    0.759766
+   ],
+   "px_rect": [
+    4,
+    492,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "shop",
+   "floor": "gf",
+   "tags": [
+    "modern",
+    "commercial"
+   ],
+   "has_emissive": true,
+   "evidence": "observed: aluminium/glass shopfronts + sign band on Yasaka-dori west; text generic"
+  },
+  "modern_uf_window": {
+   "uv_rect": [
+    0.585938,
+    0.525391,
+    0.728027,
+    0.759766
+   ],
+   "px_rect": [
+    1200,
+    492,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "window",
+   "floor": "uf",
+   "tags": [
+    "modern"
+   ],
+   "has_emissive": true,
+   "evidence": "generic: RC/steel building, nichōgake tile cladding + aluminium sash"
+  },
+  "temple_dobei": {
+   "uv_rect": [
+    0.147949,
+    0.525391,
+    0.290039,
+    0.759766
+   ],
+   "px_rect": [
+    303,
+    492,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "temple"
+   ],
+   "has_emissive": false,
+   "evidence": "inferred: earthen tsuiji wall with 5 sujibei lines + tile coping (generic temple vocabulary)"
+  },
+  "white_plaster_timber": {
+   "uv_rect": [
+    0.293945,
+    0.525391,
+    0.436035,
+    0.759766
+   ],
+   "px_rect": [
+    602,
+    492,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "temple"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: white plaster between dark timber (Koshin-do main hall, kura)"
+  },
+  "white_plaster_vermilion": {
+   "uv_rect": [
+    0.439941,
+    0.525391,
+    0.582031,
+    0.759766
+   ],
+   "px_rect": [
+    901,
+    492,
+    291,
+    480
+   ],
+   "width_m": 1.82,
+   "height_m": 3.0,
+   "kind": "wall",
+   "floor": "gf",
+   "tags": [
+    "temple"
+   ],
+   "has_emissive": false,
+   "evidence": "observed: Koshin-do vermilion (#c0503a) posts/beams with white plaster"
+  }
+ },
+ "emit_resolution_px": [
+  1024,
+  1024
+ ]
+}

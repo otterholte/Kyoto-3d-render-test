@@ -1,9 +1,9 @@
 // Higashiyama Walk — bootstrap, UI wiring, quality management and the frame loop.
 import * as THREE from 'three';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { Post } from './post.js';
+import { patchAtmosTree } from './pbr.js';
+import { loadBackdrop } from './backdrop.js';
+import { Gallery } from './gallery.js';
 import { PLACES, SPAWN, ZONES, QUALITY } from './config.js';
 import { installHeightFog } from './materials.js';
 import { Sky } from './sky.js';
@@ -79,6 +79,9 @@ async function main() {
 
   // ---------------------------------------------------------------- quality
   let qualityPref = store.get('quality', 'auto');
+  // ?q=low|medium|high|ultra forces a tier for this visit (testing, screenshots); not remembered
+  const urlQ = new URLSearchParams(location.search).get('q');
+  if (urlQ && QUALITY[urlQ]) qualityPref = urlQ;
   const autoQ = isMobile ? 'medium' : 'high';
   let Q = QUALITY[qualityPref === 'auto' ? autoQ : qualityPref] || QUALITY[autoQ];
   let dprScale = 1;
@@ -90,7 +93,7 @@ async function main() {
   sky.setTime(Number.isFinite(tod0) ? tod0 : 0.35);
 
   // ---------------------------------------------------------------- world
-  const world = await loadWorld(scene, renderer, progress);
+  const world = await loadWorld(scene, renderer, progress, { lite: isMobile });
   progress(0.93, 'Hanging the lanterns…');
   let minimapData = { streets: [], buildings: [], barriers: [] };
   try {
@@ -110,23 +113,29 @@ async function main() {
     $('info-pagoda').textContent = `Pagoda: hero model on the surveyed OSM/PLATEAU footprint${h.height_m ? `, ${h.height_m} m incl. sōrin` : ''} (documented/evidence-based; see docs/evidence). Fine carving and colour detail are artistic.`;
   }
 
-  // ---------------------------------------------------------------- post (bloom on high only)
-  // one composer, created on first use and then kept: disabling bloom bypasses it (no GPU resource churn)
-  let composer = null, bloom = null, useComposer = false;
+  // ---------------------------------------------------------------- image-based lighting + atmosphere
+  // the PMREM of the sky dome lights every PBR material (sky.update assigns scene.environment);
+  // the hemisphere light is reduced accordingly so the ambient is not counted twice
+  scene.environmentIntensity = 1.15;
+  sky.hemiScale = 0.6;
+  sky.t = -1; sky.setTime(Number.isFinite(tod0) ? tod0 : 0.35);
+  sky.mesh.userData.noAO = true;
+  leaves.points.userData.noAO = true;
+  lanterns.group.traverse((o) => { o.userData.noAO = true; });
+  patchAtmosTree(scene);
+
+  // ---------------------------------------------------------------- post (tiered: AO, bloom, grade, AA)
+  // one composer for the page lifetime; passes are switched per tier (no GPU resource churn)
+  const post = new Post(renderer, scene, camera);
+  let useComposer = false;
   function setupComposer() {
-    useComposer = Q.bloom && bloomAllowed;
-    if (!useComposer || composer) return;
-    const rt = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: Q.msaa ? 4 : 0 });
-    composer = new EffectComposer(renderer, rt);
-    composer.addPass(new RenderPass(scene, camera));
-    bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.5, 0.55, 0.95);
-    composer.addPass(bloom);
-    composer.addPass(new OutputPass());
-    resize();
+    useComposer = !!Q.post;
+    post.configure({ ...Q, bloom: Q.bloom && bloomAllowed });
   }
 
   // adaptive resolution: refresh-aware (peak fps ~ display refresh), with hysteresis; the first window after
   // start / quality change / tab return is skipped (shader compilation, throttled background timers)
+  const photo = { on: false };
   const adapt = {
     peak: 0, good: 0, cooldown: 0, skip: 1,
     reset() { this.good = 0; this.cooldown = 0; this.skip = 1; },
@@ -140,12 +149,13 @@ async function main() {
     renderer.setSize(w, h);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    if (composer) { composer.setPixelRatio(pr); composer.setSize(w, h); }
+    post.setSize(w, h, pr);
   }
   addEventListener('resize', resize);
 
   function applyQuality() {
-    Q = QUALITY[qualityPref === 'auto' ? autoQ : qualityPref] || QUALITY[autoQ];
+    Q = photo.on ? QUALITY.ultra : (QUALITY[qualityPref === 'auto' ? autoQ : qualityPref] || QUALITY[autoQ]);
+    hw.tier = photo.on ? 'ultra' : (qualityPref === 'auto' ? autoQ : qualityPref);
     dprScale = 1;
     bloomAllowed = true;
     adapt.reset();
@@ -162,8 +172,8 @@ async function main() {
 
   // ---------------------------------------------------------------- UI
   const input = new Input(canvas, { joy: $('joy'), knob: $('joy-knob') });
-  const panels = ['panel-places', 'panel-settings', 'panel-info'];
-  const btnFor = { 'panel-places': 'btn-places', 'panel-settings': 'btn-settings', 'panel-info': 'btn-info' };
+  const panels = ['panel-places', 'panel-renders', 'panel-settings', 'panel-info'];
+  const btnFor = { 'panel-places': 'btn-places', 'panel-renders': 'btn-renders', 'panel-settings': 'btn-settings', 'panel-info': 'btn-info' };
   function openPanel(id) {
     for (const p of panels) {
       const on = p === id && $(p).hidden;
@@ -189,6 +199,45 @@ async function main() {
   $('btn-places').onclick = () => openPanel('panel-places');
   $('btn-settings').onclick = () => openPanel('panel-settings');
   $('btn-info').onclick = () => openPanel('panel-info');
+  const manifest = world.stats.manifest || {};
+  const gallery = new Gallery({
+    list: $('renders-list'), empty: $('renders-empty'), lightbox: $('lightbox'), img: $('lightbox-img'), caption: $('lightbox-cap'),
+    close: $('lightbox-close'), prev: $('lightbox-prev'), next: $('lightbox-next'),
+  }, manifest.renders || null);
+  $('btn-renders').onclick = () => { openPanel('panel-renders'); gallery.open(); };
+  if (isTouch) document.body.classList.add('touch');
+
+  // ---------------------------------------------------------------- photo mode
+  // hides the interface, switches to the 'ultra' tier (full-res GTAO, SMAA + MSAA, 4k shadow map) for stills
+  function setPhoto(on) {
+    if (photo.on === on) return;
+    photo.on = on;
+    $('hud').hidden = on;
+    $('photo-bar').hidden = !on;
+    if (!on) traveller.root.visible = true;
+    applyQuality();
+    shadowDirty = true;
+    if (on) $('photo-save').focus({ preventScroll: true }); else $('btn-photo').focus({ preventScroll: true });
+  }
+  $('btn-photo').onclick = () => { closePanels(); setPhoto(true); };
+  $('photo-exit').onclick = () => setPhoto(false);
+  $('photo-traveller').onclick = () => {
+    traveller.root.visible = !traveller.root.visible;
+    $('photo-traveller').setAttribute('aria-pressed', String(traveller.root.visible));
+    shadowDirty = true;
+  };
+  $('photo-save').onclick = () => {
+    // grab the drawing buffer right after the next frame is drawn (same task, so it is still valid)
+    photo.capture = () => renderer.domElement.toBlob((blob) => {
+      if (!blob) return;
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `higashiyama-walk-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}.png`;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    }, 'image/png');
+  };
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && photo.on && $('lightbox').hidden) setPhoto(false); });
   document.querySelectorAll('[data-close]').forEach((b) => (b.onclick = closePanels));
   canvas.addEventListener('pointerdown', closePanels);
   addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanels(); });
@@ -293,12 +342,12 @@ async function main() {
     lastShadowY = traveller.root.position.y;
     if (sky.shadowDirty) { shadowDirty = true; sky.shadowDirty = false; }
     if (shadowDirty && Q.shadows) { renderer.shadowMap.needsUpdate = true; shadowDirty = false; }
-    sky.update(dt, camera, world.groundMat);
+    sky.update(dt, camera, world.wetMats);
     lanterns.update(sky.lanternIntensity);
     for (const m of world.glowMats) m.emissiveIntensity = m.userData.baseEmissive * (0.12 + 0.26 * sky.lanternIntensity);
     lightCol.copy(sky.sun.color).multiplyScalar(0.35 + 0.2 * sky.sun.intensity).add(tmpCol.copy(sky.hemi.color).multiplyScalar(sky.hemi.intensity * 0.6));
     leaves.update(dt, camera, lightCol, renderer.domElement.height);
-    if (bloom) bloom.strength = 0.25 + 0.18 * sky.lanternIntensity;
+    post.bloom.strength = 0.22 + 0.16 * sky.lanternIntensity;
 
     // gentle message while the walker is near the invisible wall at the edge of the surveyed box
     if (ctrl.edgeWarn) toast('The surveyed 400 m area ends here — the lanes of Higashiyama continue beyond.', Math.max(toastT, 1.2));
@@ -319,7 +368,8 @@ async function main() {
       if ($('place-name').textContent !== label) $('place-name').textContent = label;
     }
 
-    if (useComposer && composer) composer.render(dt); else renderer.render(scene, camera);
+    if (useComposer) post.draw(dt); else renderer.render(scene, camera);
+    if (photo.capture) { const cb = photo.capture; photo.capture = null; cb(); }
 
     // fps + adaptive resolution
     frames++; fpsT = (now - fpsStart) / 1000;
@@ -330,7 +380,7 @@ async function main() {
       fpsHistory.push(hw.fps); if (fpsHistory.length > 30) fpsHistory.shift();
       frames = 0; fpsT = 0;
       if (adapt.skip > 0) adapt.skip--;
-      else if (qualityPref === 'auto') {
+      else if (qualityPref === 'auto' && !photo.on) {
         // peak ~ display refresh (60/90/120 Hz) once vsync-capped; decays slowly so a lower-refresh mode is learnt
         // again. Recovery needs fps >= target AND (at the refresh cap OR well above target): on a 60 Hz panel
         // that is >= 55 fps (the old rule needed an impossible 70 fps)
@@ -340,7 +390,8 @@ async function main() {
         if (fps < target * 0.85) {
           adapt.good = 0;
           if (dprScale > 0.6) { dprScale = Math.max(0.6, dprScale - 0.1); resize(); adapt.cooldown = 3; adapt.skip = 1; }
-          else if (useComposer) { bloomAllowed = false; setupComposer(); }
+          else if (Q.bloom && bloomAllowed) { bloomAllowed = false; setupComposer(); }
+          else if (post.gtao.enabled) { post.gtao.enabled = false; }
         } else if (dprScale < 1 && fps >= target && (fps >= adapt.peak * 0.92 || fps > target * 1.3)) {
           // running at (near) the refresh cap or well above target: recover resolution after 2 good windows
           if (++adapt.good >= 2 && adapt.cooldown === 0) { dprScale = Math.min(1, dprScale + 0.05); resize(); adapt.good = 0; adapt.skip = 1; }
@@ -359,6 +410,7 @@ async function main() {
 
   // ---------------------------------------------------------------- start
   const s = teleport(SPAWN);
+  canvas.addEventListener('pointerdown', () => { if (photo.on) $('photo-bar').classList.toggle('dim'); });
   // pre-compile shaders before the loader disappears (no hitch on the first frames)
   progress(0.97, 'Preparing shaders…');
   try {
@@ -372,10 +424,18 @@ async function main() {
   setTimeout(() => { $('loading').hidden = true; }, 700);
   canvas.tabIndex = 0;
   requestAnimationFrame(frame);
+  // distant backdrop after the walk has started (never blocks it)
+  let backdrop = null;
+  loadBackdrop(scene, manifest).then((b) => {
+    if (!b) return;
+    backdrop = b; hw.backdrop = { tris: b.tris };
+    sky.uniforms.uRidge.value = 0.0;          // real hills replace the painted ridge line
+    renderer.compileAsync && renderer.compileAsync(b.root, camera).catch(() => {});
+  }).catch((e) => console.warn('backdrop.glb failed', e));
 
   Object.assign(hw, {
     ready: true, THREE, scene, camera, renderer, ctrl, follow, sky, world, lanterns, traveller, input, teleport, teleportLog,
-    places: PLACES, spawn: s, fpsHistory, isMobile, isTouch,
+    places: PLACES, spawn: s, fpsHistory, isMobile, isTouch, post, setPhoto, photo, gallery,
     setTime: (t) => { sky.setTime(t); tod.value = String(t); },
     state: () => ({
       x: +ctrl.pos.x.toFixed(3), n: +(-ctrl.pos.z).toFixed(3), y: +ctrl.pos.y.toFixed(3), grounded: ctrl.grounded,
@@ -384,7 +444,7 @@ async function main() {
     }),
     probe: (x, n) => { const g = ctrl.dropTo(x, -n); return g && { y: g.y, ny: g.normal.y, name: g.info.name, walkable: g.info.walkable }; },
     quality: () => ({ pref: qualityPref, dprScale, pixelRatio: renderer.getPixelRatio(), bloom: useComposer, shadow: Q.shadow, particles: Q.particles, peakFps: adapt.peak }),
-    stats: () => ({ ...world.stats, lanterns: lanterns.count, calls: renderer.info.render.calls, tris: renderer.info.render.triangles }),
+    stats: () => ({ ...world.stats, lanterns: lanterns.count, calls: renderer.info.render.calls, tris: renderer.info.render.triangles, textures: world.texSource, backdrop: hw.backdrop || null }),
   });
 }
 

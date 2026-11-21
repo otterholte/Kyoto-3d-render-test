@@ -83,7 +83,8 @@ def ribbon(s, coll, mat, zoff=0.035):
     ob = mesh_obj("Paving_osm%d" % s["osm_id"], V, F, coll, [mat])
     me = ob.data
     vi = np.empty(len(me.loops), np.int32); me.loops.foreach_get("vertex_index", vi)
-    for name, arr in (("UVMap", np.array(UV)), ("UVEdge", np.array(UE))):
+    UVP = np.array(UV)[:, ::-1]          # (across, along) for the texture library (rows run along u = across)
+    for name, arr in (("UVMap", np.array(UV)), ("UVEdge", np.array(UE)), ("UVPave", UVP)):
         uv = me.uv_layers.new(name=name)
         uv.data.foreach_set("uv", arr[vi].ravel())
     me.uv_layers.active_index = 0

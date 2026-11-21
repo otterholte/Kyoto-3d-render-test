@@ -33,8 +33,11 @@ export const ZONES = [
   { ja: '東山', en: 'Higashiyama', test: () => true },
 ];
 
+// Quality tiers. post: composer on; ao: GTAO (aoScale = fraction of the frame); aa: 'msaa' | 'fxaa' | 'smaa' | 'none'.
+// 'ultra' is used by Photo mode only.
 export const QUALITY = {
-  low: { dprCap: 1.0, shadows: false, treeShadows: false, shadow: 1024, shadowRange: 26, bloom: false, msaa: false, particles: 120, petalsSize: 1 },
-  medium: { dprCap: 1.5, shadows: true, treeShadows: false, shadow: 1024, shadowRange: 32, bloom: false, msaa: false, particles: 220, petalsSize: 1 },
-  high: { dprCap: 2.0, shadows: true, treeShadows: true, shadow: 2048, shadowRange: 40, bloom: true, msaa: true, particles: 420, petalsSize: 1 },
+  low: { dprCap: 1.0, shadows: false, treeShadows: false, shadow: 1024, shadowRange: 26, bloom: false, post: false, ao: false, aa: 'none', particles: 120 },
+  medium: { dprCap: 1.5, shadows: true, treeShadows: false, shadow: 1024, shadowRange: 32, bloom: false, post: true, ao: false, aa: 'fxaa', particles: 220 },
+  high: { dprCap: 2.0, shadows: true, treeShadows: true, shadow: 2048, shadowRange: 40, bloom: true, post: true, ao: true, aoScale: 0.5, aoSamples: 12, aa: 'msaa', particles: 420 },
+  ultra: { dprCap: 2.5, shadows: true, treeShadows: true, shadow: 4096, shadowRange: 60, bloom: true, post: true, ao: true, aoScale: 1.0, aoSamples: 16, aa: 'smaa', particles: 420 },
 };

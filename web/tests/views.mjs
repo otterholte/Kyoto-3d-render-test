@@ -6,7 +6,7 @@ const VIEWS = (process.env.VIEWS || 'gate').split(',');
 const { srv, url } = await serve();
 const b = await launch();
 const { page, errors } = await newPage(b, { viewport: { width: 1280, height: 800 } });
-await page.goto(url);
+await page.goto(url + (process.env.Q ? '?q=' + process.env.Q : ''));
 await page.waitForFunction(() => window.__hw && (window.__hw.ready || window.__hw.errors.length), null, { timeout: 300000 });
 const setups = {
   gate: () => { __hw.setTime(0.3); __hw.teleport(__hw.places.find((p) => p.id === 'gate')); },
@@ -18,9 +18,11 @@ const setups = {
 };
 for (const v of VIEWS) {
   await page.evaluate(`(${setups[v].toString()})()`);
-  await sleep(4000);
-  await page.screenshot({ path: path.join(OUT, `view_${v}.png`) });
+  await sleep(+(process.env.WAIT || 4000));
+  const t0 = Date.now();
+  await page.screenshot({ path: path.join(OUT, `view_${v}${process.env.Q ? '_' + process.env.Q : ''}.png`), timeout: 300000 });
+  console.log('frame+shot', (Date.now() - t0) / 1000, 's', await page.evaluate(() => __hw.fps));
   console.log('shot', v);
 }
-console.log('errors', errors, await page.evaluate(() => __hw.stats().pagodaUrl));
+console.log('errors', errors.map((e) => e.slice(0, 300)), JSON.stringify(await page.evaluate(() => { const s = __hw.stats(); delete s.manifest; return s; })));
 await b.close(); srv.close();

@@ -1,8 +1,8 @@
 // Sky dome (gradient lavender-blue with warm horizon, sun glow, painted Higashiyama hills to the east)
 // and the time-of-day controller: t = 0 golden hour ... t = 1 blue hour.
 import * as THREE from 'three';
-import { SUN_AZIMUTH } from './config.js';
 import { shared } from './materials.js';
+import { atmos } from './pbr.js';
 
 const SKY_VERT = /* glsl */`
 varying vec3 vDir;
@@ -13,7 +13,7 @@ void main() {
 }`;
 const SKY_FRAG = /* glsl */`
 uniform vec3 uTop, uMid, uHorizon, uWarm, uSunDir, uSunCol, uHill, uHillFar;
-uniform float uSunSize, uStars, uGlow;
+uniform float uSunSize, uStars, uGlow, uRidge;
 varying vec3 vDir;
 float h1( float x ) { return fract( sin( x * 127.1 ) * 43758.5453 ); }
 float n1( float x ) { float i = floor( x ), f = fract( x ); f = f * f * ( 3.0 - 2.0 * f ); return mix( h1( i ), h1( i + 1.0 ), f ); }
@@ -41,8 +41,8 @@ void main() {
   float east = smoothstep( 1.9, 0.2, abs( az - 1.57 ) );
   float ridgeFar = 0.018 + 0.022 * n1( az * 5.0 + 3.0 ) + 0.012 * n1( az * 13.0 );
   float ridge = 0.01 + east * ( 0.06 + 0.035 * n1( az * 7.0 ) + 0.015 * n1( az * 23.0 ) );
-  if ( y < ridgeFar ) c = mix( c, uHillFar, 0.75 * smoothstep( ridgeFar, ridgeFar - 0.004, y ) );
-  if ( y < ridge ) c = mix( c, uHill, smoothstep( ridge, ridge - 0.004, y ) * ( 0.55 + 0.4 * east ) );
+  if ( y < ridgeFar ) c = mix( c, uHillFar, uRidge * 0.75 * smoothstep( ridgeFar, ridgeFar - 0.004, y ) );
+  if ( y < ridge ) c = mix( c, uHill, uRidge * smoothstep( ridge, ridge - 0.004, y ) * ( 0.55 + 0.4 * east ) );
   if ( y < 0.0 ) c = mix( c, uHill * 0.9, smoothstep( 0.0, -0.05, y ) );
   gl_FragColor = vec4( c, 1.0 );
   #include <tonemapping_fragment>
@@ -62,6 +62,20 @@ const K = [
     fogD: 0.005, lan: 3.4, wet: 0.65, exp: 1.25, stars: 0.6, hill: [0.08, 0.09, 0.18], hillFar: [0.16, 0.16, 0.3], glow: 0.55 },
 ];
 const lerp = (a, b, f) => a + (b - a) * f;
+
+// Physically based sun for Kyoto, mid-November ~16:00 -> 17:00 JST: t = 0 alt 12 deg, az 230 deg (golden hour)
+// ... t = 1 alt -6 deg (civil twilight, blue hour). Colour / illuminance from a simple Rayleigh+Mie transmittance
+// exp(-tau * airmass), Kasten-Young airmass.
+export function sunAt(t) {
+  const alt = 12 - 18 * t, az = 230 + 9 * t;
+  const a = Math.max(alt, 0.3);
+  const m = 1 / (Math.sin(THREE.MathUtils.degToRad(a)) + 0.50572 * Math.pow(a + 6.07995, -1.6364));
+  const tau = [0.095, 0.165, 0.33];
+  const T = tau.map((k) => Math.exp(-k * m));
+  const mx = Math.max(...T);
+  const fade = THREE.MathUtils.smoothstep(alt, -1.5, 2.5);       // disc sinks below the ridge / horizon
+  return { alt, az, col: T.map((v) => v / mx), illum: 4.2 * mx * fade };
+}
 function sample(t) {
   let i = 0;
   while (i < K.length - 2 && t > K[i + 1].t) i++;
@@ -81,7 +95,7 @@ export class Sky {
       uTop: { value: new THREE.Color() }, uMid: { value: new THREE.Color() }, uHorizon: { value: new THREE.Color() },
       uWarm: { value: new THREE.Color() }, uSunDir: { value: new THREE.Vector3(0, 1, 0) }, uSunCol: { value: new THREE.Color() },
       uSunSize: { value: 0.0009 }, uStars: { value: 0 }, uHill: { value: new THREE.Color() }, uHillFar: { value: new THREE.Color() },
-      uGlow: { value: 1 },
+      uGlow: { value: 1 }, uRidge: { value: 1 },
     };
     const mat = new THREE.ShaderMaterial({ vertexShader: SKY_VERT, fragmentShader: SKY_FRAG, uniforms: this.uniforms,
       side: THREE.BackSide, depthWrite: false, fog: false });
@@ -108,6 +122,7 @@ export class Sky {
     scene.fog = new THREE.Fog(0xffffff, 0.004, 0.035); // near = density, far = height falloff (see materials.js)
     this.sunDir = new THREE.Vector3();
     this.lightDir = new THREE.Vector3(0, 1, 0);
+    this.hemiScale = 1;                // reduced once the PMREM sky lights the scene (image-based lighting)
     this._s = { up: new THREE.Vector3(), right: new THREE.Vector3(), upL: new THREE.Vector3(), snapped: new THREE.Vector3(), last: new THREE.Vector3(NaN, 0, 0) };
     this.shadowDirty = true;
     this.params = null;
@@ -121,25 +136,33 @@ export class Sky {
     if (Math.abs(t - this.t) < 1e-4) return;
     this.t = t;
     const p = sample(t);
+    const sun = sunAt(t);
+    p.el = sun.alt;
     this.params = p;
-    const az = THREE.MathUtils.degToRad(SUN_AZIMUTH);
+    this.sunModel = sun;
+    const az = THREE.MathUtils.degToRad(sun.az);
     const el = THREE.MathUtils.degToRad(p.el);
     // direction toward the sun: east = +x, north = -z
     this.sunDir.set(Math.sin(az) * Math.cos(el), Math.sin(el), -Math.cos(az) * Math.cos(el)).normalize();
     const u = this.uniforms;
     u.uTop.value.setRGB(...p.top); u.uMid.value.setRGB(...p.mid); u.uHorizon.value.setRGB(...p.hor);
     u.uWarm.value.setRGB(...p.warm); u.uSunDir.value.copy(this.sunDir);
-    u.uSunCol.value.setRGB(...p.sun).multiplyScalar(p.el > -1 ? 1 : 0);
+    u.uSunCol.value.setRGB(...sun.col).multiplyScalar(THREE.MathUtils.smoothstep(p.el, -1, 1));
     u.uStars.value = p.stars; u.uHill.value.setRGB(...p.hill); u.uHillFar.value.setRGB(...p.hillFar); u.uGlow.value = p.glow;
     // light: below the horizon the key light becomes a soft cool sky fill from the same side
     const lightEl = Math.max(p.el, 7);
     const le = THREE.MathUtils.degToRad(lightEl);
     this.lightDir.set(Math.sin(az) * Math.cos(le), Math.sin(le), -Math.cos(az) * Math.cos(le)).normalize();
-    this.sun.color.setRGB(...p.sun);
-    this.sun.intensity = p.sunI;
+    // direct sun (physical) blended into the cool twilight fill once the disc has set
+    const fill = new THREE.Color(...K[2].sun);
+    const k = THREE.MathUtils.smoothstep(p.el, -2, 3);
+    this.sun.color.setRGB(...sun.col).lerp(fill, 1 - k);
+    this.sun.intensity = Math.max(sun.illum, K[2].sunI * (1 - k));
+    atmos.hwSunDir.value.copy(this.sunDir);
+    atmos.hwSunCol.value.setRGB(...p.warm).multiplyScalar(0.55 * p.glow);
     this.hemi.color.setRGB(...p.hemiSky);
     this.hemi.groundColor.setRGB(...p.hemiGround);
-    this.hemi.intensity = p.hemiI;
+    this.hemi.intensity = p.hemiI * this.hemiScale;
     this.scene.fog.color.setRGB(...p.fog);
     this.scene.fog.near = p.fogD;
     this.scene.fog.far = 0.045;
@@ -153,7 +176,8 @@ export class Sky {
   }
 
   // follow the camera, refresh the PMREM env (debounced) when time changes
-  update(dt, camera, groundMat) {
+  // wetMats: street surfaces whose IBL (ambient + reflection of the sky) rises with the dusk wetness
+  update(dt, camera, wetMats = []) {
     this.mesh.position.copy(camera.position);
     if (this._envDirty) {
       this._envTimer -= dt;
@@ -162,10 +186,11 @@ export class Sky {
         const old = this.envRT;
         this.envRT = this.pmrem.fromScene(this.envScene, 0, 1, 1000);
         if (old) old.dispose();
-        if (groundMat) {
-          groundMat.envMap = this.envRT.texture;
-          groundMat.envMapIntensity = 0.25 + 1.4 * this.params.wet;
-          groundMat.needsUpdate = true;
+        this.scene.environment = this.envRT.texture;
+        // explicit envMap so the per-material intensity applies (scene.environment uses environmentIntensity)
+        for (const m of wetMats) {
+          if (m.envMap !== this.envRT.texture) { const first = !m.envMap; m.envMap = this.envRT.texture; if (first) m.needsUpdate = true; }
+          m.envMapIntensity = (this.scene.environmentIntensity || 1) * (1.0 + 1.3 * this.params.wet);
         }
       }
     }

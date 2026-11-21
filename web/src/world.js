@@ -5,7 +5,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { MeshBVH } from 'three-mesh-bvh';
-import { makeRoleMaterials, makeGroundMaterial } from './materials.js';
+import { makeRoleMaterials } from './materials.js';
+import { loadTextureLibrary } from './textures.js';
+import { facadeMaterial, roofMaterial, stoneMaterial, groundMaterial, pavingMaterial, leafMaterial, canopyGeometry, styleOf, hashStr } from './pbr.js';
 
 const SECTION = 100; // m
 
@@ -99,6 +101,7 @@ function roleOf(obj, matName) {
   if (/^Terrain/i.test(n) || /^Terrain/i.test(pn)) return 'terrain';
   if (any(/^LM_Yasaka_Pagoda/i)) return 'pagodaLM';
   if (/^Steps_/i.test(n) || /^Steps_/i.test(pn)) return 'steps';
+  if (any(/^Paving_/i)) return 'paving';
   if (/^(Barrier|Barriers)_/i.test(n) || /^(Barrier|Barriers)_/i.test(pn)) return 'barrier';
   if (/^TreeCrown/i.test(n) || /^TreeCrown/i.test(pn)) return 'crown';
   if (/^Tree_/i.test(n) || /^Tree_/i.test(pn)) return 'trunk';
@@ -135,9 +138,28 @@ async function exists(url) {
 }
 
 // ---------------------------------------------------------------- loader
-export async function loadWorld(scene, renderer, progress) {
-  const loader = new GLTFLoader();
-  loader.setMeshoptDecoder(MeshoptDecoder);
+const gltfLoader = new GLTFLoader();
+gltfLoader.setMeshoptDecoder(MeshoptDecoder);
+// GLB by URL; '*.b64.txt' = GLB shipped as base64 text (static hosts that do not serve .glb)
+export function loadGLB(url, onProgress) {
+  return new Promise((res, rej) => {
+    if (!/\.b64\.txt(\?|$)/.test(url)) { gltfLoader.load(url, res, onProgress, rej); return; }
+    const fl = new THREE.FileLoader(); fl.setResponseType('text');
+    fl.load(url, (txt) => {
+      try {
+        let buf;
+        if (typeof Uint8Array.fromBase64 === 'function') buf = Uint8Array.fromBase64(txt.trim());
+        else {
+          const bin = atob(txt.trim()); buf = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+        }
+        gltfLoader.parse(buf.buffer, '', res, rej);
+      } catch (err) { rej(err); }
+    }, onProgress, rej);
+  });
+}
+
+export async function loadWorld(scene, renderer, progress, { lite = false } = {}) {
 
   progress(0.02, 'Reading manifest…');
   let manifest = null;
@@ -157,6 +179,8 @@ export async function loadWorld(scene, renderer, progress) {
     if (await exists('assets/pagoda.glb')) pagodaUrl = 'assets/pagoda.glb';
   }
 
+  // texture library (procedural generation runs while the GLB downloads)
+  const libPromise = loadTextureLibrary(manifest && manifest.textures);
   // cache-bust the big files per build (static hosts often cache aggressively)
   const ver = manifest && manifest.generated ? '?v=' + encodeURIComponent(manifest.generated) : '';
   worldUrl += ver;
@@ -165,22 +189,7 @@ export async function loadWorld(scene, renderer, progress) {
     if (e.total) progress(a + (b - a) * Math.min(1, e.loaded / e.total), `${label} ${(e.loaded / 1048576).toFixed(1)} / ${(e.total / 1048576).toFixed(1)} MB`);
     else progress(a + (b - a) * 0.5, `${label} ${(e.loaded / 1048576).toFixed(1)} MB`);
   };
-  // '*.b64.txt' = GLB shipped as base64 text (static hosts that do not serve .glb)
-  const load = (url, a, b, label) => new Promise((res, rej) => {
-    if (!/\.b64\.txt(\?|$)/.test(url)) { loader.load(url, res, onProg(a, b, label), rej); return; }
-    const fl = new THREE.FileLoader(); fl.setResponseType('text');
-    fl.load(url, (txt) => {
-      try {
-        let buf;
-        if (typeof Uint8Array.fromBase64 === 'function') buf = Uint8Array.fromBase64(txt.trim());
-        else {
-          const bin = atob(txt.trim()); buf = new Uint8Array(bin.length);
-          for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
-        }
-        loader.parse(buf.buffer, '', res, rej);
-      } catch (err) { rej(err); }
-    }, onProg(a, b, label), rej);
-  });
+  const load = (url, a, b, label) => loadGLB(url, onProg(a, b, label));
 
   // surface mask: on failure fall back to plain ground (1x1 "soil") instead of failing the whole walk
   const maskPromise = new THREE.TextureLoader().loadAsync('assets/surface_mask.png').catch((e) => {
@@ -199,8 +208,17 @@ export async function loadWorld(scene, renderer, progress) {
   await new Promise((r) => setTimeout(r, 0));
   const maskTex = await maskPromise;
 
+  const lib = await libPromise;
   const M = makeRoleMaterials();
-  const groundMat = makeGroundMaterial(maskTex);
+  const groundMat = groundMaterial(lib, maskTex, { lite });
+  // physically based role materials (texture library); keys are render-group material keys
+  const P = {
+    roof: roofMaterial(lib), wall: facadeMaterial(lib), wallUv: facadeMaterial(lib, { glbUv: true }),
+    plinth: stoneMaterial(lib.stonewall, { color: 0xb5aea3 }),
+    steps: stoneMaterial(lib.stoneStep, { color: 0xe8e4dc }),
+    barrier: stoneMaterial(lib.stonewall, { color: 0xd6cfc4 }),
+    pavingStone: pavingMaterial(lib.ishidatami), pavingSett: pavingMaterial(lib.sett),
+  };
   gltf.scene.updateMatrixWorld(true);
 
   const groups = new Map();       // render merge groups: role|section -> [geom]
@@ -225,6 +243,31 @@ export async function loadWorld(scene, renderer, progress) {
     if (!o.geometry.attributes.normal && !mat.flatShading) { mat.flatShading = true; mat.needsUpdate = true; }
     return mat;
   };
+  // surveyed geometry with the physically based role materials
+  const addRole = (o, role, ex) => {
+    let key = role;
+    let g;
+    if (role === 'wall') {
+      const glbUv = !!(o.geometry.attributes.uv && (ex.facade_uv || (Array.isArray(ex.members) && ex.members.some((q) => q.facade_uv))));
+      key = glbUv ? 'wallUv' : 'wall';
+      g = worldGeometry(o, { normal: true, color: true, uv: glbUv, defaultColor: [0.8, 0.78, 0.72] });
+      g.setAttribute('aFac', facadeAttr(o, g, ex));
+    } else if (role === 'roof') {
+      g = worldGeometry(o, { normal: true, color: true, defaultColor: [0.3, 0.31, 0.33] });
+    } else if (role === 'paving') {
+      key = /sett|cobble/i.test(ex.surface || '') ? 'pavingSett' : 'pavingStone';
+      g = worldGeometry(o, { normal: true });
+    } else {
+      g = worldGeometry(o, { normal: true });
+    }
+    if (role !== 'paving') {
+      // per-face normals: the facade/roof/stone shaders build their UV frame from them (exact, no speckle)
+      g = g.toNonIndexed();
+      g.computeVertexNormals();
+    }
+    groupPush(groups, `${key}|${sectionKey(g)}`, g);
+  };
+
   const addOwn = (o) => {
     const mat = prepMat(o);
     const useColor = !!mat.vertexColors, useUv = !!(mat.map || mat.normalMap || mat.roughnessMap || mat.emissiveMap);
@@ -275,13 +318,12 @@ export async function loadWorld(scene, renderer, progress) {
       extraMeshes.push(m);
       return;
     }
-    // art pass (and unknown objects): keep the authored material, merge per material + section
-    if (role === 'other' || worldKind !== 'blockout') {
+    // unknown objects and the art kit: keep the authored material, merge per material + section
+    if (role === 'other') {
       artMeshes.push(o);
       return;
     }
-    const g = worldGeometry(o, { normal: true, color: M[role].vertexColors, defaultColor: [0.8, 0.78, 0.72] });
-    groupPush(groups, `${role}|${sectionKey(g)}`, g);
+    addRole(o, role, ex);
   });
 
   // hero pagoda (world coordinates) replaces the PLATEAU LOD2 one
@@ -311,8 +353,7 @@ export async function loadWorld(scene, renderer, progress) {
       const matName = (o.material && o.material.name) || '';
       const role = /roof/i.test(matName) ? 'roof' : /plinth/i.test(matName) ? 'plinth' : 'wall';
       collide.push(worldGeometry(o, { normal: false, objId: addObj('LM_Yasaka_Pagoda_PLATEAU_LOD2', 'pagoda', false) }));
-      if (worldKind === 'art') { addOwn(o); continue; }
-      groupPush(groups, `${role}|pagoda`, worldGeometry(o, { normal: true, color: M[role].vertexColors, defaultColor: [0.8, 0.78, 0.72] }));
+      addRole(o, role, { ...extrasOf(o), storeys: 1, usage: '422' });
     }
   }
 
@@ -327,9 +368,9 @@ export async function loadWorld(scene, renderer, progress) {
     const role = key.split('|')[0];
     for (const g of mergeSafe(list, key)) {
       g.computeBoundingSphere();
-      const m = new THREE.Mesh(g, M[role]);
+      const m = new THREE.Mesh(g, P[role] || M[role] || M.other);
       m.name = 'Merged_' + key;
-      m.castShadow = role !== 'plinth';
+      m.castShadow = role !== 'plinth' && !/^paving/.test(role);
       m.receiveShadow = true;
       m.matrixAutoUpdate = false;
       root.add(m);
@@ -339,7 +380,8 @@ export async function loadWorld(scene, renderer, progress) {
   for (const m of extraMeshes) { root.add(m); drawCalls++; }
 
   // documented trees: procedural instanced trees (blockout) / trunk colliders (art)
-  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj);
+  const leafMat = leafMaterial(lib);
+  const treeInfo = buildTrees(root, trees, M, worldKind, collide, addObj, leafMat);
   // authored meshes: instance every geometry+material used >= 4 times (glTF mesh reuse), merge the rest
   const reuse = new Map();
   for (const o of artMeshes) {
@@ -349,10 +391,21 @@ export async function loadWorld(scene, renderer, progress) {
     reuse.get(k).push(o);
   }
   let instanced = 0;
+  const canopy = canopyGeometry(34);
   for (const list of reuse.values()) {
     if (list.length < 4) { list.forEach(addOwn); continue; }
-    const mat = prepMat(list[0]);
-    const im = new THREE.InstancedMesh(list[0].geometry, mat, list.length);
+    let mat = prepMat(list[0]);
+    let geom = list[0].geometry, colour = null;
+    if (/foliage|leaf|crown|canopy/i.test(mat.name || '')) {
+      // authored low-poly crown -> alpha leaf-card canopy fitted to its bounds, tinted by its own colour
+      geom.computeBoundingBox();
+      const bb = geom.boundingBox, c = bb.getCenter(new THREE.Vector3()), sz = bb.getSize(new THREE.Vector3());
+      colour = averageColour(geom) || new THREE.Color(0.2, 0.3, 0.12);
+      geom = canopy.clone().scale(sz.x * 0.55, sz.y * 0.55, sz.z * 0.55).translate(c.x, c.y, c.z);
+      mat = leafMat;
+    }
+    const im = new THREE.InstancedMesh(geom, mat, list.length);
+    if (colour) { list.forEach((_, i) => im.setColorAt(i, colour)); im.userData.noAO = true; }
     list.forEach((o, i) => im.setMatrixAt(i, o.matrixWorld));
     im.castShadow = !mat.transparent; im.receiveShadow = true;
     im.computeBoundingSphere();
@@ -401,7 +454,7 @@ export async function loadWorld(scene, renderer, progress) {
   const treeMeshes = root.children.filter((m) => m.isInstancedMesh && /^(Trees_|Instanced_(Tree|Shrub))/i.test(m.name));
 
   return {
-    root, bvh, glowMats, treeMeshes, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
+    root, bvh, glowMats, treeMeshes, wetMats: [groundMat, P.pavingStone, P.pavingSett], texSource: lib.source + ` (${lib.ms} ms)`, colGeom, colliderMesh, objInfo, groundMat, materials: M, heroLoaded: !!hero, heroInfo,
     stats: {
       worldUrl, pagodaUrl: hero ? pagodaUrl : null, worldKind, drawCalls, trees: treeInfo.count,
       colliderTris: colGeom.index.count / 3, bvhMs: Math.round(bvhMs), instanced, manifest,
@@ -410,37 +463,56 @@ export async function loadWorld(scene, renderer, progress) {
 }
 
 // ---------------------------------------------------------------- trees
-function blobCrown() {
-  // painterly cluster of jittered blobs (unit radius ~1), vertex-coloured leaf tones
-  const parts = [];
-  const rnd = mulberry(7);
-  const blobs = [[0, 0, 0, 0.78], [0.45, 0.18, 0.2, 0.55], [-0.4, 0.12, -0.25, 0.58], [0.1, 0.42, -0.35, 0.5], [-0.15, 0.35, 0.42, 0.5], [0.05, -0.3, 0.05, 0.6]];
-  for (const [x, y, z, r] of blobs) {
-    const g = new THREE.IcosahedronGeometry(r, 1);
-    const p = g.attributes.position;
-    for (let i = 0; i < p.count; i++) {
-      const k = 1 + (rnd() - 0.5) * 0.22;
-      p.setXYZ(i, p.getX(i) * k + x, p.getY(i) * k + y, p.getZ(i) * k + z);
-    }
-    const col = new Float32Array(p.count * 3);
-    for (let i = 0; i < p.count; i++) {
-      const h = p.getY(i) - y;
-      const lit = 0.75 + 0.35 * (h / r);
-      col.set([0.16 * lit, 0.26 * lit, 0.09 * lit], i * 3);
-    }
-    g.setAttribute('color', new THREE.BufferAttribute(col, 3));
-    parts.push(g.index ? g.toNonIndexed() : g);
-  }
-  const g = mergeGeometries(parts.map((x) => { x.deleteAttribute('uv'); return x; }), false);
-  g.computeVertexNormals();
-  return g;
-}
-
 function mulberry(a) {
   return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 
-function buildTrees(root, trees, M, worldKind, collide, addObj) {
+// mean vertex colour of a geometry (art crowns carry their species colour in COLOR_0)
+function averageColour(g) {
+  const c = g.attributes.color;
+  if (!c) return null;
+  let r = 0, gg = 0, b = 0;
+  for (let i = 0; i < c.count; i++) { r += c.getX(i); gg += c.getY(i); b += c.getZ(i); }
+  return new THREE.Color(r / c.count, gg / c.count, b / c.count).multiplyScalar(1.6);
+}
+
+// per-vertex facade parameters: aFac = (wall base y, storey height, nStoreys * 16 + style, seed)
+function facadeAttr(o, g, ex) {
+  const pos = g.attributes.position, n = pos.count;
+  const mem = o.geometry.attributes._member;
+  const members = Array.isArray(ex.members) ? ex.members : [ex];
+  const kOf = (i) => (mem ? Math.round(mem.getX(i)) : 0);
+  const lo = new Map(), hi = new Map();
+  for (let i = 0; i < n; i++) {
+    const k = kOf(i), y = pos.getY(i);
+    lo.set(k, Math.min(lo.has(k) ? lo.get(k) : Infinity, y));
+    hi.set(k, Math.max(hi.has(k) ? hi.get(k) : -Infinity, y));
+  }
+  // eave = lowest "top" vertex (walls are quads base->eave; gable apexes are higher)
+  const eave = new Map();
+  for (let i = 0; i < n; i++) {
+    const k = kOf(i), y = pos.getY(i);
+    if (y > lo.get(k) + 1.6) eave.set(k, Math.min(eave.has(k) ? eave.get(k) : Infinity, y));
+  }
+  const params = new Map();
+  for (const k of lo.keys()) {
+    const e = members[k] || ex;
+    const base = lo.get(k), top = eave.has(k) ? eave.get(k) : hi.get(k);
+    const h = Math.max(2.4, top - base);
+    let storeys = Number(e.storeys) || 0;
+    if (!storeys) storeys = Math.max(1, Math.round(h / 3.1));
+    storeys = Math.min(storeys, Math.max(1, Math.round(h / 2.3)));
+    const storeyH = Math.min(4.6, Math.max(2.3, h / storeys));
+    const style = styleOf(e, storeys);
+    const seed = hashStr(String(e.plateau_id || e.name || k));
+    params.set(k, [base, storeyH, storeys * 16 + style, seed]);
+  }
+  const arr = new Float32Array(n * 4);
+  for (let i = 0; i < n; i++) arr.set(params.get(kOf(i)), i * 4);
+  return new THREE.BufferAttribute(arr, 4);
+}
+
+function buildTrees(root, trees, M, worldKind, collide, addObj, leafMat) {
   let drawCalls = 0;
   const box = new THREE.Box3(), c = new THREE.Vector3(), s = new THREE.Vector3();
   const tmp = new THREE.Object3D();
@@ -477,7 +549,8 @@ function buildTrees(root, trees, M, worldKind, collide, addObj) {
     root.add(im); drawCalls++;
   }
   if (trees.crown.length) {
-    const im = new THREE.InstancedMesh(blobCrown(), M.crown, trees.crown.length);
+    const im = new THREE.InstancedMesh(canopyGeometry(34), leafMat, trees.crown.length);
+    im.userData.noAO = true;
     const col = new THREE.Color();
     trees.crown.forEach((o, i) => {
       box.setFromObject(o); box.getCenter(c); box.getSize(s);
@@ -485,7 +558,7 @@ function buildTrees(root, trees, M, worldKind, collide, addObj) {
       tmp.updateMatrix(); im.setMatrixAt(i, tmp.matrix);
       // late-November palette (artistic): some maples turn, others stay green
       const a = autumn[Math.floor(rnd() * autumn.length)];
-      col.setRGB(a[0] / 0.16 * 0.9, a[1] / 0.26 * 0.9, a[2] / 0.09 * 0.9);
+      col.setRGB(a[0] * 1.4, a[1] * 1.4, a[2] * 1.4);
       im.setColorAt(i, col);
     });
     if (im.instanceColor) im.instanceColor.needsUpdate = true;

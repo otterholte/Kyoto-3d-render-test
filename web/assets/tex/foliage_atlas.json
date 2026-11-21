@@ -1,0 +1,133 @@
+{
+ "schema": "foliage_atlas v1",
+ "atlas_px": [
+  1024,
+  512
+ ],
+ "grid": [
+  4,
+  2
+ ],
+ "normal": "OpenGL tangent space",
+ "alpha": "albedo PNG alpha = coverage (use alpha clip ~0.4 or hashed)",
+ "orm": "R=AO G=roughness(0.55 leaves / 0.8 twigs) B=0",
+ "cards": {
+  "maple_autumn": {
+   "uv_rect": [
+    0.0,
+    0.5,
+    0.25,
+    1.0
+   ],
+   "size_m": [
+    0.5,
+    0.5
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Acer palmatum spray, leaves 5-7 cm"
+  },
+  "maple_green": {
+   "uv_rect": [
+    0.25,
+    0.5,
+    0.5,
+    1.0
+   ],
+   "size_m": [
+    0.5,
+    0.5
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Acer palmatum spray, leaves 5-7 cm"
+  },
+  "pine_needles": {
+   "uv_rect": [
+    0.5,
+    0.5,
+    0.75,
+    1.0
+   ],
+   "size_m": [
+    0.6,
+    0.6
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Pinus thunbergii shoot tufts, paired needles 7-13 cm"
+  },
+  "cherry_blossom": {
+   "uv_rect": [
+    0.75,
+    0.5,
+    1.0,
+    1.0
+   ],
+   "size_m": [
+    0.5,
+    0.5
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Prunus (Somei-yoshino type) blossom clusters, flowers ~3 cm"
+  },
+  "cherry_leaf": {
+   "uv_rect": [
+    0.0,
+    0.0,
+    0.25,
+    0.5
+   ],
+   "size_m": [
+    0.6,
+    0.6
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Prunus leaves, ovate serrate 8-12 cm"
+  },
+  "shrub_azalea": {
+   "uv_rect": [
+    0.25,
+    0.0,
+    0.5,
+    0.5
+   ],
+   "size_m": [
+    0.4,
+    0.4
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Rhododendron (tsutsuji) clipped shrub, leaves 2-4 cm"
+  },
+  "shrub_box": {
+   "uv_rect": [
+    0.5,
+    0.0,
+    0.75,
+    0.5
+   ],
+   "size_m": [
+    0.3,
+    0.3
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Ilex crenata / box-type clipped hedge, leaves 1-1.5 cm"
+  },
+  "bamboo_leaves": {
+   "uv_rect": [
+    0.75,
+    0.0,
+    1.0,
+    0.5
+   ],
+   "size_m": [
+    0.8,
+    0.8
+   ],
+   "pivot": "bottom-centre (twig base)",
+   "note": "Phyllostachys leaf fans, lanceolate 10-20 cm"
+  }
+ },
+ "files": {
+  "albedo": "foliage_atlas_albedo.png",
+  "normal": "foliage_atlas_normal.jpg",
+  "orm": "foliage_atlas_orm.jpg"
+ }
+}

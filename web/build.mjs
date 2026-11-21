@@ -201,7 +201,7 @@ if (!fs.existsSync(path.join(ASSETS, worldSrc))) {
 }
 console.log('GLB optimisation');
 // remove stale outputs from a previous build that picked another source
-for (const f of ['world.glb', 'world_art.glb', 'pagoda.glb']) {
+for (const f of ['world.glb', 'world_art.glb', 'pagoda.glb', 'backdrop.glb', 'world.glb.b64.txt', 'world_art.glb.b64.txt', 'pagoda.glb.b64.txt', 'backdrop.glb.b64.txt']) {
   const p = path.join(DIST, f);
   if (fs.existsSync(p)) fs.rmSync(p);
 }
@@ -212,6 +212,12 @@ if (fs.existsSync(path.join(ASSETS, 'pagoda.glb'))) {
   manifest.pagoda.hides = 'LM_Yasaka_Pagoda_PLATEAU_LOD2';
 } else {
   console.log('  assets/pagoda.glb not present: PLATEAU LOD2 pagoda is shown');
+}
+if (fs.existsSync(path.join(ASSETS, 'backdrop.glb'))) {
+  manifest.backdrop = await optimise('backdrop.glb', 'backdrop.glb', { colours: false });
+  manifest.backdrop.note = 'distant Kyoto massing + Higashiyama hills: render only, no collision';
+} else {
+  console.log('  assets/backdrop.glb not present: sky-painted hills only');
 }
 
 // ---------------------------------------------------------------- minimap.json
@@ -280,9 +286,15 @@ fs.copyFileSync(path.join(PROC, 'surface_mask.png'), path.join(ASSETS, 'surface_
 console.log('assets/surface_mask.png copied');
 
 manifest.minimap = 'assets/minimap.json';
+// optional inputs from other agents: listed only when present, so the page never requests missing files
+for (const p of ['assets/tex/facade_atlas.json', 'assets/facade_atlas.json']) {
+  if (fs.existsSync(path.join(HERE, p))) { manifest.textures = p; break; }
+}
+if (fs.existsSync(path.join(ASSETS, 'renders', 'renders.json'))) manifest.renders = 'assets/renders/renders.json';
+console.log(`textures: ${manifest.textures || 'procedural (no facade_atlas.json)'}; renders: ${manifest.renders || 'none'}`);
 // Artifact hosting serves no .glb type: also ship each GLB as base64 text (served as .txt);
 // the page decodes it (src/world.js) and still accepts plain .glb when served locally.
-for (const k of ['world', 'pagoda']) {
+for (const k of ['world', 'pagoda', 'backdrop']) {
   if (!manifest[k]) continue;
   const b64Name = manifest[k].file + '.b64.txt';
   fs.writeFileSync(path.join(DIST, b64Name), fs.readFileSync(path.join(DIST, manifest[k].file)).toString('base64'));

@@ -60,7 +60,8 @@ def fnoise(shape, lo=1.0, hi=None, beta=2.0, seed=0, aniso=(1.0, 1.0), rot=0.0):
     """Perfectly tileable fractal noise (FFT-filtered white noise), zero mean, unit std.
 
     lo/hi: band limits in cycles per texture (along the larger axis), beta: spectral slope
-    (2 = classic fBm look, 0 = white). aniso=(ax, ay) stretches features: ax>1 -> features shorter in x.
+    (2 = classic fBm look, 0 = white). aniso=(ax, ay) = feature stretch factors: (1, 0.1) -> features 10x
+    LONGER in y than in x (vertical streaks); (0.1, 1) -> horizontal streaks.
     """
     h, w = shape
     rng = np.random.default_rng(seed)
@@ -70,7 +71,7 @@ def fnoise(shape, lo=1.0, hi=None, beta=2.0, seed=0, aniso=(1.0, 1.0), rot=0.0):
     if rot:
         c, s = np.cos(rot), np.sin(rot)
         fx, fy = c * fx - s * fy, s * fx + c * fy
-    f = np.sqrt((fx * aniso[0]) ** 2 + (fy * aniso[1]) ** 2)
+    f = np.sqrt((fx / aniso[0]) ** 2 + (fy / aniso[1]) ** 2)
     f[0, 0] = 1.0
     amp = f ** (-beta / 2.0)
     amp[f < lo] = 0

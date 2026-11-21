@@ -94,6 +94,11 @@ def apply_preset(name, scene=None):
     w.node_tree.nodes["AmbientTint"].outputs[0].default_value = (*p["tint"], 1)
     w.node_tree.nodes["SkyCam"].outputs[0].default_value = p["skycam"]
     far = bpy.data.materials.get("ART_Far_Land")
+    BH = {"golden": ((0.72, 0.68, 0.66), 0.35), "dusk": ((0.62, 0.56, 0.58), 0.4), "blue": ((0.05, 0.06, 0.12), 0.55)}[name]
+    for m in bpy.data.materials:
+        if m.get("backdrop_material") and m.node_tree:
+            m.node_tree.nodes["BackdropHaze"].outputs[0].default_value = (*BH[0], 1)
+            m.node_tree.nodes["BackdropHazeAmount"].outputs[0].default_value = BH[1]
     if far and "CityLights" in far.node_tree.nodes:
         far.node_tree.nodes["CityLights"].outputs[0].default_value = p["city"]
         far.node_tree.nodes["FarHaze"].outputs[0].default_value = (*p["haze"], 1)

@@ -1,0 +1,544 @@
+{
+ "conventions": {
+  "albedo": "sRGB, no lighting baked in (except deep-interior darkness on facade modules, see docs)",
+  "normal": "tangent space, OpenGL (+Y up / green = up). Flip G for DirectX.",
+  "orm": "R = ambient occlusion, G = roughness, B = metalness (linear)",
+  "emit": "greyscale emissive mask (linear); multiply by a warm light colour at night",
+  "units": "size_m = physical width x height covered by one texture repeat (metres)"
+ },
+ "sets": {
+  "asphalt_worn": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    4.0,
+    4.0
+   ],
+   "tags": [
+    "modern"
+   ],
+   "notes": "white edge-line remnant at u = 0.30-0.45 m (put u=0 at the road edge)",
+   "files": {
+    "albedo": "asphalt_worn_albedo.jpg",
+    "normal": "asphalt_worn_normal.jpg",
+    "orm": "asphalt_worn_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "bamboo_fence_kenninji": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    1.8,
+    1.8
+   ],
+   "tags": [
+    "traditional"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bamboo_fence_kenninji_albedo.jpg",
+    "normal": "bamboo_fence_kenninji_normal.jpg",
+    "orm": "bamboo_fence_kenninji_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "bark_pine": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "vegetation"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_pine_albedo.jpg",
+    "normal": "bark_pine_normal.jpg",
+    "orm": "bark_pine_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "earth_moss": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "traditional",
+    "temple"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "earth_moss_albedo.jpg",
+    "normal": "earth_moss_normal.jpg",
+    "orm": "earth_moss_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "foliage_atlas": {
+   "kind": "alpha_atlas",
+   "category": "foliage",
+   "files": {
+    "albedo": "foliage_atlas_albedo.png",
+    "normal": "foliage_atlas_normal.jpg",
+    "orm": "foliage_atlas_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    512
+   ],
+   "descriptor": "foliage_atlas.json",
+   "tags": [
+    "vegetation"
+   ],
+   "size_m": null,
+   "notes": "alpha leaf cards; see foliage_atlas.json for per-card rects"
+  },
+  "gravel": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "temple",
+    "generic"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "gravel_albedo.jpg",
+    "normal": "gravel_normal.jpg",
+    "orm": "gravel_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "ishidatami_granite": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    2.4,
+    2.4
+   ],
+   "tags": [
+    "traditional",
+    "granite"
+   ],
+   "notes": "Ninenzaka/Sannenzaka/Yasaka-dori east granite slabs ~0.30 x 0.45-0.85 m, running bond (evidence: observed ~0.3 x 0.6 m). Rows run along u: put u across the street.",
+   "files": {
+    "albedo": "ishidatami_granite_albedo.jpg",
+    "normal": "ishidatami_granite_normal.jpg",
+    "orm": "ishidatami_granite_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "ishigaki_mossy": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    3.0,
+    3.0
+   ],
+   "tags": [
+    "traditional",
+    "stone"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "ishigaki_mossy_albedo.jpg",
+    "normal": "ishigaki_mossy_normal.jpg",
+    "orm": "ishigaki_mossy_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "kerb_granite": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    2.4,
+    0.6
+   ],
+   "tags": [
+    "traditional",
+    "granite"
+   ],
+   "notes": "tiles in u only; v 0-0.4 m = top face, 0.4-0.6 m = street face",
+   "files": {
+    "albedo": "kerb_granite_albedo.jpg",
+    "normal": "kerb_granite_normal.jpg",
+    "orm": "kerb_granite_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    256
+   ]
+  },
+  "plaster_cream": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "traditional",
+    "plaster"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "plaster_cream_albedo.jpg",
+    "normal": "plaster_cream_normal.jpg",
+    "orm": "plaster_cream_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "plaster_earth": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "traditional",
+    "plaster"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "plaster_earth_albedo.jpg",
+    "normal": "plaster_earth_normal.jpg",
+    "orm": "plaster_earth_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "plaster_lime": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "traditional",
+    "plaster"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "plaster_lime_albedo.jpg",
+    "normal": "plaster_lime_normal.jpg",
+    "orm": "plaster_lime_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "plaster_ochre": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "traditional",
+    "plaster"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "plaster_ochre_albedo.jpg",
+    "normal": "plaster_ochre_normal.jpg",
+    "orm": "plaster_ochre_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "roof_cement_slate": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    1.82,
+    1.82
+   ],
+   "tags": [
+    "modern"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "roof_cement_slate_albedo.jpg",
+    "normal": "roof_cement_slate_normal.jpg",
+    "orm": "roof_cement_slate_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "roof_copper_patina": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    1.8,
+    1.8
+   ],
+   "tags": [
+    "temple"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "roof_copper_patina_albedo.jpg",
+    "normal": "roof_copper_patina_normal.jpg",
+    "orm": "roof_copper_patina_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "roof_kawara_eave": {
+   "kind": "strip",
+   "category": "roof",
+   "size_m": [
+    2.12,
+    0.53
+   ],
+   "tags": [
+    "traditional"
+   ],
+   "notes": "eave strip: first courses with round eave-tile bosses (no onigawara); v=0 is the eave line, tiles in u only",
+   "files": {
+    "albedo": "roof_kawara_eave_albedo.jpg",
+    "normal": "roof_kawara_eave_normal.jpg",
+    "orm": "roof_kawara_eave_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    256
+   ]
+  },
+  "roof_kawara_hongawara": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    2.1,
+    2.16
+   ],
+   "tags": [
+    "temple"
+   ],
+   "notes": "hongawara (temple) 0.30 m columns, 0.27 m marugawara courses, 0.09 m hiragawara steps (generic)",
+   "files": {
+    "albedo": "roof_kawara_hongawara_albedo.jpg",
+    "normal": "roof_kawara_hongawara_normal.jpg",
+    "orm": "roof_kawara_hongawara_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "roof_kawara_ridge": {
+   "kind": "strip",
+   "category": "roof",
+   "size_m": [
+    2.12,
+    0.53
+   ],
+   "tags": [
+    "traditional"
+   ],
+   "notes": "ridge strip (noshi-gawara x5 + kanmuri) projected onto the roof plane at ~24 deg; v=1 is the ridge line, tiles in u only",
+   "files": {
+    "albedo": "roof_kawara_ridge_albedo.jpg",
+    "normal": "roof_kawara_ridge_normal.jpg",
+    "orm": "roof_kawara_ridge_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    256
+   ]
+  },
+  "roof_kawara_sangawara": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    2.12,
+    2.115
+   ],
+   "tags": [
+    "traditional"
+   ],
+   "notes": "J-type 53A sangawara (265 x 235 mm working size), weathered ibushi blue-grey; machiya standard",
+   "files": {
+    "albedo": "roof_kawara_sangawara_albedo.jpg",
+    "normal": "roof_kawara_sangawara_normal.jpg",
+    "orm": "roof_kawara_sangawara_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "roof_metal_seam": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    1.82,
+    1.82
+   ],
+   "tags": [
+    "modern"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "roof_metal_seam_albedo.jpg",
+    "normal": "roof_metal_seam_normal.jpg",
+    "orm": "roof_metal_seam_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "setts_granite": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    1.6,
+    1.6
+   ],
+   "tags": [
+    "traditional",
+    "granite"
+   ],
+   "notes": "Yasaka-dori west small rough-flamed granite setts ~0.10 x 0.16-0.24 m, running bond (OSM surface=sett; size inferred)",
+   "files": {
+    "albedo": "setts_granite_albedo.jpg",
+    "normal": "setts_granite_normal.jpg",
+    "orm": "setts_granite_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "stone_steps_trim": {
+   "kind": "trim",
+   "category": "ground",
+   "size_m": [
+    2.4,
+    1.2
+   ],
+   "tags": [
+    "traditional",
+    "granite"
+   ],
+   "notes": "trim sheet, tiles in u. v bands (m from bottom): riser 0-0.20, nosing 0.20-0.24, tread 0.24-0.66, mossy riser 0.66-0.86, mossy tread 0.86-1.20",
+   "files": {
+    "albedo": "stone_steps_trim_albedo.jpg",
+    "normal": "stone_steps_trim_normal.jpg",
+    "orm": "stone_steps_trim_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    512
+   ],
+   "bands_m": {
+    "riser": [
+     0.0,
+     0.24
+    ],
+    "tread": [
+     0.24,
+     0.66
+    ],
+    "riser_mossy": [
+     0.66,
+     0.86
+    ],
+    "tread_mossy": [
+     0.86,
+     1.2
+    ]
+   }
+  },
+  "timber_planks_bengara": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    2.4,
+    2.4
+   ],
+   "tags": [
+    "traditional",
+    "timber"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "timber_planks_bengara_albedo.jpg",
+    "normal": "timber_planks_bengara_normal.jpg",
+    "orm": "timber_planks_bengara_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "timber_planks_weathered": {
+   "kind": "tileable",
+   "category": "misc",
+   "size_m": [
+    2.4,
+    2.4
+   ],
+   "tags": [
+    "traditional",
+    "timber"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "timber_planks_weathered_albedo.jpg",
+    "normal": "timber_planks_weathered_normal.jpg",
+    "orm": "timber_planks_weathered_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  }
+ }
+}

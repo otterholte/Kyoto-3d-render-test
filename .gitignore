@@ -4,3 +4,4 @@ __pycache__/
 *.blend1
 *.pyc
 /tmp/
+data/raw/gsi/backdrop/
