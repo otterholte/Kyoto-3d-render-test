@@ -126,7 +126,7 @@ def curves_object(name, strands, collection, r_root=0.00005, r_tip=0.00002):
     return ob
 
 
-def hair_bsdf_material(name="HairStrands", melanin=0.88, redness=0.22):
+def hair_bsdf_material(name="HairStrands", melanin=0.83, redness=0.3):
     from materials import new_material
     m, b = new_material(name)
     h = b.n("ShaderNodeBsdfHairPrincipled", loc=(900, 0), _parametrization="MELANIN")

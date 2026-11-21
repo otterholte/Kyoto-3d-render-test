@@ -116,6 +116,7 @@ def set_outfit(outfit):
     bpy.data.objects["Hair_Scalp_Hires"].hide_render = not summer
     # hi-res: strands give the volume; the web cap shell is hidden
     bpy.data.objects["Hair_Cap_Summer"].hide_render = True
+    bpy.data.objects["Brows"].hide_render = True       # brow strands are used instead of the web cards
 
 
 def set_clip(clip, frame):

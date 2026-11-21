@@ -1,0 +1,137 @@
+{
+ "note": "ARTISTIC game additions (not real): snow kickers and a run-out berm placed on the measured Canby Ct sledding run (data/processed/sledding.json). Both the Blender winter scene and the web game read this file.",
+ "frame": "local EPSG:6339 frame from data/processed/boundary.json (x east, y north, z = terrain NAVD88 + feature height)",
+ "run_path_local": [
+  [
+   4.9,
+   -38.1
+  ],
+  [
+   -0.5,
+   -37.4
+  ],
+  [
+   -8.3,
+   -34.2
+  ],
+  [
+   -12.7,
+   -33.2
+  ],
+  [
+   -26.2,
+   -32.6
+  ],
+  [
+   -38.5,
+   -30.4
+  ],
+  [
+   -44.0,
+   -30.4
+  ],
+  [
+   -49.9,
+   -29.5
+  ],
+  [
+   -57.9,
+   -29.3
+  ],
+  [
+   -64.8,
+   -28.2
+  ],
+  [
+   -71.5,
+   -26.0
+  ],
+  [
+   -84.0,
+   -17.8
+  ],
+  [
+   -91.6,
+   -14.0
+  ],
+  [
+   -102.2,
+   -11.0
+  ],
+  [
+   -113.1,
+   -10.6
+  ],
+  [
+   -124.1,
+   -9.4
+  ]
+ ],
+ "run_length_m": 134.3,
+ "start": {
+  "center_local": [
+   4.9,
+   -38.1
+  ],
+  "heading_deg": 172.6
+ },
+ "jumps": [
+  {
+   "id": "jump_1_starter",
+   "arc_m": 38,
+   "center_local": [
+    -32.2,
+    -31.53
+   ],
+   "heading_deg": 169.9,
+   "ramp_length_m": 3.5,
+   "lip_height_m": 0.7,
+   "lip_angle_deg": 18,
+   "width_m": 3.2,
+   "landing_length_m": 8.0,
+   "description": "small starter kicker below the bulb"
+  },
+  {
+   "id": "jump_2_mid",
+   "arc_m": 72,
+   "center_local": [
+    -65.89,
+    -27.84
+   ],
+   "heading_deg": 161.8,
+   "ramp_length_m": 4.5,
+   "lip_height_m": 1.2,
+   "lip_angle_deg": 24,
+   "width_m": 3.2,
+   "landing_length_m": 8.0,
+   "description": "mid-run kicker where the street bends"
+  },
+  {
+   "id": "jump_3_big",
+   "arc_m": 100,
+   "center_local": [
+    -90.39,
+    -14.61
+   ],
+   "heading_deg": 153.4,
+   "ramp_length_m": 5.5,
+   "lip_height_m": 1.6,
+   "lip_angle_deg": 28,
+   "width_m": 3.2,
+   "landing_length_m": 8.0,
+   "description": "big kicker on the lower straight"
+  }
+ ],
+ "runout_berm": {
+  "center_local": [
+   -116.15,
+   -10.27
+  ],
+  "heading_deg": 173.8,
+  "width_m": 9.0,
+  "height_m": 1.4,
+  "depth_m": 3.0,
+  "description": "snow berm + hay bales stopping zone before the 38th St junction"
+ },
+ "artistic": true
+}
