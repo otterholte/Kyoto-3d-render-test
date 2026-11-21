@@ -1,0 +1,751 @@
+{
+ "type": "FeatureCollection",
+ "name": "streetlights",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Utilities/MapServer/56",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46418726004221,
+     48.72418049957241
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5640786,
+    "AssetID": "0402788",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSP2B",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 101,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422994",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46936580511003,
+     48.722653341734116
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641225,
+    "AssetID": "0405384",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 70,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412464",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46942680520941,
+     48.72453834265786
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641348,
+    "AssetID": "0405227",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412290",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46754580486969,
+     48.72482234209038
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641595,
+    "AssetID": "0405221",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412283",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46444680578568,
+     48.724730341890584
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641656,
+    "AssetID": "0405243",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 100,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412307",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46339135898872,
+     48.723501250273365
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641748,
+    "AssetID": "0402799",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSPR",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 38,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422996",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46410481805533,
+     48.72339597310592
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641761,
+    "AssetID": "0402700",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSP2B",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 101,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422995",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46420463705309,
+     48.722531488875006
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5641976,
+    "AssetID": "0402785",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSP2B",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 101,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422990",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46305802922105,
+     48.7231207363541
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5642439,
+    "AssetID": "0402704",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSPR",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 38,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422997",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46942380573468,
+     48.72514834235811
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5642511,
+    "AssetID": "0405218",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412280",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46446480622737,
+     48.72537334123942
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5642514,
+    "AssetID": "0405244",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 100,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412308",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46821580613782,
+     48.724971342127716
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5642580,
+    "AssetID": "0405220",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412282",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46664880561747,
+     48.724934342235215
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5642732,
+    "AssetID": "0405228",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412291",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46885480564718,
+     48.72482634212099
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5643008,
+    "AssetID": "0405219",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412281",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4655354264678,
+     48.7239667785974
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5643439,
+    "AssetID": "0405392",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 100,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412473",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46442738510756,
+     48.72300025535429
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5643552,
+    "AssetID": "0402786",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSP2B",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 101,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422991",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46780680498559,
+     48.72276934216257
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5644013,
+    "AssetID": "0405388",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412468",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4653998051144,
+     48.72499634135103
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5644064,
+    "AssetID": "0405230",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412293",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46936380546022,
+     48.723275342833745
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5644240,
+    "AssetID": "0405383",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 70,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412463",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4655438068511,
+     48.723036341667225
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5644348,
+    "AssetID": "0405390",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412470",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46723680686983,
+     48.721593341877224
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5644431,
+    "AssetID": "0405393",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": null,
+    "MaintainedBy": "PSE",
+    "Wattage": 100,
+    "FixtureType": null,
+    "SupportAssetID": "0412474",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46704680600071,
+     48.722647341428825
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5644482,
+    "AssetID": "0405387",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412467",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46636380521208,
+     48.72308134151742
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5645028,
+    "AssetID": "0405389",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412469",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46719480613872,
+     48.72404334161616
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5645119,
+    "AssetID": "0405385",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412465",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4693628056353,
+     48.72390734242701
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5645249,
+    "AssetID": "0405381",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 100,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412461",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46624780665778,
+     48.72400034208224
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5645728,
+    "AssetID": "0405391",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 100,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412472",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46720280653462,
+     48.723242342442674
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5645852,
+    "AssetID": "0405386",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412466",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46441353039094,
+     48.7238024418238
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5645914,
+    "AssetID": "0402787",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSP2B",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 101,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422993",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46843780589568,
+     48.72377434206688
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5646077,
+    "AssetID": "0405382",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": 70,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412462",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46596880610021,
+     48.7248123420124
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5646231,
+    "AssetID": "0405229",
+    "LampType": "HPS",
+    "Mfgr": null,
+    "Model": null,
+    "LuminaireArm": "<Null>",
+    "MaintainedBy": "PSE",
+    "Wattage": null,
+    "FixtureType": "Decorative",
+    "SupportAssetID": "0412292",
+    "CabinetAssetID": null,
+    "NumberFixtures": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46443910273213,
+     48.72206274113927
+    ]
+   },
+   "properties": {
+    "OBJECTID": 5646352,
+    "AssetID": "0402784",
+    "LampType": "LED",
+    "Mfgr": "CREE",
+    "Model": "XSP2B",
+    "LuminaireArm": "2' Arm",
+    "MaintainedBy": "COB-PW",
+    "Wattage": 101,
+    "FixtureType": "Cobra",
+    "SupportAssetID": "0422989",
+    "CabinetAssetID": "Direct Feed Flat Rate",
+    "NumberFixtures": 1
+   }
+  }
+ ]
+}

@@ -1,0 +1,3067 @@
+{
+ "type": "FeatureCollection",
+ "name": "address_points",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Places/MapServer/9",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46742603339115,
+     48.722482792925234
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86566866,
+    "ADDR_NUM": 1020,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1020 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306492195",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46958185263082,
+     48.72445913087172
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86567760,
+    "ADDR_NUM": 908,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "908 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436266",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46567499142529,
+     48.724310884293274
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86568490,
+    "ADDR_NUM": 3901,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3901 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306533260",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4666081595458,
+     48.72241270848425
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86568786,
+    "ADDR_NUM": 1025,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1025 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306510190",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46744095710297,
+     48.72459524294056
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86568852,
+    "ADDR_NUM": 3708,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3708 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306492305",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46893910355345,
+     48.722590987711584
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86570634,
+    "ADDR_NUM": 1011,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1011 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306457202",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46469954050266,
+     48.725034077793104
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86570831,
+    "ADDR_NUM": 830,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "830 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306557318",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4696425949137,
+     48.72505976676503
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86570840,
+    "ADDR_NUM": 834,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "834 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306437317",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46341972778538,
+     48.72160800129943
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86571268,
+    "ADDR_NUM": 1101,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1101 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305025163",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46771417251011,
+     48.7246360398667
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86572874,
+    "ADDR_NUM": 3704,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3704 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306487305",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46522869312078,
+     48.723144174359106
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86573531,
+    "ADDR_NUM": 3909,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3909 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306541217",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46652006176588,
+     48.72544841708692
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86573691,
+    "ADDR_NUM": 817,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "817 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306515331",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46628853627276,
+     48.72258134869033
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86574198,
+    "ADDR_NUM": 1017,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1017 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306508200",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46940776721358,
+     48.721749932447494
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86575337,
+    "ADDR_NUM": 1105,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1105 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306444169",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46748877083229,
+     48.723913661997635
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86575560,
+    "ADDR_NUM": 914,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "914 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489250",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46963131207372,
+     48.724231710668185
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86577369,
+    "ADDR_NUM": 912,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "912 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436258",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46475022075606,
+     48.72410700645946
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86577826,
+    "ADDR_NUM": 912,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "912 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554254",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46885250865502,
+     48.72100935042576
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86577937,
+    "ADDR_NUM": 1120,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1120 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306455141",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46392011544978,
+     48.72228726016674
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86578132,
+    "ADDR_NUM": 1015,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1015 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010188",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46963485682582,
+     48.72465138818754
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86578383,
+    "ADDR_NUM": 904,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "904 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306438303",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46675237148824,
+     48.72423932681568
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86578387,
+    "ADDR_NUM": 3801,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3801 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306507265",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46824051699465,
+     48.72262260179203
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86579294,
+    "ADDR_NUM": 1012,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1012 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306470198",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46611646398009,
+     48.724677991734964
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86579617,
+    "ADDR_NUM": 3808,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3808 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306522304",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46958921971446,
+     48.72316404361554
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86580091,
+    "ADDR_NUM": 1000,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1000 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436220",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46936550776769,
+     48.72122141153918
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86582696,
+    "ADDR_NUM": 1125,
+    "STREET_NAME": "SAMISH WAY",
+    "MAIN_ADDRESS_DISPLAY": "1125 SAMISH WAY",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306443147",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4630509028859,
+     48.72238530310099
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86583428,
+    "ADDR_NUM": 1006,
+    "STREET_NAME": "LONE TREE CT",
+    "MAIN_ADDRESS_DISPLAY": "1006 LONE TREE CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305030192",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46739710314742,
+     48.7233692823586
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86584022,
+    "ADDR_NUM": 922,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "922 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489225",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46609791287115,
+     48.722866302625214
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86584181,
+    "ADDR_NUM": 3806,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3806 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306523207",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46638145890405,
+     48.7234316288975
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86584935,
+    "ADDR_NUM": 3807,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3807 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306517232",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46645838613344,
+     48.72468004449736
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86584998,
+    "ADDR_NUM": 3804,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3804 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306514306",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4689334405739,
+     48.724409856630956
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86585053,
+    "ADDR_NUM": 907,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "907 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456264",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46579819895976,
+     48.72506476411299
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86586585,
+    "ADDR_NUM": 3811,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3811 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306530320",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46800036587818,
+     48.7236647405977
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86587068,
+    "ADDR_NUM": 919,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "919 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306479235",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46957433732513,
+     48.72400372705239
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86590073,
+    "ADDR_NUM": 916,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "916 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436251",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46896432645,
+     48.723332911236916
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86591358,
+    "ADDR_NUM": 929,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "929 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456228",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46470608562782,
+     48.72545810059552
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86591781,
+    "ADDR_NUM": 824,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "824 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306557332",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4647021698715,
+     48.72524541319724
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86592824,
+    "ADDR_NUM": 828,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "828 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306557324",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46939866099154,
+     48.721531012023945
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86593202,
+    "ADDR_NUM": 1111,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1111 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306443162",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4687081116596,
+     48.7251478469501
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86593326,
+    "ADDR_NUM": 3605,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3605 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306460318",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46477320594921,
+     48.723285596856634
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86593461,
+    "ADDR_NUM": 1000,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1000 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554224",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46604147351847,
+     48.72332170903988
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86594336,
+    "ADDR_NUM": 3811,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3811 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306525228",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46517184772961,
+     48.72502512250178
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86594634,
+    "ADDR_NUM": 3817,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3817 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306546319",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46953479079139,
+     48.7243917153022
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86594941,
+    "ADDR_NUM": 910,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "910 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436266",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46463723515119,
+     48.724820083702575
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86595414,
+    "ADDR_NUM": 900,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "900 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306557311",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46833869117711,
+     48.722900565543156
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86597052,
+    "ADDR_NUM": 1010,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1010 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306469215",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46673555772108,
+     48.72213457313771
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86597266,
+    "ADDR_NUM": 1041,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1041 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306510180",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46381577612952,
+     48.7229927954705
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86597492,
+    "ADDR_NUM": 1007,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1007 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010214",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46779465706801,
+     48.722440461130944
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86597812,
+    "ADDR_NUM": 1016,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1016 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306482194",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46809902874415,
+     48.72127815141358
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86597939,
+    "ADDR_NUM": 1117,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1117 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306475154",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46761676638722,
+     48.72113716182542
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86599948,
+    "ADDR_NUM": 1120,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1120 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306488144",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46838852701411,
+     48.725144663538664
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86600488,
+    "ADDR_NUM": 3609,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3609 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306468320",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46575310353249,
+     48.725456434825965
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86600601,
+    "ADDR_NUM": 820,
+    "STREET_NAME": "39TH PL",
+    "MAIN_ADDRESS_DISPLAY": "820 39TH PL",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306531332",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46833517696774,
+     48.72548335261252
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86601532,
+    "ADDR_NUM": 827,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "827 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306469334",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.467942674274,
+     48.723023414292165
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86602657,
+    "ADDR_NUM": 1008,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1008 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306479215",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46528687071351,
+     48.72377241312289
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86602855,
+    "ADDR_NUM": 3904,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3904 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306541239",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4653071816221,
+     48.72282904280143
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86605952,
+    "ADDR_NUM": 3904,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3904 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306538207",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46476578317004,
+     48.72355820862017
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86607405,
+    "ADDR_NUM": 918,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "918 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554234",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46819306618471,
+     48.72112275532358
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86607567,
+    "ADDR_NUM": 1121,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1121 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306475147",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46476230489323,
+     48.721616375231704
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86607968,
+    "ADDR_NUM": 1112,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1112 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554162",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46745173688639,
+     48.7228559643647
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86608593,
+    "ADDR_NUM": 1006,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1006 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489210",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46805601201847,
+     48.725074313176556
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86609941,
+    "ADDR_NUM": 3701,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3701 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306475320",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46676444933723,
+     48.72349999689742
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86610600,
+    "ADDR_NUM": 3803,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3803 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306507234",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46866580460299,
+     48.72465638261308
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86611163,
+    "ADDR_NUM": 3606,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3606 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306460304",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46957886842743,
+     48.723382160457795
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86611461,
+    "ADDR_NUM": 928,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "928 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436227",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46682874355876,
+     48.72510343502419
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86611621,
+    "ADDR_NUM": 825,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "825 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306506319",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46399634558647,
+     48.72463880730559
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86611748,
+    "ADDR_NUM": 855,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "855 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305008311",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46873763838468,
+     48.722120874520584
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86612838,
+    "ADDR_NUM": 3611,
+    "STREET_NAME": "KNOX AVE",
+    "MAIN_ADDRESS_DISPLAY": "3611 KNOX AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456190",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4682432173304,
+     48.72348964217403
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86612920,
+    "ADDR_NUM": 921,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "921 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306473228",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46678579600332,
+     48.72113046794965
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86612954,
+    "ADDR_NUM": 1117,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1117 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306510147",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4685863593959,
+     48.723604368336765
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86613301,
+    "ADDR_NUM": 923,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "923 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306463228",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46468895924693,
+     48.72221583670694
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86614496,
+    "ADDR_NUM": 1016,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1016 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306553185",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46575576344405,
+     48.72335873619387
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86620013,
+    "ADDR_NUM": 3813,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3813 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306533225",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46792431809949,
+     48.72408299822375
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86620726,
+    "ADDR_NUM": 917,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "917 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306479256",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46674681540821,
+     48.72387592590005
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86620858,
+    "ADDR_NUM": 3800,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3800 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306507243",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46535560979906,
+     48.72539964040611
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86622220,
+    "ADDR_NUM": 821,
+    "STREET_NAME": "39TH PL",
+    "MAIN_ADDRESS_DISPLAY": "821 39TH PL",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306539333",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46817556430805,
+     48.72431962518944
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86622413,
+    "ADDR_NUM": 915,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "915 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306474262",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46381355818906,
+     48.722703595522354
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86622414,
+    "ADDR_NUM": 1011,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1011 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010204",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46576841890979,
+     48.72467876507649
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86622866,
+    "ADDR_NUM": 3810,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3810 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306530304",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46861807262036,
+     48.725376294118604
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86623500,
+    "ADDR_NUM": 829,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "829 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306461328",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46371314899818,
+     48.723268661687456
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86623544,
+    "ADDR_NUM": 4004,
+    "STREET_NAME": "WILDWOOD DR",
+    "MAIN_ADDRESS_DISPLAY": "4004 WILDWOOD DR",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010224",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46303265720417,
+     48.7235627699549
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86623577,
+    "ADDR_NUM": 916,
+    "STREET_NAME": "41ST ST",
+    "MAIN_ADDRESS_DISPLAY": "916 41ST ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305029235",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46397347807259,
+     48.725203186839295
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86623658,
+    "ADDR_NUM": 841,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "841 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305008329",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46388614835224,
+     48.72134729928941
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86624077,
+    "ADDR_NUM": 1105,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1105 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010164",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46851589105343,
+     48.724150162349964
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86624197,
+    "ADDR_NUM": 913,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "913 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306464261",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46901485758305,
+     48.72515120873188
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86624838,
+    "ADDR_NUM": 3601,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3601 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306453319",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46821907151387,
+     48.722314077125105
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86628376,
+    "ADDR_NUM": 1014,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1014 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306469190",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46383984109767,
+     48.72401587015684
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86628635,
+    "ADDR_NUM": 909,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "909 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010252",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46650347347584,
+     48.7250521685196
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86631201,
+    "ADDR_NUM": 3805,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3805 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306514320",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46320256096375,
+     48.722916130107144
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86631811,
+    "ADDR_NUM": 4100,
+    "STREET_NAME": "WILDWOOD DR",
+    "MAIN_ADDRESS_DISPLAY": "4100 WILDWOOD DR",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305026210",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4695531811019,
+     48.72276527203899
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86633419,
+    "ADDR_NUM": 1008,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1008 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436206",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46638813877651,
+     48.724246967851364
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86633606,
+    "ADDR_NUM": 3805,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3805 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306517265",
+    "POINTTYPE": "Parcel"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46329909482249,
+     48.72424880314574
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86633882,
+    "ADDR_NUM": 908,
+    "STREET_NAME": "41ST ST",
+    "MAIN_ADDRESS_DISPLAY": "908 41ST ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305024259",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46956862763322,
+     48.72297775006439
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86633910,
+    "ADDR_NUM": 1004,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1004 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436213",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46741878039354,
+     48.72358961941943
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86634623,
+    "ADDR_NUM": 918,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "918 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489235",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46669064016024,
+     48.7227621915929
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86634818,
+    "ADDR_NUM": 1013,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1013 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306509207",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46802630652863,
+     48.724652488644175
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86635025,
+    "ADDR_NUM": 3700,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3700 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306475304",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4696304811321,
+     48.72378046609311
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86635239,
+    "ADDR_NUM": 920,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "920 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436241",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46900904368654,
+     48.725347395835804
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86635747,
+    "ADDR_NUM": 833,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "833 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306453332",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46751362362293,
+     48.72312594605168
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86636778,
+    "ADDR_NUM": 1002,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1002 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489220",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46899360793502,
+     48.72465753047754
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86637189,
+    "ADDR_NUM": 3600,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3600 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306453305",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46760960771276,
+     48.72134013488687
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86638213,
+    "ADDR_NUM": 1118,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1118 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489160",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4661398615,
+     48.72505864439129
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86638262,
+    "ADDR_NUM": 3809,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3809 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306522319",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46400328147877,
+     48.72106072594899
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86638604,
+    "ADDR_NUM": 1111,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1111 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010145",
+    "POINTTYPE": "Parcel"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46528196501376,
+     48.72410490804307
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86639457,
+    "ADDR_NUM": 3909,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3909 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306541248",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46564849831091,
+     48.72379045807972
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86639587,
+    "ADDR_NUM": 3900,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3900 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306533239",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46540555792548,
+     48.72463103773536
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86640224,
+    "ADDR_NUM": 3814,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3814 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306538304",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46884540118448,
+     48.721445901727286
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86640512,
+    "ADDR_NUM": 1110,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1110 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456156",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46635356890943,
+     48.72386253176536
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86640727,
+    "ADDR_NUM": 3804,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3804 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306517243",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.468921773255,
+     48.722890508191554
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86641753,
+    "ADDR_NUM": 1005,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1005 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456209",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4689584191287,
+     48.72362679867725
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86642434,
+    "ADDR_NUM": 925,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "925 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456238",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46604204035542,
+     48.72242880359888
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86643984,
+    "ADDR_NUM": 1031,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1031 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306525192",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46670694009107,
+     48.72300115317151
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86644696,
+    "ADDR_NUM": 3802,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3802 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306509217",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4651717129823,
+     48.72471286438771
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86645806,
+    "ADDR_NUM": 3816,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3816 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306546306",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46304719643703,
+     48.72387455164137
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86646120,
+    "ADDR_NUM": 912,
+    "STREET_NAME": "41ST ST",
+    "MAIN_ADDRESS_DISPLAY": "912 41ST ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305029247",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46965155111708,
+     48.72545442120619
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86646414,
+    "ADDR_NUM": 830,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "830 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306437331",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46739655337848,
+     48.72213659459459
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86646876,
+    "ADDR_NUM": 1028,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1028 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306492185",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4660139805792,
+     48.72384262545052
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86647300,
+    "ADDR_NUM": 3808,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3808 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306525243",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46837297268497,
+     48.72207512235681
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86647334,
+    "ADDR_NUM": 3701,
+    "STREET_NAME": "KNOX AVE",
+    "MAIN_ADDRESS_DISPLAY": "3701 KNOX AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306475179",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46945016410174,
+     48.72240653569615
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86647874,
+    "ADDR_NUM": 1012,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1012 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306443190",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4656924241317,
+     48.72278689975206
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86648449,
+    "ADDR_NUM": 3900,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3900 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306533207",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46477977622722,
+     48.723012174691256
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86648494,
+    "ADDR_NUM": 1004,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1004 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554214",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46551234335826,
+     48.725111910893226
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86648767,
+    "ADDR_NUM": 3815,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3815 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306538319",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46748902056395,
+     48.72416670136227
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86648945,
+    "ADDR_NUM": 910,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "910 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489260",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46963745295702,
+     48.72486107896623
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86649127,
+    "ADDR_NUM": 900,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "900 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306438311",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46484739062201,
+     48.72267130175483
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86649396,
+    "ADDR_NUM": 1008,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1008 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554204",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4674005320169,
+     48.72511486793589
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86649479,
+    "ADDR_NUM": 3707,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3707 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306492318",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46392420458095,
+     48.724339623761544
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86652586,
+    "ADDR_NUM": 905,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "905 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010263",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.465339437429,
+     48.72428763053907
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86652967,
+    "ADDR_NUM": 3905,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3905 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306538260",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46679943871754,
+     48.72159441810276
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86653612,
+    "ADDR_NUM": 1107,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1107 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306510162",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46535450576958,
+     48.723338280325834
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86653996,
+    "ADDR_NUM": 3905,
+    "STREET_NAME": "CANBY CT",
+    "MAIN_ADDRESS_DISPLAY": "3905 CANBY CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306541225",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46335559526061,
+     48.724658438339354
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86655572,
+    "ADDR_NUM": 808,
+    "STREET_NAME": "41ST ST",
+    "MAIN_ADDRESS_DISPLAY": "808 41ST ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305022308",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46773230410581,
+     48.72507173539181
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86655920,
+    "ADDR_NUM": 3705,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3705 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306484321",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46885953437884,
+     48.72121514081936
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86656049,
+    "ADDR_NUM": 1116,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1116 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456149",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46748553510064,
+     48.72439374852043
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86656124,
+    "ADDR_NUM": 906,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "906 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306489266",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46895890871052,
+     48.72410628585109
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86657403,
+    "ADDR_NUM": 911,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "911 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456255",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46476727706833,
+     48.722435178469446
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86657566,
+    "ADDR_NUM": 1012,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1012 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306553195",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46475589092213,
+     48.72383140381095
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86657866,
+    "ADDR_NUM": 914,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "914 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554244",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46604292429765,
+     48.724245509453056
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86657913,
+    "ADDR_NUM": 3809,
+    "STREET_NAME": "VIEWMONT CT",
+    "MAIN_ADDRESS_DISPLAY": "3809 VIEWMONT CT",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306525265",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46892210383501,
+     48.72307505621399
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86660001,
+    "ADDR_NUM": 1001,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1001 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306456218",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46816981509023,
+     48.72166316433029
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86660514,
+    "ADDR_NUM": 1105,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1105 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306475167",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46474361544375,
+     48.72437933228452
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86661221,
+    "ADDR_NUM": 908,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "908 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554264",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46676871004662,
+     48.72462442254771
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86661369,
+    "ADDR_NUM": 3800,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3800 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306507304",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46963174506168,
+     48.72356194859467
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86661706,
+    "ADDR_NUM": 924,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "924 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306436234",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46681786675731,
+     48.725384320165425
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86662111,
+    "ADDR_NUM": 821,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "821 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306505330",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4646885999208,
+     48.72461505236378
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86662890,
+    "ADDR_NUM": 904,
+    "STREET_NAME": "40TH ST",
+    "MAIN_ADDRESS_DISPLAY": "904 40TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306554303",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46358450845287,
+     48.72370279567807
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86663114,
+    "ADDR_NUM": 4003,
+    "STREET_NAME": "WILDWOOD DR",
+    "MAIN_ADDRESS_DISPLAY": "4003 WILDWOOD DR",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370305010241",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4661648184952,
+     48.72209022611059
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86663911,
+    "ADDR_NUM": 1035,
+    "STREET_NAME": "38TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1035 38TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306521180",
+    "POINTTYPE": "Parcel"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4655067279894,
+     48.72150333236228
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86664022,
+    "ADDR_NUM": 1115,
+    "STREET_NAME": "39TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1115 39TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306543162",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46964743952802,
+     48.72526202355298
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86664381,
+    "ADDR_NUM": 832,
+    "STREET_NAME": "36TH ST",
+    "MAIN_ADDRESS_DISPLAY": "832 36TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306437324",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46834294380166,
+     48.72465434288689
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86665091,
+    "ADDR_NUM": 3610,
+    "STREET_NAME": "TAYLOR AVE",
+    "MAIN_ADDRESS_DISPLAY": "3610 TAYLOR AVE",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306468305",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46607801069602,
+     48.72119222343858
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86666038,
+    "ADDR_NUM": 1116,
+    "STREET_NAME": "39TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1116 39TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306521151",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46886170291194,
+     48.721708311197
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86667356,
+    "ADDR_NUM": 1100,
+    "STREET_NAME": "37TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1100 37TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306455166",
+    "POINTTYPE": "Building"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46607012618277,
+     48.721566551795824
+    ]
+   },
+   "properties": {
+    "OBJECTID": 86667429,
+    "ADDR_NUM": 1100,
+    "STREET_NAME": "39TH ST",
+    "MAIN_ADDRESS_DISPLAY": "1100 39TH ST",
+    "ZIP": "98229",
+    "STATUS": "ACTIVE",
+    "PARCEL_CODE": "370306521164",
+    "POINTTYPE": "Parcel"
+   }
+  }
+ ]
+}

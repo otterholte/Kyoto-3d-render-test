@@ -119,8 +119,10 @@ function normaliseColours(doc) {
 // per-vertex _MEMBER attribute (index into members) keeps every triangle traceable to its source object.
 function joinBySection(doc) {
   const root = doc.getRoot();
+
   const scene = root.getDefaultScene() || root.listScenes()[0];
   const groups = new Map(); // nodeKey -> { members, byMat: Map(matKey -> prims) }
+  const orphans = new Set();
   let joinedNodes = 0;
   const IDENT = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
   for (const node of root.listNodes()) {
@@ -145,6 +147,8 @@ function joinBySection(doc) {
     const mi = g.members.length;
     g.members.push({ name: nm, ...node.getExtras() });
     for (const prim of mesh.listPrimitives()) {
+      // facade / roof UVs are computed by the page (pbr.js); drop GLB UVs unless flagged extras.facade_uv
+      if (!node.getExtras().facade_uv) for (const sem of prim.listSemantics()) if (/^TEXCOORD_/.test(sem)) prim.setAttribute(sem, null);
       const pos = prim.getAttribute('POSITION');
       const n = pos.getCount();
       const ids = new Uint16Array(n).fill(mi);
@@ -155,20 +159,28 @@ function joinBySection(doc) {
       g.byMat.get(mk).push(prim);
     }
     node.dispose();
+    orphans.add(mesh);
     joinedNodes++;
   }
   for (const [key, g] of groups) {
     const mesh = doc.createMesh(key);
     for (const prims of g.byMat.values()) {
-      let out;
-      if (prims.length === 1) out = prims[0];
-      else { out = joinPrimitives(prims); out.setMaterial(prims[0].getMaterial()); }
+      // always produce a fresh primitive with its own accessors: a reused source primitive stays shared with
+      // its (soon orphaned) source mesh and gets quantized against the wrong volume (distorted buildings)
+      const out = joinPrimitives(prims);
+      out.setMaterial(prims[0].getMaterial());
       mesh.addPrimitive(out);
     }
     const node = doc.createNode(key).setMesh(mesh).setExtras({
       joined: true, kind: g.kind, collide: true, members: g.members,
     });
     scene.addChild(node);
+  }
+  // source meshes are orphaned now; dispose them explicitly (prune keeps unused properties that carry extras)
+  for (const mesh of orphans) {
+    if (mesh.listParents().some((p) => p.propertyType === 'Node')) continue;
+    for (const prim of mesh.listPrimitives()) prim.dispose();
+    mesh.dispose();
   }
   return { joinedNodes, joinedGroups: groups.size };
 }

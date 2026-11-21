@@ -6,7 +6,7 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { MeshBVH } from 'three-mesh-bvh';
 import { makeRoleMaterials } from './materials.js';
-import { loadTextureLibrary, LEAF_CARDS } from './textures.js';
+import { loadTextureLibrary, LEAF_CARDS, M as MOD } from './textures.js';
 import { facadeMaterial, roofMaterial, stoneMaterial, groundMaterial, pavingMaterial, leafMaterial, canopyGeometry, styleOf, hashStr } from './pbr.js';
 
 const SECTION = 100; // m
@@ -181,6 +181,8 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
 
   // texture library (procedural generation runs while the GLB downloads)
   const libPromise = loadTextureLibrary(manifest && manifest.textures);
+  // OSM centrelines for the street-facing test of facades
+  const streetsPromise = fetch('assets/minimap.json').then((r) => (r.ok ? r.json() : null)).then(buildStreetIndex).catch(() => buildStreetIndex(null));
   // cache-bust the big files per build (static hosts often cache aggressively)
   const ver = manifest && manifest.generated ? '?v=' + encodeURIComponent(manifest.generated) : '';
   worldUrl += ver;
@@ -209,6 +211,7 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
   const maskTex = await maskPromise;
 
   const lib = await libPromise;
+  const streetIndex = await streetsPromise;
   const M = makeRoleMaterials();
   const groundMat = groundMaterial(lib, maskTex, { lite });
   // physically based role materials (texture library); keys are render-group material keys
@@ -251,7 +254,12 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
       const glbUv = !!(o.geometry.attributes.uv && (ex.facade_uv || (Array.isArray(ex.members) && ex.members.some((q) => q.facade_uv))));
       key = glbUv ? 'wallUv' : 'wall';
       g = worldGeometry(o, { normal: true, color: true, uv: glbUv, defaultColor: [0.8, 0.78, 0.72] });
-      g.setAttribute('aFac', facadeAttr(o, g, ex));
+      const mem = o.geometry.attributes._member;
+      g.setAttribute('mem', new THREE.BufferAttribute(Float32Array.from({ length: g.attributes.position.count }, (_, i) => (mem ? Math.round(mem.getX(i)) : 0)), 1));
+      g = g.toNonIndexed();
+      g.computeVertexNormals();
+      facadePlan(g, Array.isArray(ex.members) ? ex.members : [ex], streetIndex);
+      g.deleteAttribute('mem');
     } else if (role === 'roof') {
       g = worldGeometry(o, { normal: true, color: true, defaultColor: [0.3, 0.31, 0.33] });
     } else if (role === 'paving') {
@@ -260,7 +268,7 @@ export async function loadWorld(scene, renderer, progress, { lite = false } = {}
     } else {
       g = worldGeometry(o, { normal: true });
     }
-    if (role !== 'paving') {
+    if (role !== 'paving' && role !== 'wall') {
       // per-face normals: the facade/roof/stone shaders build their UV frame from them (exact, no speckle)
       g = g.toNonIndexed();
       g.computeVertexNormals();
@@ -486,40 +494,118 @@ function averageColour(g) {
   return new THREE.Color(r / c.count, gg / c.count, b / c.count).multiplyScalar(1.6);
 }
 
-// per-vertex facade parameters: aFac = (wall base y, storey height, nStoreys * 16 + style, seed)
-function facadeAttr(o, g, ex) {
-  const pos = g.attributes.position, n = pos.count;
-  const mem = o.geometry.attributes._member;
-  const members = Array.isArray(ex.members) ? ex.members : [ex];
-  const kOf = (i) => (mem ? Math.round(mem.getX(i)) : 0);
-  const lo = new Map(), hi = new Map();
-  for (let i = 0; i < n; i++) {
-    const k = kOf(i), y = pos.getY(i);
-    lo.set(k, Math.min(lo.has(k) ? lo.get(k) : Infinity, y));
-    hi.set(k, Math.max(hi.has(k) ? hi.get(k) : -Infinity, y));
+// ---------------------------------------------------------------- facade planning (mirrors blender/materials_textured.py
+// facade_plan / assign_facades): per building and wall plane choose ground / upper / alternate modules; walls are
+// "street-facing" when the plane centre is within 8 m of an OSM centreline and its outward normal points at it.
+const COMMERCIAL = new Set(['401', '402', '403', '404', '413', '414', '461']);   // 461 unknown: most fronts here are shops
+function buildStreetIndex(mm) {
+  const cell = 16, grid = new Map();
+  const add = (k, seg) => { if (!grid.has(k)) grid.set(k, []); grid.get(k).push(seg); };
+  for (const st of (mm && mm.streets) || []) {
+    const P = st.pts;
+    for (let i = 0; i + 3 < P.length; i += 2) {
+      // local (x, north) -> three (x, z = -north)
+      const seg = [P[i], -P[i + 1], P[i + 2], -P[i + 3]];
+      const x0 = Math.floor((Math.min(seg[0], seg[2]) - 8) / cell), x1 = Math.floor((Math.max(seg[0], seg[2]) + 8) / cell);
+      const z0 = Math.floor((Math.min(seg[1], seg[3]) - 8) / cell), z1 = Math.floor((Math.max(seg[1], seg[3]) + 8) / cell);
+      for (let x = x0; x <= x1; x++) for (let z = z0; z <= z1; z++) add(x + ',' + z, seg);
+    }
   }
-  // eave = lowest "top" vertex (walls are quads base->eave; gable apexes are higher)
-  const eave = new Map();
-  for (let i = 0; i < n; i++) {
-    const k = kOf(i), y = pos.getY(i);
-    if (y > lo.get(k) + 1.6) eave.set(k, Math.min(eave.has(k) ? eave.get(k) : Infinity, y));
+  // nearest centreline point (foot) to (x, z)
+  return (x, z) => {
+    const segs = grid.get(Math.floor(x / cell) + ',' + Math.floor(z / cell));
+    if (!segs) return null;
+    let best = null, bd = Infinity;
+    for (const [ax, az, bx, bz] of segs) {
+      const dx = bx - ax, dz = bz - az, L = dx * dx + dz * dz || 1e-9;
+      const t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L));
+      const fx = ax + dx * t, fz = az + dz * t, d = Math.hypot(x - fx, z - fz);
+      if (d < bd) { bd = d; best = [fx, fz, d]; }
+    }
+    return best;
+  };
+}
+const h01 = (key, i) => hashStr(key + '#' + i);
+function classify(e, storeys) {
+  const st = styleOf(e, storeys);
+  return st === STYLE_T ? 'temple' : (st >= 2 && st <= 3 ? 'modern' : 'machiya');
+}
+const STYLE_T = 4;
+function plan(e, eave, facing, wallLen, key) {
+  const kind = classify(e, Number(e.storeys) || 0);
+  const storeys = Math.max(1, Number(e.storeys) || (eave > 4.5 ? 2 : 1));
+  const usage = String(e.usage || '');
+  const commercial = COMMERCIAL.has(usage);
+  const r = [0, 1, 2, 3].map((i) => h01(key, i));
+  const gfH = Math.min(3.0, Math.max(2.4, storeys === 1 ? eave : 3.0));
+  const nUp = Math.max(0, storeys - 1);
+  const ufH = nUp === 0 ? 2.4 : Math.min(3.4, Math.max(1.9, (eave - gfH) / nUp));
+  if (kind === 'temple') {
+    const w = /庚申/.test(e.name || '') ? MOD.vermilion : MOD.temple;
+    return { gf: w, gfAlt: w, uf: w, ufAlt: w, top: w, gfH, ufH: Math.max(ufH, 2.4), nUp, pGf: 0, pUf: 0 };
   }
-  const params = new Map();
-  for (const k of lo.keys()) {
-    const e = members[k] || ex;
-    const base = lo.get(k), top = eave.has(k) ? eave.get(k) : hi.get(k);
-    const h = Math.max(2.4, top - base);
-    let storeys = Number(e.storeys) || 0;
-    if (!storeys) storeys = Math.max(1, Math.round(h / 3.1));
-    storeys = Math.min(storeys, Math.max(1, Math.round(h / 2.3)));
-    const storeyH = Math.min(4.6, Math.max(2.3, h / storeys));
-    const style = styleOf(e, storeys);
-    const seed = hashStr(String(e.plateau_id || e.name || k));
-    params.set(k, [base, storeyH, storeys * 16 + style, seed]);
+  if (kind === 'modern') {
+    const gf = facing && commercial ? MOD.shopfront : MOD.modern_upper;
+    return { gf, gfAlt: gf, uf: MOD.modern_upper, ufAlt: MOD.modern_upper, top: MOD.modern_upper, gfH: 3.0, ufH: Math.min(3.4, Math.max(2.8, ufH)), nUp, pGf: 0, pUf: 0 };
   }
-  const arr = new Float32Array(n * 4);
-  for (let i = 0; i < n; i++) arr.set(params.get(kOf(i)), i * 4);
-  return new THREE.BufferAttribute(arr, 4);
+  if (!facing) {
+    const gf = r[1] < 0.5 ? MOD.itabari : MOD.plaster_base;
+    return { gf, gfAlt: gf, uf: MOD.plain, ufAlt: MOD.plain, top: MOD.plain, gfH, ufH, nUp, pGf: 0, pUf: 0 };
+  }
+  const gfs = commercial ? [MOD.shop_open, MOD.noren, MOD.koshi, MOD.koshi_dark, MOD.itabari]
+    : [MOD.koshi, MOD.koshi_dark, MOD.plaster_base, MOD.noren, MOD.itabari];
+  const pick = (list, w, x) => { let acc = 0; const tot = w.reduce((a, b) => a + b, 0); for (let i = 0; i < list.length; i++) { acc += w[i]; if (x * tot <= acc) return i; } return list.length - 1; };
+  const i = pick(gfs, [0.34, 0.26, 0.18, 0.12, 0.10], r[1]);
+  const lowUf = ufH < 2.5;   // tsushi-nikai: mushiko-mado plausible
+  const ufs = lowUf ? [MOD.lattice, MOD.glazed_railing, MOD.mushiko, MOD.plain] : [MOD.glazed_railing, MOD.lattice, MOD.plain, MOD.mushiko];
+  const j = pick(ufs, [0.4, 0.3, 0.18, 0.12], r[3]);
+  return { gf: gfs[i], gfAlt: gfs[(i + 1 + Math.floor(r[2] * 3)) % 5], uf: ufs[j], ufAlt: MOD.plain, top: MOD.plain, gfH, ufH, nUp, pGf: wallLen > 4 ? 0.3 : 0, pUf: 0.25 };
+}
+
+// writes aFac = (wall base y, ground-floor height, upper-floor height, number of upper floors) and
+// aMod = (gf + 32 gfAlt, uf + 32 ufAlt + 1024 top, round(100 pGf) + 128 round(100 pUf), seed) per vertex
+function facadePlan(g, members, nearest) {
+  const pos = g.attributes.position, nrm = g.attributes.normal, mem = g.attributes.mem, n = pos.count;
+  // per member: base (lowest wall vertex) and eave (lowest "top" vertex: walls run base->eave, gables are higher)
+  const lo = new Map(), eave = new Map();
+  for (let i = 0; i < n; i++) { const k = mem.getX(i), y = pos.getY(i); lo.set(k, Math.min(lo.has(k) ? lo.get(k) : Infinity, y)); }
+  for (let i = 0; i < n; i++) { const k = mem.getX(i), y = pos.getY(i); if (y > lo.get(k) + 1.6) eave.set(k, Math.min(eave.has(k) ? eave.get(k) : Infinity, y)); }
+  // planes: member + quantised horizontal normal + offset
+  const planes = new Map(), triPlane = [];
+  for (let t = 0; t < n; t += 3) {
+    const k = mem.getX(t);
+    const nx = nrm.getX(t), nz = nrm.getZ(t), hl = Math.hypot(nx, nz) || 1;
+    const ux = nx / hl, uz = nz / hl;
+    const cx = (pos.getX(t) + pos.getX(t + 1) + pos.getX(t + 2)) / 3, cz = (pos.getZ(t) + pos.getZ(t + 1) + pos.getZ(t + 2)) / 3;
+    const key = `${k}|${Math.round(Math.atan2(uz, ux) * 20)}|${Math.round((cx * ux + cz * uz) * 2)}`;
+    let P = planes.get(key);
+    if (!P) { P = { k, ux, uz, sx: 0, sz: 0, c: 0, umin: Infinity, umax: -Infinity, idx: planes.size }; planes.set(key, P); }
+    P.sx += cx; P.sz += cz; P.c++;
+    for (let v = 0; v < 3; v++) { const u = pos.getX(t + v) * -uz + pos.getZ(t + v) * ux; P.umin = Math.min(P.umin, u); P.umax = Math.max(P.umax, u); }
+    triPlane.push(P);
+  }
+  const fac = new Float32Array(n * 4), md = new Float32Array(n * 4);
+  const done = new Map();
+  for (const P of planes.values()) {
+    const e = members[P.k] || members[0] || {};
+    const base = lo.get(P.k), top = eave.has(P.k) ? eave.get(P.k) : base + 6;
+    const cx = P.sx / P.c, cz = P.sz / P.c;
+    let facing = false;
+    const f = nearest(cx, cz);
+    if (f && f[2] < 8) {
+      const tx = f[0] - cx, tz = f[1] - cz, tl = Math.hypot(tx, tz);
+      facing = (tx * P.ux + tz * P.uz) > 0.2 * Math.max(tl, 1e-6) || f[2] < 2;
+    }
+    const key = String(e.plateau_id || e.name || P.k);
+    const pl = plan(e, Math.max(2.4, top - base), facing && P.umax - P.umin > 1, P.umax - P.umin, key + ':' + P.idx);
+    done.set(P, [[base, pl.gfH, pl.ufH, pl.nUp], [pl.gf + 32 * pl.gfAlt, pl.uf + 32 * pl.ufAlt + 1024 * pl.top, Math.round(pl.pGf * 100) + 128 * Math.round(pl.pUf * 100), hashStr(key)]]);
+  }
+  for (let t = 0; t < n; t += 3) {
+    const [a, b] = done.get(triPlane[t / 3]);
+    for (let v = 0; v < 3; v++) { fac.set(a, (t + v) * 4); md.set(b, (t + v) * 4); }
+  }
+  g.setAttribute('aFac', new THREE.BufferAttribute(fac, 4));
+  g.setAttribute('aMod', new THREE.BufferAttribute(md, 4));
 }
 
 function buildTrees(root, trees, M, worldKind, collide, addObj, leafMat, lib, lite) {

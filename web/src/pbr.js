@@ -101,48 +101,44 @@ export function facadeMaterial(lib, { tint = 0.18, glbUv = false } = {}) {
     sh.uniforms.uWet = shared.uWet; sh.uniforms.uNight = shared.uNight;
     addWorldPos(sh);
     sh.vertexShader = sh.vertexShader
-      .replace('#include <common>', '#include <common>\nattribute vec4 aFac;\nflat varying vec4 vFac;\n#ifdef HW_GLB_UV\nvarying vec2 vHWUv;\n#endif')
-      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvFac = aFac;\n#ifdef HW_GLB_UV\nvHWUv = uv;\n#endif');
+      .replace('#include <common>', '#include <common>\nattribute vec4 aFac;\nattribute vec4 aMod;\nflat varying vec4 vFac;\nflat varying vec4 vMod;\n#ifdef HW_GLB_UV\nvarying vec2 vHWUv;\n#endif')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvFac = aFac;\nvMod = aMod;\n#ifdef HW_GLB_UV\nvHWUv = uv;\n#endif');
     sh.fragmentShader = sh.fragmentShader
       .replace('#include <packing>', `#include <packing>
         #define HW_TINT ${tint.toFixed(2)}
-        flat varying vec4 vFac;   // per-building constants: flat, so floor()/hash() never see interpolation ulps
+        flat varying vec4 vFac;   // per-plane constants: flat, so floor()/hash() never see interpolation ulps
+        flat varying vec4 vMod;
         #ifdef HW_GLB_UV
           varying vec2 vHWUv;
         #endif
         uniform sampler2D uAlb, uNrm, uOrm, uEmitT; uniform vec4 uRect[${MODULES.length}]; uniform float uBay, uWet, uNight;
         vec3 hwT, hwB, hwN; vec3 hwNt; vec4 hwOrm; float hwAO;
-        int hwModule( float storey, float nStorey, float style, float bay, float seed ) {
-          float h = hw_hash( vec2( bay, seed * 31.7 ) ), hb = fract( seed * 7.31 );
-          if ( storey >= nStorey ) return ${MOD.plain};          // gable / attic above the eave
-          if ( style > 4.5 ) return storey < 0.5 ? ${MOD.itabari} : ${MOD.plain};
-          if ( style > 3.5 ) return ${MOD.temple};
-          if ( style > 1.5 ) {                                   // modern / modern-shop
-            if ( storey < 0.5 && style > 2.5 ) return h < 0.85 ? ${MOD.shopfront} : ${MOD.modern_upper};
-            return ${MOD.modern_upper};
-          }
-          if ( storey < 0.5 ) {                                  // machiya ground floor
-            if ( style > 0.5 ) return h < 0.3 ? ${MOD.noren} : ( h < 0.62 ? ${MOD.shop_open} : ( h < 0.85 ? ${MOD.koshi} : ${MOD.koshi_dark} ) );
-            return h < 0.12 ? ${MOD.noren} : ( h < 0.55 ? ${MOD.koshi} : ( h < 0.75 ? ${MOD.koshi_dark} : ( h < 0.88 ? ${MOD.itabari} : ${MOD.plaster_base} ) ) );
-          }
-          if ( h < 0.22 ) return ${MOD.plain};                   // some plain upper bays between windows
-          return hb < 0.35 ? ${MOD.mushiko} : ( hb < 0.72 ? ${MOD.lattice} : ( hb < 0.86 ? ${MOD.glazed_railing} : ${MOD.plain} ) );
-        }`)
+        float hwDec( float x, float m ) { return mod( floor( x + 0.5 ), m ); }`)
       .replace('#include <map_fragment>', `
         ${FLAT_N}
         hwB = vec3( 0.0, 1.0, 0.0 );
         hwT = normalize( vec3( -hwN.z, 0.0, hwN.x ) );
-        float baseY = vFac.x, storeyH = max( vFac.y, 2.2 );
-        float code = floor( vFac.z + 0.5 );
-        float nStorey = floor( code / 16.0 + 0.001 ), style = code - nStorey * 16.0, seed = floor( vFac.w * 997.0 + 0.5 ) / 997.0;
+        // plan (world.js facadePlan, mirrors blender facade_plan): ground floor gfH, nUp upper floors of ufH
+        float baseY = vFac.x, gfH = max( vFac.y, 1.8 ), ufH = max( vFac.z, 1.6 ), nUp = floor( vFac.w + 0.5 );
+        float seed = floor( vMod.w * 997.0 + 0.5 ) / 997.0;
+        float vm = vHWPos.y - baseY;
+        float storey, vcont;
+        if ( vm < gfH ) { storey = 0.0; vcont = vm / gfH; }
+        else { float k = ( vm - gfH ) / ufH; storey = 1.0 + floor( k ); vcont = 1.0 + k; }
         #ifdef HW_GLB_UV
           vec2 uvc = vHWUv;   // GLB facade UVs in facade units: u = bays, v = storeys (extras.facade_uv)
+          storey = floor( uvc.y );
         #else
-          vec2 uvc = vec2( dot( vHWPos.xz, hwT.xz ) / uBay + seed * 5.0, ( vHWPos.y - baseY ) / storeyH );
+          vec2 uvc = vec2( dot( vHWPos.xz, hwT.xz ) / uBay + seed * 5.0, vcont );
         #endif
         if ( abs( hwN.y ) > 0.6 ) uvc = vHWPos.xz / uBay;       // stray horizontal faces in the wall slot
-        float storey = floor( uvc.y ), bay = floor( uvc.x );
-        int mi = hwModule( max( storey, 0.0 ), max( nStorey, 1.0 ), style, bay, seed );
+        float bay = floor( uvc.x );
+        float h = hw_hash( vec2( bay, seed * 31.7 ) );
+        float gfA = vMod.x, ufA = vMod.y, pA = floor( vMod.z + 0.5 );
+        int mi;
+        if ( storey < 0.5 ) mi = int( h < mod( pA, 128.0 ) / 100.0 ? hwDec( floor( gfA / 32.0 ), 32.0 ) : hwDec( gfA, 32.0 ) );
+        else if ( storey <= nUp ) mi = int( h < floor( pA / 128.0 ) / 100.0 ? hwDec( floor( ufA / 32.0 ), 32.0 ) : hwDec( ufA, 32.0 ) );
+        else mi = int( floor( ufA / 1024.0 + 0.001 ) );
         vec4 rc = uRect[ mi ];
         vec2 f = fract( uvc );
         if ( storey < 0.0 ) f.y = 0.02;                          // below the measured base: plinth-ish
@@ -406,7 +402,7 @@ export function canopyGeometry(cards = 64, seed = 3, rect = [0, 0, 1, 1]) {
 }
 
 // ---------------------------------------------------------------- per-building facade attribute
-// aFac = (wall base y, storey height, nStoreys * 16 + style, seed)
+// (facade parameters are planned per wall plane in world.js facadePlan: aFac + aMod)
 export const STYLE = { machiya: 0, machiyaShop: 1, modern: 2, modernShop: 3, temple: 4, plain: 5 };
 const SHOP = new Set(['402', '403', '404', '413', '414']);
 export function styleOf(ex, storeys) {

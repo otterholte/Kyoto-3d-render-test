@@ -1,0 +1,387 @@
+{
+ "type": "FeatureCollection",
+ "name": "hydrants",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Utilities/MapServer/27",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4670003262696,
+     48.723890151460466
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7551046,
+    "AssetID": "0011338",
+    "Location": "\r\nSE CORNER OF VIEWMONT CT & 38TH",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 315532800000,
+    "StaticPressure": 115,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "M&H",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**  ",
+    "ProjectNumber": "SD-295",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "35502",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46557393275246,
+     48.72314601384198
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7551140,
+    "AssetID": "0011341",
+    "Location": "E END OF CANBY CT",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 536457600000,
+    "StaticPressure": 90,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "M&H",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**  ",
+    "ProjectNumber": "SD-314",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "35505",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46657526773167,
+     48.724943923916385
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7551522,
+    "AssetID": "0011280",
+    "Location": "3805 TAYLOR",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 84153600000,
+    "StaticPressure": 100,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "MUELLER",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": null,
+    "ProjectNumber": "WA-118",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "33402",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "No",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46702229367155,
+     48.72312394537617
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7552370,
+    "AssetID": "0629420",
+    "Location": null,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 1745971200000,
+    "StaticPressure": null,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": null,
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**",
+    "ProjectNumber": "WO859262",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": null,
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46555965043774,
+     48.72408756839999
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7552894,
+    "AssetID": "0011340",
+    "Location": "E END OF VIEWMONT CT",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 536457600000,
+    "StaticPressure": 93,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "M&H",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**  ",
+    "ProjectNumber": "SD-314",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "35504",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46420572131963,
+     48.72471421432697
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7554284,
+    "AssetID": "0011438",
+    "Location": "ACROSS FROM 904 40TH",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": null,
+    "StaticPressure": 78,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "WATEROUS",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**  ",
+    "ProjectNumber": null,
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "46603",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4688522499402,
+     48.724970954570345
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7555162,
+    "AssetID": "0011279",
+    "Location": null,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 84153600000,
+    "StaticPressure": 115,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "MUELLER",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": null,
+    "ProjectNumber": "WA-118",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "33401",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "No",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46921677280775,
+     48.72371112837144
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7555316,
+    "AssetID": "0011337",
+    "Location": null,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": 315532800000,
+    "StaticPressure": 104,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "M&H",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": null,
+    "ProjectNumber": "SD-295",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "35501",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "No",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4642360232908,
+     48.72179269448177
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7555653,
+    "AssetID": "0011436",
+    "Location": "SE CORNER OF KNOX & 40TH",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "PLAN",
+    "INSTALLDATE": 63072000000,
+    "StaticPressure": 65,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "MUELLER",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**  ",
+    "ProjectNumber": "WA-119",
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "46601",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46421008982685,
+     48.72332666211444
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7556816,
+    "AssetID": "0011437",
+    "Location": "40TH ST & WILDWOOD DR - SE CORNER OF WILDWOOD DR",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "AERL",
+    "INSTALLDATE": null,
+    "StaticPressure": 70,
+    "FILLINGSTATION": 0,
+    "MAINT_COMMENT": null,
+    "Manufacturer": "MUELLER",
+    "ModelNo": null,
+    "SurfaceType": null,
+    "SpecialInstructions": "**NOTIFY POST POINT PRIOR TO FLUSHING TO SANITARY**  ",
+    "ProjectNumber": null,
+    "MAINTSTATUS": null,
+    "MAINTDATE": null,
+    "FLUSHDIST": null,
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "20",
+    "LegacyID": "46602",
+    "MapSymbol": null,
+    "SpecialInstructionsRequired": "Yes",
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "SECURE": "No",
+    "VerticalDatum": null
+   }
+  }
+ ]
+}

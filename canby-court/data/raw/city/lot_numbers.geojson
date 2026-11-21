@@ -1,0 +1,9560 @@
+{
+ "type": "FeatureCollection",
+ "name": "lot_numbers",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Places/MapServer/1",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46566709972551,
+       48.72271451339846
+      ],
+      [
+       -122.46566709972551,
+       48.72274471281343
+      ],
+      [
+       -122.46562152190295,
+       48.72274471281343
+      ],
+      [
+       -122.46562152190295,
+       48.72271451339846
+      ],
+      [
+       -122.46566709972551,
+       48.72271451339846
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11103117,
+    "TextString": "10",
+    "Angle": 0.0,
+    "GLOBALID": "{66EB7847-8E3C-43CB-A465-86370B74AD17}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4648004644282,
+       48.722724105577115
+      ],
+      [
+       -122.4648004644282,
+       48.72274826558001
+      ],
+      [
+       -122.46478223311951,
+       48.72274826558001
+      ],
+      [
+       -122.46478223311951,
+       48.722724105577115
+      ],
+      [
+       -122.4648004644282,
+       48.722724105577115
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11103118,
+    "TextString": "7",
+    "Angle": 0.0,
+    "GLOBALID": "{FBDC9A46-0491-400E-9ED0-243B2F54E19E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46484273734886,
+       48.72217969113514
+      ],
+      [
+       -122.46484273734886,
+       48.72220385139954
+      ],
+      [
+       -122.46482450604015,
+       48.72220385139954
+      ],
+      [
+       -122.46482450604015,
+       48.72217969113514
+      ],
+      [
+       -122.46484273734886,
+       48.72217969113514
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11105667,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{948B2008-BD24-443B-A28A-F2A52A086B06}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46842327744257,
+       48.722545201603296
+      ],
+      [
+       -122.46842327744257,
+       48.72256936169213
+      ],
+      [
+       -122.46840141334687,
+       48.72256936169213
+      ],
+      [
+       -122.46840141334687,
+       48.722545201603296
+      ],
+      [
+       -122.46842327744257,
+       48.722545201603296
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106373,
+    "TextString": "A",
+    "Angle": 0.0,
+    "GLOBALID": "{A8D6775A-2301-4150-9092-88F3FC428A45}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 9.92252352,
+    "SHAPE.STLength()": 13.0214
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46631211884561,
+       48.72256908078851
+      ],
+      [
+       -122.46631211884561,
+       48.722599280290794
+      ],
+      [
+       -122.46626654102302,
+       48.722599280290794
+      ],
+      [
+       -122.46626654102302,
+       48.72256908078851
+      ],
+      [
+       -122.46631211884561,
+       48.72256908078851
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106374,
+    "TextString": "30",
+    "Angle": 0.0,
+    "GLOBALID": "{85666B37-CC38-455A-AFFC-F50EE99B4C0E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4665975216962,
+       48.72251114467655
+      ],
+      [
+       -122.4665975216962,
+       48.722541344213624
+      ],
+      [
+       -122.46657473323407,
+       48.722541344213624
+      ],
+      [
+       -122.46657473323407,
+       48.72251114467655
+      ],
+      [
+       -122.4665975216962,
+       48.72251114467655
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106380,
+    "TextString": "8",
+    "Angle": 0.0,
+    "GLOBALID": "{CCF3B0F8-D3C4-45CD-9F77-66DDFBA46164}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46631007158506,
+       48.72250831489499
+      ],
+      [
+       -122.46631007158506,
+       48.72253851443381
+      ],
+      [
+       -122.4662644937625,
+       48.72253851443381
+      ],
+      [
+       -122.4662644937625,
+       48.72250831489499
+      ],
+      [
+       -122.46631007158506,
+       48.72250831489499
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106382,
+    "TextString": "31",
+    "Angle": 0.0,
+    "GLOBALID": "{9685848D-CA4C-44D4-AB76-9B9994CE15C8}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46310649063568,
+       48.72236690917585
+      ],
+      [
+       -122.46310649063568,
+       48.72239106935037
+      ],
+      [
+       -122.463088259327,
+       48.72239106935037
+      ],
+      [
+       -122.463088259327,
+       48.72236690917585
+      ],
+      [
+       -122.46310649063568,
+       48.72236690917585
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106397,
+    "TextString": "6",
+    "Angle": 0.0,
+    "GLOBALID": "{5D9ADD3E-CC39-4631-AFB5-81737F622F44}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46745791010903,
+       48.72237824374112
+      ],
+      [
+       -122.46745791010903,
+       48.72240844335799
+      ],
+      [
+       -122.46741233228647,
+       48.72240844335799
+      ],
+      [
+       -122.46741233228647,
+       48.72237824374112
+      ],
+      [
+       -122.46745791010903,
+       48.72237824374112
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106401,
+    "TextString": "14",
+    "Angle": 0.0,
+    "GLOBALID": "{DC1A2530-100B-4F15-9B35-5E0C8F31BA2F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46389901941363,
+       48.72522699068851
+      ],
+      [
+       -122.46389918021207,
+       48.725251148896525
+      ],
+      [
+       -122.46386271849299,
+       48.7252512549705
+      ],
+      [
+       -122.46386255769458,
+       48.72522709676253
+      ],
+      [
+       -122.46389901941363,
+       48.72522699068851
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106496,
+    "TextString": "14",
+    "Angle": 0.2520971,
+    "GLOBALID": "{A7F6688C-2C53-4DCB-B842-67BB1A6357C6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54723804,
+    "SHAPE.STLength()": 16.27135753477688
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46587259653326,
+       48.725180901201966
+      ],
+      [
+       -122.46587259653326,
+       48.72521109913598
+      ],
+      [
+       -122.4658270187107,
+       48.72521109913598
+      ],
+      [
+       -122.4658270187107,
+       48.725180901201966
+      ],
+      [
+       -122.46587259653326,
+       48.725180901201966
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106501,
+    "TextString": "22",
+    "Angle": 0.0,
+    "GLOBALID": "{B2BE22DC-003D-42CA-806C-036B2959C522}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46689494131034,
+       48.725165666228044
+      ],
+      [
+       -122.46689494131034,
+       48.7251958641712
+      ],
+      [
+       -122.46684936348778,
+       48.7251958641712
+      ],
+      [
+       -122.46684936348778,
+       48.725165666228044
+      ],
+      [
+       -122.46689494131034,
+       48.725165666228044
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106502,
+    "TextString": "25",
+    "Angle": 0.0,
+    "GLOBALID": "{0E7C82F9-6C25-4183-9E4D-D8C3F3CA5F6C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46623287396281,
+       48.72515192517713
+      ],
+      [
+       -122.46623287396281,
+       48.72518212312855
+      ],
+      [
+       -122.46618729614025,
+       48.72518212312855
+      ],
+      [
+       -122.46618729614025,
+       48.72515192517713
+      ],
+      [
+       -122.46623287396281,
+       48.72515192517713
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106507,
+    "TextString": "23",
+    "Angle": 0.0,
+    "GLOBALID": "{1CD437A6-4789-424E-BD3F-CDECDB1561EA}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46673508430892,
+       48.72242472633629
+      ],
+      [
+       -122.46673508430892,
+       48.722448886483
+      ],
+      [
+       -122.46671685300022,
+       48.722448886483
+      ],
+      [
+       -122.46671685300022,
+       48.72242472633629
+      ],
+      [
+       -122.46673508430892,
+       48.72242472633629
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106509,
+    "TextString": "1",
+    "Angle": 0.0,
+    "GLOBALID": "{C288EA8F-A531-459B-A8B9-8AD388155553}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46822179520582,
+       48.72233126151887
+      ],
+      [
+       -122.46822179520582,
+       48.72236146116395
+      ],
+      [
+       -122.46817621738323,
+       48.72236146116395
+      ],
+      [
+       -122.46817621738323,
+       48.72233126151887
+      ],
+      [
+       -122.46822179520582,
+       48.72233126151887
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106543,
+    "TextString": "16",
+    "Angle": 0.0,
+    "GLOBALID": "{9BF4EAE2-D1B7-4D1E-9C2C-11A8BC49D556}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4678646861343,
+       48.72230904335359
+      ],
+      [
+       -122.4678646861343,
+       48.72233924301202
+      ],
+      [
+       -122.46781910831172,
+       48.72233924301202
+      ],
+      [
+       -122.46781910831172,
+       48.72230904335359
+      ],
+      [
+       -122.4678646861343,
+       48.72230904335359
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106547,
+    "TextString": "15",
+    "Angle": 0.0,
+    "GLOBALID": "{74180309-CCEA-4D01-A5FA-40C8EAB9501A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46303665830042,
+       48.722061090665576
+      ],
+      [
+       -122.46303665830042,
+       48.722085250987
+      ],
+      [
+       -122.46301842699174,
+       48.722085250987
+      ],
+      [
+       -122.46301842699174,
+       48.722061090665576
+      ],
+      [
+       -122.46303665830042,
+       48.722061090665576
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106570,
+    "TextString": "7",
+    "Angle": 0.0,
+    "GLOBALID": "{8522A96C-78A2-470C-8DBB-C1B97D4F5E39}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4636092076316,
+       48.7247247560593
+      ],
+      [
+       -122.46360940526097,
+       48.724748914508574
+      ],
+      [
+       -122.46357294354192,
+       48.724749044287535
+      ],
+      [
+       -122.46357274591256,
+       48.72472488583832
+      ],
+      [
+       -122.4636092076316,
+       48.7247247560593
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106585,
+    "TextString": "21",
+    "Angle": 0.30852591,
+    "GLOBALID": "{99F47F37-30CE-47F9-9647-5845C11A1939}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54739943,
+    "SHAPE.STLength()": 16.271436884309338
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46505033531604,
+       48.72469502006022
+      ],
+      [
+       -122.46505033531604,
+       48.72472521828598
+      ],
+      [
+       -122.46500475749347,
+       48.72472521828598
+      ],
+      [
+       -122.46500475749347,
+       48.72469502006022
+      ],
+      [
+       -122.46505033531604,
+       48.72469502006022
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106588,
+    "TextString": "19",
+    "Angle": 0.0,
+    "GLOBALID": "{9468B17F-4581-4AE3-B91D-7142D70BA785}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4668547138536,
+       48.725304107046995
+      ],
+      [
+       -122.46685077384276,
+       48.725334192907304
+      ],
+      [
+       -122.46682806892399,
+       48.72533289928087
+      ],
+      [
+       -122.46683200983314,
+       48.72530281282719
+      ],
+      [
+       -122.4668547138536,
+       48.725304107046995
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106590,
+    "TextString": "1",
+    "Angle": -4.93785221,
+    "GLOBALID": "{476101BD-772F-4C42-BAA6-44C97715C39A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92776925,
+    "SHAPE.STLength()": 15.265656784111194
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46543278945501,
+       48.7253225194534
+      ],
+      [
+       -122.46543278945501,
+       48.72535271730238
+      ],
+      [
+       -122.46538721163242,
+       48.72535271730238
+      ],
+      [
+       -122.46538721163242,
+       48.7253225194534
+      ],
+      [
+       -122.46543278945501,
+       48.7253225194534
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106591,
+    "TextString": "58",
+    "Angle": 0.0,
+    "GLOBALID": "{9CF72E53-21F3-41C6-B273-D8E12A0E5B37}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755062882275,
+       48.72421593435896
+      ],
+      [
+       -122.46755062882275,
+       48.72424613287241
+      ],
+      [
+       -122.46750505100019,
+       48.72424613287241
+      ],
+      [
+       -122.46750505100019,
+       48.72421593435896
+      ],
+      [
+       -122.46755062882275,
+       48.72421593435896
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106615,
+    "TextString": "25",
+    "Angle": 0.0,
+    "GLOBALID": "{0CDBE425-D96D-4C6E-8D38-2F1CA7E2ACCD}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46531028170813,
+       48.72421630177363
+      ],
+      [
+       -122.46531028170813,
+       48.724246500286846
+      ],
+      [
+       -122.465287493246,
+       48.724246500286846
+      ],
+      [
+       -122.465287493246,
+       48.72421630177363
+      ],
+      [
+       -122.46531028170813,
+       48.72421630177363
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106619,
+    "TextString": "2",
+    "Angle": 0.0,
+    "GLOBALID": "{B4A7F39E-5F74-4B8D-9774-5D55C619160C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46333540472627,
+       48.7242279482245
+      ],
+      [
+       -122.46333540472627,
+       48.72425210750504
+      ],
+      [
+       -122.46331717341758,
+       48.72425210750504
+      ],
+      [
+       -122.46331717341758,
+       48.7242279482245
+      ],
+      [
+       -122.46333540472627,
+       48.7242279482245
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106622,
+    "TextString": "1",
+    "Angle": 0.0,
+    "GLOBALID": "{8D2C8887-FD21-48AE-A2C0-0BDB78116377}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976376596743,
+       48.724833556397655
+      ],
+      [
+       -122.46976376596743,
+       48.72486375454024
+      ],
+      [
+       -122.46974097750532,
+       48.72486375454024
+      ],
+      [
+       -122.46974097750532,
+       48.724833556397655
+      ],
+      [
+       -122.46976376596743,
+       48.724833556397655
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106628,
+    "TextString": "6",
+    "Angle": 0.0,
+    "GLOBALID": "{82CE1C12-1156-41BD-8B78-00580D59171D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46526574862624,
+       48.72276105968596
+      ],
+      [
+       -122.46526574862624,
+       48.72279125907298
+      ],
+      [
+       -122.46524296016412,
+       48.72279125907298
+      ],
+      [
+       -122.46524296016412,
+       48.72276105968596
+      ],
+      [
+       -122.46526574862624,
+       48.72276105968596
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106638,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{9AF57C41-19DA-4E47-8F68-73EBF7A4D647}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46521178952207,
+       48.723021775702385
+      ],
+      [
+       -122.46521178952207,
+       48.72305197493286
+      ],
+      [
+       -122.46518445917785,
+       48.72305197493286
+      ],
+      [
+       -122.46518445917785,
+       48.723021775702385
+      ],
+      [
+       -122.46521178952207,
+       48.723021775702385
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106642,
+    "TextString": "B",
+    "Angle": 0.0,
+    "GLOBALID": "{104147B5-05F4-4231-83EC-DA66BF5745BF}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.50376616,
+    "SHAPE.STLength()": 16.2766
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46535242976294,
+       48.72334282330945
+      ],
+      [
+       -122.46535242976294,
+       48.7233730223472
+      ],
+      [
+       -122.46532509941875,
+       48.7233730223472
+      ],
+      [
+       -122.46532509941875,
+       48.72334282330945
+      ],
+      [
+       -122.46535242976294,
+       48.72334282330945
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106643,
+    "TextString": "A",
+    "Angle": 0.0,
+    "GLOBALID": "{C676728A-2314-4B3D-A53D-F9479D0A9312}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.50376616,
+    "SHAPE.STLength()": 16.2766
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46673181713622,
+       48.72121861250235
+      ],
+      [
+       -122.46673181713622,
+       48.72124881281555
+      ],
+      [
+       -122.46670448679203,
+       48.72124881281555
+      ],
+      [
+       -122.46670448679203,
+       48.72121861250235
+      ],
+      [
+       -122.46673181713622,
+       48.72121861250235
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106800,
+    "TextString": "B",
+    "Angle": 0.0,
+    "GLOBALID": "{DF898096-5AAE-446F-B88B-9BA48956805C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.50376616,
+    "SHAPE.STLength()": 16.2766
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46388630825237,
+       48.7216956643891
+      ],
+      [
+       -122.46388556175235,
+       48.72171981955235
+      ],
+      [
+       -122.46386733403693,
+       48.721719574202
+      ],
+      [
+       -122.46386808053693,
+       48.721695419038674
+      ],
+      [
+       -122.46388630825237,
+       48.7216956643891
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106801,
+    "TextString": "8",
+    "Angle": -1.16799855,
+    "GLOBALID": "{61BC5218-8F3F-46C7-A7A4-6280BA9B9A57}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.27384903,
+    "SHAPE.STLength()": 12.212538679874857
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46387020145932,
+       48.72458461999484
+      ],
+      [
+       -122.46387040897015,
+       48.72460877851144
+      ],
+      [
+       -122.46383394814941,
+       48.72460891480937
+      ],
+      [
+       -122.46383373974025,
+       48.72458475629284
+      ],
+      [
+       -122.46387020145932,
+       48.72458461999484
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106819,
+    "TextString": "23",
+    "Angle": 0.32508779,
+    "GLOBALID": "{1364AD06-EB45-42A9-81EF-49F9D173771C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547246245,
+    "SHAPE.STLength()": 16.27136179087232
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46360831560453,
+       48.72458555452498
+      ],
+      [
+       -122.4636085240137,
+       48.724609713041126
+      ],
+      [
+       -122.46357206229462,
+       48.724609849931625
+      ],
+      [
+       -122.46357185388545,
+       48.72458569141559
+      ],
+      [
+       -122.46360831560453,
+       48.72458555452498
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11106822,
+    "TextString": "23",
+    "Angle": 0.32560834,
+    "GLOBALID": "{2FB14C79-B8FD-45CE-8150-B4A868D4784C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54745355,
+    "SHAPE.STLength()": 16.271463492876318
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46658396432193,
+       48.72514041642193
+      ],
+      [
+       -122.46658396432193,
+       48.72517061438026
+      ],
+      [
+       -122.46653838649937,
+       48.72517061438026
+      ],
+      [
+       -122.46653838649937,
+       48.72514041642193
+      ],
+      [
+       -122.46658396432193,
+       48.72514041642193
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11107502,
+    "TextString": "24",
+    "Angle": 0.0,
+    "GLOBALID": "{B6F7C5F7-A4CE-49D2-927E-185C4D5474A8}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46978330881643,
+       48.72441144006352
+      ],
+      [
+       -122.46978330881643,
+       48.72444163845957
+      ],
+      [
+       -122.46973773099387,
+       48.72444163845957
+      ],
+      [
+       -122.46973773099387,
+       48.72441144006352
+      ],
+      [
+       -122.46978330881643,
+       48.72441144006352
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11107930,
+    "TextString": "45",
+    "Angle": 0.0,
+    "GLOBALID": "{BD9A583E-91C1-475D-AEA3-D61D32E6FE81}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46388050513563,
+       48.72135363103445
+      ],
+      [
+       -122.46387973438111,
+       48.72137778576932
+      ],
+      [
+       -122.46386150666568,
+       48.721377532713
+      ],
+      [
+       -122.4638622783185,
+       48.721353377385405
+      ],
+      [
+       -122.46388050513563,
+       48.72135363103445
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11107939,
+    "TextString": "6",
+    "Angle": -1.20632117,
+    "GLOBALID": "{19738C95-AA06-4F24-8B9F-1F5D2602D699}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.27377353,
+    "SHAPE.STLength()": 12.212508666398001
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46675502151834,
+       48.72209575474948
+      ],
+      [
+       -122.46675502151834,
+       48.722119915054215
+      ],
+      [
+       -122.46673679020964,
+       48.722119915054215
+      ],
+      [
+       -122.46673679020964,
+       48.72209575474948
+      ],
+      [
+       -122.46675502151834,
+       48.72209575474948
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108268,
+    "TextString": "2",
+    "Angle": 0.0,
+    "GLOBALID": "{BEA5228F-AA6F-4E84-8E70-27C639F51B35}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46974754508832,
+       48.72502549524389
+      ],
+      [
+       -122.46974754508832,
+       48.72505569327122
+      ],
+      [
+       -122.46972475662622,
+       48.72505569327122
+      ],
+      [
+       -122.46972475662622,
+       48.72502549524389
+      ],
+      [
+       -122.46974754508832,
+       48.72502549524389
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108420,
+    "TextString": "5",
+    "Angle": 0.0,
+    "GLOBALID": "{F40352AC-43B0-4837-8971-08CE4654547B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46383420416926,
+       48.722125414651025
+      ],
+      [
+       -122.46383420416926,
+       48.72214957494155
+      ],
+      [
+       -122.46379774155186,
+       48.72214957494155
+      ],
+      [
+       -122.46379774155186,
+       48.722125414651025
+      ],
+      [
+       -122.46383420416926,
+       48.722125414651025
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108429,
+    "TextString": "10",
+    "Angle": 0.0,
+    "GLOBALID": "{6B9CF7A1-E780-4242-9681-D524D0E6D9C6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46746489810361,
+       48.72213422763508
+      ],
+      [
+       -122.46746489810361,
+       48.722164427398475
+      ],
+      [
+       -122.46741932028105,
+       48.722164427398475
+      ],
+      [
+       -122.46741932028105,
+       48.72213422763508
+      ],
+      [
+       -122.46746489810361,
+       48.72213422763508
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108433,
+    "TextString": "13",
+    "Angle": 0.0,
+    "GLOBALID": "{98C5615D-41E0-4EAB-8D38-97725EA4C1FC}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362643821708,
+       48.724940944344986
+      ],
+      [
+       -122.46362661967676,
+       48.72496510269041
+      ],
+      [
+       -122.46359015795771,
+       48.7249652223947
+      ],
+      [
+       -122.463589976498,
+       48.724941064049325
+      ],
+      [
+       -122.46362643821708,
+       48.724940944344986
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108451,
+    "TextString": "18",
+    "Angle": 0.2847139,
+    "GLOBALID": "{5F2221D7-970C-4A15-AC45-175E99ED3B5E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54732567,
+    "SHAPE.STLength()": 16.271400619223037
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46390021956286,
+       48.725093625224766
+      ],
+      [
+       -122.46390039024276,
+       48.72511778349685
+      ],
+      [
+       -122.46386392852368,
+       48.72511789608965
+      ],
+      [
+       -122.46386375784378,
+       48.72509373722502
+      ],
+      [
+       -122.46390021956286,
+       48.725093625224766
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108574,
+    "TextString": "16",
+    "Angle": 0.26711368,
+    "GLOBALID": "{F38E9262-C85C-4DA2-905A-90F1FA00466E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547480625,
+    "SHAPE.STLength()": 16.27147702344412
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46389161460075,
+       48.72536017091026
+      ],
+      [
+       -122.46389176551772,
+       48.72538432905426
+      ],
+      [
+       -122.46385530379867,
+       48.725384428609466
+      ],
+      [
+       -122.46385515288168,
+       48.72536026987292
+      ],
+      [
+       -122.46389161460075,
+       48.72536017091026
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108644,
+    "TextString": "12",
+    "Angle": 0.2360543,
+    "GLOBALID": "{ED21EC35-A4F0-4236-9DD6-6A9F7D7EABA0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547401975,
+    "SHAPE.STLength()": 16.27143835443793
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362817645716,
+       48.72535393211375
+      ],
+      [
+       -122.46362832737412,
+       48.72537809026075
+      ],
+      [
+       -122.46359186565505,
+       48.72537818981598
+      ],
+      [
+       -122.4635917147381,
+       48.72535403107642
+      ],
+      [
+       -122.46362817645716,
+       48.72535393211375
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108651,
+    "TextString": "12",
+    "Angle": 0.2360479,
+    "GLOBALID": "{7185F571-6106-4373-9AA7-8874D5CFBA91}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547401975,
+    "SHAPE.STLength()": 16.27143835443793
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362339202994,
+       48.72509316359407
+      ],
+      [
+       -122.46362356270986,
+       48.72511732186638
+      ],
+      [
+       -122.46358710099078,
+       48.72511743445918
+      ],
+      [
+       -122.4635869303109,
+       48.725093275594325
+      ],
+      [
+       -122.46362339202994,
+       48.72509316359407
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11108740,
+    "TextString": "16",
+    "Angle": 0.26711368,
+    "GLOBALID": "{0D82A17A-C794-46AA-91F9-1DBCD35DA7ED}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547480625,
+    "SHAPE.STLength()": 16.27147702344412
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46389613941483,
+       48.7252973912073
+      ],
+      [
+       -122.46389629482337,
+       48.7253215493815
+      ],
+      [
+       -122.46385983310432,
+       48.7253216513072
+      ],
+      [
+       -122.46385967769575,
+       48.72529749313305
+      ],
+      [
+       -122.46389613941483,
+       48.7252973912073
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109070,
+    "TextString": "13",
+    "Angle": 0.24278168,
+    "GLOBALID": "{F0D6C9EB-70EE-49CB-8C6A-2083C120DCBB}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54721519,
+    "SHAPE.STLength()": 16.27134630085674
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46619341726058,
+       48.72269910344647
+      ],
+      [
+       -122.46619341726058,
+       48.72272930287069
+      ],
+      [
+       -122.46614783943802,
+       48.72272930287069
+      ],
+      [
+       -122.46614783943802,
+       48.72269910344647
+      ],
+      [
+       -122.46619341726058,
+       48.72269910344647
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109229,
+    "TextString": "10",
+    "Angle": 0.0,
+    "GLOBALID": "{41763716-4857-49F5-9B61-70265B35F17B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46383235184314,
+       48.722688942345705
+      ],
+      [
+       -122.46383235184314,
+       48.72271310236548
+      ],
+      [
+       -122.46379588922575,
+       48.72271310236548
+      ],
+      [
+       -122.46379588922575,
+       48.722688942345705
+      ],
+      [
+       -122.46383235184314,
+       48.722688942345705
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109235,
+    "TextString": "12",
+    "Angle": 0.0,
+    "GLOBALID": "{704BEF78-B120-40A6-B1F4-F8AB9077F65C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4638893490496,
+       48.72119552385025
+      ],
+      [
+       -122.4638887435851,
+       48.7212196810316
+      ],
+      [
+       -122.46387051497135,
+       48.72121948249732
+      ],
+      [
+       -122.46387112043585,
+       48.721195324723226
+      ],
+      [
+       -122.4638893490496,
+       48.72119552385025
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109310,
+    "TextString": "5",
+    "Angle": -0.947422,
+    "GLOBALID": "{7A04CFD1-6F95-4493-BE7C-761650D39F11}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.27378777,
+    "SHAPE.STLength()": 12.212569035634196
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46511218971327,
+       48.72547850108315
+      ],
+      [
+       -122.46511218971327,
+       48.72550869883846
+      ],
+      [
+       -122.46506661189068,
+       48.72550869883846
+      ],
+      [
+       -122.46506661189068,
+       48.72547850108315
+      ],
+      [
+       -122.46511218971327,
+       48.72547850108315
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109491,
+    "TextString": "59",
+    "Angle": 0.0,
+    "GLOBALID": "{63B9D26F-1592-4EDD-A8D4-D8B5B6F91EDF}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46772175429112,
+       48.72317095174784
+      ],
+      [
+       -122.46772175429112,
+       48.723201150888784
+      ],
+      [
+       -122.46767617646856,
+       48.723201150888784
+      ],
+      [
+       -122.46767617646856,
+       48.72317095174784
+      ],
+      [
+       -122.46772175429112,
+       48.72317095174784
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109545,
+    "TextString": "21",
+    "Angle": 0.0,
+    "GLOBALID": "{91E45E95-0D93-4A79-9D1F-EF37FCB2F7D9}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46486697659017,
+       48.725426350223934
+      ],
+      [
+       -122.46486697659017,
+       48.72545654801056
+      ],
+      [
+       -122.46482139876758,
+       48.72545654801056
+      ],
+      [
+       -122.46482139876758,
+       48.725426350223934
+      ],
+      [
+       -122.46486697659017,
+       48.725426350223934
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109639,
+    "TextString": "71",
+    "Angle": 0.0,
+    "GLOBALID": "{64BCE817-1969-4D21-8667-494D70289768}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46389095793228,
+       48.72543060146468
+      ],
+      [
+       -122.46389110345935,
+       48.72545475957489
+      ],
+      [
+       -122.46385707437805,
+       48.72545484905594
+      ],
+      [
+       -122.46385692885099,
+       48.72543069094578
+      ],
+      [
+       -122.46389095793228,
+       48.72543060146468
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109645,
+    "TextString": "11",
+    "Angle": 0.22776356,
+    "GLOBALID": "{0167CBBB-CBCE-4002-95A6-43763CF59AED}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.44319189,
+    "SHAPE.STLength()": 15.729724566229509
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46514364332464,
+       48.7239183027096
+      ],
+      [
+       -122.46514364332464,
+       48.72394850140174
+      ],
+      [
+       -122.46512085486249,
+       48.72394850140174
+      ],
+      [
+       -122.46512085486249,
+       48.7239183027096
+      ],
+      [
+       -122.46514364332464,
+       48.7239183027096
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109776,
+    "TextString": "3",
+    "Angle": 0.0,
+    "GLOBALID": "{776A2C3C-F470-470B-8208-8D67E97B77BA}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4667647403914,
+       48.72372112748319
+      ],
+      [
+       -122.4667647403914,
+       48.72375132629374
+      ],
+      [
+       -122.46674195192925,
+       48.72375132629374
+      ],
+      [
+       -122.46674195192925,
+       48.72372112748319
+      ],
+      [
+       -122.4667647403914,
+       48.72372112748319
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109878,
+    "TextString": "6",
+    "Angle": 0.0,
+    "GLOBALID": "{9B64AB90-B694-4B17-B155-022A3D345090}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46765309425733,
+       48.723330418106755
+      ],
+      [
+       -122.46765309425733,
+       48.72336061715195
+      ],
+      [
+       -122.46760751643474,
+       48.72336061715195
+      ],
+      [
+       -122.46760751643474,
+       48.723330418106755
+      ],
+      [
+       -122.46765309425733,
+       48.723330418106755
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109976,
+    "TextString": "22",
+    "Angle": 0.0,
+    "GLOBALID": "{BFE726E0-347D-4F57-8C0E-78ABF068D448}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46891062606062,
+       48.723289618936256
+      ],
+      [
+       -122.46891062606062,
+       48.7233198180059
+      ],
+      [
+       -122.46886504823806,
+       48.7233198180059
+      ],
+      [
+       -122.46886504823806,
+       48.723289618936256
+      ],
+      [
+       -122.46891062606062,
+       48.723289618936256
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11109982,
+    "TextString": "36",
+    "Angle": 0.0,
+    "GLOBALID": "{427EBDA2-6FF9-42C3-9D40-66A5489F5031}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46973743814307,
+       48.725427410367516
+      ],
+      [
+       -122.46973743814307,
+       48.72545760815351
+      ],
+      [
+       -122.46971464968094,
+       48.72545760815351
+      ],
+      [
+       -122.46971464968094,
+       48.725427410367516
+      ],
+      [
+       -122.46973743814307,
+       48.725427410367516
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110015,
+    "TextString": "3",
+    "Angle": 0.0,
+    "GLOBALID": "{54BBC4C4-C540-4A53-AB94-BB6A27C3588B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46517798232468,
+       48.72373496552041
+      ],
+      [
+       -122.46517798232468,
+       48.723765164322636
+      ],
+      [
+       -122.46515519386253,
+       48.723765164322636
+      ],
+      [
+       -122.46515519386253,
+       48.72373496552041
+      ],
+      [
+       -122.46517798232468,
+       48.72373496552041
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110031,
+    "TextString": "4",
+    "Angle": 0.0,
+    "GLOBALID": "{21E86E59-E11D-4E77-9AF7-2AE3B8722294}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46390137030473,
+       48.7250199064824
+      ],
+      [
+       -122.46390154637453,
+       48.7250440647899
+      ],
+      [
+       -122.46386508465545,
+       48.72504418093841
+      ],
+      [
+       -122.46386490858568,
+       48.72502002263097
+      ],
+      [
+       -122.46390137030473,
+       48.7250199064824
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110259,
+    "TextString": "17",
+    "Angle": 0.2759113,
+    "GLOBALID": "{6BAF7E4C-E0D3-4315-80AB-0B0F6C1166F4}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54730179,
+    "SHAPE.STLength()": 16.271388878317143
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46485602253357,
+       48.72500424005052
+      ],
+      [
+       -122.46485602253357,
+       48.72503443809065
+      ],
+      [
+       -122.464810444711,
+       48.72503443809065
+      ],
+      [
+       -122.464810444711,
+       48.72500424005052
+      ],
+      [
+       -122.46485602253357,
+       48.72500424005052
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110260,
+    "TextString": "73",
+    "Angle": 0.0,
+    "GLOBALID": "{C9BACC09-67AB-4B71-9DDC-8D40A03F23B8}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362495060697,
+       48.72501967951858
+      ],
+      [
+       -122.46362512667679,
+       48.72504383782619
+      ],
+      [
+       -122.46358866495771,
+       48.72504395338209
+      ],
+      [
+       -122.4635884888879,
+       48.72501979507459
+      ],
+      [
+       -122.46362495060697,
+       48.72501967951858
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110264,
+    "TextString": "17",
+    "Angle": 0.27539364,
+    "GLOBALID": "{B03C5963-2544-490D-9FBC-D29D502DEBE0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54729983,
+    "SHAPE.STLength()": 16.271387915013133
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46869825264935,
+       48.724581731069996
+      ],
+      [
+       -122.46869825264935,
+       48.724611929363796
+      ],
+      [
+       -122.46867546418724,
+       48.724611929363796
+      ],
+      [
+       -122.46867546418724,
+       48.724581731069996
+      ],
+      [
+       -122.46869825264935,
+       48.724581731069996
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110349,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{A4B7616A-8399-440D-ACDD-E9E27ACAF69C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46842034084992,
+       48.72458107506183
+      ],
+      [
+       -122.46842034084992,
+       48.72461127335601
+      ],
+      [
+       -122.46837476302736,
+       48.72461127335601
+      ],
+      [
+       -122.46837476302736,
+       48.72458107506183
+      ],
+      [
+       -122.46842034084992,
+       48.72458107506183
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110351,
+    "TextString": "10",
+    "Angle": 0.0,
+    "GLOBALID": "{FC8754AF-1324-4FC6-B191-DBBDD6599185}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46806852914362,
+       48.72457860391976
+      ],
+      [
+       -122.46806852914362,
+       48.72460880221543
+      ],
+      [
+       -122.46802599211827,
+       48.72460880221543
+      ],
+      [
+       -122.46802599211827,
+       48.72457860391976
+      ],
+      [
+       -122.46806852914362,
+       48.72457860391976
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110356,
+    "TextString": "11",
+    "Angle": 0.0,
+    "GLOBALID": "{A3785D69-C305-4067-A336-CA9B8B9AFF3A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 24.13010568,
+    "SHAPE.STLength()": 19.6622
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46483402458891,
+       48.72478556431232
+      ],
+      [
+       -122.46483402458891,
+       48.72481576248372
+      ],
+      [
+       -122.46478844676632,
+       48.72481576248372
+      ],
+      [
+       -122.46478844676632,
+       48.72478556431232
+      ],
+      [
+       -122.46483402458891,
+       48.72478556431232
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110455,
+    "TextString": "74",
+    "Angle": 0.0,
+    "GLOBALID": "{6FF8FBB1-4507-448E-8FAF-2F8B969A4FE8}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46388649330531,
+       48.72152459259108
+      ],
+      [
+       -122.4638857351272,
+       48.72154874783645
+      ],
+      [
+       -122.46386750741179,
+       48.721548498336816
+      ],
+      [
+       -122.4638682664882,
+       48.72152434309129
+      ],
+      [
+       -122.46388649330531,
+       48.72152459259108
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110463,
+    "TextString": "7",
+    "Angle": -1.18665291,
+    "GLOBALID": "{BF4E30F9-0AD9-4FE9-8A35-F83A662E2D72}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.27376024,
+    "SHAPE.STLength()": 12.212522985170809
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46355884987341,
+       48.72153191579372
+      ],
+      [
+       -122.46355809169533,
+       48.721556071035614
+      ],
+      [
+       -122.46352163716277,
+       48.72155557262903
+      ],
+      [
+       -122.46352239534089,
+       48.72153141738689
+      ],
+      [
+       -122.46355884987341,
+       48.72153191579372
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110465,
+    "TextString": "10",
+    "Angle": -1.18714909,
+    "GLOBALID": "{5D20FDE2-8F65-4049-959A-8A1A42C5047C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54750783,
+    "SHAPE.STLength()": 16.271490190480115
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46903418932797,
+       48.72458516400163
+      ],
+      [
+       -122.46903418932797,
+       48.724615362293356
+      ],
+      [
+       -122.46901140086584,
+       48.724615362293356
+      ],
+      [
+       -122.46901140086584,
+       48.72458516400163
+      ],
+      [
+       -122.46903418932797,
+       48.72458516400163
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110535,
+    "TextString": "8",
+    "Angle": 0.0,
+    "GLOBALID": "{632E27CB-59EE-4AF2-80F2-B02A404DDC4E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46653362812332,
+       48.722959975050294
+      ],
+      [
+       -122.46653362812332,
+       48.72299017431788
+      ],
+      [
+       -122.46649109109796,
+       48.72299017431788
+      ],
+      [
+       -122.46649109109796,
+       48.722959975050294
+      ],
+      [
+       -122.46653362812332,
+       48.722959975050294
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110552,
+    "TextString": "11",
+    "Angle": 0.0,
+    "GLOBALID": "{F0D69F23-5021-4A47-BEE5-97F66D556848}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 24.13010568,
+    "SHAPE.STLength()": 19.6622
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46477301999793,
+       48.72298324482641
+      ],
+      [
+       -122.46477301999793,
+       48.723007404704866
+      ],
+      [
+       -122.46475478868925,
+       48.723007404704866
+      ],
+      [
+       -122.46475478868925,
+       48.72298324482641
+      ],
+      [
+       -122.46477301999793,
+       48.72298324482641
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110553,
+    "TextString": "6",
+    "Angle": 0.0,
+    "GLOBALID": "{B07E49E0-E23F-4995-B22B-85E8D2C54791}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46770020730072,
+       48.72294067107203
+      ],
+      [
+       -122.46770020730072,
+       48.722970870351205
+      ],
+      [
+       -122.46765462947816,
+       48.722970870351205
+      ],
+      [
+       -122.46765462947816,
+       48.72294067107203
+      ],
+      [
+       -122.46770020730072,
+       48.72294067107203
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110554,
+    "TextString": "20",
+    "Angle": 0.0,
+    "GLOBALID": "{2A647707-6182-44CE-96F7-08E8C83FA99E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46305887453572,
+       48.72356974677544
+      ],
+      [
+       -122.46305887453572,
+       48.723593906372166
+      ],
+      [
+       -122.46304064322706,
+       48.723593906372166
+      ],
+      [
+       -122.46304064322706,
+       48.72356974677544
+      ],
+      [
+       -122.46305887453572,
+       48.72356974677544
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110637,
+    "TextString": "3",
+    "Angle": 0.0,
+    "GLOBALID": "{C8E27882-067C-466A-97F3-8FB09A4BD01E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46387437862538,
+       48.72465687565553
+      ],
+      [
+       -122.46387458164463,
+       48.72468103413742
+      ],
+      [
+       -122.46383811992555,
+       48.724681167472156
+      ],
+      [
+       -122.46383791690633,
+       48.724657008990334
+      ],
+      [
+       -122.46387437862538,
+       48.72465687565553
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110692,
+    "TextString": "22",
+    "Angle": 0.3173317,
+    "GLOBALID": "{C532964D-9A6F-4DFE-8922-808375FAA64C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54742613,
+    "SHAPE.STLength()": 16.27145001160029
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4636123688031,
+       48.72465778351735
+      ],
+      [
+       -122.46361257182235,
+       48.7246819419988
+      ],
+      [
+       -122.46357611010328,
+       48.7246820753335
+      ],
+      [
+       -122.46357590708405,
+       48.72465791685216
+      ],
+      [
+       -122.4636123688031,
+       48.72465778351735
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110694,
+    "TextString": "22",
+    "Angle": 0.31784358,
+    "GLOBALID": "{88E36BD2-FE37-48AB-8BC4-A0559E40E8E4}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54742613,
+    "SHAPE.STLength()": 16.27145001160029
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4668733790486,
+       48.724569752844964
+      ],
+      [
+       -122.4668733790486,
+       48.724599951146
+      ],
+      [
+       -122.46682780122603,
+       48.724599951146
+      ],
+      [
+       -122.46682780122603,
+       48.724569752844964
+      ],
+      [
+       -122.4668733790486,
+       48.724569752844964
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110791,
+    "TextString": "14",
+    "Angle": 0.0,
+    "GLOBALID": "{2C4B064D-E94C-4FCF-A3DA-A7E3A96DE48E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46478766074046,
+       48.723534982963336
+      ],
+      [
+       -122.46478766074046,
+       48.72355914257676
+      ],
+      [
+       -122.46476942943177,
+       48.72355914257676
+      ],
+      [
+       -122.46476942943177,
+       48.723534982963336
+      ],
+      [
+       -122.46478766074046,
+       48.723534982963336
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110794,
+    "TextString": "4",
+    "Angle": 0.0,
+    "GLOBALID": "{F47E7294-ACD8-481D-9537-E1F4C759E08D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46552721496778,
+       48.723514640948615
+      ],
+      [
+       -122.46552721496778,
+       48.72354483988315
+      ],
+      [
+       -122.46550442650566,
+       48.72354483988315
+      ],
+      [
+       -122.46550442650566,
+       48.723514640948615
+      ],
+      [
+       -122.46552721496778,
+       48.723514640948615
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110795,
+    "TextString": "6",
+    "Angle": 0.0,
+    "GLOBALID": "{FC6361A0-B5B2-4217-8835-31A354C12DDD}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46859876423166,
+       48.723270770805826
+      ],
+      [
+       -122.46859876423166,
+       48.723300969886786
+      ],
+      [
+       -122.46855318640907,
+       48.723300969886786
+      ],
+      [
+       -122.46855318640907,
+       48.723270770805826
+      ],
+      [
+       -122.46859876423166,
+       48.723270770805826
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110821,
+    "TextString": "34",
+    "Angle": 0.0,
+    "GLOBALID": "{5FAF34C2-B28D-425F-B2F5-15563279F1D5}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46973719739458,
+       48.72522330891189
+      ],
+      [
+       -122.46973719739458,
+       48.72525350682045
+      ],
+      [
+       -122.46971440893246,
+       48.72525350682045
+      ],
+      [
+       -122.46971440893246,
+       48.72522330891189
+      ],
+      [
+       -122.46973719739458,
+       48.72522330891189
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11110866,
+    "TextString": "4",
+    "Angle": 0.0,
+    "GLOBALID": "{C05EF91B-43AB-448C-B194-A7BB6B44E7FB}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46478943940471,
+       48.724095765915514
+      ],
+      [
+       -122.46478943940471,
+       48.724119925259515
+      ],
+      [
+       -122.46477120809604,
+       48.724119925259515
+      ],
+      [
+       -122.46477120809604,
+       48.724095765915514
+      ],
+      [
+       -122.46478943940471,
+       48.724095765915514
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111256,
+    "TextString": "2",
+    "Angle": 0.0,
+    "GLOBALID": "{467C8BD9-DEA0-4F1E-A5C4-853B3387453B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4665372671985,
+       48.724564579445584
+      ],
+      [
+       -122.4665372671985,
+       48.72459477774967
+      ],
+      [
+       -122.46649168937594,
+       48.72459477774967
+      ],
+      [
+       -122.46649168937594,
+       48.724564579445584
+      ],
+      [
+       -122.4665372671985,
+       48.724564579445584
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111274,
+    "TextString": "15",
+    "Angle": 0.0,
+    "GLOBALID": "{9E9ED58E-B69D-4EE7-BC01-3B513AADB7B2}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.463635948681,
+       48.72101805100344
+      ],
+      [
+       -122.46363515367197,
+       48.72104220589942
+      ],
+      [
+       -122.46359870003774,
+       48.721041683782076
+      ],
+      [
+       -122.46359949504676,
+       48.721017528885845
+      ],
+      [
+       -122.463635948681,
+       48.72101805100344
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111287,
+    "TextString": "13",
+    "Angle": -1.24359776,
+    "GLOBALID": "{D40C161E-144B-4CA0-858C-76F1889476B0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54739325,
+    "SHAPE.STLength()": 16.27143386431361
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46474640830597,
+       48.72435233035007
+      ],
+      [
+       -122.46474640830597,
+       48.72437648957082
+      ],
+      [
+       -122.46472817699728,
+       48.72437648957082
+      ],
+      [
+       -122.46472817699728,
+       48.72435233035007
+      ],
+      [
+       -122.46474640830597,
+       48.72435233035007
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111349,
+    "TextString": "1",
+    "Angle": 0.0,
+    "GLOBALID": "{1CA04E11-ABE8-451B-9977-191DE6A724C8}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46477552629759,
+       48.72329519781557
+      ],
+      [
+       -122.46477552629759,
+       48.72331935754418
+      ],
+      [
+       -122.46475729498891,
+       48.72331935754418
+      ],
+      [
+       -122.46475729498891,
+       48.72329519781557
+      ],
+      [
+       -122.46477552629759,
+       48.72329519781557
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111432,
+    "TextString": "5",
+    "Angle": 0.0,
+    "GLOBALID": "{62066A05-4EAE-46E0-B74D-E00764F8198D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46641666837162,
+       48.723447095515915
+      ],
+      [
+       -122.46641666837162,
+       48.72347729449101
+      ],
+      [
+       -122.46639387990949,
+       48.72347729449101
+      ],
+      [
+       -122.46639387990949,
+       48.723447095515915
+      ],
+      [
+       -122.46641666837162,
+       48.723447095515915
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111474,
+    "TextString": "8",
+    "Angle": 0.0,
+    "GLOBALID": "{8DCC0820-084D-487A-A790-96FCB8AE2E0A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46677928501416,
+       48.72344143665066
+      ],
+      [
+       -122.46677928501416,
+       48.723471635629146
+      ],
+      [
+       -122.46675649655202,
+       48.723471635629146
+      ],
+      [
+       -122.46675649655202,
+       48.72344143665066
+      ],
+      [
+       -122.46677928501416,
+       48.72344143665066
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111475,
+    "TextString": "7",
+    "Angle": 0.0,
+    "GLOBALID": "{6CC4E4C7-C6E3-4326-B225-7B2B25CD1A97}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46606408231756,
+       48.723434120244775
+      ],
+      [
+       -122.46606408231756,
+       48.72346431922765
+      ],
+      [
+       -122.46604129385543,
+       48.72346431922765
+      ],
+      [
+       -122.46604129385543,
+       48.723434120244775
+      ],
+      [
+       -122.46606408231756,
+       48.723434120244775
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111478,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{C3BAE786-864D-4558-AB97-082103E3B6D6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46890449236389,
+       48.72437654646068
+      ],
+      [
+       -122.46890449236389,
+       48.72440674487768
+      ],
+      [
+       -122.4688589145413,
+       48.72440674487768
+      ],
+      [
+       -122.4688589145413,
+       48.72437654646068
+      ],
+      [
+       -122.46890449236389,
+       48.72437654646068
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111872,
+    "TextString": "27",
+    "Angle": 0.0,
+    "GLOBALID": "{DD19FDB2-EADE-43BF-A7A4-ACEC68350E0F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4686046320271,
+       48.72441314794243
+      ],
+      [
+       -122.4686046320271,
+       48.72444334633746
+      ],
+      [
+       -122.46855905420453,
+       48.72444334633746
+      ],
+      [
+       -122.46855905420453,
+       48.72441314794243
+      ],
+      [
+       -122.4686046320271,
+       48.72441314794243
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111948,
+    "TextString": "29",
+    "Angle": 0.0,
+    "GLOBALID": "{5776B44C-0439-47B6-8F56-4AFE1BDA7DC3}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4681615856239,
+       48.72441653466259
+      ],
+      [
+       -122.4681615856239,
+       48.724446733055615
+      ],
+      [
+       -122.46813879716179,
+       48.724446733055615
+      ],
+      [
+       -122.46813879716179,
+       48.72441653466259
+      ],
+      [
+       -122.4681615856239,
+       48.72441653466259
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111949,
+    "TextString": "5",
+    "Angle": 0.0,
+    "GLOBALID": "{C6B18396-30F7-4821-96FB-E90DBAAC6E64}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46738150030929,
+       48.72442420411628
+      ],
+      [
+       -122.46738150030929,
+       48.72445440250466
+      ],
+      [
+       -122.46735871184714,
+       48.72445440250466
+      ],
+      [
+       -122.46735871184714,
+       48.72442420411628
+      ],
+      [
+       -122.46738150030929,
+       48.72442420411628
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11111950,
+    "TextString": "3",
+    "Angle": 0.0,
+    "GLOBALID": "{B1475932-A4F0-41DD-A0A2-5E0F6C0F54E1}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46819347132491,
+       48.72308660573986
+      ],
+      [
+       -122.46819347132491,
+       48.72311680493145
+      ],
+      [
+       -122.46814789350235,
+       48.72311680493145
+      ],
+      [
+       -122.46814789350235,
+       48.72308660573986
+      ],
+      [
+       -122.46819347132491,
+       48.72308660573986
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11112099,
+    "TextString": "19",
+    "Angle": 0.0,
+    "GLOBALID": "{5A3E7AE1-2AFB-4586-804C-28A7A38D1939}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46614961630566,
+       48.722369879417734
+      ],
+      [
+       -122.46614961630566,
+       48.72239403959078
+      ],
+      [
+       -122.46613138499697,
+       48.72239403959078
+      ],
+      [
+       -122.46613138499697,
+       48.722369879417734
+      ],
+      [
+       -122.46614961630566,
+       48.722369879417734
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11112399,
+    "TextString": "3",
+    "Angle": 0.0,
+    "GLOBALID": "{F4E4ACC2-69A9-465F-B5FE-FDFB9266B356}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46601635572482,
+       48.72539046592143
+      ],
+      [
+       -122.46601635572482,
+       48.72542066372966
+      ],
+      [
+       -122.46597077790226,
+       48.72542066372966
+      ],
+      [
+       -122.46597077790226,
+       48.72539046592143
+      ],
+      [
+       -122.46601635572482,
+       48.72539046592143
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11113658,
+    "TextString": "57",
+    "Angle": 0.0,
+    "GLOBALID": "{742AE97D-7943-44EE-BB88-B4896B9A3EB2}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46605571900226,
+       48.723652964827195
+      ],
+      [
+       -122.46605571900226,
+       48.723683163678665
+      ],
+      [
+       -122.46603293054012,
+       48.723683163678665
+      ],
+      [
+       -122.46603293054012,
+       48.723652964827195
+      ],
+      [
+       -122.46605571900226,
+       48.723652964827195
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11113761,
+    "TextString": "4",
+    "Angle": 0.0,
+    "GLOBALID": "{DBB6A01B-086B-45FD-A346-D9FF71269A63}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46740939659212,
+       48.723624449566245
+      ],
+      [
+       -122.46740939659212,
+       48.723654648434845
+      ],
+      [
+       -122.46736381876953,
+       48.723654648434845
+      ],
+      [
+       -122.46736381876953,
+       48.723624449566245
+      ],
+      [
+       -122.46740939659212,
+       48.723624449566245
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11113762,
+    "TextString": "23",
+    "Angle": 0.0,
+    "GLOBALID": "{42B6DAC6-CEFB-48D1-B452-2DB51301C56F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46310553303161,
+       48.72385877877579
+      ],
+      [
+       -122.46310553303161,
+       48.72388293823367
+      ],
+      [
+       -122.4630873017229,
+       48.72388293823367
+      ],
+      [
+       -122.4630873017229,
+       48.72385877877579
+      ],
+      [
+       -122.46310553303161,
+       48.72385877877579
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11114273,
+    "TextString": "2",
+    "Angle": 0.0,
+    "GLOBALID": "{80E78CD1-CF84-4C5F-9A98-814689BD896D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46480544109488,
+       48.72382266934861
+      ],
+      [
+       -122.46480544109488,
+       48.72384682882383
+      ],
+      [
+       -122.4647872097862,
+       48.72384682882383
+      ],
+      [
+       -122.4647872097862,
+       48.72382266934861
+      ],
+      [
+       -122.46480544109488,
+       48.72382266934861
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11114276,
+    "TextString": "3",
+    "Angle": 0.0,
+    "GLOBALID": "{D759865C-EAE4-4FEE-BD82-DDE1D931B778}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46363278481456,
+       48.721208289311825
+      ],
+      [
+       -122.46363200328024,
+       48.721232444116495
+      ],
+      [
+       -122.46359554964603,
+       48.72123193089073
+      ],
+      [
+       -122.46359633118033,
+       48.721207776085826
+      ],
+      [
+       -122.46363278481456,
+       48.721208289311825
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11118821,
+    "TextString": "12",
+    "Angle": -1.22235509,
+    "GLOBALID": "{2CA10159-69DB-4856-B04A-FAFAE1FCD425}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5471306,
+    "SHAPE.STLength()": 16.271304729541953
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46634600239982,
+       48.725308773704626
+      ],
+      [
+       -122.46634747923012,
+       48.7253389561545
+      ],
+      [
+       -122.46632470244609,
+       48.72533944089403
+      ],
+      [
+       -122.46632322561578,
+       48.725309258444454
+      ],
+      [
+       -122.46634600239982,
+       48.725308773704626
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11118982,
+    "TextString": "2",
+    "Angle": 1.84838377,
+    "GLOBALID": "{82AB0509-CF78-4B97-8F0D-BACFD27EC3A5}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92751007,
+    "SHAPE.STLength()": 15.265543407717576
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46363280996738,
+       48.725291173736316
+      ],
+      [
+       -122.46363296627425,
+       48.7253153319135
+      ],
+      [
+       -122.46359650455518,
+       48.72531543502437
+      ],
+      [
+       -122.46359634824833,
+       48.72529127625467
+      ],
+      [
+       -122.46363280996738,
+       48.725291173736316
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11118985,
+    "TextString": "13",
+    "Angle": 0.24485229,
+    "GLOBALID": "{3579052E-C790-4604-A1E2-78D5D06A6D95}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547422465,
+    "SHAPE.STLength()": 16.271448428544975
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46389604329511,
+       48.725149628878185
+      ],
+      [
+       -122.46389620948342,
+       48.725173787123325
+      ],
+      [
+       -122.46385974776436,
+       48.725173896753034
+      ],
+      [
+       -122.46385958157603,
+       48.725149737915345
+      ],
+      [
+       -122.46389604329511,
+       48.725149628878185
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119109,
+    "TextString": "15",
+    "Angle": 0.26038413,
+    "GLOBALID": "{B11D613D-73BF-4F1D-B62C-EC8C6049A761}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5474619,
+    "SHAPE.STLength()": 16.271467817130244
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46548587809166,
+       48.724548841167234
+      ],
+      [
+       -122.46548587809166,
+       48.72457903948078
+      ],
+      [
+       -122.4654403002691,
+       48.72457903948078
+      ],
+      [
+       -122.4654403002691,
+       48.724548841167234
+      ],
+      [
+       -122.46548587809166,
+       48.724548841167234
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119163,
+    "TextString": "18",
+    "Angle": 0.0,
+    "GLOBALID": "{BDAA9D5C-A4FC-4B45-89B3-85EA2601032A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46360712893006,
+       48.7245294903908
+      ],
+      [
+       -122.46360734542401,
+       48.72455364893388
+      ],
+      [
+       -122.46357088370496,
+       48.72455379056532
+      ],
+      [
+       -122.46357066810931,
+       48.72452963202235
+      ],
+      [
+       -122.46360712893006,
+       48.7245294903908
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119310,
+    "TextString": "24",
+    "Angle": 0.33752037,
+    "GLOBALID": "{E239EACC-8FB6-4226-92B3-24EC3237D584}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54728859,
+    "SHAPE.STLength()": 16.27138261021423
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46386808772343,
+       48.72452337415959
+      ],
+      [
+       -122.46386830242082,
+       48.7245475327056
+      ],
+      [
+       -122.46383184070174,
+       48.72454767374445
+      ],
+      [
+       -122.46383162600438,
+       48.72452351519855
+      ],
+      [
+       -122.46386808772343,
+       48.72452337415959
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119311,
+    "TextString": "24",
+    "Angle": 0.33596433,
+    "GLOBALID": "{D9B31BF4-EBA2-490A-9EDE-5E00F7643930}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54748645,
+    "SHAPE.STLength()": 16.271479668428317
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4639081804329,
+       48.72400924777702
+      ],
+      [
+       -122.4639081804329,
+       48.724033407162615
+      ],
+      [
+       -122.46387171781552,
+       48.724033407162615
+      ],
+      [
+       -122.46387171781552,
+       48.72400924777702
+      ],
+      [
+       -122.4639081804329,
+       48.72400924777702
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119384,
+    "TextString": "16",
+    "Angle": 0.0,
+    "GLOBALID": "{FC5DB474-36CB-4350-9130-5AB39A1E2787}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4689453414548,
+       48.72260246030759
+      ],
+      [
+       -122.4689453414548,
+       48.72262662036896
+      ],
+      [
+       -122.46892347735907,
+       48.72262662036896
+      ],
+      [
+       -122.46892347735907,
+       48.72260246030759
+      ],
+      [
+       -122.4689453414548,
+       48.72260246030759
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119394,
+    "TextString": "B",
+    "Angle": 0.0,
+    "GLOBALID": "{B3D14A7C-A56D-46E6-A462-4792D98E4ED9}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 9.92252352,
+    "SHAPE.STLength()": 13.0214
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976830425625,
+       48.724633350650784
+      ],
+      [
+       -122.46976830425625,
+       48.72466354891358
+      ],
+      [
+       -122.46974551579412,
+       48.72466354891358
+      ],
+      [
+       -122.46974551579412,
+       48.724633350650784
+      ],
+      [
+       -122.46976830425625,
+       48.724633350650784
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119623,
+    "TextString": "7",
+    "Angle": 0.0,
+    "GLOBALID": "{E7E951A8-D82D-4D1C-A0B3-AB65C0370B7C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46841282554426,
+       48.72293063447013
+      ],
+      [
+       -122.46841282554426,
+       48.72296083375533
+      ],
+      [
+       -122.46836724772167,
+       48.72296083375533
+      ],
+      [
+       -122.46836724772167,
+       48.72293063447013
+      ],
+      [
+       -122.46841282554426,
+       48.72293063447013
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119832,
+    "TextString": "18",
+    "Angle": 0.0,
+    "GLOBALID": "{D0043814-9DD9-4436-876B-B7147DBEE528}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46385601706098,
+       48.72297192284251
+      ],
+      [
+       -122.46385601706098,
+       48.72299608272636
+      ],
+      [
+       -122.46381955444357,
+       48.72299608272636
+      ],
+      [
+       -122.46381955444357,
+       48.72297192284251
+      ],
+      [
+       -122.46385601706098,
+       48.72297192284251
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11119833,
+    "TextString": "13",
+    "Angle": 0.0,
+    "GLOBALID": "{74665FB5-DAC4-4AB1-BF9C-10670F4E670A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46509896741058,
+       48.72506819819681
+      ],
+      [
+       -122.46509896741058,
+       48.7250983961985
+      ],
+      [
+       -122.46505338958802,
+       48.7250983961985
+      ],
+      [
+       -122.46505338958802,
+       48.72506819819681
+      ],
+      [
+       -122.46509896741058,
+       48.72506819819681
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11120956,
+    "TextString": "20",
+    "Angle": 0.0,
+    "GLOBALID": "{ED1BD051-1CD6-43DC-9F17-D0097061504E}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4648692358531,
+       48.7252118475804
+      ],
+      [
+       -122.4648692358531,
+       48.72524204549583
+      ],
+      [
+       -122.46482365803053,
+       48.72524204549583
+      ],
+      [
+       -122.46482365803053,
+       48.7252118475804
+      ],
+      [
+       -122.4648692358531,
+       48.7252118475804
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121035,
+    "TextString": "72",
+    "Angle": 0.0,
+    "GLOBALID": "{FE927D4D-63AF-43D2-9A2E-E631AFEA1709}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46363581034043,
+       48.72522079869028
+      ],
+      [
+       -122.46363597203718,
+       48.72524495690128
+      ],
+      [
+       -122.46359950941982,
+       48.72524506297526
+      ],
+      [
+       -122.46359934862136,
+       48.72522090476432
+      ],
+      [
+       -122.46363581034043,
+       48.72522079869028
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121037,
+    "TextString": "14",
+    "Angle": 0.25261932,
+    "GLOBALID": "{CE6EDA65-A04D-4EBF-A7B4-AFCC4F8FFA9A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54744277,
+    "SHAPE.STLength()": 16.271457974107328
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4655037698372,
+       48.72518044846094
+      ],
+      [
+       -122.4655037698372,
+       48.725210646395226
+      ],
+      [
+       -122.46545819201464,
+       48.725210646395226
+      ],
+      [
+       -122.46545819201464,
+       48.72518044846094
+      ],
+      [
+       -122.4655037698372,
+       48.72518044846094
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121038,
+    "TextString": "21",
+    "Angle": 0.0,
+    "GLOBALID": "{1E884DB2-7CE1-48E4-8046-186D1397DB41}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46485113390179,
+       48.72243789387842
+      ],
+      [
+       -122.46485113390179,
+       48.72246205401884
+      ],
+      [
+       -122.46483290259312,
+       48.72246205401884
+      ],
+      [
+       -122.46483290259312,
+       48.72243789387842
+      ],
+      [
+       -122.46485113390179,
+       48.72243789387842
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121043,
+    "TextString": "8",
+    "Angle": 0.0,
+    "GLOBALID": "{118BC8F6-31CD-4C0D-BA73-7981B75CD12A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46394112884089,
+       48.724292473886905
+      ],
+      [
+       -122.46394112884089,
+       48.724316633136404
+      ],
+      [
+       -122.46390466622351,
+       48.724316633136404
+      ],
+      [
+       -122.46390466622351,
+       48.724292473886905
+      ],
+      [
+       -122.46394112884089,
+       48.724292473886905
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121061,
+    "TextString": "17",
+    "Angle": 0.0,
+    "GLOBALID": "{8E799E20-396B-426A-993D-3D07E461A701}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46895033339283,
+       48.72411008860103
+      ],
+      [
+       -122.46895033339283,
+       48.724140287178024
+      ],
+      [
+       -122.46890475557024,
+       48.724140287178024
+      ],
+      [
+       -122.46890475557024,
+       48.72411008860103
+      ],
+      [
+       -122.46895033339283,
+       48.72411008860103
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121068,
+    "TextString": "28",
+    "Angle": 0.0,
+    "GLOBALID": "{193DEBBB-D6D4-4E7D-B8F9-3E3BD721701B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46772161415394,
+       48.72460373074718
+      ],
+      [
+       -122.46772161415394,
+       48.7246339290278
+      ],
+      [
+       -122.46769882569181,
+       48.7246339290278
+      ],
+      [
+       -122.46769882569181,
+       48.72460373074718
+      ],
+      [
+       -122.46772161415394,
+       48.72460373074718
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121254,
+    "TextString": "1",
+    "Angle": 0.0,
+    "GLOBALID": "{51460F59-61B2-4EA6-A0D2-F680713C80AD}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46790421380342,
+       48.72403563832582
+      ],
+      [
+       -122.46790421380342,
+       48.724065836947524
+      ],
+      [
+       -122.4678814253413,
+       48.724065836947524
+      ],
+      [
+       -122.4678814253413,
+       48.72403563832582
+      ],
+      [
+       -122.46790421380342,
+       48.72403563832582
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121324,
+    "TextString": "4",
+    "Angle": 0.0,
+    "GLOBALID": "{128CBAB2-0DFC-455E-9F44-5102A7A94905}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46482339751908,
+       48.724590072506764
+      ],
+      [
+       -122.46482339751908,
+       48.72462027079554
+      ],
+      [
+       -122.46477781969652,
+       48.72462027079554
+      ],
+      [
+       -122.46477781969652,
+       48.724590072506764
+      ],
+      [
+       -122.46482339751908,
+       48.724590072506764
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121331,
+    "TextString": "75",
+    "Angle": 0.0,
+    "GLOBALID": "{08332FBC-6570-4751-8C0F-CF3FE68468AC}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46739156503371,
+       48.724597222816556
+      ],
+      [
+       -122.46739156503371,
+       48.724627421101054
+      ],
+      [
+       -122.4673687765716,
+       48.724627421101054
+      ],
+      [
+       -122.4673687765716,
+       48.724597222816556
+      ],
+      [
+       -122.46739156503371,
+       48.724597222816556
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121480,
+    "TextString": "2",
+    "Angle": 0.0,
+    "GLOBALID": "{EB4416C3-5AFD-4B73-AD54-9CDAE4A79E25}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46619432276239,
+       48.72456397321557
+      ],
+      [
+       -122.46619432276239,
+       48.724594171520025
+      ],
+      [
+       -122.4661487449398,
+       48.724594171520025
+      ],
+      [
+       -122.4661487449398,
+       48.72456397321557
+      ],
+      [
+       -122.46619432276239,
+       48.72456397321557
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121482,
+    "TextString": "16",
+    "Angle": 0.0,
+    "GLOBALID": "{419B7F21-84EB-4AFE-B869-4342F6940421}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46584524822278,
+       48.72456332431835
+      ],
+      [
+       -122.46584524822278,
+       48.7245935226232
+      ],
+      [
+       -122.4657996704002,
+       48.7245935226232
+      ],
+      [
+       -122.4657996704002,
+       48.72456332431835
+      ],
+      [
+       -122.46584524822278,
+       48.72456332431835
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121483,
+    "TextString": "17",
+    "Angle": 0.0,
+    "GLOBALID": "{C6B7B84E-66AB-4A9D-9374-18468BD3C137}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4635616526171,
+       48.72168520143485
+      ],
+      [
+       -122.46356090521878,
+       48.721709356603085
+      ],
+      [
+       -122.46354267750336,
+       48.72170911125267
+      ],
+      [
+       -122.46354342490167,
+       48.72168495549168
+      ],
+      [
+       -122.4635616526171,
+       48.72168520143485
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121681,
+    "TextString": "9",
+    "Angle": -1.16907591,
+    "GLOBALID": "{CB64E320-9B6E-46F1-AAB8-60E2F164DFC4}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.273958785,
+    "SHAPE.STLength()": 12.212644780631244
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46360552364064,
+       48.72479701092604
+      ],
+      [
+       -122.46360571677842,
+       48.72482116934057
+      ],
+      [
+       -122.46356925505934,
+       48.72482129615639
+      ],
+      [
+       -122.46356906192156,
+       48.72479713774188
+      ],
+      [
+       -122.46360552364064,
+       48.72479701092604
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121837,
+    "TextString": "20",
+    "Angle": 0.3023168,
+    "GLOBALID": "{1D6D4111-0586-42D9-8201-E8F4810EEE86}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54737773,
+    "SHAPE.STLength()": 16.271426215306104
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46318591697818,
+       48.722906828941426
+      ],
+      [
+       -122.46318591697818,
+       48.72293098885655
+      ],
+      [
+       -122.46316768566946,
+       48.72293098885655
+      ],
+      [
+       -122.46316768566946,
+       48.722906828941426
+      ],
+      [
+       -122.46318591697818,
+       48.722906828941426
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11121875,
+    "TextString": "4",
+    "Angle": 0.0,
+    "GLOBALID": "{92764BB2-6F1E-4742-BAD8-384F4FC49DD6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.2738656,
+    "SHAPE.STLength()": 12.2126
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46748212329919,
+       48.723981666074195
+      ],
+      [
+       -122.46748212329919,
+       48.724011864728304
+      ],
+      [
+       -122.46743654547663,
+       48.724011864728304
+      ],
+      [
+       -122.46743654547663,
+       48.723981666074195
+      ],
+      [
+       -122.46748212329919,
+       48.723981666074195
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11122140,
+    "TextString": "24",
+    "Angle": 0.0,
+    "GLOBALID": "{E0EA6266-0486-4015-AF81-9C3CCB4FD291}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362739492287,
+       48.72542433778815
+      ],
+      [
+       -122.46362754134825,
+       48.725448495901375
+      ],
+      [
+       -122.46359351226698,
+       48.725448585974995
+      ],
+      [
+       -122.46359336584158,
+       48.72542442726925
+      ],
+      [
+       -122.46362739492287,
+       48.72542433778815
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11122217,
+    "TextString": "11",
+    "Angle": 0.22880713,
+    "GLOBALID": "{99441F52-45D9-4FF3-B779-A83A51440049}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.44338362,
+    "SHAPE.STLength()": 15.729825762570748
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4665941889465,
+       48.72257646665717
+      ],
+      [
+       -122.4665941889465,
+       48.72260666615507
+      ],
+      [
+       -122.46657140048437,
+       48.72260666615507
+      ],
+      [
+       -122.46657140048437,
+       48.72257646665717
+      ],
+      [
+       -122.4665941889465,
+       48.72257646665717
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11122717,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{8D660EB9-6339-471C-9C03-50FC25297096}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46384110502727,
+       48.7223871349075
+      ],
+      [
+       -122.46384110502727,
+       48.7224112950723
+      ],
+      [
+       -122.46380707594598,
+       48.7224112950723
+      ],
+      [
+       -122.46380707594598,
+       48.7223871349075
+      ],
+      [
+       -122.46384110502727,
+       48.7223871349075
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11122724,
+    "TextString": "11",
+    "Angle": 0.0,
+    "GLOBALID": "{39838706-4491-48AD-9C3E-D037349E59EB}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.44332608,
+    "SHAPE.STLength()": 15.7298
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46896409109138,
+       48.72351863989804
+      ],
+      [
+       -122.46896409109138,
+       48.72354883883017
+      ],
+      [
+       -122.46891851326882,
+       48.72354883883017
+      ],
+      [
+       -122.46891851326882,
+       48.72351863989804
+      ],
+      [
+       -122.46896409109138,
+       48.72351863989804
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11122863,
+    "TextString": "35",
+    "Angle": 0.0,
+    "GLOBALID": "{F2C24E8C-3E55-41A9-8F2B-CCBAFD1A8042}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46640286396067,
+       48.72369287419465
+      ],
+      [
+       -122.46640286396067,
+       48.72372307302221
+      ],
+      [
+       -122.46638007549853,
+       48.72372307302221
+      ],
+      [
+       -122.46638007549853,
+       48.72369287419465
+      ],
+      [
+       -122.46640286396067,
+       48.72369287419465
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123170,
+    "TextString": "5",
+    "Angle": 0.0,
+    "GLOBALID": "{25E2BEFB-0BB8-4F1A-AE25-C9E5AC23832B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4638800281302,
+       48.72371239122387
+      ],
+      [
+       -122.4638800281302,
+       48.72373655075203
+      ],
+      [
+       -122.46384356551282,
+       48.72373655075203
+      ],
+      [
+       -122.46384356551282,
+       48.72371239122387
+      ],
+      [
+       -122.4638800281302,
+       48.72371239122387
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123172,
+    "TextString": "15",
+    "Angle": 0.0,
+    "GLOBALID": "{FC5398B0-9E87-497A-9FF9-3361EF2DE0FD}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4657319212581,
+       48.723716598756354
+      ],
+      [
+       -122.4657319212581,
+       48.723746797569625
+      ],
+      [
+       -122.46570913279596,
+       48.723746797569625
+      ],
+      [
+       -122.46570913279596,
+       48.723716598756354
+      ],
+      [
+       -122.4657319212581,
+       48.723716598756354
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123178,
+    "TextString": "5",
+    "Angle": 0.0,
+    "GLOBALID": "{FC380AFF-BBD1-4235-8DB1-77912787783D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362990571407,
+       48.72549087849687
+      ],
+      [
+       -122.46363004764788,
+       48.72551503657813
+      ],
+      [
+       -122.46359358503051,
+       48.72551512961459
+      ],
+      [
+       -122.463593443995,
+       48.725490971533375
+      ],
+      [
+       -122.46362990571407,
+       48.72549087849687
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123227,
+    "TextString": "10",
+    "Angle": 0.22155391,
+    "GLOBALID": "{33165EA2-2D06-4ADC-A881-445733678A0C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54736874,
+    "SHAPE.STLength()": 16.271421576535428
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46803435633191,
+       48.723705662134236
+      ],
+      [
+       -122.46803435633191,
+       48.723735860954065
+      ],
+      [
+       -122.46798877850932,
+       48.723735860954065
+      ],
+      [
+       -122.46798877850932,
+       48.723705662134236
+      ],
+      [
+       -122.46803435633191,
+       48.723705662134236
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123431,
+    "TextString": "32",
+    "Angle": 0.0,
+    "GLOBALID": "{976F5063-C7FE-4110-B3D4-F1C850CB43EE}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46389358280953,
+       48.72549716705389
+      ],
+      [
+       -122.46389372384505,
+       48.72552132513213
+      ],
+      [
+       -122.46385726122766,
+       48.725521417575976
+      ],
+      [
+       -122.46385712109048,
+       48.72549725949782
+      ],
+      [
+       -122.46389358280953,
+       48.72549716705389
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123439,
+    "TextString": "10",
+    "Angle": 0.21948531,
+    "GLOBALID": "{97191B8C-835A-4685-9CC5-5F58034C7EFC}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547365605,
+    "SHAPE.STLength()": 16.271420035180657
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46823704231113,
+       48.723273787810946
+      ],
+      [
+       -122.46823704231113,
+       48.7233039868901
+      ],
+      [
+       -122.46819146448857,
+       48.7233039868901
+      ],
+      [
+       -122.46819146448857,
+       48.723273787810946
+      ],
+      [
+       -122.46823704231113,
+       48.723273787810946
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123442,
+    "TextString": "33",
+    "Angle": 0.0,
+    "GLOBALID": "{DFE20B97-DB5E-4B7D-8276-C4005896FA8D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46656098092541,
+       48.722740242075616
+      ],
+      [
+       -122.46656098092541,
+       48.722770441475134
+      ],
+      [
+       -122.46651540310282,
+       48.722770441475134
+      ],
+      [
+       -122.46651540310282,
+       48.722740242075616
+      ],
+      [
+       -122.46656098092541,
+       48.722740242075616
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123729,
+    "TextString": "12",
+    "Angle": 0.0,
+    "GLOBALID": "{B728BED7-2E33-41B2-99CD-9EB920EDD369}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46385609251945,
+       48.72323295007444
+      ],
+      [
+       -122.46385609251945,
+       48.72325710983294
+      ],
+      [
+       -122.46381962990209,
+       48.72325710983294
+      ],
+      [
+       -122.46381962990209,
+       48.72323295007444
+      ],
+      [
+       -122.46385609251945,
+       48.72323295007444
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11123900,
+    "TextString": "14",
+    "Angle": 0.0,
+    "GLOBALID": "{BE9FF399-9671-4843-AA40-4A441B642009}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5477312,
+    "SHAPE.STLength()": 16.2716
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46361933164486,
+       48.72486744938034
+      ],
+      [
+       -122.46361951939275,
+       48.72489160776103
+      ],
+      [
+       -122.46358305767369,
+       48.724891731021074
+      ],
+      [
+       -122.4635828699258,
+       48.724867572640406
+      ],
+      [
+       -122.46361933164486,
+       48.72486744938034
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11124331,
+    "TextString": "19",
+    "Angle": 0.29351134,
+    "GLOBALID": "{7523AD7E-ACC3-4149-A5D3-D017FEF47E2F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54735235,
+    "SHAPE.STLength()": 16.271413736990013
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46388102526016,
+       48.724802736009714
+      ],
+      [
+       -122.46388121839797,
+       48.72482689442148
+      ],
+      [
+       -122.4638447566789,
+       48.72482702123729
+      ],
+      [
+       -122.4638445635411,
+       48.72480286223293
+      ],
+      [
+       -122.46388102526016,
+       48.724802736009714
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11127197,
+    "TextString": "20",
+    "Angle": 0.30127603,
+    "GLOBALID": "{70FB85F7-1E51-47AB-984A-DC5B7BEFCC0B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5475796,
+    "SHAPE.STLength()": 16.271525687918174
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46388470925115,
+       48.72473047996598
+      ],
+      [
+       -122.46388490688054,
+       48.724754638412506
+      ],
+      [
+       -122.46384844605979,
+       48.72475476878405
+      ],
+      [
+       -122.46384824753207,
+       48.72473060974502
+      ],
+      [
+       -122.46388470925115,
+       48.72473047996598
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11127198,
+    "TextString": "21",
+    "Angle": 0.30956123,
+    "GLOBALID": "{24B929F4-9177-4680-9030-9325CB302E61}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.547400735,
+    "SHAPE.STLength()": 16.271437965958686
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4638948323661,
+       48.72487317386339
+      ],
+      [
+       -122.46389502011398,
+       48.72489733224137
+      ],
+      [
+       -122.46385855839492,
+       48.724897455501356
+      ],
+      [
+       -122.46385837064702,
+       48.72487329712348
+      ],
+      [
+       -122.4638948323661,
+       48.72487317386339
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11127199,
+    "TextString": "19",
+    "Angle": 0.29299633,
+    "GLOBALID": "{2B594606-54C5-432D-9E7E-DB896BED1BD6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54735235,
+    "SHAPE.STLength()": 16.271413736990013
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46390194073491,
+       48.72494666941227
+      ],
+      [
+       -122.46390212219463,
+       48.724970827754944
+      ],
+      [
+       -122.46386566047555,
+       48.72497094745921
+      ],
+      [
+       -122.46386547901587,
+       48.72494678911659
+      ],
+      [
+       -122.46390194073491,
+       48.72494666941227
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11127200,
+    "TextString": "18",
+    "Angle": 0.28470876,
+    "GLOBALID": "{410CE8FE-FD23-427C-96F1-E05C422278D6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.54732567,
+    "SHAPE.STLength()": 16.271400619223037
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46362824293249,
+       48.725158176443145
+      ],
+      [
+       -122.46362840912082,
+       48.72518233468423
+      ],
+      [
+       -122.46359194740174,
+       48.725182444313916
+      ],
+      [
+       -122.46359178121342,
+       48.72515828548033
+      ],
+      [
+       -122.46362824293249,
+       48.725158176443145
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11127208,
+    "TextString": "15",
+    "Angle": 0.26037946,
+    "GLOBALID": "{6B7F0C42-51E6-4141-87CE-108268D8777F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 16.5474619,
+    "SHAPE.STLength()": 16.271467817130244
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46604860614183,
+       48.72425574016665
+      ],
+      [
+       -122.466049526915,
+       48.72428593273014
+      ],
+      [
+       -122.46602674204615,
+       48.7242862349579
+      ],
+      [
+       -122.46602582127298,
+       48.724256042394586
+      ],
+      [
+       -122.46604860614183,
+       48.72425574016665
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129363,
+    "TextString": "3",
+    "Angle": 1.15244576,
+    "GLOBALID": "{2961F8E7-40F9-4C63-B99D-29AD62256DA7}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92793186,
+    "SHAPE.STLength()": 15.265687268058391
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46674928218198,
+       48.72425710671106
+      ],
+      [
+       -122.46674534217114,
+       48.72428719319772
+      ],
+      [
+       -122.46672263725233,
+       48.72428589895174
+      ],
+      [
+       -122.4667265781615,
+       48.7242558124643
+      ],
+      [
+       -122.46674928218198,
+       48.72425710671106
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129364,
+    "TextString": "1",
+    "Angle": -4.93806576,
+    "GLOBALID": "{EB852DAF-3BA0-4A4C-9DBF-1A314BEC2B64}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92766481,
+    "SHAPE.STLength()": 15.265565762268094
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.466370993531,
+       48.724255620460674
+      ],
+      [
+       -122.46637247125965,
+       48.7242858035426
+      ],
+      [
+       -122.46634969357729,
+       48.72428628888485
+      ],
+      [
+       -122.466348216747,
+       48.72425610521061
+      ],
+      [
+       -122.466370993531,
+       48.724255620460674
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129365,
+    "TextString": "2",
+    "Angle": 1.84923723,
+    "GLOBALID": "{D3436380-C258-4576-AE06-1F9951E241A7}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.927903825,
+    "SHAPE.STLength()": 15.265749757090106
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46569904651196,
+       48.72429345642332
+      ],
+      [
+       -122.4656951056028,
+       48.724323542888236
+      ],
+      [
+       -122.46567240158232,
+       48.72432224864319
+      ],
+      [
+       -122.46567634249148,
+       48.7242921621775
+      ],
+      [
+       -122.46569904651196,
+       48.72429345642332
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129366,
+    "TextString": "1",
+    "Angle": -4.93888994,
+    "GLOBALID": "{C0BCBF8B-D4A3-43E3-A2C5-C8FCFB8A5BD2}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92742188,
+    "SHAPE.STLength()": 15.26547474141131
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976765477429,
+       48.72420886044094
+      ],
+      [
+       -122.46976765477429,
+       48.724239058958624
+      ],
+      [
+       -122.46972207695173,
+       48.724239058958624
+      ],
+      [
+       -122.46972207695173,
+       48.72420886044094
+      ],
+      [
+       -122.46976765477429,
+       48.72420886044094
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129367,
+    "TextString": "44",
+    "Angle": 0.0,
+    "GLOBALID": "{5102DA82-B149-4B88-A9ED-CD7ABB73F940}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4697679314554,
+       48.72354976093466
+      ],
+      [
+       -122.4697679314554,
+       48.72357995984815
+      ],
+      [
+       -122.46972235363283,
+       48.72357995984815
+      ],
+      [
+       -122.46972235363283,
+       48.72354976093466
+      ],
+      [
+       -122.4697679314554,
+       48.72354976093466
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129368,
+    "TextString": "41",
+    "Angle": 0.0,
+    "GLOBALID": "{E06EAB47-62C2-4D65-A21A-FCDEF58780C2}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976932564073,
+       48.72399055043847
+      ],
+      [
+       -122.46976932564073,
+       48.724020749087245
+      ],
+      [
+       -122.46972374781814,
+       48.724020749087245
+      ],
+      [
+       -122.46972374781814,
+       48.72399055043847
+      ],
+      [
+       -122.46976932564073,
+       48.72399055043847
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129369,
+    "TextString": "43",
+    "Angle": 0.0,
+    "GLOBALID": "{0B2B6F55-EDCD-4CEB-BDC3-ADBC82A06A31}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976848751255,
+       48.72375792322527
+      ],
+      [
+       -122.46976848751255,
+       48.72378812201377
+      ],
+      [
+       -122.46972290968999,
+       48.72378812201377
+      ],
+      [
+       -122.46972290968999,
+       48.72375792322527
+      ],
+      [
+       -122.46976848751255,
+       48.72375792322527
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129370,
+    "TextString": "42",
+    "Angle": 0.0,
+    "GLOBALID": "{20C20704-1A7D-47FD-A9A3-C48838F5C2C7}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976016641808,
+       48.72288958548235
+      ],
+      [
+       -122.46976016641808,
+       48.72291978479219
+      ],
+      [
+       -122.46971458859551,
+       48.72291978479219
+      ],
+      [
+       -122.46971458859551,
+       48.72288958548235
+      ],
+      [
+       -122.46976016641808,
+       48.72288958548235
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129371,
+    "TextString": "38",
+    "Angle": 0.0,
+    "GLOBALID": "{8716B9D5-196C-4590-ADEF-EB8050B5BF80}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46976100454624,
+       48.72312221256353
+      ],
+      [
+       -122.46976100454624,
+       48.7231524117337
+      ],
+      [
+       -122.46971542672368,
+       48.7231524117337
+      ],
+      [
+       -122.46971542672368,
+       48.72312221256353
+      ],
+      [
+       -122.46976100454624,
+       48.72312221256353
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129372,
+    "TextString": "39",
+    "Angle": 0.0,
+    "GLOBALID": "{61B59ADC-9A7B-4974-81D6-D27DB2183E42}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4697593336798,
+       48.723340523372194
+      ],
+      [
+       -122.4697593336798,
+       48.723370722411275
+      ],
+      [
+       -122.46971375585724,
+       48.723370722411275
+      ],
+      [
+       -122.46971375585724,
+       48.723340523372194
+      ],
+      [
+       -122.4697593336798,
+       48.723340523372194
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129373,
+    "TextString": "40",
+    "Angle": 0.0,
+    "GLOBALID": "{405C2EDF-E290-4CC6-8F6F-F923D4332C52}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46975961036091,
+       48.72268142315346
+      ],
+      [
+       -122.46975961036091,
+       48.7227116225883
+      ],
+      [
+       -122.46971403253835,
+       48.7227116225883
+      ],
+      [
+       -122.46971403253835,
+       48.72268142315346
+      ],
+      [
+       -122.46975961036091,
+       48.72268142315346
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11129374,
+    "TextString": "37",
+    "Angle": 0.0,
+    "GLOBALID": "{223CEC1E-A083-47EB-A967-235E58E3DD44}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46387387197557,
+       48.721012212886954
+      ],
+      [
+       -122.46387310122104,
+       48.721036367785736
+      ],
+      [
+       -122.46385487440394,
+       48.721036114727696
+      ],
+      [
+       -122.46385564426015,
+       48.72101195982879
+      ],
+      [
+       -122.46387387197557,
+       48.721012212886954
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11130424,
+    "TextString": "4",
+    "Angle": -1.20530777,
+    "GLOBALID": "{F25F2257-5DE5-4D91-9740-4719A0B088FA}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 8.273663515,
+    "SHAPE.STLength()": 12.21240237283358
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46357917964663,
+       48.72136087603381
+      ],
+      [
+       -122.46357842146853,
+       48.72138503135781
+      ],
+      [
+       -122.46354439867544,
+       48.72138456613727
+      ],
+      [
+       -122.46354515775185,
+       48.72136041081302
+      ],
+      [
+       -122.46357917964663,
+       48.72136087603381
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11130426,
+    "TextString": "11",
+    "Angle": -1.18715982,
+    "GLOBALID": "{05F18F92-7AED-408F-BAF7-BD2FC05BA7A6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.44348919,
+    "SHAPE.STLength()": 15.729876448427833
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46808503299202,
+       48.72509253129633
+      ],
+      [
+       -122.46808503299202,
+       48.72512272928341
+      ],
+      [
+       -122.46803945516946,
+       48.72512272928341
+      ],
+      [
+       -122.46803945516946,
+       48.72509253129633
+      ],
+      [
+       -122.46808503299202,
+       48.72509253129633
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131112,
+    "TextString": "28",
+    "Angle": 0.0,
+    "GLOBALID": "{8210F924-F067-4D4C-BF56-57FA977B7F90}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46843684739326,
+       48.725095002413106
+      ],
+      [
+       -122.46843684739326,
+       48.7251252003987
+      ],
+      [
+       -122.46839126957067,
+       48.7251252003987
+      ],
+      [
+       -122.46839126957067,
+       48.725095002413106
+      ],
+      [
+       -122.46843684739326,
+       48.725095002413106
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131113,
+    "TextString": "29",
+    "Angle": 0.0,
+    "GLOBALID": "{4945E7E7-28A5-4923-9E1C-4F93F68AC94D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46905070305782,
+       48.72509909071855
+      ],
+      [
+       -122.46905070305782,
+       48.7251292887017
+      ],
+      [
+       -122.46900512523526,
+       48.7251292887017
+      ],
+      [
+       -122.46900512523526,
+       48.72509909071855
+      ],
+      [
+       -122.46905070305782,
+       48.72509909071855
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131114,
+    "TextString": "31",
+    "Angle": 0.0,
+    "GLOBALID": "{1C50439D-D83E-4F13-AB7E-C48CD2D9D5FC}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46871476278598,
+       48.72509565782201
+      ],
+      [
+       -122.46871476278598,
+       48.725125855807214
+      ],
+      [
+       -122.46866918496342,
+       48.725125855807214
+      ],
+      [
+       -122.46866918496342,
+       48.72509565782201
+      ],
+      [
+       -122.46871476278598,
+       48.72509565782201
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131115,
+    "TextString": "30",
+    "Angle": 0.0,
+    "GLOBALID": "{6B99449C-B29E-430E-95F3-F4AADDDE0F33}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4674188001565,
+       48.725088932472985
+      ],
+      [
+       -122.4674188001565,
+       48.725119130462275
+      ],
+      [
+       -122.46737322233393,
+       48.725119130462275
+      ],
+      [
+       -122.46737322233393,
+       48.725088932472985
+      ],
+      [
+       -122.4674188001565,
+       48.725088932472985
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131116,
+    "TextString": "26",
+    "Angle": 0.0,
+    "GLOBALID": "{093BFA9B-4729-403A-822B-FC36260FF377}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46777061545606,
+       48.72509140536774
+      ],
+      [
+       -122.46777061545606,
+       48.7251216033555
+      ],
+      [
+       -122.4677250376335,
+       48.7251216033555
+      ],
+      [
+       -122.4677250376335,
+       48.72509140536774
+      ],
+      [
+       -122.46777061545606,
+       48.72509140536774
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131117,
+    "TextString": "27",
+    "Angle": 0.0,
+    "GLOBALID": "{A251007E-55CF-4734-9D85-6A91EB501F89}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46901082235078,
+       48.72533573186644
+      ],
+      [
+       -122.46900688323828,
+       48.72536581770783
+      ],
+      [
+       -122.46896147429896,
+       48.72536323045655
+      ],
+      [
+       -122.4689654134115,
+       48.72533314461361
+      ],
+      [
+       -122.46901082235078,
+       48.72533573186644
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131118,
+    "TextString": "32",
+    "Angle": -4.93627511,
+    "GLOBALID": "{96020DF3-286E-46A6-B65E-DB69957D8F74}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.8551764,
+    "SHAPE.STLength()": 20.339242623074913
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46863252471667,
+       48.72533425335157
+      ],
+      [
+       -122.4686340024453,
+       48.72536443578615
+      ],
+      [
+       -122.46858844887726,
+       48.72536540644982
+      ],
+      [
+       -122.46858697025029,
+       48.72533522401583
+      ],
+      [
+       -122.46863252471667,
+       48.72533425335157
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131119,
+    "TextString": "33",
+    "Angle": 1.85003736,
+    "GLOBALID": "{40C95A86-6329-4A95-8BA7-324C5340489C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.855332255,
+    "SHAPE.STLength()": 20.339304280231776
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4683405408083,
+       48.72546789254617
+      ],
+      [
+       -122.46834146337808,
+       48.72549808438195
+      ],
+      [
+       -122.46829589453866,
+       48.72549869000811
+      ],
+      [
+       -122.46829497286718,
+       48.72546849817269
+      ],
+      [
+       -122.4683405408083,
+       48.72546789254617
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131121,
+    "TextString": "34",
+    "Angle": 1.15408324,
+    "GLOBALID": "{C95B5A7F-F542-4A16-94CB-A30E83AB00F6}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.855135315,
+    "SHAPE.STLength()": 20.339226782745904
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812333985069,
+       48.72141765071646
+      ],
+      [
+       -122.46812333985069,
+       48.72144785091011
+      ],
+      [
+       -122.46807776202812,
+       48.72144785091011
+      ],
+      [
+       -122.46807776202812,
+       48.72141765071646
+      ],
+      [
+       -122.46812333985069,
+       48.72141765071646
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131542,
+    "TextString": "14",
+    "Angle": 0.0,
+    "GLOBALID": "{CB1C1FAD-85A2-4C2B-ACE9-557ABFB05463}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812186661361,
+       48.721281421002395
+      ],
+      [
+       -122.46812186661361,
+       48.721311621277835
+      ],
+      [
+       -122.46807628879104,
+       48.721311621277835
+      ],
+      [
+       -122.46807628879104,
+       48.721281421002395
+      ],
+      [
+       -122.46812186661361,
+       48.721281421002395
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131545,
+    "TextString": "12",
+    "Angle": 0.0,
+    "GLOBALID": "{1EB32EC6-851B-4ACE-B2FB-40EAF0CC0F4D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46811878629049,
+       48.721210177461984
+      ],
+      [
+       -122.46811878629049,
+       48.72124037778021
+      ],
+      [
+       -122.46807624926517,
+       48.72124037778021
+      ],
+      [
+       -122.46807624926517,
+       48.721210177461984
+      ],
+      [
+       -122.46811878629049,
+       48.721210177461984
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131547,
+    "TextString": "11",
+    "Angle": 0.0,
+    "GLOBALID": "{3976D9B9-49F0-4007-9E46-FEAF3D578C2D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 24.13010568,
+    "SHAPE.STLength()": 19.6622
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812037271529,
+       48.72114346277965
+      ],
+      [
+       -122.46812037271529,
+       48.72117366313793
+      ],
+      [
+       -122.46807479489273,
+       48.72117366313793
+      ],
+      [
+       -122.46807479489273,
+       48.72114346277965
+      ],
+      [
+       -122.46812037271529,
+       48.72114346277965
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11131549,
+    "TextString": "10",
+    "Angle": 0.0,
+    "GLOBALID": "{2FD5EECA-D24C-437B-912D-A49176223F0B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812413575803,
+       48.72149120405973
+      ],
+      [
+       -122.46812413575803,
+       48.72152140420922
+      ],
+      [
+       -122.46807855793544,
+       48.72152140420922
+      ],
+      [
+       -122.46807855793544,
+       48.72149120405973
+      ],
+      [
+       -122.46812413575803,
+       48.72149120405973
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11133888,
+    "TextString": "15",
+    "Angle": 0.0,
+    "GLOBALID": "{84CBAB6D-EF18-4B91-92A5-EA54E35344DB}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46810157995955,
+       48.721005434839356
+      ],
+      [
+       -122.46810157995955,
+       48.721035635280515
+      ],
+      [
+       -122.46807879149745,
+       48.721035635280515
+      ],
+      [
+       -122.46807879149745,
+       48.721005434839356
+      ],
+      [
+       -122.46810157995955,
+       48.721005434839356
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134521,
+    "TextString": "8",
+    "Angle": 0.0,
+    "GLOBALID": "{D1E621E0-79B6-4063-A0A7-A8B180584134}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812715050412,
+       48.721769811144235
+      ],
+      [
+       -122.46812715050412,
+       48.72180001112644
+      ],
+      [
+       -122.46808157268156,
+       48.72180001112644
+      ],
+      [
+       -122.46808157268156,
+       48.721769811144235
+      ],
+      [
+       -122.46812715050412,
+       48.721769811144235
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134522,
+    "TextString": "19",
+    "Angle": 0.0,
+    "GLOBALID": "{70C4DB91-FD22-4101-8D18-F22CF58653B2}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812259514729,
+       48.72134877673614
+      ],
+      [
+       -122.46812259514729,
+       48.72137897697119
+      ],
+      [
+       -122.46807701732473,
+       48.72137897697119
+      ],
+      [
+       -122.46807701732473,
+       48.72134877673614
+      ],
+      [
+       -122.46812259514729,
+       48.72134877673614
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134523,
+    "TextString": "13",
+    "Angle": 0.0,
+    "GLOBALID": "{D63EED1E-EA8C-4808-9DE9-5CC40E425B20}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812569702999,
+       48.72163555111645
+      ],
+      [
+       -122.46812569702999,
+       48.721665751179266
+      ],
+      [
+       -122.46808011920743,
+       48.721665751179266
+      ],
+      [
+       -122.46808011920743,
+       48.72163555111645
+      ],
+      [
+       -122.46812569702999,
+       48.72163555111645
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134524,
+    "TextString": "17",
+    "Angle": 0.0,
+    "GLOBALID": "{F75EBDA9-1840-4FA5-BDBE-53BC3DD9E458}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812641478388,
+       48.72170184674657
+      ],
+      [
+       -122.46812641478388,
+       48.72173204676958
+      ],
+      [
+       -122.46808083696132,
+       48.72173204676958
+      ],
+      [
+       -122.46808083696132,
+       48.72170184674657
+      ],
+      [
+       -122.46812641478388,
+       48.72170184674657
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134526,
+    "TextString": "18",
+    "Angle": 0.0,
+    "GLOBALID": "{B07F93AA-F24A-4F55-95D8-9A89EC579D38}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46810238035847,
+       48.7210793988932
+      ],
+      [
+       -122.46810238035847,
+       48.721109599289946
+      ],
+      [
+       -122.46807959189634,
+       48.721109599289946
+      ],
+      [
+       -122.46807959189634,
+       48.7210793988932
+      ],
+      [
+       -122.46810238035847,
+       48.7210793988932
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134527,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{4449A705-3EFA-4143-81EE-AF017A4AD01C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46812494963164,
+       48.72156651623766
+      ],
+      [
+       -122.46812494963164,
+       48.72159671634193
+      ],
+      [
+       -122.46807937180908,
+       48.72159671634193
+      ],
+      [
+       -122.46807937180908,
+       48.72156651623766
+      ],
+      [
+       -122.46812494963164,
+       48.72156651623766
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134529,
+    "TextString": "16",
+    "Angle": 0.0,
+    "GLOBALID": "{CA357A02-2721-472A-AC8A-84F091B0A3CC}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46672592598459,
+       48.72163421176203
+      ],
+      [
+       -122.46672592598459,
+       48.72166441182565
+      ],
+      [
+       -122.46669859564037,
+       48.72166441182565
+      ],
+      [
+       -122.46669859564037,
+       48.72163421176203
+      ],
+      [
+       -122.46672592598459,
+       48.72163421176203
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11134746,
+    "TextString": "A",
+    "Angle": 0.0,
+    "GLOBALID": "{DA6B0CF7-7376-447D-BD9B-7EE1C1DCBCBA}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 15.50376616,
+    "SHAPE.STLength()": 16.2766
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633955968258,
+       48.72100385485543
+      ],
+      [
+       -122.46633955968258,
+       48.72103405529753
+      ],
+      [
+       -122.46629398185999,
+       48.72103405529753
+      ],
+      [
+       -122.46629398185999,
+       48.72100385485543
+      ],
+      [
+       -122.46633955968258,
+       48.72100385485543
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11135333,
+    "TextString": "31",
+    "Angle": 0.0,
+    "GLOBALID": "{B12664FA-E737-4FEE-A08C-B51BAE0CAAC0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46905601749106,
+       48.721012134065546
+      ],
+      [
+       -122.46905601749106,
+       48.721042334502684
+      ],
+      [
+       -122.46901043966847,
+       48.721042334502684
+      ],
+      [
+       -122.46901043966847,
+       48.721012134065546
+      ],
+      [
+       -122.46905601749106,
+       48.721012134065546
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136084,
+    "TextString": "31",
+    "Angle": 0.0,
+    "GLOBALID": "{78206B81-3CD0-4DD3-838C-A158852098D7}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904548294772,
+       48.721707699006245
+      ],
+      [
+       -122.46904548294772,
+       48.72173789902574
+      ],
+      [
+       -122.46899990512514,
+       48.72173789902574
+      ],
+      [
+       -122.46899990512514,
+       48.721707699006245
+      ],
+      [
+       -122.46904548294772,
+       48.721707699006245
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136085,
+    "TextString": "21",
+    "Angle": 0.0,
+    "GLOBALID": "{DCB356AA-4DA7-4BBE-89F1-C03027345BA9}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904492329729,
+       48.72128875964904
+      ],
+      [
+       -122.46904492329729,
+       48.72131895992008
+      ],
+      [
+       -122.46899934547473,
+       48.72131895992008
+      ],
+      [
+       -122.46899934547473,
+       48.72128875964904
+      ],
+      [
+       -122.46904492329729,
+       48.72128875964904
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136087,
+    "TextString": "27",
+    "Angle": 0.0,
+    "GLOBALID": "{807EF302-3FF8-4C39-974A-69684BEA3B44}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.469048173402,
+       48.721221225450385
+      ],
+      [
+       -122.469048173402,
+       48.72125142576197
+      ],
+      [
+       -122.46900259557944,
+       48.72125142576197
+      ],
+      [
+       -122.46900259557944,
+       48.721221225450385
+      ],
+      [
+       -122.469048173402,
+       48.721221225450385
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136090,
+    "TextString": "28",
+    "Angle": 0.0,
+    "GLOBALID": "{9557D1AE-C1C9-4ED8-B075-1AC21AC1A877}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4690447175831,
+       48.721637126339466
+      ],
+      [
+       -122.4690447175831,
+       48.72166732640134
+      ],
+      [
+       -122.46899913976051,
+       48.72166732640134
+      ],
+      [
+       -122.46899913976051,
+       48.721637126339466
+      ],
+      [
+       -122.4690447175831,
+       48.721637126339466
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136091,
+    "TextString": "22",
+    "Angle": 0.0,
+    "GLOBALID": "{D94CC710-F912-48CB-B016-8E2F60FB1CA3}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904163007346,
+       48.72157406700626
+      ],
+      [
+       -122.46904163007346,
+       48.72160426710599
+      ],
+      [
+       -122.46899605225087,
+       48.72160426710599
+      ],
+      [
+       -122.46899605225087,
+       48.72157406700626
+      ],
+      [
+       -122.46904163007346,
+       48.72157406700626
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136092,
+    "TextString": "23",
+    "Angle": 0.0,
+    "GLOBALID": "{EEF3B9CB-9910-4B36-8602-ECB5A6C25C2F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46905289494713,
+       48.72108117444637
+      ],
+      [
+       -122.46905289494713,
+       48.72111137484204
+      ],
+      [
+       -122.46900731712454,
+       48.72111137484204
+      ],
+      [
+       -122.46900731712454,
+       48.72108117444637
+      ],
+      [
+       -122.46905289494713,
+       48.72108117444637
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136094,
+    "TextString": "30",
+    "Angle": 0.0,
+    "GLOBALID": "{E4DAD5B7-0A98-47BB-8ED7-A9EB71955391}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904850128706,
+       48.72114828213197
+      ],
+      [
+       -122.46904850128706,
+       48.72117848248735
+      ],
+      [
+       -122.4690029234645,
+       48.72117848248735
+      ],
+      [
+       -122.4690029234645,
+       48.72114828213197
+      ],
+      [
+       -122.46904850128706,
+       48.72114828213197
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136096,
+    "TextString": "29",
+    "Angle": 0.0,
+    "GLOBALID": "{CB0D2CC1-6C68-4014-B81E-20BECA1C9819}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904182141462,
+       48.721359752392274
+      ],
+      [
+       -122.46904182141462,
+       48.72138995262069
+      ],
+      [
+       -122.46899624359206,
+       48.72138995262069
+      ],
+      [
+       -122.46899624359206,
+       48.721359752392274
+      ],
+      [
+       -122.46904182141462,
+       48.721359752392274
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136097,
+    "TextString": "26",
+    "Angle": 0.0,
+    "GLOBALID": "{9B963FAD-5316-428B-83FC-8FE7879F1220}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904008227622,
+       48.72143128552033
+      ],
+      [
+       -122.46904008227622,
+       48.72146148570579
+      ],
+      [
+       -122.46899450445366,
+       48.72146148570579
+      ],
+      [
+       -122.46899450445366,
+       48.72143128552033
+      ],
+      [
+       -122.46904008227622,
+       48.72143128552033
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136098,
+    "TextString": "25",
+    "Angle": 0.0,
+    "GLOBALID": "{6617CE88-D59D-424F-8874-5B000FC9CB43}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4690408512341,
+       48.72150212931065
+      ],
+      [
+       -122.4690408512341,
+       48.72153232945362
+      ],
+      [
+       -122.46899527341154,
+       48.72153232945362
+      ],
+      [
+       -122.46899527341154,
+       48.72150212931065
+      ],
+      [
+       -122.4690408512341,
+       48.72150212931065
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136099,
+    "TextString": "24",
+    "Angle": 0.0,
+    "GLOBALID": "{E7A15985-60AF-40CF-81B4-DF95EFBC806D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46904622585446,
+       48.721776161800356
+      ],
+      [
+       -122.46904622585446,
+       48.72180636177875
+      ],
+      [
+       -122.4690006480319,
+       48.72180636177875
+      ],
+      [
+       -122.4690006480319,
+       48.721776161800356
+      ],
+      [
+       -122.46904622585446,
+       48.721776161800356
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136100,
+    "TextString": "20",
+    "Angle": 0.0,
+    "GLOBALID": "{5638B9B1-9D79-4847-A653-FF8766A263E2}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46944157710594,
+       48.72170888545921
+      ],
+      [
+       -122.46944157710594,
+       48.721739085477985
+      ],
+      [
+       -122.46939599928338,
+       48.721739085477985
+      ],
+      [
+       -122.46939599928338,
+       48.72170888545921
+      ],
+      [
+       -122.46944157710594,
+       48.72170888545921
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136101,
+    "TextString": "18",
+    "Angle": 0.0,
+    "GLOBALID": "{15D7DEE7-B375-470C-96A9-60EE2EC20FD9}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46944085755538,
+       48.72164258983836
+      ],
+      [
+       -122.46944085755538,
+       48.72167278989696
+      ],
+      [
+       -122.46939527973282,
+       48.72167278989696
+      ],
+      [
+       -122.46939527973282,
+       48.72164258983836
+      ],
+      [
+       -122.46944085755538,
+       48.72164258983836
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136102,
+    "TextString": "17",
+    "Angle": 0.0,
+    "GLOBALID": "{77C20055-5DA4-47E4-845A-78BD13E7BD83}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46944010925876,
+       48.72157355496924
+      ],
+      [
+       -122.46944010925876,
+       48.72160375506928
+      ],
+      [
+       -122.4693945314362,
+       48.72160375506928
+      ],
+      [
+       -122.4693945314362,
+       48.72157355496924
+      ],
+      [
+       -122.46944010925876,
+       48.72157355496924
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136103,
+    "TextString": "16",
+    "Angle": 0.0,
+    "GLOBALID": "{5386EC90-8342-436F-A87C-BF9E0978146F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46943929269017,
+       48.7214982428018
+      ],
+      [
+       -122.46943929269017,
+       48.721528442947104
+      ],
+      [
+       -122.4693937148676,
+       48.721528442947104
+      ],
+      [
+       -122.4693937148676,
+       48.7214982428018
+      ],
+      [
+       -122.46943929269017,
+       48.7214982428018
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136104,
+    "TextString": "15",
+    "Angle": 0.0,
+    "GLOBALID": "{FADE1D86-D427-4880-83D1-01CB4A2D0548}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46944231372446,
+       48.72177685043996
+      ],
+      [
+       -122.46944231372446,
+       48.72180705041793
+      ],
+      [
+       -122.4693967359019,
+       48.72180705041793
+      ],
+      [
+       -122.4693967359019,
+       48.72177685043996
+      ],
+      [
+       -122.46944231372446,
+       48.72177685043996
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136105,
+    "TextString": "19",
+    "Angle": 0.0,
+    "GLOBALID": "{5DE61860-09E6-4748-A82D-2686A56AD5F1}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46943418486946,
+       48.721224973302974
+      ],
+      [
+       -122.46943418486946,
+       48.72125517361231
+      ],
+      [
+       -122.46939164784413,
+       48.72125517361231
+      ],
+      [
+       -122.46939164784413,
+       48.721224973302974
+      ],
+      [
+       -122.46943418486946,
+       48.721224973302974
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136106,
+    "TextString": "11",
+    "Angle": 0.0,
+    "GLOBALID": "{82986D16-90E2-47BD-B4E4-6573975476AC}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 24.13010568,
+    "SHAPE.STLength()": 19.6622
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46943726698919,
+       48.721296216822374
+      ],
+      [
+       -122.46943726698919,
+       48.72132641708894
+      ],
+      [
+       -122.46939168916663,
+       48.72132641708894
+      ],
+      [
+       -122.46939168916663,
+       48.721296216822374
+      ],
+      [
+       -122.46943726698919,
+       48.721296216822374
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136107,
+    "TextString": "12",
+    "Angle": 0.0,
+    "GLOBALID": "{FE5B2855-3AB9-4589-8EB4-4F662C9B1075}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46943799731953,
+       48.72136357194371
+      ],
+      [
+       -122.46943799731953,
+       48.72139377216984
+      ],
+      [
+       -122.46939241949697,
+       48.72139377216984
+      ],
+      [
+       -122.46939241949697,
+       48.72136357194371
+      ],
+      [
+       -122.46943799731953,
+       48.72136357194371
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136108,
+    "TextString": "13",
+    "Angle": 0.0,
+    "GLOBALID": "{CC0E0884-D2F9-4D51-AE36-EEEC397F2352}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46943874381954,
+       48.721432447089065
+      ],
+      [
+       -122.46943874381954,
+       48.72146264727383
+      ],
+      [
+       -122.46939316599695,
+       48.72146264727383
+      ],
+      [
+       -122.46939316599695,
+       48.721432447089065
+      ],
+      [
+       -122.46943874381954,
+       48.721432447089065
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136109,
+    "TextString": "14",
+    "Angle": 0.0,
+    "GLOBALID": "{07C8A286-5F4C-4288-BF7A-53A7B8F74EFF}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46943956667633,
+       48.72115475495052
+      ],
+      [
+       -122.46943956667633,
+       48.721184955302014
+      ],
+      [
+       -122.46939398885377,
+       48.721184955302014
+      ],
+      [
+       -122.46939398885377,
+       48.72115475495052
+      ],
+      [
+       -122.46943956667633,
+       48.72115475495052
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136110,
+    "TextString": "10",
+    "Angle": 0.0,
+    "GLOBALID": "{357BCA5E-2C96-404D-A034-EB11AE30F828}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46942077122564,
+       48.721016728226516
+      ],
+      [
+       -122.46942077122564,
+       48.72104692866089
+      ],
+      [
+       -122.46939798276352,
+       48.72104692866089
+      ],
+      [
+       -122.46939798276352,
+       48.721016728226516
+      ],
+      [
+       -122.46942077122564,
+       48.721016728226516
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136487,
+    "TextString": "8",
+    "Angle": 0.0,
+    "GLOBALID": "{F9042477-3DA7-4AEB-BD57-EA8A6E44C70B}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4694215734212,
+       48.721090692263715
+      ],
+      [
+       -122.4694215734212,
+       48.721120892653666
+      ],
+      [
+       -122.46939878495907,
+       48.721120892653666
+      ],
+      [
+       -122.46939878495907,
+       48.721090692263715
+      ],
+      [
+       -122.4694215734212,
+       48.721090692263715
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136614,
+    "TextString": "9",
+    "Angle": 0.0,
+    "GLOBALID": "{F5941A25-EC03-429B-9D5D-27F085087DA0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 12.92727912,
+    "SHAPE.STLength()": 15.2654
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755244970784,
+       48.72134589295917
+      ],
+      [
+       -122.46755244970784,
+       48.72137609319591
+      ],
+      [
+       -122.46750687188528,
+       48.72137609319591
+      ],
+      [
+       -122.46750687188528,
+       48.72134589295917
+      ],
+      [
+       -122.46755244970784,
+       48.72134589295917
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136621,
+    "TextString": "26",
+    "Angle": 0.0,
+    "GLOBALID": "{1FB8F537-9E87-43E5-A3DD-EEE464854124}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755394180953,
+       48.72148392411361
+      ],
+      [
+       -122.46755394180953,
+       48.721514124267465
+      ],
+      [
+       -122.46750836398697,
+       48.721514124267465
+      ],
+      [
+       -122.46750836398697,
+       48.72148392411361
+      ],
+      [
+       -122.46755394180953,
+       48.72148392411361
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136627,
+    "TextString": "24",
+    "Angle": 0.0,
+    "GLOBALID": "{6964674B-7A44-460E-B5E1-C8874EF25309}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755827887571,
+       48.72176053050865
+      ],
+      [
+       -122.46755827887571,
+       48.721790730496465
+      ],
+      [
+       -122.46751270105315,
+       48.721790730496465
+      ],
+      [
+       -122.46751270105315,
+       48.72176053050865
+      ],
+      [
+       -122.46755827887571,
+       48.72176053050865
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136628,
+    "TextString": "20",
+    "Angle": 0.0,
+    "GLOBALID": "{E8BEF6EB-DE85-41AF-805A-BB2D67E48482}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755677509593,
+       48.72162149559723
+      ],
+      [
+       -122.46755677509593,
+       48.721651695668484
+      ],
+      [
+       -122.46751119727337,
+       48.721651695668484
+      ],
+      [
+       -122.46751119727337,
+       48.72162149559723
+      ],
+      [
+       -122.46755677509593,
+       48.72162149559723
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136629,
+    "TextString": "22",
+    "Angle": 0.0,
+    "GLOBALID": "{EDE052C6-1315-4803-B2ED-3DEA47B6FD60}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755753866393,
+       48.7216920682859
+      ],
+      [
+       -122.46755753866393,
+       48.72172226831478
+      ],
+      [
+       -122.46751196084136,
+       48.72172226831478
+      ],
+      [
+       -122.46751196084136,
+       48.7216920682859
+      ],
+      [
+       -122.46755753866393,
+       48.7216920682859
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136630,
+    "TextString": "21",
+    "Angle": 0.0,
+    "GLOBALID": "{4BD6F80A-5005-4419-8BA9-43855262D615}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755770664886,
+       48.721008366639886
+      ],
+      [
+       -122.46755770664886,
+       48.72103856707927
+      ],
+      [
+       -122.4675121288263,
+       48.72103856707927
+      ],
+      [
+       -122.4675121288263,
+       48.721008366639886
+      ],
+      [
+       -122.46755770664886,
+       48.721008366639886
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136633,
+    "TextString": "31",
+    "Angle": 0.0,
+    "GLOBALID": "{79C30BF8-4546-40ED-8DFA-85E01BE0B42F}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755843428426,
+       48.72107562791672
+      ],
+      [
+       -122.46755843428426,
+       48.72110582831572
+      ],
+      [
+       -122.4675128564617,
+       48.72110582831572
+      ],
+      [
+       -122.4675128564617,
+       48.72107562791672
+      ],
+      [
+       -122.46755843428426,
+       48.72107562791672
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136634,
+    "TextString": "30",
+    "Angle": 0.0,
+    "GLOBALID": "{3428EFA2-FA11-4ADB-BDD7-753DC4006715}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4675547862259,
+       48.72114336025283
+      ],
+      [
+       -122.4675547862259,
+       48.72117356061117
+      ],
+      [
+       -122.46750920840331,
+       48.72117356061117
+      ],
+      [
+       -122.46750920840331,
+       48.72114336025283
+      ],
+      [
+       -122.4675547862259,
+       48.72114336025283
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136635,
+    "TextString": "29",
+    "Angle": 0.0,
+    "GLOBALID": "{7953F797-AC80-4EA6-812B-69AF98A2A1D3}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755563962542,
+       48.721212611433245
+      ],
+      [
+       -122.46755563962542,
+       48.72124281175001
+      ],
+      [
+       -122.46751006180286,
+       48.72124281175001
+      ],
+      [
+       -122.46751006180286,
+       48.721212611433245
+      ],
+      [
+       -122.46755563962542,
+       48.721212611433245
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136636,
+    "TextString": "28",
+    "Angle": 0.0,
+    "GLOBALID": "{807DC222-769F-48A7-957E-825E3771A91A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4675533228703,
+       48.72128061382822
+      ],
+      [
+       -122.4675533228703,
+       48.72131081410414
+      ],
+      [
+       -122.46750774504774,
+       48.72131081410414
+      ],
+      [
+       -122.46750774504774,
+       48.72128061382822
+      ],
+      [
+       -122.4675533228703,
+       48.72128061382822
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136637,
+    "TextString": "27",
+    "Angle": 0.0,
+    "GLOBALID": "{26103062-CC64-4E85-8C55-7285F463621C}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755317644492,
+       48.72141308029761
+      ],
+      [
+       -122.46755317644492,
+       48.721443280494
+      ],
+      [
+       -122.46750759862233,
+       48.721443280494
+      ],
+      [
+       -122.46750759862233,
+       48.72141308029761
+      ],
+      [
+       -122.46755317644492,
+       48.72141308029761
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136638,
+    "TextString": "25",
+    "Angle": 0.0,
+    "GLOBALID": "{5CC2B899-1E62-451D-948C-427E0A44A76A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46755471975055,
+       48.72155586242786
+      ],
+      [
+       -122.46755471975055,
+       48.72158606253853
+      ],
+      [
+       -122.46750914192799,
+       48.72158606253853
+      ],
+      [
+       -122.46750914192799,
+       48.72155586242786
+      ],
+      [
+       -122.46755471975055,
+       48.72155586242786
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11136639,
+    "TextString": "23",
+    "Angle": 0.0,
+    "GLOBALID": "{31300061-CB7A-4624-BFB6-E9ED9DADD28A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633971329452,
+       48.7215468365862
+      ],
+      [
+       -122.46633971329452,
+       48.721577036702286
+      ],
+      [
+       -122.46629413547193,
+       48.721577036702286
+      ],
+      [
+       -122.46629413547193,
+       48.7215468365862
+      ],
+      [
+       -122.46633971329452,
+       48.7215468365862
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137034,
+    "TextString": "23",
+    "Angle": 0.0,
+    "GLOBALID": "{0FA2329E-9DE2-4FB0-8CA6-79CBAA012A8A}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46634199411699,
+       48.7217584485881
+      ],
+      [
+       -122.46634199411699,
+       48.72178864857712
+      ],
+      [
+       -122.46629641629443,
+       48.72178864857712
+      ],
+      [
+       -122.46629641629443,
+       48.7217584485881
+      ],
+      [
+       -122.46634199411699,
+       48.7217584485881
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137035,
+    "TextString": "20",
+    "Angle": 0.0,
+    "GLOBALID": "{D754698F-8F5A-489B-81C4-EE69FAAD8C09}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4663404957271,
+       48.721619413078244
+      ],
+      [
+       -122.4663404957271,
+       48.72164961315075
+      ],
+      [
+       -122.46629491790453,
+       48.72164961315075
+      ],
+      [
+       -122.46629491790453,
+       48.721619413078244
+      ],
+      [
+       -122.4663404957271,
+       48.721619413078244
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137036,
+    "TextString": "22",
+    "Angle": 0.0,
+    "GLOBALID": "{0C764C0C-4724-4330-AA6C-46C17E7B6895}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633893625177,
+       48.72147489885168
+      ],
+      [
+       -122.46633893625177,
+       48.72150509901097
+      ],
+      [
+       -122.46629335842921,
+       48.72150509901097
+      ],
+      [
+       -122.46629335842921,
+       48.72147489885168
+      ],
+      [
+       -122.46633893625177,
+       48.72147489885168
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137037,
+    "TextString": "24",
+    "Angle": 0.0,
+    "GLOBALID": "{39E4107B-4C16-4ED1-BF55-1939AAFB22A1}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46634125749847,
+       48.72168998695512
+      ],
+      [
+       -122.46634125749847,
+       48.72172018698525
+      ],
+      [
+       -122.46629567967591,
+       48.72172018698525
+      ],
+      [
+       -122.46629567967591,
+       48.72168998695512
+      ],
+      [
+       -122.46634125749847,
+       48.72168998695512
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137038,
+    "TextString": "21",
+    "Angle": 0.0,
+    "GLOBALID": "{25AD58E2-FACE-4A5F-AA27-8E81956C83C5}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633457672772,
+       48.72127218768781
+      ],
+      [
+       -122.46633457672772,
+       48.721302387968805
+      ],
+      [
+       -122.46628899890513,
+       48.721302387968805
+      ],
+      [
+       -122.46628899890513,
+       48.72127218768781
+      ],
+      [
+       -122.46633457672772,
+       48.72127218768781
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137040,
+    "TextString": "27",
+    "Angle": 0.0,
+    "GLOBALID": "{E548AADC-C496-4B3B-90D4-03D8BE0FDD22}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633604816816,
+       48.72140858869913
+      ],
+      [
+       -122.46633604816816,
+       48.721438788898205
+      ],
+      [
+       -122.46629047034557,
+       48.721438788898205
+      ],
+      [
+       -122.46629047034557,
+       48.72140858869913
+      ],
+      [
+       -122.46633604816816,
+       48.72140858869913
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137041,
+    "TextString": "25",
+    "Angle": 0.0,
+    "GLOBALID": "{77284147-5B62-4DBD-B4D4-0DF534E9E5B0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.4663338122614,
+       48.721201260604055
+      ],
+      [
+       -122.4663338122614,
+       48.721231460927626
+      ],
+      [
+       -122.46628823443884,
+       48.721231460927626
+      ],
+      [
+       -122.46628823443884,
+       48.721201260604055
+      ],
+      [
+       -122.4663338122614,
+       48.721201260604055
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137042,
+    "TextString": "28",
+    "Angle": 0.0,
+    "GLOBALID": "{5642C15C-61C0-484B-8008-25855B6ED15D}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633311876201,
+       48.72113695440123
+      ],
+      [
+       -122.46633311876201,
+       48.721167154763414
+      ],
+      [
+       -122.46628754093942,
+       48.721167154763414
+      ],
+      [
+       -122.46628754093942,
+       48.72113695440123
+      ],
+      [
+       -122.46633311876201,
+       48.72113695440123
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137043,
+    "TextString": "29",
+    "Angle": 0.0,
+    "GLOBALID": "{C3CD3DE4-6E67-495B-96AA-EA9258DEFDDB}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633532322771,
+       48.721341400762036
+      ],
+      [
+       -122.46633532322771,
+       48.721371601001465
+      ],
+      [
+       -122.46628974540512,
+       48.721371601001465
+      ],
+      [
+       -122.46628974540512,
+       48.721341400762036
+      ],
+      [
+       -122.46633532322771,
+       48.721341400762036
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137044,
+    "TextString": "26",
+    "Angle": 0.0,
+    "GLOBALID": "{43368BC0-9438-45A7-9EDE-417F4385ABD0}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46634028552131,
+       48.721071116730954
+      ],
+      [
+       -122.46634028552131,
+       48.721101317132664
+      ],
+      [
+       -122.46629470769875,
+       48.721101317132664
+      ],
+      [
+       -122.46629470769875,
+       48.721071116730954
+      ],
+      [
+       -122.46634028552131,
+       48.721071116730954
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137045,
+    "TextString": "30",
+    "Angle": 0.0,
+    "GLOBALID": "{6B775FE2-A854-4A74-8149-44E09691D747}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46845206036261,
+       48.72540532275465
+      ],
+      [
+       -122.4684333574384,
+       48.72541567530588
+      ],
+      [
+       -122.46837429410678,
+       48.72536924169706
+      ],
+      [
+       -122.46839299703099,
+       48.72535888913629
+      ],
+      [
+       -122.46845206036261,
+       48.72540532275465
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11137374,
+    "TextString": "TRACT A",
+    "Angle": 310.0,
+    "GLOBALID": "{94A825D9-2162-4B29-8CC0-8B953F62AC68}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 27.8002777,
+    "SHAPE.STLength()": 25.89322636521177
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46633999177223,
+       48.722067811085836
+      ],
+      [
+       -122.46633999177223,
+       48.722098010889106
+      ],
+      [
+       -122.46629441394967,
+       48.722098010889106
+      ],
+      [
+       -122.46629441394967,
+       48.722067811085836
+      ],
+      [
+       -122.46633999177223,
+       48.722067811085836
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11139409,
+    "TextString": "37",
+    "Angle": 0.0,
+    "GLOBALID": "{EB7A85DC-20BB-42F1-8115-BEB4049A79F5}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.46634019209654,
+       48.72200131088795
+      ],
+      [
+       -122.46634019209654,
+       48.72203151073119
+      ],
+      [
+       -122.46629461427398,
+       48.72203151073119
+      ],
+      [
+       -122.46629461427398,
+       48.72200131088795
+      ],
+      [
+       -122.46634019209654,
+       48.72200131088795
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 11139410,
+    "TextString": "38",
+    "Angle": 0.0,
+    "GLOBALID": "{6A5EB245-1829-469A-A65D-89372668DF19}",
+    "created_date": null,
+    "SHAPE_STArea__": null,
+    "SHAPE_STLength__": null,
+    "SHAPE.STArea()": 25.85506783,
+    "SHAPE.STLength()": 20.3392
+   }
+  }
+ ]
+}

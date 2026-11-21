@@ -1,0 +1,2609 @@
+{
+ "type": "FeatureCollection",
+ "name": "street_centerlines",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Transportation/MapServer/7",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46853087854564,
+       48.72190848888152
+      ],
+      [
+       -122.46831173543038,
+       48.721905930491324
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7588037,
+    "Name": "KNOX AVE",
+    "ST_Prefix": null,
+    "ST_Name": "KNOX",
+    "ST_Type": "AVE",
+    "ST_Suffix": null,
+    "NameID": 0,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": null,
+    "Alt_Name": null,
+    "CenterlineID": null,
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": null,
+    "SurfaceType": "ACP",
+    "NameIDAddr": null,
+    "L_PCAD": null,
+    "R_PCAD": null,
+    "L_FCAD": null,
+    "R_FCAD": null,
+    "TruckRoute": null,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 3701,
+    "L_T_ADD": 3799,
+    "R_F_ADD": 3700,
+    "R_T_ADD": 3798,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 53.0,
+    "SHAPE.STLength()": 24.398719452053214,
+    "MaintainedBy": null,
+    "PurcRecommendedList": null,
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": null,
+    "NoLanes": null,
+    "SpecialInstructions": null,
+    "CurbType1": null,
+    "CurbType2": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": null,
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0662336",
+    "LegacyID": null,
+    "Location": null,
+    "SandPlowIceRoute": null,
+    "OriginDate": null,
+    "IceManagement": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46431574248403,
+       48.723496619597334
+      ],
+      [
+       -122.46390438774577,
+       48.72349544622403
+      ],
+      [
+       -122.4638177158003,
+       48.72349611883251
+      ],
+      [
+       -122.46373120334204,
+       48.72349082042742
+      ],
+      [
+       -122.46364526123794,
+       48.72347957617208
+      ],
+      [
+       -122.46356029764631,
+       48.72346243946797
+      ],
+      [
+       -122.46347671607818,
+       48.72343949170113
+      ],
+      [
+       -122.46339491348112,
+       48.72341084185562
+      ],
+      [
+       -122.46331527835395,
+       48.72337662599597
+      ],
+      [
+       -122.46323818890166,
+       48.72333700662094
+      ],
+      [
+       -122.46316401123927,
+       48.72329217189179
+      ],
+      [
+       -122.46309309765311,
+       48.72324233473868
+      ],
+      [
+       -122.4630028663744,
+       48.723175809426
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7588098,
+    "Name": "WILDWOOD DR",
+    "ST_Prefix": null,
+    "ST_Name": "WILDWOOD",
+    "ST_Type": "DR",
+    "ST_Suffix": null,
+    "NameID": 48150,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 2,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "48150-005",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "48150-4001",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 4001,
+    "L_T_ADD": 4099,
+    "R_F_ADD": 4000,
+    "R_T_ADD": 4098,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 356.0,
+    "SHAPE.STLength()": 164.39232408880636,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 38.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494005",
+    "LegacyID": "48150-005",
+    "Location": "ES 40TH ST TO WS 41ST ST",
+    "SandPlowIceRoute": null,
+    "OriginDate": 599616000000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46707113058199,
+       48.72404399466831
+      ],
+      [
+       -122.4670948173594,
+       48.72327137349572
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7588261,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-040",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53500-915",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 915,
+    "L_T_ADD": 999,
+    "R_F_ADD": 914,
+    "R_T_ADD": 998,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 282.0,
+    "SHAPE.STLength()": 130.4024614026898,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 28.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494897",
+    "LegacyID": "53500-040",
+    "Location": "CANBY CT TO VIEWMONT CT",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4687693004052,
+       48.72190323638838
+      ],
+      [
+       -122.46853087854564,
+       48.72190848888152
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7589336,
+    "Name": "KNOX AVE",
+    "ST_Prefix": null,
+    "ST_Name": "KNOX",
+    "ST_Type": "AVE",
+    "ST_Suffix": null,
+    "NameID": 0,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": null,
+    "Alt_Name": null,
+    "CenterlineID": null,
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": null,
+    "SurfaceType": "ACP",
+    "NameIDAddr": null,
+    "L_PCAD": null,
+    "R_PCAD": null,
+    "L_FCAD": null,
+    "R_FCAD": null,
+    "TruckRoute": null,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 3601,
+    "L_T_ADD": 3699,
+    "R_F_ADD": 3600,
+    "R_T_ADD": 3698,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 58.0,
+    "SHAPE.STLength()": 26.55579425831583,
+    "MaintainedBy": null,
+    "PurcRecommendedList": null,
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": null,
+    "NoLanes": null,
+    "SpecialInstructions": null,
+    "CurbType1": null,
+    "CurbType2": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": null,
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0662333",
+    "LegacyID": null,
+    "Location": null,
+    "SandPlowIceRoute": null,
+    "OriginDate": null,
+    "IceManagement": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4671160706007,
+       48.724889124189744
+      ],
+      [
+       -122.46600210035959,
+       48.72487186955834
+      ],
+      [
+       -122.46561369937343,
+       48.72488061154218
+      ],
+      [
+       -122.46546816241595,
+       48.72488688358284
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7589373,
+    "Name": "TAYLOR AVE",
+    "ST_Prefix": null,
+    "ST_Name": "TAYLOR",
+    "ST_Type": "AVE",
+    "ST_Suffix": null,
+    "NameID": 44000,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "44000-075",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "44000-3801",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 3801,
+    "L_T_ADD": 3899,
+    "R_F_ADD": 3800,
+    "R_T_ADD": 3898,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 398.0,
+    "SHAPE.STLength()": 183.5381732181141,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 37.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0496286",
+    "LegacyID": "44000-075",
+    "Location": "ES 38TH ST TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 31536000000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46929283226456,
+       48.724904033912125
+      ],
+      [
+       -122.4671160706007,
+       48.724889124189744
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7589687,
+    "Name": "TAYLOR AVE",
+    "ST_Prefix": null,
+    "ST_Name": "TAYLOR",
+    "ST_Type": "AVE",
+    "ST_Suffix": null,
+    "NameID": 44000,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "44000-070",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "44000-3601",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 3601,
+    "L_T_ADD": 3799,
+    "R_F_ADD": 3600,
+    "R_T_ADD": 3798,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 525.0,
+    "SHAPE.STLength()": 242.3290616331438,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 37.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493835",
+    "LegacyID": "44000-070",
+    "Location": "ES 36TH ST TO WS 38TH ST",
+    "SandPlowIceRoute": "7A",
+    "OriginDate": 31536000000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46707113058199,
+       48.72404399466831
+      ],
+      [
+       -122.46587434106158,
+       48.72405367311392
+      ],
+      [
+       -122.46572238294641,
+       48.72405125231748
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7590590,
+    "Name": "VIEWMONT CT",
+    "ST_Prefix": null,
+    "ST_Name": "VIEWMONT",
+    "ST_Type": "CT",
+    "ST_Suffix": null,
+    "NameID": 46450,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "46450-005",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "46450-3801",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 3801,
+    "L_T_ADD": 3999,
+    "R_F_ADD": 3800,
+    "R_T_ADD": 3998,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 326.0,
+    "SHAPE.STLength()": 150.15684190522754,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 26.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494896",
+    "LegacyID": "46450-005",
+    "Location": "ES 38TH ST TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46712037442923,
+       48.7226862465068
+      ],
+      [
+       -122.46711270191838,
+       48.72200354866027
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7590822,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-030",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53500-1015",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1015,
+    "L_T_ADD": 1099,
+    "R_F_ADD": 1014,
+    "R_T_ADD": 1098,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 249.0,
+    "SHAPE.STLength()": 115.20186616761032,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 28.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0496427",
+    "LegacyID": "53500-030",
+    "Location": "DEAD END TO 1ST WS 38TH ST C-D-S N/O DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4670948173594,
+       48.72327137349572
+      ],
+      [
+       -122.46712037442923,
+       48.7226862465068
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7591123,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-035",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53500-1001",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1001,
+    "L_T_ADD": 1013,
+    "R_F_ADD": 1000,
+    "R_T_ADD": 1012,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 214.0,
+    "SHAPE.STLength()": 98.77677979484855,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 27.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0495395",
+    "LegacyID": "53500-035",
+    "Location": "1ST WS 38TH ST C-D-S N/O DEAD END TO CANBY CT",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4630028663744,
+       48.723175809426
+      ],
+      [
+       -122.46226379274576,
+       48.722623329533164
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7591166,
+    "Name": "WILDWOOD DR",
+    "ST_Prefix": null,
+    "ST_Name": "WILDWOOD",
+    "ST_Type": "DR",
+    "ST_Suffix": null,
+    "NameID": 48150,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 2,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "48150-010",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "48150-4101",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 4101,
+    "L_T_ADD": 4199,
+    "R_F_ADD": 4100,
+    "R_T_ADD": 4198,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 269.0,
+    "SHAPE.STLength()": 124.33870469721003,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 38.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0495382",
+    "LegacyID": "48150-010",
+    "Location": "41ST ST TO LONE TREE CT",
+    "SandPlowIceRoute": null,
+    "OriginDate": 599616000000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46916739331492,
+       48.7219012415905
+      ],
+      [
+       -122.46918112496235,
+       48.72042702346379
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7591254,
+    "Name": "36TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "36TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53300,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53300-028",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53300-1100",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1100,
+    "L_T_ADD": 1298,
+    "R_F_ADD": 1101,
+    "R_T_ADD": 1299,
+    "Parity_L": "E",
+    "Parity_R": "O",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 538.0,
+    "SHAPE.STLength()": 248.75899659399255,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 10.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "NONE",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493503",
+    "LegacyID": "53300-028",
+    "Location": "MILL TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 504835200000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4643847528608,
+       48.72691363263211
+      ],
+      [
+       -122.46431574248403,
+       48.723496619597334
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7591458,
+    "Name": "40TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "40TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53700,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 2,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53700-055",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53700-801",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 4,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 801,
+    "L_T_ADD": 999,
+    "R_F_ADD": 800,
+    "R_T_ADD": 998,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 1247.0,
+    "SHAPE.STLength()": 576.6720719036513,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 27.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "C&G",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494716",
+    "LegacyID": "53700-055",
+    "Location": "WILDWOOD DR TO BENNETT AVE",
+    "SandPlowIceRoute": "7A,3C,South",
+    "OriginDate": -1009843200000,
+    "IceManagement": "Route"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46299413025827,
+       48.72519873943118
+      ],
+      [
+       -122.46299077864394,
+       48.724480944525794
+      ],
+      [
+       -122.4629838091198,
+       48.72442622793067
+      ],
+      [
+       -122.46297075078168,
+       48.724372637261204
+      ],
+      [
+       -122.46295176819089,
+       48.724320847867546
+      ],
+      [
+       -122.46292710056622,
+       48.724271512400165
+      ],
+      [
+       -122.46289705876934,
+       48.724225252585114
+      ],
+      [
+       -122.46286202138727,
+       48.72418265138906
+      ],
+      [
+       -122.46282242996143,
+       48.72414424567268
+      ],
+      [
+       -122.46277878342342,
+       48.72411051942523
+      ],
+      [
+       -122.46273194421012,
+       48.72407966500167
+      ],
+      [
+       -122.4626890750027,
+       48.72404349680555
+      ],
+      [
+       -122.46265077534898,
+       48.72400252066762
+      ],
+      [
+       -122.4626175808892,
+       48.72395730966015
+      ],
+      [
+       -122.46258995586491,
+       48.723908496082245
+      ],
+      [
+       -122.46256828662622,
+       48.72385676261677
+      ],
+      [
+       -122.46255287622851,
+       48.723802832782745
+      ],
+      [
+       -122.46254394019411,
+       48.72374746081652
+      ],
+      [
+       -122.46254160349801,
+       48.723691421123384
+      ],
+      [
+       -122.46254589882012,
+       48.72363549744715
+      ],
+      [
+       -122.46255676608816,
+       48.723580471909074
+      ],
+      [
+       -122.4625740533178,
+       48.723527114069476
+      ],
+      [
+       -122.4625975187383,
+       48.72347617016507
+      ],
+      [
+       -122.46262683417375,
+       48.72342835267245
+      ],
+      [
+       -122.46266158963275,
+       48.72338433034374
+      ],
+      [
+       -122.46270129904241,
+       48.723344718853745
+      ],
+      [
+       -122.4627454070463,
+       48.72331007218944
+      ],
+      [
+       -122.46279329677141,
+       48.723280874902166
+      ],
+      [
+       -122.46284429845541,
+       48.723257535330944
+      ],
+      [
+       -122.4630028663744,
+       48.723175809426
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7591691,
+    "Name": "41ST ST",
+    "ST_Prefix": null,
+    "ST_Name": "41ST",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53800,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53800-005",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53800-801",
+    "L_PCAD": "BP8630",
+    "R_PCAD": "BP8630",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 801,
+    "L_T_ADD": 999,
+    "R_F_ADD": 800,
+    "R_T_ADD": 998,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 805.0,
+    "SHAPE.STLength()": 371.8784978922256,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 28.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494004",
+    "LegacyID": "53800-005",
+    "Location": "SS WILDWOOD DR TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 599616000000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46929530891983,
+       48.72563872871152
+      ],
+      [
+       -122.46929500079769,
+       48.72561625245387
+      ],
+      [
+       -122.46929283226456,
+       48.724904033912125
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7592626,
+    "Name": "36TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "36TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53300,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53300-040",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53300-831",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 831,
+    "L_T_ADD": 899,
+    "R_F_ADD": 830,
+    "R_T_ADD": 898,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 268.0,
+    "SHAPE.STLength()": 123.98029751805538,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 35.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0495560",
+    "LegacyID": "53300-040",
+    "Location": "TAYLOR AVE TO 1ST ES CDS N/O TAYLOR",
+    "SandPlowIceRoute": "7A",
+    "OriginDate": 31536000000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46929698876939,
+       48.7238728870046
+      ],
+      [
+       -122.46833596748516,
+       48.723869403652635
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7592797,
+    "Name": "36TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "36TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53300,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53300-033",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53300-0",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 0,
+    "L_T_ADD": 0,
+    "R_F_ADD": 0,
+    "R_T_ADD": 0,
+    "Parity_L": "Z",
+    "Parity_R": "Z",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 232.0,
+    "SHAPE.STLength()": 106.98201481090175,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 27.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493528",
+    "LegacyID": "53300-033",
+    "Location": "ES 36TH ST TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46431574248403,
+       48.723496619597334
+      ],
+      [
+       -122.4643412133156,
+       48.7219532443916
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7594084,
+    "Name": "40TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "40TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53700,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 2,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53700-050",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53700-1001",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 4,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1001,
+    "L_T_ADD": 1099,
+    "R_F_ADD": 1000,
+    "R_T_ADD": 1098,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 563.0,
+    "SHAPE.STLength()": 260.4471344784772,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 40.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493520",
+    "LegacyID": "53700-050",
+    "Location": "MILL AVE TO WILDWOOD DR",
+    "SandPlowIceRoute": "7A,3C,South",
+    "OriginDate": -1009843200000,
+    "IceManagement": "Route"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46719749838961,
+       48.72559524224908
+      ],
+      [
+       -122.46713806225716,
+       48.72548224091485
+      ],
+      [
+       -122.46711335140033,
+       48.72539297731977
+      ],
+      [
+       -122.4671160706007,
+       48.724889124189744
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7594249,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-050",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53500-821",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 821,
+    "L_T_ADD": 899,
+    "R_F_ADD": 820,
+    "R_T_ADD": 898,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 261.0,
+    "SHAPE.STLength()": 120.52238269099784,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "Y",
+    "PurcReplacementDate": null,
+    "PurcId": "ST200",
+    "StreetWidth": 32.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493344",
+    "LegacyID": "53500-050",
+    "Location": "TAYLOR AVE TO 1ST ES CDS N/O TAYLOR AVE",
+    "SandPlowIceRoute": "7A",
+    "OriginDate": -473385600000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4670948173594,
+       48.72327137349572
+      ],
+      [
+       -122.46685038397393,
+       48.723272614432446
+      ],
+      [
+       -122.46677318496695,
+       48.723267224120356
+      ],
+      [
+       -122.46669672468846,
+       48.72325528393789
+      ],
+      [
+       -122.46662155783478,
+       48.72323688050747
+      ],
+      [
+       -122.46654822971881,
+       48.72321214734044
+      ],
+      [
+       -122.46647727231395,
+       48.72318126386849
+      ],
+      [
+       -122.46639808492333,
+       48.723149132784705
+      ],
+      [
+       -122.46633702081921,
+       48.72313014282692
+      ],
+      [
+       -122.46627474514007,
+       48.723115610686854
+      ],
+      [
+       -122.46621158286075,
+       48.72310561219798
+      ],
+      [
+       -122.4661478635827,
+       48.72310019953568
+      ],
+      [
+       -122.46608391981397,
+       48.723099400944996
+      ],
+      [
+       -122.46571739909321,
+       48.72309931501547
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7594497,
+    "Name": "CANBY CT",
+    "ST_Prefix": null,
+    "ST_Name": "CANBY",
+    "ST_Type": "CT",
+    "ST_Suffix": null,
+    "NameID": 6425,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "06425-005",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "6425-3801",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 3801,
+    "L_T_ADD": 3999,
+    "R_F_ADD": 3800,
+    "R_T_ADD": 3998,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 346.0,
+    "SHAPE.STLength()": 159.68534502550756,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 26.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494895",
+    "LegacyID": "06425-005",
+    "Location": "ES 38TH ST TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4643412133156,
+       48.7219532443916
+      ],
+      [
+       -122.46437310350818,
+       48.72037530533449
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7594960,
+    "Name": "40TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "40TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53700,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 2,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53700-050",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53700-1101",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 4,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1101,
+    "L_T_ADD": 1199,
+    "R_F_ADD": 1100,
+    "R_T_ADD": 1198,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 576.0,
+    "SHAPE.STLength()": 266.2794650994327,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 24.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493520",
+    "LegacyID": "53700-050",
+    "Location": "MILL AVE TO WILDWOOD DR",
+    "SandPlowIceRoute": "7A,3C,South",
+    "OriginDate": -1009843200000,
+    "IceManagement": "Route"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46712037442923,
+       48.7226862465068
+      ],
+      [
+       -122.46786479123719,
+       48.72269360569029
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7595155,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-033",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53500-0",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 0,
+    "L_T_ADD": 0,
+    "R_F_ADD": 0,
+    "R_T_ADD": 0,
+    "Parity_L": "Z",
+    "Parity_R": "Z",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 180.0,
+    "SHAPE.STLength()": 82.87740382546983,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 27.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493531",
+    "LegacyID": "53500-033",
+    "Location": "WS 38TH ST TO END OF 1ST WS 38TH ST C-D-S N/O DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46929698876939,
+       48.7238728870046
+      ],
+      [
+       -122.4693071343422,
+       48.72260259364784
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7595470,
+    "Name": "36TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "36TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53300,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53300-030",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53300-921",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 921,
+    "L_T_ADD": 1099,
+    "R_F_ADD": 920,
+    "R_T_ADD": 1098,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 463.0,
+    "SHAPE.STLength()": 214.35657530694036,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 32.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494806",
+    "LegacyID": "53300-030",
+    "Location": "DEAD END TO 36TH ST (C-D-S)",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46716248205986,
+       48.72155806406924
+      ],
+      [
+       -122.46718155598828,
+       48.720410904002605
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7596187,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-028",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "GRV",
+    "NameIDAddr": "53500-1101",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1101,
+    "L_T_ADD": 1199,
+    "R_F_ADD": 1100,
+    "R_T_ADD": 1198,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 419.0,
+    "SHAPE.STLength()": 193.57864523725235,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 15.0,
+    "NoLanes": 1,
+    "SpecialInstructions": null,
+    "CurbType1": "NONE",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0496323",
+    "LegacyID": "53500-028",
+    "Location": "MILL AVE TO NS DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": -473385600000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4643412133156,
+       48.7219532443916
+      ],
+      [
+       -122.46427353873369,
+       48.72195419674954
+      ],
+      [
+       -122.46412402673104,
+       48.721956302367275
+      ],
+      [
+       -122.46404415553253,
+       48.72195611495454
+      ],
+      [
+       -122.4639645163778,
+       48.721950028206166
+      ],
+      [
+       -122.46388554439926,
+       48.72193807537893
+      ],
+      [
+       -122.46380767108404,
+       48.721920321780686
+      ],
+      [
+       -122.46373132191638,
+       48.72189686441356
+      ],
+      [
+       -122.46364034946974,
+       48.72187345565437
+      ],
+      [
+       -122.46354811999521,
+       48.72185563207213
+      ],
+      [
+       -122.46345497605552,
+       48.72184345986796
+      ],
+      [
+       -122.46336126360991,
+       48.7218369842524
+      ],
+      [
+       -122.46326733072925,
+       48.72183622927746
+      ],
+      [
+       -122.46317352630312,
+       48.721841197747295
+      ],
+      [
+       -122.46308019874397,
+       48.721851871207804
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7596348,
+    "Name": "KNOX AVE",
+    "ST_Prefix": null,
+    "ST_Name": "KNOX",
+    "ST_Type": "AVE",
+    "ST_Suffix": null,
+    "NameID": 26500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 8,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": null,
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "GRV",
+    "NameIDAddr": "26500-4001",
+    "L_PCAD": null,
+    "R_PCAD": null,
+    "L_FCAD": null,
+    "R_FCAD": null,
+    "TruckRoute": 0,
+    "Hierarchy": 4,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 4001,
+    "L_T_ADD": 4099,
+    "R_F_ADD": 4000,
+    "R_T_ADD": 4098,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 312.0,
+    "SHAPE.STLength()": 143.69052499037767,
+    "MaintainedBy": "PVT",
+    "PurcRecommendedList": null,
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": null,
+    "NoLanes": null,
+    "SpecialInstructions": null,
+    "CurbType1": null,
+    "CurbType2": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0649899",
+    "LegacyID": null,
+    "Location": null,
+    "SandPlowIceRoute": null,
+    "OriginDate": null,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46576670312758,
+       48.72156289997564
+      ],
+      [
+       -122.46577689720941,
+       48.72039058087441
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7597445,
+    "Name": "39TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "39TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53650,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53650-010",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53650-1101",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1101,
+    "L_T_ADD": 1199,
+    "R_F_ADD": 1100,
+    "R_T_ADD": 1198,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 428.0,
+    "SHAPE.STLength()": 197.8154550076409,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 10.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "NONE",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0495679",
+    "LegacyID": "53650-010",
+    "Location": "DEAD END (N) TO MILL AVE",
+    "SandPlowIceRoute": null,
+    "OriginDate": -473385600000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46853087854564,
+       48.72190848888152
+      ],
+      [
+       -122.46855669792355,
+       48.720422090253734
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7600422,
+    "Name": "37TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "37TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53400,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53400-020",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "BST",
+    "NameIDAddr": "53400-1101",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 1101,
+    "L_T_ADD": 1199,
+    "R_F_ADD": 1100,
+    "R_T_ADD": 1198,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 542.0,
+    "SHAPE.STLength()": 250.82606817832954,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "Y",
+    "PurcReplacementDate": null,
+    "PurcId": "ST107",
+    "StreetWidth": 19.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "NONE",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0493356",
+    "LegacyID": "53400-020",
+    "Location": "MILL AVE TO DEAD END",
+    "SandPlowIceRoute": null,
+    "OriginDate": -2525558400000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.46929283226456,
+       48.724904033912125
+      ],
+      [
+       -122.46929698876939,
+       48.7238728870046
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7600599,
+    "Name": "36TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "36TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53300,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53300-035",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53300-901",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 901,
+    "L_T_ADD": 919,
+    "R_F_ADD": 900,
+    "R_T_ADD": 918,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 376.0,
+    "SHAPE.STLength()": 174.0038151924549,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 28.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0495561",
+    "LegacyID": "53300-035",
+    "Location": "36TH ST (C-D-S) TO TAYLOR AVE",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -122.4671160706007,
+       48.724889124189744
+      ],
+      [
+       -122.46707113058199,
+       48.72404399466831
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "OBJECTID": 7600789,
+    "Name": "38TH ST",
+    "ST_Prefix": null,
+    "ST_Name": "38TH",
+    "ST_Type": "ST",
+    "ST_Suffix": null,
+    "NameID": 53500,
+    "Jurisdiction": 1,
+    "Comments": null,
+    "ST_Class": 9,
+    "OneWay": "B",
+    "SpeedLimit": 25,
+    "BusRoute": 0,
+    "Alt_Name": null,
+    "CenterlineID": "53500-045",
+    "HWY_Number": null,
+    "ZipRight": 98229,
+    "ZipLeft": 98229,
+    "OwnedBy": "COB-PW",
+    "SurfaceType": "ACP",
+    "NameIDAddr": "53500-901",
+    "L_PCAD": "BP0400",
+    "R_PCAD": "BP0400",
+    "L_FCAD": "030002",
+    "R_FCAD": "030002",
+    "TruckRoute": 0,
+    "Hierarchy": 5,
+    "R_ESN": 1215,
+    "L_ESN": 1215,
+    "F_ELEV": 0,
+    "T_ELEV": 0,
+    "TruckRouteClass": null,
+    "L_F_ADD": 901,
+    "L_T_ADD": 913,
+    "R_F_ADD": 900,
+    "R_T_ADD": 912,
+    "Parity_L": "O",
+    "Parity_R": "E",
+    "IncMuni_L": "Bellingham",
+    "IncMuni_R": "Bellingham",
+    "Municipality_L": "Bellingham",
+    "Municipality_R": "Bellingham",
+    "GC_EXCEPTION": null,
+    "Community": "BELLINGHAM",
+    "R_MCode": "BHAM",
+    "L_MCode": "BHAM",
+    "FeatureLengthFeet": 309.0,
+    "SHAPE.STLength()": 142.70121719712137,
+    "MaintainedBy": "COB-PW",
+    "PurcRecommendedList": "N",
+    "PurcReplacementDate": null,
+    "PurcId": null,
+    "StreetWidth": 28.0,
+    "NoLanes": 2,
+    "SpecialInstructions": null,
+    "CurbType1": "C&G",
+    "CurbType2": "NONE",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0494898",
+    "LegacyID": "53500-045",
+    "Location": "VIEWMONT CT TO TAYLOR AVE",
+    "SandPlowIceRoute": null,
+    "OriginDate": 315532800000,
+    "IceManagement": "None"
+   }
+  }
+ ]
+}

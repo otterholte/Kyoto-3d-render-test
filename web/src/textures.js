@@ -9,15 +9,15 @@ import * as THREE from 'three';
 // ---------------------------------------------------------------- facade module slots (shader indices)
 // 0-7 exist in the procedural atlas; 8-12 are extra variants (fall back to a similar procedural slot)
 export const MODULES = ['koshi', 'noren', 'mushiko', 'lattice', 'shopfront', 'modern_upper', 'temple', 'plain',
-  'koshi_dark', 'shop_open', 'itabari', 'glazed_railing', 'plaster_base'];
-const PROC_FALLBACK = { koshi_dark: 'koshi', shop_open: 'noren', itabari: 'plain', glazed_railing: 'lattice', plaster_base: 'plain' };
+  'koshi_dark', 'shop_open', 'itabari', 'glazed_railing', 'plaster_base', 'vermilion'];
+const PROC_FALLBACK = { koshi_dark: 'koshi', shop_open: 'noren', itabari: 'plain', glazed_railing: 'lattice', plaster_base: 'plain', vermilion: 'temple' };
 // texture-library module names (facade_atlas v1) for each slot
 const LIB_MODULE = {
   koshi: 'machiya_gf_senkoshi', noren: 'machiya_gf_noren_entrance', mushiko: 'machiya_uf_mushikomado',
   lattice: 'machiya_uf_window_lattice', shopfront: 'modern_gf_shopfront', modern_upper: 'modern_uf_window',
   temple: 'white_plaster_timber', plain: 'machiya_uf_plaster', koshi_dark: 'machiya_gf_senkoshi_dark',
   shop_open: 'machiya_gf_shop_open', itabari: 'machiya_gf_itabari', glazed_railing: 'machiya_uf_glazed_railing',
-  plaster_base: 'machiya_gf_plaster_base',
+  plaster_base: 'machiya_gf_plaster_base', vermilion: 'white_plaster_vermilion',
 };
 // texture-library set names (library.json) for each role
 const LIB_SET = {

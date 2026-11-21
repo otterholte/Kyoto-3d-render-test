@@ -128,10 +128,14 @@ Tap the mini-map to switch between the local view and the whole 400 m area.
   * **PBR role materials** (`src/pbr.js`) use the texture library (`src/textures.js`):
     * **Facades:** each storey and bay picks a module from the facade atlas
       (`assets/tex/facade_atlas.json`). UVs are computed in the shader: u = metres along the wall / 1.82 m bay,
-      v = metres above the building's wall base / storey height. Module choice comes from the PLATEAU extras:
-      * `usage`: temple, shop-house, residential;
-      * `storeys`, `year`, art `priority`;
-      * a deterministic per-building seed.
+      v = metres above the building's wall base, split into a ground floor (≤ 3.0 m) and upper floors.
+      Module choice is planned per wall plane in `world.js facadePlan`, which mirrors
+      `blender/materials_textured.py facade_plan / assign_facades`:
+      * **Inputs:** the PLATEAU extras `usage` (461 = unknown is treated as a shop front), `storeys`,
+        `year` and art `priority`, plus a deterministic seed per building and plane.
+      * **Street-facing test:** a plane is street-facing when its centre is within 8 m of an OSM centreline
+        and its outward normal points at it.
+      * **Street-facing planes** get shop and lattice fronts. **Back and side walls** get itabari or plaster.
 
       Bays vary (senkoshi, noren entrance, open shop, itabari, mushiko-mado, lattice and glazed windows,
       plaster). The emissive mask lights interiors at dusk. If walls carry GLB UVs flagged `extras.facade_uv`

@@ -38,6 +38,7 @@ if arg("--time-limit"):
     # one tile for the whole frame: with auto-tiling the time limit is spent per tile
     scene.cycles.time_limit = float(arg("--time-limit"))
     scene.cycles.use_auto_tile = False
+    scene.cycles.tile_size = 4096
 threads = arg("--threads")
 if threads:
     scene.render.threads_mode = "FIXED"; scene.render.threads = int(threads)

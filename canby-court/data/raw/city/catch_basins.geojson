@@ -1,0 +1,2005 @@
+{
+ "type": "FeatureCollection",
+ "name": "catch_basins",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Utilities/MapServer/5",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46302408098815,
+     48.72502288782689
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12991954,
+    "ACCURACY": "High",
+    "SOURCE": "SGPT",
+    "ELEVATION": 478.0,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1775692800000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": "NAVD88",
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "PFC2024-0003",
+    "DEPTHSTR": null,
+    "DEPTHOUT": null,
+    "SUMP": null,
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0631090",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305NW",
+    "LegacyID": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46818537660587,
+     48.723958697211906
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12992149,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 378.672,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 1.0,
+    "DEPTHOUT": 0.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0272790",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-278",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.468879168856,
+     48.72386943091263
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12992276,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 372.285,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.5,
+    "DEPTHOUT": 6.5,
+    "SUMP": "No",
+    "Comments": "Trough",
+    "Location": null,
+    "AssetID": "0228023",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-4",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46936971188322,
+     48.72487022095465
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12992334,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 378.694,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.02,
+    "DEPTHOUT": 3.04,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227648",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-235",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46917622375415,
+     48.724829078734366
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12992474,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 379.627,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 1.1,
+    "DEPTHOUT": 1.02,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227646",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-234",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46440131869294,
+     48.7253602645396
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12992640,
+    "ACCURACY": "Low",
+    "SOURCE": "UNKN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 2.0,
+    "DEPTHOUT": 1.08,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0287104",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-297",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46923075418687,
+     48.72454949539803
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12993226,
+    "ACCURACY": "Medium High",
+    "SOURCE": "FILD",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 820454400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "CREW",
+    "DEPTHSTR": 2.02,
+    "DEPTHOUT": 1.03,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0302612",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306SE-331",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46692581910162,
+     48.723688029603906
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12993435,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 430.496,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 5.0,
+    "DEPTHOUT": 3.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227968",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-152",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46423889071318,
+     48.723598452295754
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12993558,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 491.954,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.75,
+    "DEPTHOUT": 5.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227416",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-21",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46821658138393,
+     48.72381741112926
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12993885,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 378.141,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 2.25,
+    "DEPTHOUT": 1.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228028",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-6",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46801257218625,
+     48.72268990239376
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12993950,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 402.829,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.0,
+    "DEPTHOUT": 5.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227974",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-156",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4642039336722,
+     48.723428794426816
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12993973,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 492.892,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.25,
+    "DEPTHOUT": 3.0,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227427",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-23",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46705084841948,
+     48.72314532936948
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12995618,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 431.998,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 4.25,
+    "DEPTHOUT": 2.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227970",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-153",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46303943319636,
+     48.724509021369144
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12995710,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 501.114,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 8.75,
+    "DEPTHOUT": 7.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227433",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-27",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46356417867968,
+     48.72342628885659
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12997171,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 508.893,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 2.0,
+    "DEPTHOUT": 1.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227421",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-20",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46413884893323,
+     48.72195324972528
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12997267,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "PLAN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1687910400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "BLD2020-1113",
+    "DEPTHSTR": null,
+    "DEPTHOUT": null,
+    "SUMP": null,
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0607482",
+    "MaintainedBy": "PVT",
+    "AssetDistrict": "7305SW",
+    "LegacyID": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46703206105363,
+     48.72501396157074
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12998027,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 408.52,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.02,
+    "DEPTHOUT": 3.07,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227633",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-227",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46704672694896,
+     48.7253581632125
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12998062,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 403.522,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.01,
+    "DEPTHOUT": 2.1,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227635",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-228",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46822768545915,
+     48.723939250205994
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12998273,
+    "ACCURACY": "Unknown",
+    "SOURCE": "UNKN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 2.0,
+    "DEPTHOUT": 1.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228016",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-2",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46836088136126,
+     48.72494027471179
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12998281,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 394.839,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.09,
+    "DEPTHOUT": 3.07,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227641",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-231",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46699251362156,
+     48.72481455595576
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12998665,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 411.993,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.11,
+    "DEPTHOUT": 3.08,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227632",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-226",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46704874007354,
+     48.723418657178016
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12999379,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 432.48,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 5.75,
+    "DEPTHOUT": 4.25,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227971",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-154",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4677229831864,
+     48.72273365212204
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12999632,
+    "ACCURACY": "High",
+    "SOURCE": "SGPT",
+    "ELEVATION": 408.25,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1207008000000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "CREW",
+    "DEPTHSTR": 2.25,
+    "DEPTHOUT": 1.5,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0300029",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-329",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46429920719463,
+     48.721907436960606
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12999743,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 510.988,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 4.0,
+    "DEPTHOUT": 2.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227446",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-8",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4635749584631,
+     48.72182280792588
+    ]
+   },
+   "properties": {
+    "OBJECTID": 12999963,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "PLAN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1687910400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "BLD2020-1113",
+    "DEPTHSTR": null,
+    "DEPTHOUT": null,
+    "SUMP": null,
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0607480",
+    "MaintainedBy": "PVT",
+    "AssetDistrict": "7305SW",
+    "LegacyID": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4677123318621,
+     48.72264217375788
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13000596,
+    "ACCURACY": "High",
+    "SOURCE": "SGPT",
+    "ELEVATION": 408.798,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1207008000000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "CREWW",
+    "DEPTHSTR": 2.75,
+    "DEPTHOUT": 2.5,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0300030",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-330",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46393559701538,
+     48.72193669813243
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13001291,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "PLAN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1687910400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "BLD2020-1113",
+    "DEPTHSTR": null,
+    "DEPTHOUT": null,
+    "SUMP": null,
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0607481",
+    "MaintainedBy": "PVT",
+    "AssetDistrict": "7305SW",
+    "LegacyID": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46715270120305,
+     48.72418911426644
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13001713,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 424.247,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 2.25,
+    "DEPTHOUT": 2.25,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227961",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-149",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46923283558337,
+     48.72372120748554
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13002316,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 367.789,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 5.75,
+    "DEPTHOUT": 4.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227988",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-164",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46337301449228,
+     48.721767431722185
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13002392,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "PLAN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1687910400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "BLD2020-1113",
+    "DEPTHSTR": null,
+    "DEPTHOUT": null,
+    "SUMP": null,
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0607479",
+    "MaintainedBy": "PVT",
+    "AssetDistrict": "7305SW",
+    "LegacyID": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46438709387044,
+     48.72449011858379
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13002490,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 481.421,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.75,
+    "DEPTHOUT": 3.5,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228008",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-172",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4693415577839,
+     48.723719677958755
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13002800,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 367.909,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 2.75,
+    "DEPTHOUT": 2.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227987",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-163",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4635000335785,
+     48.72450475345765
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13003332,
+    "ACCURACY": "Low",
+    "SOURCE": "PLAN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 10.0,
+    "DEPTHOUT": 8.5,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227435",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-29",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4688368510196,
+     48.72390652285022
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13003658,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 372.339,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 2.0,
+    "DEPTHOUT": 1.5,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228021",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-3",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46423344871917,
+     48.72449604400152
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13003702,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 480.998,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 4.1,
+    "DEPTHOUT": 3.9,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227423",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-30",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46934004951254,
+     48.72289877405348
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13003748,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 369.871,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 2.75,
+    "DEPTHOUT": 2.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227983",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-161",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46907850861082,
+     48.72485084363501
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13003855,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 381.268,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.02,
+    "DEPTHOUT": 3.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227644",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-233",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46704443534666,
+     48.72391425401288
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13004307,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 427.275,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 8.25,
+    "DEPTHOUT": 7.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227966",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-151",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46772817814372,
+     48.72380923608754
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13004319,
+    "ACCURACY": "Low",
+    "SOURCE": "FILD",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 11.0,
+    "DEPTHOUT": 9.0,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0323092",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-369",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4692312976676,
+     48.722899276595065
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13004662,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 369.866,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 5.0,
+    "DEPTHOUT": 3.5,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227981",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-160",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46345415482033,
+     48.7216735004654
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13005263,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "PLAN",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 1687910400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "BLD2020-1113",
+    "DEPTHSTR": null,
+    "DEPTHOUT": null,
+    "SUMP": null,
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0607478",
+    "MaintainedBy": "PVT",
+    "AssetDistrict": "7305SW",
+    "LegacyID": null,
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46919162986127,
+     48.724548608867885
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13006018,
+    "ACCURACY": "Medium High",
+    "SOURCE": "FILD",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 820454400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "CREW",
+    "DEPTHSTR": 1.0,
+    "DEPTHOUT": 0.11,
+    "SUMP": "No",
+    "Comments": "Substandard ",
+    "Location": null,
+    "AssetID": "0302613",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306SE-332",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4644154689553,
+     48.7227075394224
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13006140,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 500.345,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 4.5,
+    "DEPTHOUT": 4.25,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228006",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-171",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46440286020197,
+     48.72360763244082
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13006230,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 492.11,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.0,
+    "DEPTHOUT": 2.75,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228004",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-170",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46705637575343,
+     48.72267181911425
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13006651,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 425.427,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 6.0,
+    "DEPTHOUT": 4.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227999",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-169",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46720239420794,
+     48.72260585426119
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13006781,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 424.295,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 4.25,
+    "DEPTHOUT": 2.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227995",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-167",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46425570537865,
+     48.72270018557455
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13008116,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 500.426,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 5.0,
+    "DEPTHOUT": 3.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227418",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-1",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46704131280273,
+     48.72418828224955
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13008849,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 424.367,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": 301190400000,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": "SD-295",
+    "DEPTHSTR": 4.25,
+    "DEPTHOUT": 3.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227962",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-150",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46308071078367,
+     48.723176733907835
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13008863,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 527.252,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 3.25,
+    "DEPTHOUT": 3.0,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227410",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-16",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46426164683594,
+     48.72227104885185
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13010039,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 506.114,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 5.75,
+    "DEPTHOUT": 4.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227425",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-22",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46303914573548,
+     48.72464018272859
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13010429,
+    "ACCURACY": "Low",
+    "SOURCE": "FILD",
+    "ELEVATION": null,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 4.0,
+    "DEPTHOUT": 2.25,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0323191",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305NW",
+    "LegacyID": "7305NW-67",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4635402457639,
+     48.72352000883293
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13010510,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 508.421,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 5.25,
+    "DEPTHOUT": 3.75,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227408",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7305SW",
+    "LegacyID": "7305SW-19",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46884227953886,
+     48.72383362431616
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13011217,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 372.268,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 2.25,
+    "DEPTHOUT": 2.0,
+    "SUMP": "No",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0228026",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306SE",
+    "LegacyID": "7306SE-5",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46836360325658,
+     48.724847536944665
+    ]
+   },
+   "properties": {
+    "OBJECTID": 13011278,
+    "ACCURACY": "High",
+    "SOURCE": "GPSS",
+    "ELEVATION": 394.829,
+    "LIFECYCLESTATUS": "A",
+    "INSTALLDATE": null,
+    "ANCILLARYROLE": 0,
+    "ENABLED": 1,
+    "VERTICALDATUM": null,
+    "SECURE": "No",
+    "SEWERCONNECTION": "No",
+    "PROJECTNUMBER": null,
+    "DEPTHSTR": 6.07,
+    "DEPTHOUT": 2.0,
+    "SUMP": "Yes",
+    "Comments": null,
+    "Location": null,
+    "AssetID": "0227642",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "7306NE",
+    "LegacyID": "7306NE-232",
+    "MapSymbol": "Off",
+    "SpecialInstructionsRequired": "No",
+    "GraniteTempID": null,
+    "HighTrafficLoc": "No"
+   }
+  }
+ ]
+}

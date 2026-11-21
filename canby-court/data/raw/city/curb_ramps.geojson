@@ -1,0 +1,493 @@
+{
+ "type": "FeatureCollection",
+ "name": "curb_ramps",
+ "source": "https://maps.cob.org/arcgis4/rest/services/Maps/Grp_Transportation/MapServer/10",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46732569696383,
+     48.72273157320485
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1552941,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 180,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427722",
+    "LegacyID": "WC3391",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46688209809673,
+     48.7240016404838
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1553133,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 0,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0425663",
+    "LegacyID": "WC3399",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46723630560989,
+     48.72496064992783
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1553555,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 135,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing cross slope too steep",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427725",
+    "LegacyID": "WC3395",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46417182698563,
+     48.723558148173744
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1553962,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 210,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0426542",
+    "LegacyID": "WC3305",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46911940171918,
+     48.724836673457894
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1554064,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 0,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing depth too small",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0425651",
+    "LegacyID": "WC6404",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46721843003408,
+     48.724801279997905
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1554718,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 45,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing depth too small",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427723",
+    "LegacyID": "WC3393",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46698150656441,
+     48.72480404683508
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1554777,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 315,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing cross slope too steep",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0425875",
+    "LegacyID": "WC3392",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46698612570158,
+     48.72495639805476
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1555961,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 215,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing cross slope too steep",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427724",
+    "LegacyID": "WC3394",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46907394606748,
+     48.723929124912154
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1556138,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 180,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing too steep. Ramp width too narrow.",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427716",
+    "LegacyID": "WC3376",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46907162122753,
+     48.723809530021626
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1556189,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 0,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing too steep. Ramp width too narrow.",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427715",
+    "LegacyID": "WC3375",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46920531479631,
+     48.72477587297045
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1556277,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 270,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "Landing depth too small",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427717",
+    "LegacyID": "WC3377",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4669198587797,
+     48.72323293881477
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1556606,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 0,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427727",
+    "LegacyID": "WC3397",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46417481208732,
+     48.723428834131944
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1556856,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 330,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0426872",
+    "LegacyID": "WC3304",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46688311948122,
+     48.72409613392367
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1557082,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 180,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0426543",
+    "LegacyID": "WC3400",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4673253133832,
+     48.72263720757822
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1557526,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 0,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427505",
+    "LegacyID": "WC3390",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46691413740966,
+     48.72333440521856
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1558119,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 180,
+    "TRUNCATEDDOME": "No",
+    "COMMENTS": "No landing",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0426544",
+    "LegacyID": "WC3398",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46921255970908,
+     48.725023028864456
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1558252,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 270,
+    "TRUNCATEDDOME": "Yes",
+    "COMMENTS": null,
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0427718",
+    "LegacyID": "WC3379",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4691196505525,
+     48.7249560170158
+    ]
+   },
+   "properties": {
+    "OBJECTID": 1558357,
+    "MATERIAL": "PCC",
+    "ROTATIONANGLE": 180,
+    "TRUNCATEDDOME": "Yes",
+    "COMMENTS": "Landing too steep",
+    "ACCURACY": "Medium Low",
+    "SOURCE": "FILD",
+    "MaintainedBy": "COB-PW",
+    "AssetDistrict": "SAMISH",
+    "AssetID": "0426541",
+    "LegacyID": "WC4549",
+    "ADATransitionPlan2021": "Yes",
+    "InstallDate": null,
+    "ProjectNumber": null,
+    "URL": null
+   }
+  }
+ ]
+}

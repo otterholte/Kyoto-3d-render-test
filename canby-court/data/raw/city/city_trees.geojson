@@ -1,0 +1,881 @@
+{
+ "type": "FeatureCollection",
+ "name": "city_trees",
+ "source": "https://maps.cob.org/arcgis3/rest/services/Parks/NotableTrees/MapServer/0",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46810209259489,
+     48.72548472424975
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28054,
+    "CommonName": "Austrian pine",
+    "ScientificName": "Pinus nigra",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46810359199915,
+     48.72546596584867
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28055,
+    "CommonName": "Austrian pine",
+    "ScientificName": "Pinus nigra",
+    "TreeClass": "MEDIUM",
+    "DBH": 14.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46809861866736,
+     48.72544373121496
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28056,
+    "CommonName": "Austrian pine",
+    "ScientificName": "Pinus nigra",
+    "TreeClass": "MEDIUM",
+    "DBH": 20.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46763488245031,
+     48.72550124747128
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28063,
+    "CommonName": "London planetree",
+    "ScientificName": "Platanus x hispanica",
+    "TreeClass": "MEDIUM",
+    "DBH": 22.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46753998048773,
+     48.725350888044126
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28064,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 24.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46743488781804,
+     48.725368482836366
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28065,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 18.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46757441938436,
+     48.72535326256893
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28066,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 16.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46759341266156,
+     48.72532996258507
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28067,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 10.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46756676460738,
+     48.72531025324187
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28068,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 8.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46741964785016,
+     48.725308892599955
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28069,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 18.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46745385549661,
+     48.725265354433944
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28070,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 14.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46765712639873,
+     48.72535865913751
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28071,
+    "CommonName": "Bigleaf maple",
+    "ScientificName": "Acer macrophyllum",
+    "TreeClass": "MEDIUM",
+    "DBH": 14.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.467696457574,
+     48.72538079143367
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28072,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 16.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46765992890981,
+     48.725284613082906
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28073,
+    "CommonName": "Bigleaf maple",
+    "ScientificName": "Acer macrophyllum",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46782900549768,
+     48.72541033114651
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28074,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 20.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46789588864607,
+     48.72543683154538
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28075,
+    "CommonName": "Bigleaf maple",
+    "ScientificName": "Acer macrophyllum",
+    "TreeClass": "MEDIUM",
+    "DBH": 7.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46801060374587,
+     48.72541792101123
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28076,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 22.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46805073288704,
+     48.72540194220679
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28077,
+    "CommonName": "Bigleaf maple",
+    "ScientificName": "Acer macrophyllum",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4680237684512,
+     48.725297958124614
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28078,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 28.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46795771627819,
+     48.725255502483634
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28079,
+    "CommonName": "Black cottonwood",
+    "ScientificName": "Populus balsamifera ssp.\u00a0trichocarpa",
+    "TreeClass": "LARGE",
+    "DBH": 24.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46791596133335,
+     48.725294643337946
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28080,
+    "CommonName": "Black cottonwood",
+    "ScientificName": "Populus balsamifera ssp.\u00a0trichocarpa",
+    "TreeClass": "MEDIUM",
+    "DBH": 14.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46794952609218,
+     48.72529134551835
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28081,
+    "CommonName": "Black cottonwood",
+    "ScientificName": "Populus balsamifera ssp.\u00a0trichocarpa",
+    "TreeClass": "MEDIUM",
+    "DBH": 16.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46792888912393,
+     48.725337798000474
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28082,
+    "CommonName": "Black cottonwood",
+    "ScientificName": "Populus balsamifera ssp.\u00a0trichocarpa",
+    "TreeClass": "LARGE",
+    "DBH": 20.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46798873665396,
+     48.72534041431777
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28083,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 20.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46796514874353,
+     48.725360548125664
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28084,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 28.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46795699828752,
+     48.72539195541728
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28085,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 20.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46784227352302,
+     48.72530619084297
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28086,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 22.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46785664914664,
+     48.725333214231355
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28087,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "LARGE",
+    "DBH": 24.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4678880707187,
+     48.72533556990704
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28088,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46782598718077,
+     48.725359005127004
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28089,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46789420909889,
+     48.725390281674684
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28090,
+    "CommonName": "Douglas-fir",
+    "ScientificName": "Pseudotsuga menziesii",
+    "TreeClass": "MEDIUM",
+    "DBH": 10.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46800137268386,
+     48.725429435086596
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28091,
+    "CommonName": "Paper birch",
+    "ScientificName": "Betula papyrifera",
+    "TreeClass": "SMALL",
+    "DBH": 5.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46731155614502,
+     48.72534978197543
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28092,
+    "CommonName": "Red alder",
+    "ScientificName": "Alnus rubra",
+    "TreeClass": "MEDIUM",
+    "DBH": 10.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46726234689167,
+     48.72537682089305
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28093,
+    "CommonName": "Red alder",
+    "ScientificName": "Alnus rubra",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46727378673882,
+     48.725333352602796
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28094,
+    "CommonName": "Red alder",
+    "ScientificName": "Alnus rubra",
+    "TreeClass": "SMALL",
+    "DBH": 10.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46739698844499,
+     48.725344533236985
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28095,
+    "CommonName": "Scouler's willow",
+    "ScientificName": "Salix scouleriana",
+    "TreeClass": "MEDIUM",
+    "DBH": 14.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4678312321657,
+     48.72525869770014
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28096,
+    "CommonName": "Leyland cypress",
+    "ScientificName": "Cupressus x leylandii",
+    "TreeClass": "MEDIUM",
+    "DBH": 12.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.46810164998406,
+     48.7255050634189
+    ]
+   },
+   "properties": {
+    "OBJECTID": 28863,
+    "CommonName": "Austrian pine",
+    "ScientificName": "Pinus nigra",
+    "TreeClass": "MEDIUM",
+    "DBH": 14.0,
+    "Condition": null,
+    "TreeType": null,
+    "Native": null,
+    "Source": "Parks Staff",
+    "StreetTreeList": "No",
+    "LandmarkTree": null
+   }
+  }
+ ]
+}

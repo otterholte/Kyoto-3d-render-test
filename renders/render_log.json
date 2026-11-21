@@ -1,0 +1,26 @@
+[
+ {
+  "shot": "a_yasaka_dori_east",
+  "file": "renders/final_a_yasaka_dori_east.png",
+  "res": [
+   3840,
+   2160
+  ],
+  "samples": 96,
+  "seconds": 1468.1,
+  "preset": "golden",
+  "when": "2026-11-21 01:47:07"
+ },
+ {
+  "shot": "e_yasaka_dori_upper_west",
+  "file": "renders/final_e_yasaka_dori_upper_west.png",
+  "res": [
+   3840,
+   2160
+  ],
+  "samples": 96,
+  "seconds": 1327.3,
+  "preset": "dusk",
+  "when": "2026-11-21 02:09:15"
+ }
+]
