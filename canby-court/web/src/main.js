@@ -16,11 +16,12 @@ import { jumpMeta } from './kickers.js';
 import { Snowfall, Puffs, Trail, Footprints } from './effects.js';
 import { MiniMap } from './minimap.js';
 import { Sound } from './audio.js';
+import { Grass } from './grass.js';
 
 const $ = (id) => document.getElementById(id);
 const isTouch = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 const isMobile = isTouch && Math.min(screen.width, screen.height) < 900;
-const cc = (window.__cc = { started: true, ready: false, errors: [], fps: 0, maxDt: 0.1 });
+const cc = (window.__cc = { started: true, ready: false, errors: [], fps: 0, maxDt: 0.1, animScale: 1 });
 
 function fatal(msg) { const f = $('fatal'); f.hidden = false; f.textContent = msg; $('loading').classList.add('done'); }
 let lastStage = '', lastTextT = 0;
@@ -73,7 +74,35 @@ async function main() {
   if (surfImg) { surfTex.needsUpdate = true; }
   surfTex.colorSpace = THREE.NoColorSpace; surfTex.wrapS = surfTex.wrapT = THREE.ClampToEdgeWrapping; surfTex.anisotropy = 4;
   const trackTex = trackTexture(terrain, data.sled.path);
-  const ctx = { manifest, data, terrain, surfTex, trackTex, lite: isMobile };
+  // photographic ground sets (optional): loaded only for the placeholder world
+  let groundLib = null;
+  if (manifest.groundTex && !(manifest.worlds && manifest.worlds.summer && manifest.worlds.winter)) {
+    progress(0.14, 'Ground textures…');
+    const tl = new THREE.TextureLoader();
+    try {
+      groundLib = {};
+      await Promise.all(Object.entries(manifest.groundTex).map(async ([k, t]) => {
+        if (isMobile && (k === 'roof' || k === 'siding')) return;
+        const [a, n] = await Promise.all([tl.loadAsync(t.albedo + v), tl.loadAsync(t.normal + v)]);
+        a.colorSpace = THREE.SRGBColorSpace;
+        for (const x of [a, n]) { x.wrapS = x.wrapT = THREE.RepeatWrapping; x.anisotropy = isMobile ? 4 : 8; }
+        groundLib[k] = { a, n, size: t.size };
+      }));
+    } catch (e) { console.warn('ground textures unavailable, procedural ground', e); groundLib = null; }
+  }
+  // leaf-card atlas for the placeholder trees (optional)
+  let foliage = null;
+  if (manifest.foliage && groundLib) {
+    try {
+      const [cells, albedo] = await Promise.all([loadJSON(manifest.foliage.json + v), new THREE.TextureLoader().loadAsync(manifest.foliage.albedo + v)]);
+      albedo.colorSpace = THREE.SRGBColorSpace; albedo.anisotropy = 4;
+      foliage = { cells: cells.cells, albedo };
+    } catch (e) { console.warn('foliage atlas unavailable', e); }
+  }
+  const ctx = { manifest, data, terrain, surfTex, trackTex, lite: isMobile, groundLib, foliage };
+  // 3905 front door from the scene metadata (when present): the "front door" place stands in front of it
+  const d3905 = (data.houses.find((h) => h.number === 3905) || {}).doors?.find((d) => d.kind === 'door');
+  if (d3905) { const pf = PLACES.find((p) => p.id === 'front'); pf.x = d3905.c[0] + d3905.n[0] * 3.2; pf.n = d3905.c[1] + d3905.n[1] * 3.2; pf.look = d3905.c; }
   const jumps = jumpMeta(data.sled.jumps, terrain);
 
   // ---------------------------------------------------------------- worlds (lazy per season)
@@ -116,6 +145,9 @@ async function main() {
   const prints = new Footprints(360);
   scene.add(snow.points, puffs.points, trail.mesh, prints.mesh);
   const sound = new Sound();
+  // summer grass tufts on the placeholder lawns
+  let grass = null;
+  try { if (surfImg) { grass = new Grass(terrain, surfImg, manifest.surface, 7000); scene.add(grass.mesh); } } catch (e) { console.warn('grass disabled', e); grass = null; }
 
   const ctrl = new Controller(col);
   const follow = new FollowCamera(camera, col.bvh);
@@ -126,8 +158,13 @@ async function main() {
 
   function applySeasonLook(s) {
     sky.setSeason(s);
+    if (post) {
+      const G = SEASONS[s].grade, u = post.grade.material.uniforms;
+      u.uSat.value = G.sat; u.uContrast.value = G.contrast; u.uShadowTint.value.set(...G.shadow); u.uHighTint.value.set(...G.high);
+    }
     SU.uSeason.value = s === 'winter' ? 1 : 0;
     snow.points.visible = s === 'winter';
+    if (grass) grass.mesh.visible = s === 'summer' && world.kind === 'placeholder' && !!Q.grass;
     prints.mesh.visible = s === 'winter';
     trail.mesh.visible = s === 'winter';
     sound.season = s;
@@ -137,13 +174,13 @@ async function main() {
     if (minimap) minimap.season = s;
     shadowDirty = true;
   }
-  let minimap = null;
+  let minimap = null, post = null;
   let shadowDirty = true;
   applySeasonLook(season);
 
   // ---------------------------------------------------------------- post
-  const post = new Post(renderer, scene, camera);
-  post.grade.material.uniforms.uSat.value = 1.04;
+  post = new Post(renderer, scene, camera);
+  applySeasonLook(season);
   let useComposer = false;
   const setupComposer = () => { useComposer = !!Q.post; post.configure({ ...Q, bloom: Q.bloom && bloomAllowed }); post.bloom.strength = 0.12; post.bloom.threshold = 0.92; };
   const photo = { on: false };
@@ -161,6 +198,8 @@ async function main() {
     cc.tier = photo.on ? 'ultra' : (qualityPref === 'auto' ? autoQ : qualityPref);
     dprScale = fixedScale || 1; bloomAllowed = true; adapt.reset();
     snow.setCount(Q.snow);
+    if (world.setDetail) world.setDetail(cc.tier);
+    if (grass) { grass.setMax(isMobile ? 2500 : 7000); grass.mesh.visible = season === 'summer' && world.kind === 'placeholder' && !!Q.grass; }
     renderer.shadowMap.enabled = Q.shadows; sky.sun.castShadow = Q.shadows;
     shadowDirty = true;
     setupComposer(); resize();
@@ -256,6 +295,7 @@ async function main() {
       const w = await worldFor(s);
       if (w !== world) { scene.remove(world.root); scene.add(w.root); world = w; }
       world.setSeason(s);
+      if (world.setDetail) world.setDetail(cc.tier);
       col = world.colliderFor(s);
       ctrl.setCollider(col); follow.bvh = col.bvh; chase.bvh = col.bvh; game.setCollider(col);
       season = s; store.set('season', s);
@@ -417,6 +457,7 @@ async function main() {
   }
   function step() {
     const dt = Math.min(clock.getDelta(), cc.maxDt);
+    cc.simTime = (cc.simTime || 0) + dt;
     const now = performance.now();
     const inp = input.sample();
     SU.uTime.value += dt;
@@ -429,7 +470,7 @@ async function main() {
       mv.set(0, 0, 0).addScaledVector(fwd, inp.y).addScaledVector(right, inp.x);
       const sub = Math.max(1, Math.ceil(dt / (1 / 60)));
       for (let i = 0; i < sub; i++) { ctrl.update(dt / sub, mv, inp.run); if (cc.groundTrace) cc.groundTrace.add(ctrl.groundName); }
-      person.updateWalk(dt, ctrl.pos, ctrl.facing, ctrl.speed, ctrl.grounded);
+      person.updateWalk(dt * cc.animScale, ctrl.pos, ctrl.facing, ctrl.speed, ctrl.grounded);
       follow.update(dt, person.root.position, ctrl.facing, ctrl.speed > 0.3, now, input.touchMode);
       focus = ctrl.pos;
       if (season === 'winter' && ctrl.grounded && ctrl.speed > 0.3) prints.step(ctrl.pos, ctrl.facing, ctrl.groundNormal);
@@ -456,12 +497,11 @@ async function main() {
         paddle = input.joy.y > 0.45 ? 1 : 0;
       }
       let sin = { steer, brake, paddle };
-      if (autopilot) sin = autopilot.input();
       if (autopilot) {
         // autopilot drives the game in its own sub-steps so it can act at the right moment
-        let t = dt; while (t > 1e-6) { const h = Math.min(1 / 120, t); game.step(h, autopilot.input()); t -= h; }
+        let t = dt; while (t > 1e-6) { const h = Math.min(1 / 120, t); sin = autopilot.input(); game.step(h, sin); t -= h; }
       } else game.update(dt, sin);
-      person.updateSled(dt, game, sin.steer);
+      person.updateSled(dt * cc.animScale, game, sin.steer);
       chase.update(dt, game.wipe ? game.wipe.riderPos : game.pos, game.vel, game.heading, !game.grounded, now);
       focus = game.pos;
       // effects: track ribbon, skid spray
@@ -486,6 +526,7 @@ async function main() {
       }
     }
     if (season === 'winter') snow.update(dt, camera, renderer.domElement.height);
+    else if (grass && grass.mesh.visible) grass.update(camera.position);
     puffs.update(dt, camera, renderer.domElement.height);
     if (Q.shadows && sky.placeShadow(focus, Q.shadowRange, Q.shadow)) shadowDirty = true;
     if (sky.shadowDirty) { shadowDirty = true; sky.shadowDirty = false; }
@@ -583,7 +624,7 @@ async function main() {
     ready: true, THREE, scene, camera, renderer, ctrl, follow, chase, sky, person, input, game, post, terrain, data, jumps, manifest,
     teleport: (id) => teleport(typeof id === 'string' ? PLACES.find((p) => p.id === id) : id), teleportLog, spawn, places: PLACES, fpsHistory, isMobile, isTouch,
     setSeason, enterSled, exitSled, setPhoto,
-    season: () => season, mode: () => mode, world: () => ({ kind: world.kind, hasKickers: world.hasKickers ?? true, tris: col.tris, bvhMs: col.buildMs }),
+    season: () => season, mode: () => mode, world: () => ({ kind: world.kind, hasKickers: world.hasKickers ?? true, tris: col.tris, bvhMs: col.buildMs, instanced: world.instanced || 0, colliders: col.objInfo.length }),
     state: () => ({
       x: +ctrl.pos.x.toFixed(3), n: +(-ctrl.pos.z).toFixed(3), y: +ctrl.pos.y.toFixed(3), grounded: ctrl.grounded, ground: ctrl.groundName,
       speed: +ctrl.speed.toFixed(2), facing: +ctrl.facing.toFixed(3), wall: ctrl.wallContact, camYaw: +follow.yaw.toFixed(3), mode, season,

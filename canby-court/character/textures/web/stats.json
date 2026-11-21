@@ -1,6 +1,6 @@
 {
  "summer_tris": 23012,
- "winter_tris": 23481,
+ "winter_tris": 23845,
  "per_mesh": {
   "Body_Head": 6199,
   "Body_Arms": 3600,
@@ -11,13 +11,12 @@
   "Winter_Jacket": 4600,
   "Winter_Pants": 2600,
   "Winter_Gloves": 3599,
-  "Winter_Beanie": 716,
+  "Winter_Beanie": 1192,
   "Winter_Boot_l": 1600,
   "Winter_Boot_r": 1599,
   "Eyes": 2040,
   "Lashes": 368,
   "Brows": 48,
-  "Hair_Cap_Summer": 2160,
-  "Hair_Cap_Winter": 112
+  "Hair_Cap_Summer": 2160
  }
 }

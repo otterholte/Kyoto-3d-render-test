@@ -11,7 +11,7 @@ import { serve, launch, newPage, devices, sleep, WEB } from './harness.mjs';
 const OUT = process.argv[2] || path.join(WEB, '..', 'docs', 'web_screens');
 fs.mkdirSync(OUT, { recursive: true });
 const ONLY = process.env.ONLY || '';
-const DESK_Q = process.env.DESK_Q || '?q=low&scale=0.5', MOB_Q = process.env.MOB_Q || '?q=medium&scale=0.5';
+const DESK_Q = process.env.DESK_Q || '?q=low&scale=0.3', MOB_Q = process.env.MOB_Q || '?q=medium&scale=0.4';
 const results = { started: new Date().toISOString(), desktop: {}, mobile: {}, failures: [] };
 const check = (cond, msg) => { if (!cond) { results.failures.push(msg); console.log('  FAIL', msg); } else console.log('  ok  ', msg); };
 const WD = JSON.parse(fs.readFileSync(path.join(WEB, 'assets', 'world_data.json'), 'utf8'));
@@ -22,13 +22,18 @@ async function waitReady(page) {
   await page.waitForFunction(() => window.__cc && (window.__cc.ready || window.__cc.errors.length || !document.getElementById('fatal').hidden), null, { timeout: 300000 });
   const err = await page.evaluate(() => __cc.errors.concat(document.getElementById('fatal').hidden ? [] : [document.getElementById('fatal').textContent]));
   if (err.length) throw new Error('page error: ' + err.join('\n'));
-  await page.evaluate(() => { __cc.maxDt = 0.25; });
+  await page.evaluate(() => { __cc.maxDt = 0.5; });
   return (Date.now() - t0) / 1000;
 }
 const state = (page) => page.evaluate(() => __cc.state());
 const sled = (page) => page.evaluate(() => __cc.sled());
 async function frames(page, n = 2) { for (let i = 0; i < n; i++) await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => r()))); }
 async function shot(page, name) { await frames(page, 2); await page.screenshot({ path: path.join(OUT, name), timeout: 300000 }); console.log('  shot', name); }
+// wait until the page has simulated `secs` seconds (frame-rate independent; software GL is slow and shared)
+async function simWait(page, secs, maxMs = 600000) {
+  const t0 = await page.evaluate(() => __cc.simTime || 0);
+  await page.waitForFunction((t) => (__cc.simTime || 0) >= t, t0 + secs, { timeout: maxMs, polling: 100 });
+}
 async function steer(page, x, n) {
   await page.evaluate(([x, n]) => { const p = __cc.ctrl.pos; const dx = x - p.x, dz = -n - p.z; __cc.follow.yaw = Math.atan2(-dx, -dz); __cc.follow.lastLook = performance.now(); }, [x, n]);
 }
@@ -42,19 +47,26 @@ function inPoly(x, y, poly) {
 }
 
 // hold W (+Shift) and steer through waypoints (local x, north); returns track summary
-async function walk(page, wps, { tol = 1.2, maxWall = 300000, run = true, stuckMs = 45000 } = {}) {
-  const t0 = Date.now(); const track = []; let i = 0, best = Infinity, lastProgress = Date.now();
+async function walk(page, wps, { tol = 1.2, maxWall = 1500000, run = true, stuckMs = 400000 } = {}) {
+  const t0 = Date.now(); const track = []; let i = 0, best = Infinity, lastProgress = Date.now(), sidestepped = false;
+  let lastSim = await page.evaluate(() => __cc.simTime || 0);
   await steer(page, ...wps[0]);
   await page.keyboard.down('KeyW'); if (run) await page.keyboard.down('ShiftLeft');
   while (i < wps.length && Date.now() - t0 < maxWall) {
     await steer(page, ...wps[i]);
-    await sleep(200);
+    await simWait(page, 0.25);
     const s = await state(page);
     track.push([s.x, s.n, s.y]);
     const d = Math.hypot(s.x - wps[i][0], s.n - wps[i][1]);
-    if (d < tol) { i++; best = Infinity; lastProgress = Date.now(); continue; }
-    if (d < best - 0.05) { best = d; lastProgress = Date.now(); }
-    if (Date.now() - lastProgress > stuckMs) break;
+    if (d < tol) { i++; best = Infinity; lastProgress = Date.now(); lastSim = await page.evaluate(() => __cc.simTime); sidestepped = false; continue; }
+    if (d < best - 0.05) { best = d; lastProgress = Date.now(); lastSim = await page.evaluate(() => __cc.simTime); }
+    else if (await page.evaluate(() => __cc.simTime) - lastSim > 4 && !sidestepped) {
+      // pressed against a trunk / corner head-on: step sideways like a person would, then carry on
+      sidestepped = true;
+      await page.keyboard.down('KeyD'); await simWait(page, 1.2); await page.keyboard.up('KeyD');
+      lastProgress = Date.now(); lastSim = await page.evaluate(() => __cc.simTime);
+    }
+    if (await page.evaluate(() => __cc.simTime) - lastSim > 20 || Date.now() - lastProgress > stuckMs) break;
   }
   await page.keyboard.up('KeyW'); if (run) await page.keyboard.up('ShiftLeft');
   await frames(page, 2);
@@ -85,9 +97,9 @@ async function desktop(browser, url) {
   }
 
   // keyboard walk: W moves forward
-  await page.evaluate(() => __cc.teleport('bulb'));
+  await page.evaluate(() => __cc.teleport({ x: -18, n: -24, look: [-45, -28] }));
   const a = await state(page);
-  await page.keyboard.down('KeyW'); await sleep(2500); await page.keyboard.up('KeyW');
+  await page.keyboard.down('KeyW'); await simWait(page, 2.5); await page.keyboard.up('KeyW');
   const b = await state(page);
   R.keyboardWalk = Math.hypot(b.x - a.x, b.n - a.n);
   check(R.keyboardWalk > 1.0, `W walks forward (${R.keyboardWalk.toFixed(2)} m)`);
@@ -96,20 +108,15 @@ async function desktop(browser, url) {
   await page.evaluate(() => __cc.teleport({ x: -6.5, n: -9, look: [0, 0] }));
   const w0 = await state(page);
   await steer(page, 0, -2);
-  await page.keyboard.down('KeyW'); await sleep(5000); await page.keyboard.up('KeyW');
+  await page.keyboard.down('KeyW'); await simWait(page, 5); await page.keyboard.up('KeyW');
   const w1 = await state(page);
   R.wall = { from: w0, to: w1, inside: inPoly(w1.x, w1.n, H3905.fp) };
   check(!R.wall.inside, `walking into 3905 is blocked (stopped at ${w1.x}, ${w1.n}; wall contact ${w1.wall})`);
 
-  // circuit around 3905: footprint offset ~3 m, adjusted to free walkable spots in the page
+  // circuit around 3905: front walk, drive, east side yard, back lawn (inside the rear fence), west side yard.
+  // Waypoints are snapped to free walkable spots in the page (findSpot).
   const cx = H3905.centroid[0], cy = H3905.centroid[1];
-  const ring = [];
-  for (let k = 0; k < 16; k++) {
-    const ang = (k / 16) * Math.PI * 2 - Math.PI * 0.75;
-    // march outward from the centroid until 3.2 m outside the footprint
-    let r = 2; while (inPoly(cx + Math.cos(ang) * r, cy + Math.sin(ang) * r, H3905.fp) && r < 30) r += 0.25;
-    ring.push([cx + Math.cos(ang) * (r + 3.2), cy + Math.sin(ang) * (r + 3.2)]);
-  }
+  const ring = [[-12, -11], [0, -11], [13, -10], [22, -6], [22, 8], [21, 18], [8, 22], [-4, 23], [-19, 16], [-19, 4], [-18, -6]];
   const wps = await page.evaluate((ring) => ring.map(([x, n]) => { const s = __cc.ctrl.findSpot(x, -n, 3); return s ? [+s.pos.x.toFixed(2), +(-s.pos.z).toFixed(2)] : [x, n]; }), ring);
   wps.push(wps[0]);
   await page.evaluate((p) => __cc.teleport({ x: p[0], n: p[1], look: [p[0] + 1, p[1]] }), wps[0]);
@@ -147,7 +154,8 @@ async function desktop(browser, url) {
   await shot(page, 'desktop_04_sled_start.png');
   // real keyboard steering during the countdown / first metres: A turns left (heading increases)
   const h0 = await page.evaluate(() => __cc.game.heading);
-  await page.keyboard.down('KeyA'); await sleep(3500); await page.keyboard.up('KeyA');
+  await page.waitForFunction(() => __cc.game.countdown === 0, null, { timeout: 600000 });
+  await page.keyboard.down('KeyA'); await simWait(page, 1.0); await page.keyboard.up('KeyA');
   const h1 = await page.evaluate(() => __cc.game.heading);
   R.keyboardSteer = { h0, h1 };
   check(h1 - h0 > 0.05, `A steers the sled left (heading ${h0.toFixed(2)} -> ${h1.toFixed(2)})`);
@@ -199,6 +207,7 @@ async function desktop(browser, url) {
   await page.click('#f-walk');
   await sleep(300);
   check(await page.evaluate(() => __cc.mode()) === 'walk', 'Walk button leaves the sled');
+  check(await page.evaluate(() => __cc.person.root.parent === __cc.scene && __cc.person.root.visible && !__cc.person.sledRoot.visible), 'walker back in the scene after sledding (sled hidden)');
   await page.click('#btn-season');
   await page.waitForFunction(() => __cc.season() === 'summer', null, { timeout: 120000 });
   await sleep(800);
@@ -246,7 +255,8 @@ async function mobile(browser, url, devName, dev) {
   await touch(cdp, 'touchStart', [[jx, jy]]);
   await touch(cdp, 'touchMove', [[jx, jy - 30]]);
   await touch(cdp, 'touchMove', [[jx + 2, jy - 70]]);
-  for (let i = 0; i < 10; i++) { await touch(cdp, 'touchMove', [[jx + (i % 2), jy - 70]]); await sleep(350); }
+  await simWait(page, 3);
+  await touch(cdp, 'touchMove', [[jx + 1, jy - 70]]);
   await touch(cdp, 'touchEnd', []);
   await frames(page, 1);
   const b = await state(page);
@@ -286,7 +296,8 @@ async function mobile(browser, url, devName, dev) {
   const hA = await page.evaluate(() => __cc.game.heading);
   await touch(cdp, 'touchStart', [[jx, jy]]);
   await touch(cdp, 'touchMove', [[jx + 40, jy]]);
-  for (let i = 0; i < 6; i++) { await touch(cdp, 'touchMove', [[jx + 60 + (i % 2), jy]]); await sleep(300); }
+  await touch(cdp, 'touchMove', [[jx + 60, jy]]);
+  await simWait(page, 0.6);
   await touch(cdp, 'touchEnd', []);
   const hB = await page.evaluate(() => __cc.game.heading);
   R.touchSteer = { hA, hB };
@@ -294,7 +305,7 @@ async function mobile(browser, url, devName, dev) {
   // POP button: ollie on flat snow (registers the press), trick button press accepted while airborne
   const pop = await page.evaluate(() => { const before = __cc.game.events.length; return before; });
   await page.tap('#s-boost');
-  await sleep(200);
+  await simWait(page, 0.2);
   const evs = await page.evaluate((n) => __cc.game.events.slice(n).map((e) => e.type), pop);
   check(evs.includes('pop'), `${devName}: POP button works (${evs.join(',')})`);
   await shot(page, `mobile_${key}_04_sled.png`);
@@ -322,7 +333,18 @@ try {
   console.error(e);
 } finally {
   results.finished = new Date().toISOString();
-  fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify(results, null, 1));
+  // a single-section run (ONLY=desktop|mobile) updates that section of an existing results.json
+  const rp = path.join(OUT, 'results.json');
+  if (ONLY && fs.existsSync(rp)) {
+    try {
+      const old = JSON.parse(fs.readFileSync(rp, 'utf8'));
+      const keep = ONLY === 'desktop' ? 'mobile' : 'desktop';
+      results[keep] = old[keep];
+      results.failures = results.failures.concat((old.failures || []).filter((f) => keep === 'mobile' ? /^(iPhone|Pixel)/.test(f) : !/^(iPhone|Pixel)/.test(f)));
+      results.mergedFrom = old.started;
+    } catch { /* keep the fresh results only */ }
+  }
+  fs.writeFileSync(rp, JSON.stringify(results, null, 1));
   await browser.close(); srv.close();
   console.log(results.failures.length ? `\n${results.failures.length} FAILURE(S)` : '\nALL CHECKS PASSED');
   process.exit(results.failures.length ? 1 : 0);

@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { mulberry } from './util.js';
 import { SU, SNOW_GLSL } from './shared.js';
+import { crownGeometry, leafCardMaterial } from './foliage.js';
 
 function colorize(g, fn) {
   const p = g.attributes.position, c = new Float32Array(p.count * 3);
@@ -127,14 +128,16 @@ vWN = normalize(mat3(modelMatrix) * wn0);`);
     sh.fragmentShader = sh.fragmentShader
       .replace('#include <common>', `#include <common>\nvarying vec3 vWN; varying vec3 vWP; uniform float uSeason; uniform sampler2D uNoise;\n${SNOW_GLSL}`)
       .replace('#include <color_fragment>', `#include <color_fragment>
-float sn = ccSnow(normalize(vWN), vWP, ${kind === 'bark' ? '-0.25' : '0.0'});
-diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.84, 0.87, 0.92), sn * ${kind === 'bark' ? '0.85' : '0.8'});`);
+float sn = ccSnow(normalize(vWN), vWP, ${kind === 'bark' ? '-0.25' : kind === 'needle' ? '-0.5' : '-0.1'});
+sn *= smoothstep(0.35, 0.75, texture2D(uNoise, vWP.xz * 1.3 + vWP.y * 0.7).r);
+diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.84, 0.87, 0.92), sn * ${kind === 'bark' ? '0.85' : kind === 'needle' ? '0.6' : '0.7'});`);
   };
   m.customProgramCacheKey = () => 'cc-veg-' + kind;
   return m;
 }
 
-export function buildVegetation(data, terrain) {
+// foliage (optional): {cells (foliage_atlas.json cells), albedo (Texture)} -> leaf-card crowns
+export function buildVegetation(data, terrain, foliage = null) {
   const group = new THREE.Group(); group.name = 'Vegetation';
   const rnd = mulberry(42);
   const variants = {
@@ -143,6 +146,13 @@ export function buildVegetation(data, terrain) {
     bare: [bareGeometry(3), bareGeometry(8), bareGeometry(13)],
   };
   const mats = { needle: vegMaterial('needle'), leaf: vegMaterial('leaf'), bark: vegMaterial('bark') };
+  if (foliage) {
+    const C = foliage.cells;
+    variants.coniferCards = [crownGeometry('conifer', 'fir_spray', C, 101, { cards: 300, cardM: 2.3 }), crownGeometry('conifer', 'fir_spray', C, 202, { cards: 300, cardM: 2.3 }), crownGeometry('conifer', 'cedar_spray', C, 303, { cards: 300, cardM: 2.1 })];
+    variants.coniferCore = variants.conifer.map((g) => g.clone().scale(0.6, 0.97, 0.6));
+    variants.leafCards = [0, 1, 2].map((k) => crownGeometry('deciduous', 'maple_cluster', C, 404 + k * 101, { r0: 4, h0: 12, cards: 340, cardM: 2.2 }));
+    mats.cards = leafCardMaterial(foliage.albedo);
+  }
   const buckets = new Map();     // key -> list of matrices
   const add = (key, m) => { if (!buckets.has(key)) buckets.set(key, []); buckets.get(key).push(m); };
   const colliders = [];
@@ -159,26 +169,29 @@ export function buildVegetation(data, terrain) {
       const v = cedar ? 2 : Math.floor(rnd() * 2);
       S.set(r * 1.05, h, r * 1.05);
       add(`conifer${v}`, M.compose(P, Q, S).clone());
+      if (foliage) { add(`coniferCards${v}`, M.clone()); add(`coniferCore${v}`, M.clone()); }
     } else {
       const v = Math.floor(rnd() * 3);
       S.set(r * 1.1, h, r * 1.1);
       add(`bare${v}`, M.compose(P, Q, S).clone());
       add(`leafy${v % 2}`, M.compose(P, Q, S).clone());
+      if (foliage) add(`leafCards${v}`, M.clone());
     }
     trunkPos.push([t.x, t.y, z, conifer ? 0.32 : 0.24]);
   }
   const meshes = { summer: [], winter: [], both: [] };
+  const byKind = {};
   for (const [key, list] of buckets) {
     const kind = key.replace(/\d+$/, ''), v = +key.match(/\d+$/)[0];
     const geo = variants[kind][v];
-    const mat = kind === 'conifer' ? mats.needle : kind === 'leafy' ? mats.leaf : mats.bark;
+    const mat = kind === 'conifer' || kind === 'coniferCore' ? mats.needle : kind === 'leafy' ? mats.leaf : /Cards$/.test(kind) ? mats.cards : mats.bark;
     const im = new THREE.InstancedMesh(geo, mat, list.length);
     list.forEach((m, i) => im.setMatrixAt(i, m));
     im.castShadow = true; im.receiveShadow = true;
     im.name = 'Trees_' + key;
     im.computeBoundingSphere();
     group.add(im);
-    (kind === 'conifer' ? meshes.both : kind === 'leafy' ? meshes.summer : meshes.winter).push(im);
+    (byKind[kind] = byKind[kind] || []).push(im);
   }
   // trunk colliders: 8-sided prisms, 3 m tall
   {
@@ -217,7 +230,7 @@ export function buildVegetation(data, terrain) {
           else { P.set(x, z + h.h * 0.45, -y); S.set(h.w * 0.62, h.h * 0.58, h.w * 0.62); hm.push(M.compose(P, Q, S).clone()); }
         }
         // collider box along the segment
-        const nx = -(by - ay) / L * h.w * 0.45, ny = (bx - ax) / L * h.w * 0.45;
+        const nx = -(by - ay) / L * h.w * 0.6, ny = (bx - ax) / L * h.w * 0.6;
         const z0 = Math.min(terrain.height(ax, ay), terrain.height(bx, by)) - 0.3, z1 = z0 + h.h + 0.3;
         const b = pos.length / 3;
         for (const [px, py] of [[ax + nx, ay + ny], [bx + nx, by + ny], [bx - nx, by - ny], [ax - nx, ay - ny]]) pos.push(px, z0, -py, px, z1, -py);
@@ -229,14 +242,22 @@ export function buildVegetation(data, terrain) {
       const im = new THREE.InstancedMesh(geo, mats.leaf, list.length);
       list.forEach((m, i) => im.setMatrixAt(i, m));
       im.castShadow = im.receiveShadow = true; im.name = name; im.computeBoundingSphere();
-      group.add(im); meshes.both.push(im);
+      group.add(im);
     }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx);
     colliders.push({ geom: g, info: { name: 'Hedge', kind: 'hedge', walkable: false, collide: true } });
   }
-  const setSeason = (s) => {
-    for (const m of meshes.summer) m.visible = s === 'summer';
-    for (const m of meshes.winter) m.visible = s === 'winter';
+  // visibility by season and detail (leaf cards on Medium+; blobs on Low or without the atlas)
+  let season = 'summer', cards = !!foliage;
+  const show = (kind, on) => { for (const m of byKind[kind] || []) m.visible = on; };
+  const apply = () => {
+    const c = cards && !!foliage;
+    show('conifer', !c); show('coniferCore', c); show('coniferCards', c);
+    show('leafy', season === 'summer' && !c); show('leafCards', season === 'summer' && c);
+    show('bare', season === 'winter' || c);
   };
-  return { group, colliders, setSeason, count: data.trees.length };
+  const setSeason = (s) => { season = s; apply(); };
+  const setCards = (on) => { cards = on; apply(); };
+  apply();
+  return { group, colliders, setSeason, setCards, count: data.trees.length, hasCards: !!foliage };
 }

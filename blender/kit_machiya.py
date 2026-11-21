@@ -23,6 +23,7 @@ from kit_materials import M
 
 BAY = 1.82
 LIB = "A_Asset_Library"
+ATLAS_UPPER = False   # True when the facade atlas provides the upper storeys (no flat 2F kit pieces then)
 
 
 class PB:
@@ -651,14 +652,14 @@ def _dress(s, a, b, u, L, lib, root, pois):
             z2 = zh + 0.45
             room = s["top_min"] - 0.12 - z2
             low = eave_h < 6.0
-            for k in range(nb + 1):                                   # exposed posts (shinkabe)
+            for k in (range(nb + 1) if not ATLAS_UPPER else []):                                   # exposed posts (shinkabe)
                 if room > 0.4:
                     out.append(_inst(lib, "K_Post", coll, P(min(max(k * bw, 0.06), L - 0.06), zh + 0.1), rot, 1.0,
                                      props("K_Post", extra=use_ref)))
                     out[-1].scale = (1, 1, s["top_min"] - zh - 0.1)
-            if room > 0.4:
+            if room > 0.4 and not ATLAS_UPPER:
                 out.append(_inst(lib, "K_Beam", coll, P(0, s["top_min"] - 0.02), rot, L, props("K_Post", extra=use_ref)))
-            for k in range(nb):
+            for k in (range(nb) if not ATLAS_UPPER else []):
                 r = rng.random()
                 if low and room > 0.7 and r < 0.3:
                     out.append(_inst(lib, "K_Mushiko", coll, P(k * bw, z2 + min(0.15, room - 0.7)), rot, bw / BAY,

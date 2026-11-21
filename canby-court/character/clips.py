@@ -212,7 +212,7 @@ def gait(c, T, speed, stance, lift, hip_drop, bob, lean, arm_amp, elbow_base, el
 def walk(c):
     T = 32 / FPS
     fn = gait(c, T=T, speed=1.30, stance=0.60, lift=0.085, hip_drop=0.032, bob=0.016, lean=3.0,
-              arm_amp=16.0, elbow_base=-12.0, elbow_amp=14.0, pelvis_yaw=5.0, pelvis_roll=3.5,
+              arm_amp=16.0, elbow_base=-26.0, elbow_amp=12.0, pelvis_yaw=5.0, pelvis_roll=3.5,
               hs_y=-0.30, pitch_hs=-16.0, pitch_to=34.0)
     return fn, 32, dict(loop=True, speed=1.30)
 
@@ -386,7 +386,7 @@ def spread_eagle(c):
                 grip(p, c, s)
                 p.ik["leg" + s] = base.ik["leg" + s]
                 continue
-            p.add("upperarm" + s, q(Y, -sg * lerp(0, 78, a)) @ q(X, -16 * a))
+            p.add("upperarm" + s, q(Y, -sg * lerp(0, 64, a)) @ q(X, -22 * a))
             p.add("lowerarm" + s, q(c.elbow_axis[s], -34 * a))
             hand_curl(p, c, s, 4)
             p.add("thigh" + s, q(Y, -sg * 34 * a) @ q(X, -lerp(60, 62, a)))

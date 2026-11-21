@@ -480,9 +480,15 @@ def garment_fields(ob, kind, bd=None, extra=None):
         B = np.ones(len(co))
         for sx in (1, -1):
             sel = (np.sign(co[:, 0]) == sx) & (z < 0.84)
-            cx = 0.10 * sx
-            r = np.hypot(co[:, 0] - cx, co[:, 1])
-            ang = np.arctan2(co[:, 1], (co[:, 0] - cx) * sx)
+            # per-height leg centre from slices of this leg's vertices
+            zb = np.round(z / 0.02).astype(int)
+            cx = np.zeros(len(co)); cyy = np.zeros(len(co))
+            for k in np.unique(zb[sel]):
+                s = sel & (zb == k)
+                cx[s] = 0.5 * (co[s, 0].min() + co[s, 0].max())
+                cyy[s] = 0.5 * (co[s, 1].min() + co[s, 1].max())
+            r = np.hypot(co[:, 0] - cx, co[:, 1] - cyy)
+            ang = np.arctan2(co[:, 1] - cyy, (co[:, 0] - cx) * sx)
             dd = np.minimum(np.abs(ang), np.pi - np.abs(ang)) * r
             B = np.where(sel, np.minimum(B, dd / 0.05), B)
         B = np.clip(B, 0, 1)

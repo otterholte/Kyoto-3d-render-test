@@ -26,10 +26,35 @@ LIB = "A_Asset_Library"
 
 
 # ------------------------------------------------------------------ geometry helpers
+# leaf material key -> foliage-atlas cards (blender/textures/foliage_atlas.json); late-autumn mixes
+CARD_MAP = {
+    "leaf_maple": [("maple_autumn", 1.0)],
+    "leaf_cherry": [("cherry_leaf", 0.45), ("maple_autumn", 0.55)],
+    "leaf_pine": [("pine_needles", 1.0)],
+    "leaf_broad": [("cherry_leaf", 0.6), ("shrub_azalea", 0.4)],
+    "leaf_bamboo": [("bamboo_leaves", 1.0)],
+    "leaf_shrub": [("shrub_azalea", 0.5), ("shrub_box", 0.5)],
+}
+_FOL = {}
+
+
+def _foliage():
+    if "cards" not in _FOL:
+        try:
+            import json as _j
+            import os as _o
+            import materials_textured as MT
+            _FOL["cards"] = _j.load(open(_o.path.join(MT.TEX, "foliage_atlas.json")))["cards"]
+        except Exception:
+            _FOL["cards"] = None
+    return _FOL["cards"]
+
+
 class TB:
     def __init__(self, name):
         self.name = name
         self.bm = bmesh.new()
+        self.uv = self.bm.loops.layers.uv.new("UVMap")
         self.mats = []
 
     def mi(self, k):
@@ -52,6 +77,9 @@ class TB:
                 f = self.bm.faces.new([r0[k], r0[(k + 1) % n], r1[(k + 1) % n], r1[k]]); f.material_index = m
 
     def leaves(self, center, radii, count, size, key, rng, shape="leaf", up_bias=0.3, shell=0.75):
+        cards = _foliage()
+        if cards and key in CARD_MAP:
+            return self.cards(center, radii, max(4, count // 6), CARD_MAP[key], rng, cards, shell)
         m = self.mi(key)
         c = Vector(center)
         for _ in range(count):
@@ -69,6 +97,31 @@ class TB:
             else:
                 vs = [p - a * s * 0.5, p - b * s * 0.15, p + a * s * 0.5, p + b * s * 0.9]
             f = self.bm.faces.new([self.bm.verts.new(v) for v in vs]); f.material_index = m
+
+    def cards(self, center, radii, n, names_w, rng, cards, shell=0.6):
+        """Alpha leaf cards from the texture library's foliage atlas (oriented outward, pivot at the twig base)."""
+        m = self.mi("foliage")
+        names = [c for c, _ in names_w]; w = np.array([x for _, x in names_w], float); w /= w.sum()
+        c0 = Vector(center)
+        for _ in range(n):
+            d = Vector(rng.normal(size=3)).normalized()
+            r = rng.uniform(shell, 1.0) ** 0.5
+            p = c0 + Vector((d.x * radii[0], d.y * radii[1], d.z * radii[2])) * r * 0.85
+            cn = names[rng.choice(len(names), p=w)]
+            rect = cards[cn]["uv_rect"]; sz = cards[cn]["size_m"][0] * rng.uniform(0.85, 1.35)
+            out = Vector((d.x, d.y, 0.0))
+            out = out.normalized() if out.length > 1e-3 else Vector((1, 0, 0))
+            b_ = rng.uniform(-0.5, 0.9)
+            up = Vector((0, 0, 1)) * np.cos(b_) + out * np.sin(b_)
+            side = up.cross(out).normalized()
+            up = out.cross(side).normalized()
+            if up.z < 0:
+                up = -up
+            base = p - up * sz * 0.35
+            q = [base - side * sz / 2, base + side * sz / 2, base + side * sz / 2 + up * sz, base - side * sz / 2 + up * sz]
+            f = self.bm.faces.new([self.bm.verts.new(v) for v in q]); f.material_index = m
+            for lp, uv in zip(f.loops, ((rect[0], rect[1]), (rect[2], rect[1]), (rect[2], rect[3]), (rect[0], rect[3]))):
+                lp[self.uv].uv = uv
 
     def finish(self, coll):
         me = bpy.data.meshes.new(self.name)

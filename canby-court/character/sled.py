@@ -147,8 +147,8 @@ def sled_material():
     under = b.math("LESS_THAN", b.n("ShaderNodeNewGeometry").outputs["Normal"], 0.0)
     nz = b.sep(b.n("ShaderNodeNewGeometry").outputs["Normal"])[2]
     under = b.math("LESS_THAN", nz, -0.3)
-    sc = b.math("MULTIPLY", b.math("GREATER_THAN", scr, 0.85), b.math("ADD", 0.25, under))
-    col = b.mix(b.math("MULTIPLY", sc, 0.6), base, (0.35, 0.42, 0.55))
+    sc = b.math("MULTIPLY", b.math("GREATER_THAN", scr, 0.94), b.math("ADD", 0.15, under))
+    col = b.mix(b.math("MULTIPLY", sc, 0.3), base, (0.25, 0.32, 0.48))
     rough = b.math("ADD", 0.28, b.math("MULTIPLY", sc, 0.35))
     h = b.math("ADD", b.math("MULTIPLY", scuff, 0.2), b.math("MULTIPLY", sc, 0.4))
     nrm = b.bump(h, strength=0.15, distance=0.0005)

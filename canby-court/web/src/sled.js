@@ -418,7 +418,7 @@ export class SledGame {
   collide(h) {
     // sphere around the rider vs non-walkable triangles (walls, trunks, hedges, cars, hay)
     const c = _sph.center.copy(this.pos).addScaledVector(this.normal, 0.5);
-    _sph.radius = 0.45;
+    _sph.radius = 0.32;   // sled half-width ~0.26 m, rider shoulders similar
     _box.setFromCenterAndSize(c, _tp.set(1, 1, 1));
     let hitInfo = null; const push = new THREE.Vector3();
     const tri = new THREE.Vector3();
@@ -446,14 +446,14 @@ export class SledGame {
     this.pos.add(push);
     const vn = this.vel.dot(nrm);
     if (vn >= 0) return;
-    if (hitInfo.kind === 'hay') {
+    if (/hay/.test(hitInfo.kind || '')) {
       this.vel.multiplyScalar(0.25); this.vel.addScaledVector(nrm, -this.vel.dot(nrm));
       this.emit('hay', {});
       return;
     }
     if (-vn > 6.5 && this.started) { this.startWipe(`Crashed into ${hitInfo.kind || 'something'}!`); return; }
     this.vel.addScaledVector(nrm, -vn * 1.3);
-    this.emit('bump', { speed: +(-vn).toFixed(2) });
+    this.emit('bump', { speed: +(-vn).toFixed(2), what: hitInfo.name, kind: hitInfo.kind, at: [+this.pos.x.toFixed(1), +(-this.pos.z).toFixed(1)] });
   }
 
   startWipe(reason) {

@@ -63,6 +63,28 @@ Yasaka-dōri west honest: the evidence describes it as mixed, with RC/steel bloc
 * terrain: asphalt / setts / gravel / earth-moss blended by the surveyed surface mask (`kit_texground.py`);
 * steps: `stone_steps_trim`; walls: `ishigaki_mossy`; fences: `bamboo_fence_kenninji`.
 
+**Coherent facades (`kit_facades.py`).** Each building gets ONE module family, seeded by its PLATEAU id: one upper-storey module on
+street fronts, one plaster colour (cream or ochre) for its other upper walls, and one ground-floor module. Commercial fronts allow
+at most about one feature bay (shop opening or noren entrance). Side, rear and party walls are plain itabari or plaster. Priority-2
+traditional fronts never get modern modules. Where the geometric kit stands, the atlas ground floor is plain itabari, so the kit's lattice,
+doors and shopfronts are not doubled; the atlas provides the upper storeys, and the kit no longer places flat 2F pieces.
+
+**Roof edges.** The PLATEAU roof edge is the eave line, and it is not extended. Instead the roof slab (0.2 m on Priority 2, 0.15 m on Priority 3)
+gets a timber fascia and soffit (slot 4). Ridge caps and the nokigawara tile-edge roll use procedural kawara (slot 3). On the 93
+inset street-front edges, 885 exposed rafter tails sit under the eave (`60_Eave_Rafters`, inferred).
+
+**Trees** use the library's alpha foliage cards (`foliage_atlas`):
+* maples use `maple_autumn`;
+* cherries mix bronze `cherry_leaf` and `maple_autumn`;
+* pines use `pine_needles`;
+* bamboo uses `bamboo_leaves`;
+* shrubs use azalea or box.
+
+Ginkgo keeps the procedural yellow cards.
+
+**Stairs.** The fix is upstream: `build_world.py` now lowers the DEM under every OSM flight (`carve_under_steps`). The regenerated
+blockout and `world.glb` agree with the art pass.
+
 The machiya kit geometry stays on top of the Priority-2 street walls. It now has 6 mm geometric bevels on its pieces, plus
 inferred eave gutters and downpipes on every hisashi. Concrete utility poles and overhead wires were added on Yasaka-dōri west,
 where they are observed (positions inferred; the shot-(a) sightline to the pagoda is kept clear). The procedural

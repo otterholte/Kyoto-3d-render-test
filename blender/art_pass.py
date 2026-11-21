@@ -94,19 +94,31 @@ if "arch" in STAGES:
         mats = [mb, mb, mb] if (pr == 4 and MT is None) else [mr, mf, mp]
         for i in range(min(3, len(me.materials))):
             me.materials[i] = mats[i]
+        if pr != 4:
+            while len(me.materials) < 5:
+                me.materials.append(None)
+            me.materials[3] = mr
+            me.materials[4] = M("wood_weather")
         if MT is not None:
             rec = _recs.get(ob.get("plateau_id"), {})
             attrs = dict(storeys=rec.get("storeys"), usage=rec.get("usage"), year=rec.get("year"), name=rec.get("name"),
                          base_z=rec.get("base_z"), plateau_id=rec.get("id"), structure=_structure(rec) if rec else None)
             try:
-                MT.assign_facades(ob, attrs, streets=streets_mt)
+                import kit_facades
+                kit_front = pr == 2 and not ((rec.get("storeys") or 0) >= 3 or (rec.get("height") or 0) > 11.5)
+                kit_facades.plan_building(ob, attrs, streets_mt, kit_front=kit_front)
                 MT.apply_roof_uvs(ob, roof_pred=lambda p, n: n.z > 0.15 and p.material_index == 0)
                 MT.ensure_slots(ob, tx_fac, tx_roof, mp)
+                while len(me.materials) < 5:
+                    me.materials.append(None)
+                me.materials[3] = mr                      # ridge caps / nokigawara rolls: procedural kawara (no UVs)
+                me.materials[4] = M("wood_weather")       # fascia board + soffit of the roof slab
                 ob["facade_textures"] = "materials_textured facade atlas (module choice inferred per wall plane)"
                 n_tx += 1
             except Exception as ex:
                 log("texture assign failed on", ob.name, ex)
     log("textured buildings", n_tx)
+    kit_machiya.ATLAS_UPPER = MT is not None
     lib = kit_machiya.build_library()
     placed = kit_machiya.place(facades, lib, log=log)
     scene["kit_placements"] = len(placed)

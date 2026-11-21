@@ -135,7 +135,8 @@ export class Character {
       this.blend(0, { sled_sit: 1 });
     } else {
       this.sledRoot.visible = false;
-      if (this.root.parent) this.root.parent.remove(this.root);
+      // back into the scene (the sled rig's parent) as a free walker
+      if (this.sledRoot.parent) this.sledRoot.parent.add(this.root); else if (this.root.parent) this.root.parent.remove(this.root);
       this.tumble.quaternion.identity(); this.tumble.position.set(0, 0, 0);
       this.renderY = null;
       this.blend(0, { idle: 1 });

@@ -118,7 +118,10 @@ function building(spec, terrain, B, rnd) {
     const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
     const [nx, ny] = edgeNormal(a, b);
     const doorU = spec.doorEdge === i ? spec.doorU ?? len / 2 : -1;
-    const garU = spec.garageEdge === i ? len / 2 : -1;
+    const gars = (spec.garages || []).filter((g) => g.edge === i);
+    const garU = gars.length ? gars[0].u : spec.garageEdge === i ? len / 2 : -1;
+    const garU2 = gars.length > 1 ? gars[1].u : -1;
+    const garW = gars.length ? gars[0].w : spec.garageW || 4.9;
     const k = Math.max(1, Math.ceil(len / 0.8));
     for (let s = 0; s < k; s++) {
       const t0 = s / k, t1 = (s + 1) / k;
@@ -131,7 +134,7 @@ function building(spec, terrain, B, rnd) {
       for (const id of [0, 1, 2, 0, 2, 3]) {
         const [x, y, z, u] = quad[id];
         W.pos.push(x, z, -y); W.nrm.push(nx, 0, -ny); W.uv.push(u, z - floorZ);
-        W.col.push(...wallCol); W.seg.push(len, spec.floors ?? 1, doorU, garU); W.aux.push(seed + i * 0.137, spec.garageW || 4.9, 0);
+        W.col.push(...wallCol); W.seg.push(len, spec.floors ?? 1, doorU, garU); W.aux.push(seed + i * 0.137, garW, garU2);
       }
     }
     perim += len;
@@ -202,11 +205,12 @@ function building(spec, terrain, B, rnd) {
 
 function newBuf() { return { wall: { pos: [], nrm: [], uv: [], col: [], seg: [], aux: [] }, roof: { pos: [], nrm: [], col: [], uv: [], idx: [] }, colliders: [] }; }
 
-function facadeMaterial() {
+function facadeMaterial(lib) {
   const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0 });
   m.name = 'CC_Facade';
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, facadeUniforms);
+    if (lib) { sh.defines = sh.defines || {}; sh.defines.CC_LIB = ''; sh.uniforms.tSideA = { value: lib.siding.a }; sh.uniforms.tSideN = { value: lib.siding.n }; sh.uniforms.szSide = { value: 1 / lib.siding.size }; }
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nattribute vec4 aSeg; attribute vec3 aAux; varying vec4 vSeg; varying vec3 vAux; varying vec2 vUvF;')
       .replace('#include <uv_vertex>', '#include <uv_vertex>\nvSeg = aSeg; vAux = aAux; vUvF = uv;');
@@ -214,6 +218,9 @@ function facadeMaterial() {
       .replace('#include <common>', `#include <common>
 varying vec4 vSeg; varying vec3 vAux; varying vec2 vUvF;
 uniform float uSeason; uniform sampler2D uNoise;
+#ifdef CC_LIB
+uniform sampler2D tSideA, tSideN; uniform float szSide;
+#endif
 float fHash(float n) { return fract(sin(n) * 43758.5453); }
 `)
       .replace('#include <map_fragment>', `
@@ -222,9 +229,15 @@ if (vSeg.y > -0.5) {
   float u = vUvF.x, v = vUvF.y, len = vSeg.x, floors = vSeg.y;
   float sd = floor(vAux.x * 97.0 + 0.5);   // quantised: interpolated constants are not bit-exact
   vec3 base = diffuseColor.rgb;
+#ifdef CC_LIB
+  // fibre-cement lap siding (library texture), re-tinted to this house's paint colour
+  vec3 sa = texture2D(tSideA, vec2(u, v) * szSide).rgb, sm = texture2D(tSideA, vec2(0.5), 12.0).rgb;
+  base *= clamp(sa / max(sm, vec3(0.02)), 0.0, 1.6);
+#else
   // lap siding: 0.2 m courses, shadow line under each board
   float c = fract(v / 0.2);
   base *= 0.82 + 0.18 * smoothstep(0.0, 0.12, c);
+#endif
   base *= 0.94 + 0.08 * texture2D(uNoise, vec2(u * 0.3, v * 0.05)).r;
   if (v < 0.0) base = vec3(0.23, 0.22, 0.2) * (0.85 + 0.2 * texture2D(uNoise, vec2(u, v) * 0.7).g); // concrete stem wall
   vec3 col = base;
@@ -256,6 +269,7 @@ if (vSeg.y > -0.5) {
   // garage door (sectional panels) and front door
   if (vSeg.w >= 0.0) {
     float gu = u - vSeg.w, gw = vAux.y * 0.5;
+    if (vAux.z >= 0.0 && abs(u - vAux.z) < abs(gu)) gu = u - vAux.z;
     if (abs(gu) < gw && v < 2.15) { col = vec3(0.78, 0.77, 0.74) * (0.85 + 0.15 * smoothstep(0.0, 0.05, fract(v / 0.53))); glass = 0.0; trim = 0.0; }
     else if (abs(gu) < gw + 0.12 && v < 2.27) trim = 1.0;
   }
@@ -270,24 +284,33 @@ if (vSeg.y > -0.5) {
 }
 `)
       .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = fRough;')
-      .replace('#include <lights_fragment_begin>', `
-#include <lights_fragment_begin>
+      .replace('#include <normal_fragment_maps>', `#include <normal_fragment_maps>
+#ifdef CC_LIB
+if (vSeg.y > -0.5 && glass < 0.5 && vUvF.y > 0.0) {
+  vec3 tn = texture2D(tSideN, vUvF * szSide).xyz * 2.0 - 1.0;
+  vec3 nV = normalize(normal);
+  vec3 upV = normalize((viewMatrix * vec4(0.0, 1.0, 0.0, 0.0)).xyz);
+  vec3 tV = normalize(cross(upV, nV));
+  normal = normalize(nV + (tV * tn.x + upV * tn.y) * 0.8);
+}
+#endif
 `);
   };
-  m.customProgramCacheKey = () => 'cc-facade';
+  m.customProgramCacheKey = () => 'cc-facade' + (lib ? '-lib' : '');
   return m;
 }
 
-function roofMaterial() {
+function roofMaterial(lib) {
   const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, metalness: 0 });
   m.name = 'CC_Roof';
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, facadeUniforms);
+    if (lib) { sh.defines = sh.defines || {}; sh.defines.CC_LIB = ''; sh.uniforms.tRoofA = { value: lib.roof.a }; sh.uniforms.tRoofN = { value: lib.roof.n }; sh.uniforms.szRoof = { value: 1 / lib.roof.size }; }
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nvarying vec2 vRuv; varying vec3 vRn;')
       .replace('#include <uv_vertex>', '#include <uv_vertex>\nvRuv = uv; vRn = normal;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying vec2 vRuv; varying vec3 vRn; uniform float uSeason; uniform sampler2D uNoise;')
+      .replace('#include <common>', '#include <common>\nvarying vec2 vRuv; varying vec3 vRn; uniform float uSeason; uniform sampler2D uNoise;\n#ifdef CC_LIB\nuniform sampler2D tRoofA, tRoofN; uniform float szRoof;\n#endif')
       .replace('#include <map_fragment>', `
 {
   // composition shingles: courses ~0.14 m along the slope direction, tab joints, granule noise, weathering
@@ -300,20 +323,40 @@ function roofMaterial() {
   float tab = fract((across + course * 0.17) / 0.33);
   float sh = (0.78 + 0.22 * smoothstep(0.0, 0.18, row)) * (0.9 + 0.1 * step(0.04, tab));
   float gr = texture2D(uNoise, p * 2.3).r, wx = texture2D(uNoise, p * 0.11).b;
+#ifdef CC_LIB
+  // architectural shingles (library texture; v runs down the slope), re-tinted to the measured roof colour
+  vec2 ruv = vec2(across, -along) * szRoof;
+  vec3 ra = texture2D(tRoofA, ruv).rgb, rm = texture2D(tRoofA, vec2(0.5), 12.0).rgb;
+  vec3 c = diffuseColor.rgb * clamp(ra / max(rm, vec3(0.02)), 0.0, 2.0) * (0.9 + 0.2 * wx);
+#else
   vec3 c = diffuseColor.rgb * sh * (0.85 + 0.25 * gr) * (0.85 + 0.25 * wx);
+#endif
   c = mix(c, c * vec3(0.8, 0.9, 0.75), smoothstep(0.62, 0.8, texture2D(uNoise, p * 0.05).a) * 0.6); // moss streaks
   float slopeUp = vRn.y;
   float snow = uSeason * smoothstep(0.55, 0.7, slopeUp + 0.15 * (texture2D(uNoise, p * 0.4).g - 0.5));
   diffuseColor.rgb = mix(c, vec3(0.88, 0.9, 0.94) * (0.95 + 0.05 * gr), snow);
 }
+`)
+      .replace('#include <normal_fragment_maps>', `#include <normal_fragment_maps>
+#ifdef CC_LIB
+{
+  vec2 dn2 = normalize(vRn.xz + 1e-4);
+  float al = dot(vRuv, vec2(dn2.x, -dn2.y)), ac = dot(vRuv, vec2(dn2.y, dn2.x));
+  vec3 tn = texture2D(tRoofN, vec2(ac, -al) * szRoof).xyz * 2.0 - 1.0;
+  vec3 tW = normalize(vec3(dn2.y, 0.0, -dn2.x));
+  vec3 bW = normalize(cross(normalize(vRn), tW));
+  vec3 pw = (tW * tn.x + bW * tn.y) * (1.0 - uSeason * 0.8);
+  normal = normalize(normal + (viewMatrix * vec4(pw, 0.0)).xyz * 0.9);
+}
+#endif
 `);
   };
-  m.customProgramCacheKey = () => 'cc-roof';
+  m.customProgramCacheKey = () => 'cc-roof' + (lib ? '-lib' : '');
   return m;
 }
 
 // build all buildings into two merged meshes + a collider geometry; returns { group, colliders: [{geom, info}] }
-export function buildHouses(data, terrain, { frontDoor = null } = {}) {
+export function buildHouses(data, terrain, { frontDoor = null, lib = null } = {}) {
   const B = newBuf();
   const colliderList = [];
   const rnd = mulberry(3905);
@@ -350,7 +393,27 @@ export function buildHouses(data, terrain, { frontDoor = null } = {}) {
       }
       if (best >= 0) { spec.garageEdge = best; const a = fp[best], b = fp[(best + 1) % fp.length]; spec.garageW = Math.min(4.9, Math.hypot(b[0] - a[0], b[1] - a[1]) - 1.2); }
     }
-    if (frontDoor && frontDoor.number === h.number) {
+    // doors from the scene agent's metadata: snap each to the nearest footprint edge
+    if (h.doors && h.doors.length) {
+      const near = (c) => {
+        let best = -1, bd = 1.5, bu = 0;
+        for (let i = 0; i < fp.length; i++) {
+          const a = fp[i], b = fp[(i + 1) % fp.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+          const d = segDist(c[0], c[1], a, b);
+          if (d < bd) { bd = d; best = i; bu = ((c[0] - a[0]) * (b[0] - a[0]) + (c[1] - a[1]) * (b[1] - a[1])) / L; }
+        }
+        return best >= 0 ? { edge: best, u: bu } : null;
+      };
+      spec.garages = [];
+      spec.garageEdge = undefined;
+      for (const d of h.doors) {
+        const e = near(d.c);
+        if (!e) continue;
+        if (d.kind === 'garage') spec.garages.push({ ...e, w: d.w });
+        else if (spec.doorEdge === undefined) { spec.doorEdge = e.edge; spec.doorU = e.u; }
+      }
+    }
+    if (frontDoor && frontDoor.number === h.number && spec.doorEdge === undefined) {
       // door on the edge closest to the given point
       let best = 0, bd = Infinity;
       for (let i = 0; i < fp.length; i++) {
@@ -394,8 +457,8 @@ export function buildHouses(data, terrain, { frontDoor = null } = {}) {
   rg.setAttribute('color', new THREE.Float32BufferAttribute(R.col, 3));
   rg.setIndex(R.idx);
   const group = new THREE.Group(); group.name = 'Houses';
-  const walls = new THREE.Mesh(wg, facadeMaterial()); walls.name = 'HouseWalls';
-  const roofs = new THREE.Mesh(rg, roofMaterial()); roofs.name = 'HouseRoofs';
+  const walls = new THREE.Mesh(wg, facadeMaterial(lib)); walls.name = 'HouseWalls';
+  const roofs = new THREE.Mesh(rg, roofMaterial(lib)); roofs.name = 'HouseRoofs';
   for (const o of [walls, roofs]) { o.castShadow = o.receiveShadow = true; group.add(o); }
   return { group, colliders: colliderList, meta };
 }

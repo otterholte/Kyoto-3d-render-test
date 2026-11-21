@@ -63,7 +63,7 @@ brows, lashes, atlas), `materials.py` (procedural shaders + masks), `anim.py` (F
 | outfit | meshes (node names) | material |
 |---|---|---|
 | summer | `Summer_Tshirt`, `Summer_Jeans`, `Summer_Sneaker_l/_r`, `Hair_Cap_Summer`, `Body_Arms` | `Outfit_Summer` (1024 atlas) |
-| winter | `Winter_Jacket` (puffer), `Winter_Pants` (snow pants), `Winter_Gloves`, `Winter_Beanie`, `Winter_Boot_l/_r`, `Hair_Cap_Winter` | `Outfit_Winter` (1024 atlas) |
+| winter | `Winter_Jacket` (puffer), `Winter_Pants` (snow pants), `Winter_Gloves`, `Winter_Beanie`, `Winter_Boot_l/_r` | `Outfit_Winter` (1024 atlas) |
 | shared | `Body_Head`, `Eyes`, `Lashes`, `Brows` | `Skin`, `Eyes`, `Hair` |
 
 Show one set, hide the other (`visible=false`) — 4 materials per outfit (Skin, Eyes, Hair, Outfit).
@@ -85,7 +85,7 @@ roughness) into the 1024 atlases for the web.
 * Hair: short crop. Cycles: 70 k real hair curves (Principled Hair, melanin) + brow strands,
   bone-parented to `head`. Web: a hair-cap shell + brow cards + lash strips (MakeHuman lash
   helpers) sharing one 1024 RGBA atlas that is rasterised from the same strands; material `Hair`
-  is `alphaMode MASK` (cutoff 0.4), double-sided. In winter only a fringe below the beanie remains.
+  is `alphaMode MASK` (cutoff 0.4), double-sided. In winter the crop is entirely under the beanie (no hair mesh).
 
 ## Animation clips (30 fps, in place, Root stays at the origin)
 

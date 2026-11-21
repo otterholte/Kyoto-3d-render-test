@@ -7,9 +7,9 @@ export const SOFT_MARGIN = 6;
 // Places: x/n = local east/north, look = point to face.
 export const PLACES = [
   { id: 'bulb', en: 'Cul-de-sac bulb', sub: 'Canby Ct, facing 3905', x: -18, n: -24, look: [0, -2], pitch: 0.08, dist: 6.5 },
-  { id: 'front', en: '3905 front door', sub: 'walkway from the bulb', x: -5.5, n: -13.5, look: [0.5, -5], pitch: 0.12, dist: 5 },
-  { id: 'back', en: '3905 back yard', sub: 'rear lawn, north side', x: -8, n: 22, look: [2, 4], pitch: 0.1, dist: 6 },
-  { id: 'top', en: 'Top of the sled run', sub: 'by the 3904 / 3909 drives', x: 3.2, n: -37.6, look: [-30, -31], pitch: 0.18, dist: 6, sledHere: true },
+  { id: 'front', en: '3905 front door', sub: 'walkway from the bulb', x: -5.5, n: -13.5, look: [0.5, -5], pitch: 0.32, dist: 4.2 },
+  { id: 'back', en: '3905 back yard', sub: 'rear lawn, north side', x: 3, n: 21, look: [1, 4], pitch: 0.12, dist: 6 },
+  { id: 'top', en: 'Top of the sled run', sub: 'by the 3904 / 3909 drives', x: 1.5, n: -37.3, look: [-30, -31], pitch: 0.38, dist: 5.5, sledHere: true },
   { id: 'bottom', en: 'Bottom · 38th St', sub: 'Canby Ct junction', x: -121, n: -6.5, look: [-80, -18], pitch: 0.05, dist: 6 },
 ];
 export const SPAWN = PLACES[0];
@@ -29,11 +29,13 @@ export const SEASONS = {
     label: 'Summer', date: Date.UTC(2025, 6, 21, 2, 20), // 2025-07-20 19:20 PDT, late afternoon
     sky: { zenith: [0.16, 0.34, 0.72], horizon: [0.72, 0.8, 0.9], ground: [0.32, 0.3, 0.27], haze: 0.35, clouds: 0.32, cloudCol: [1.0, 0.97, 0.93], overcast: 0 },
     sunScale: 1.15, hemiI: 0.35, envI: 0.85, fog: [0.72, 0.78, 0.86], fogD: 0.0018, exposure: 1.0, shadowDark: 1.0,
+    grade: { sat: 1.06, contrast: 1.05, shadow: [0.98, 0.99, 1.03], high: [1.03, 1.0, 0.96] },
   },
   winter: {
     label: 'Winter', date: Date.UTC(2025, 11, 28, 21, 50), // 2025-12-28 13:50 PST, low sun through thin overcast
-    sky: { zenith: [0.42, 0.47, 0.56], horizon: [0.8, 0.82, 0.86], ground: [0.7, 0.72, 0.76], haze: 0.7, clouds: 0.92, cloudCol: [0.86, 0.88, 0.92], overcast: 1 },
-    sunScale: 0.45, hemiI: 0.6, envI: 0.95, fog: [0.74, 0.77, 0.82], fogD: 0.0042, exposure: 0.92, shadowDark: 0.55,
+    sky: { zenith: [0.46, 0.52, 0.62], horizon: [0.8, 0.84, 0.9], ground: [0.72, 0.75, 0.8], haze: 0.7, clouds: 0.92, cloudCol: [0.84, 0.87, 0.93], overcast: 1 },
+    sunScale: 0.5, hemiI: 0.55, envI: 0.95, fog: [0.74, 0.78, 0.85], fogD: 0.003, exposure: 1.12, shadowDark: 0.55,
+    grade: { sat: 1.08, contrast: 1.1, shadow: [0.97, 0.99, 1.04], high: [0.99, 1.0, 1.02] },
   },
 };
 

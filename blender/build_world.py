@@ -152,7 +152,39 @@ def mesh_obj(name, verts, faces, c, mats=(), face_mat=None):
 # ------------------------------------------------------------------ terrain
 xs = X0 + np.arange(NX) * STEP; ys = Y0 + np.arange(NY) * STEP
 GX, GY = np.meshgrid(xs, ys)
-verts = np.c_[GX.ravel(), GY.ravel(), TERR.ravel()]
+
+
+def carve_under_steps(Z):
+    """The OSM flights are built as straight runs between their surveyed end heights, but the smooth DEM bulges above
+    the middle of convex flights (Sannenzaka 46-step stair: DEM 79.4 m vs flight 78.8 m) and buried the treads.
+    Lower DEM vertices under each flight (+0.6 m margin) to 0.15 m below the flight line so terrain and stairs agree
+    (same rule as blender/kit_ground.carve_terrain_under_steps in the art pass)."""
+    from shapely.geometry import LineString, Point
+    Z = Z.copy()
+    n = 0
+    for st in STP["steps"]:
+        c = np.array(st["coords"], float)
+        ls = LineString(c)
+        if ls.length < 0.3:
+            continue
+        poly = ls.buffer(st["width_m"] / 2 + 0.6, cap_style=2)
+        x0, y0, x1, y1 = poly.bounds
+        ii = np.where((xs >= x0) & (xs <= x1))[0]; jj = np.where((ys >= y0) & (ys <= y1))[0]
+        for j in jj:
+            for i in ii:
+                p = Point(xs[i], ys[j])
+                if not poly.contains(p):
+                    continue
+                t = ls.project(p) / ls.length
+                zl = st["z_bottom"] + (st["z_top"] - st["z_bottom"]) * (t if st["ascending_along_way"] else 1 - t)
+                if Z[j, i] > zl - 0.15:
+                    Z[j, i] = zl - 0.15; n += 1
+    print("terrain vertices carved under stairs", n)
+    return Z
+
+
+TERR_CARVED = carve_under_steps(TERR)
+verts = np.c_[GX.ravel(), GY.ravel(), TERR_CARVED.ravel()]
 idx = np.arange(NX * NY).reshape(NY, NX)
 faces = np.c_[idx[:-1, :-1].ravel(), idx[:-1, 1:].ravel(), idx[1:, 1:].ravel(), idx[1:, :-1].ravel()]
 ter = mesh_obj("Terrain_GSI_DEM5A", verts, faces, C_TER, [M_TER])
@@ -168,6 +200,7 @@ for p in me.polygons:
     p.use_smooth = True
 ter["source"] = "GSI DEM5A 5 m laser DEM resampled to 2 m (bare earth)"
 ter["walkable"] = True
+ter["carved_under_steps"] = "DEM lowered under OSM stair flights so treads are not buried (build_world.carve_under_steps)"
 
 # ------------------------------------------------------------------ buildings (PLATEAU LOD2)
 P = L2["positions"]; T = L2["triangles"]; K = L2["kind"]; COL = L2["colour"]; BI = L2["building"]

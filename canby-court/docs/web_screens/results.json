@@ -1,0 +1,242 @@
+{
+ "started": "2026-11-21T03:57:50.108Z",
+ "desktop": {
+  "loadSeconds": 16.156,
+  "stats": {
+   "calls": 222,
+   "tris": 1060756,
+   "world": "glb",
+   "character": "glb",
+   "clips": [
+    "idle",
+    "walk",
+    "run",
+    "jump",
+    "sled_sit",
+    "sled_lean_left",
+    "sled_lean_right",
+    "sled_air",
+    "superman",
+    "spread_eagle",
+    "grab"
+   ]
+  },
+  "spawn": {
+   "x": -18,
+   "n": -24,
+   "y": 142.903,
+   "grounded": true,
+   "ground": "Ground_Street",
+   "speed": 0,
+   "facing": 2.456,
+   "wall": false,
+   "camYaw": 5.597,
+   "mode": "walk",
+   "season": "summer"
+  },
+  "places": {
+   "bulb": {
+    "requested": [
+     -18,
+     -24
+    ],
+    "placed": [
+     -18,
+     -24,
+     142.89
+    ],
+    "offset": 0,
+    "ground": "Ground_Street"
+   },
+   "front": {
+    "requested": [
+     -10.2672,
+     -4.724
+    ],
+    "placed": [
+     -10.02,
+     -5.16,
+     145.46
+    ],
+    "offset": 0.5,
+    "ground": "Ground_Walk"
+   },
+   "back": {
+    "requested": [
+     3,
+     21
+    ],
+    "placed": [
+     3,
+     21,
+     145.3
+    ],
+    "offset": 0,
+    "ground": "Ground_Soft_1"
+   },
+   "top": {
+    "requested": [
+     7.5,
+     -39.8
+    ],
+    "placed": [
+     7.5,
+     -39.8,
+     146.21
+    ],
+    "offset": 0,
+    "ground": "Ground_Soft_2"
+   },
+   "bottom": {
+    "requested": [
+     -121,
+     -6.5
+    ],
+    "placed": [
+     -121,
+     -6.5,
+     131.72
+    ],
+    "offset": 0,
+    "ground": "Ground_Street"
+   }
+  },
+  "keyboardWalk": 5.074833593330918,
+  "wall": {
+   "from": {
+    "x": -6.5,
+    "n": -9,
+    "y": 145.644,
+    "grounded": true,
+    "ground": "Ground_Soft_2",
+    "speed": 0,
+    "facing": 2.516,
+    "wall": false,
+    "camYaw": 5.658,
+    "mode": "walk",
+    "season": "summer"
+   },
+   "to": {
+    "x": -5.511,
+    "n": -7.765,
+    "y": 145.658,
+    "grounded": true,
+    "ground": "Ground_Soft_2",
+    "speed": 0,
+    "facing": 2.393,
+    "wall": true,
+    "camYaw": -0.748,
+    "mode": "walk",
+    "season": "summer"
+   },
+   "inside": false
+  },
+  "circuit": {
+   "waypoints": [
+    [
+     -8.86,
+     -9.74
+    ],
+    [
+     -3.92,
+     -12.75
+    ],
+    [
+     1.71,
+     -10.62
+    ],
+    [
+     5.8,
+     -9.06
+    ],
+    [
+     9.63,
+     -7.09
+    ],
+    [
+     12.06,
+     -3.46
+    ],
+    [
+     17.95,
+     0.55
+    ],
+    [
+     15.98,
+     6.74
+    ],
+    [
+     10.69,
+     9.81
+    ],
+    [
+     7.05,
+     13.72
+    ],
+    [
+     1.71,
+     13.03
+    ],
+    [
+     -3.05,
+     12.33
+    ],
+    [
+     -6.92,
+     9.46
+    ],
+    [
+     -9.91,
+     6.26
+    ],
+    [
+     -16.09,
+     -0.03
+    ],
+    [
+     -10.14,
+     -4.7
+    ],
+    [
+     -8.86,
+     -9.74
+    ]
+   ],
+   "reached": false,
+   "done": "1/16",
+   "sweptDeg": 28,
+   "entered": false,
+   "seconds": 445.675
+  },
+  "winter": {
+   "season": "winter",
+   "world": {
+    "kind": "glb",
+    "hasKickers": true,
+    "tris": 154290,
+    "bvhMs": 100,
+    "instanced": 2140,
+    "colliders": 1082
+   },
+   "state": {
+    "x": -18,
+    "n": -24,
+    "y": 142.974,
+    "grounded": true,
+    "ground": "Snow_Ground_2",
+    "speed": 0,
+    "facing": 2.456,
+    "wall": false,
+    "camYaw": 5.597,
+    "mode": "walk",
+    "season": "winter"
+   }
+  }
+ },
+ "mobile": {},
+ "failures": [
+  "walked all the way around 3905 (1/16 waypoints, 28 deg swept, 446 s)",
+  "exception: page.click: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --ignore-gpu-blocklist --enable-webgl --user-data-dir=/tmp/playwright_chromiumdev_profile-6hlmrb --remote-debugging-pipe --no-startup-window\n<launched> pid=30772\n[pid=30772][err] [1121/035750.218550:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=30772][err] [1121/035750.218603:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=30772][err] [1121/035750.218617:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=30772][err] [1121/035750.218630:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=30772][err] [1121/035750.228885:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=30772][err] [1121/035750.229038:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=30772][err] [1121/035750.229076:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=30772][err] [1121/035750.229094:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.\n[pid=30772][err] [1121/035750.230174:WARNING:dbus/object_proxy.cc:439] Failed to connect to NameOwnerChanged signal for object: /org/freedesktop/portal/desktop\n[pid=30772][err] [1121/035750.230186:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=30772][err] [1121/035750.230191:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=30772][err] [1121/035750.232038:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=30772][err] [1121/035750.256540:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1652] drmGetDevices2() has not found any devices\n[pid=30772][err] [1121/035750.257740:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.\n[pid=30772][err] [1121/035750.677218:ERROR:gpu/command_buffer/service/gl_utils.cc:431] [.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=30772][err] [1121/035750.690424:INFO:CONSOLE:0] \"[.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\", source: http://127.0.0.1:33499/?q=low&scale=0.3&season=summer (0)\n[pid=30772][err] [1121/035752.294675:INFO:CONSOLE:1557] \"THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.\", source: https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js (1557)\n[pid=30772][err] [1121/035752.485686:ERROR:gpu/command_buffer/service/gl_utils.cc:431] [.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=30772][err] [1121/035753.824369:INFO:CONSOLE:0] \"[.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\", source: http://127.0.0.1:33499/?q=low&scale=0.3&season=summer (0)\n[pid=30772][err] [1121/035754.619842:ERROR:gpu/command_buffer/service/gl_utils.cc:431] [.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=30772][err] [1121/035802.082997:INFO:CONSOLE:0] \"[.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\", source: http://127.0.0.1:33499/?q=low&scale=0.3&season=summer (0)\n[pid=30772][err] [1121/035802.111570:ERROR:gpu/command_buffer/service/gl_utils.cc:431] [.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)\n[pid=30772][err] [1121/035806.828038:INFO:CONSOLE:0] \"[.WebGL-0x1a84001a2200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)\", source: http://127.0.0.1:33499/?q=low&scale=0.3&season=summer (0)\n[pid=30772] <gracefully close start>\n[pid=30772] <forcefully close>\n[pid=30772] <kill>\n[pid=30772] <will force kill>\nCall log:\n\u001b[2m  - waiting for locator('#btn-sled')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"btn-sled\" class=\"sled-btn\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at desktop (/home/user/kyoto-3d-render-test/canby-court/web/tests/run.mjs:156:14)\n    at async file:///home/user/kyoto-3d-render-test/canby-court/web/tests/run.mjs:331:36"
+ ],
+ "finished": "2026-11-21T04:12:41.443Z"
+}

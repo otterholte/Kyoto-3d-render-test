@@ -25,11 +25,11 @@ TARGETS = {
     "Summer_Tshirt": 3000, "Summer_Jeans": 2600, "Summer_Sneaker_l": 1500, "Summer_Sneaker_r": 1500,
     "Winter_Jacket": 4600, "Winter_Pants": 2600, "Winter_Gloves": 3600, "Winter_Beanie": 1400,
     "Winter_Boot_l": 1600, "Winter_Boot_r": 1600,
-    "Eyes": 2100, "Lashes": 400, "Brows": 200, "Hair_Cap_Summer": 2600, "Hair_Cap_Winter": 1200,
+    "Eyes": 2100, "Lashes": 400, "Brows": 200, "Hair_Cap_Summer": 2600,
 }
 SUMMER = ["Body_Head", "Body_Arms", "Eyes", "Lashes", "Brows", "Hair_Cap_Summer",
           "Summer_Tshirt", "Summer_Jeans", "Summer_Sneaker_l", "Summer_Sneaker_r"]
-WINTER = ["Body_Head", "Eyes", "Lashes", "Brows", "Hair_Cap_Winter", "Winter_Jacket", "Winter_Pants",
+WINTER = ["Body_Head", "Eyes", "Lashes", "Brows", "Winter_Jacket", "Winter_Pants",
           "Winter_Gloves", "Winter_Beanie", "Winter_Boot_l", "Winter_Boot_r"]
 
 
@@ -251,7 +251,7 @@ def main():
     for n in ["Summer_Tshirt", "Summer_Jeans", "Summer_Sneaker_l", "Summer_Sneaker_r", "Winter_Jacket",
               "Winter_Pants", "Winter_Gloves", "Winter_Beanie", "Winter_Boot_l", "Winter_Boot_r"]:
         low[n] = lowpoly_copy(bpy.data.objects[n], n + "_web")
-    for n in ["Eyes", "Lashes", "Brows", "Hair_Cap_Summer", "Hair_Cap_Winter"]:
+    for n in ["Eyes", "Lashes", "Brows", "Hair_Cap_Summer"]:
         low[n] = lowpoly_copy(bpy.data.objects[n], n + "_web")
     for k, v in low.items():
         log(k, tris(v), "tris")
@@ -300,7 +300,7 @@ def main():
     mats["eyes"] = web_material("Eyes", eye_png, None, None, alpha_from_albedo=True, coat=1.0, ior=1.376)
     mats["eyes"].node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.3
     assign = {"Body_Head": "skin", "Body_Arms": "skin", "Eyes": "eyes", "Lashes": "hair", "Brows": "hair",
-              "Hair_Cap_Summer": "hair", "Hair_Cap_Winter": "hair"}
+              "Hair_Cap_Summer": "hair"}
     for k, ob in low.items():
         hi = bpy.data.objects.get(k)
         if hi is not None and hi is not ob:

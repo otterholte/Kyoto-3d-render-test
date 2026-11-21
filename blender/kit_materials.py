@@ -604,6 +604,7 @@ def M(name):
         "grass": lambda: m_leaf("ART_Grass_Weeds", (0.08, 0.12, 0.03), (0.22, 0.20, 0.06), None, 0.3),
         "moss": lambda: m_leaf("ART_Moss", (0.05, 0.10, 0.015), (0.14, 0.18, 0.03), None, 0.1, 1.5),
         "fallen_leaf": lambda: m_leaf("ART_Fallen_Leaves", (0.45, 0.06, 0.015), (0.62, 0.30, 0.04), (0.28, 0.14, 0.04), 0.2, 2.0),
+        "foliage": lambda: __import__("materials_textured").make_foliage_material(),
         "fence": lambda: m_simple("ART_Fence_Bamboo", (0.22, 0.17, 0.09), 0.7, 5.0, (1, 1, 5), 0.2, grain=True),
     }[name]
     _LIB[name] = f()

@@ -232,6 +232,7 @@ body:not(.touch) .trick-btn { min-width: 118px; }
 
 @media (max-width: 600px) {
   :root { --gut: 10px; }
+  body.sledding #minimap-wrap { display: none; }
   #minimap-wrap { width: 108px; height: 108px; }
   #minimap-wrap.full { width: 200px; height: 200px; }
   .title-chip { padding: 6px 11px; max-width: calc(100vw - 4 * 44px - 4 * 6px - 2 * var(--gut) - var(--sal) - var(--sar)); }

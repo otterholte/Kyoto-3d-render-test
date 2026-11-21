@@ -90,7 +90,7 @@ def limit_arm_weights(ob, armness):
         a = float(armness[v.index])
         if a > 0.6:
             continue
-        keep = 0.25 + 0.75 * a / 0.6
+        keep = 0.1 + 0.9 * a / 0.6
         ws = {g.group: g.weight for g in v.groups}
         tot = sum(ws.values()) or 1.0
         new = {k: (w * keep if k in ids else w) for k, w in ws.items()}
@@ -238,23 +238,7 @@ def main():
         ob.matrix_parent_inverse = (arm.matrix_world @ hb.matrix_local @
                                     __import__("mathutils").Matrix.Translation((0, hb.length, 0))).inverted()
     rigid_to_head(eyes, arm)
-    # winter: cap hair hidden under the beanie except the back/sides fringe -> separate mesh
-    capw = cap.copy()
-    capw.data = cap.data.copy()
-    capw.name = "Hair_Cap_Winter"
-    C_win.objects.link(capw)
-    bm = bmesh.new()
-    bm.from_mesh(capw.data)
-    hd = lm["head"]
-    kill = []
-    for v in bm.verts:
-        rel = np.array(v.co) - hd
-        zc = 0.080 + (rel[1] - -0.10) * (0.020 - 0.080) / (0.08 - -0.10)
-        if rel[2] > zc - 0.012:
-            kill.append(v)
-    bmesh.ops.delete(bm, geom=kill, context="VERTS")
-    bm.to_mesh(capw.data)
-    bm.free()
+    # winter: the short crop is entirely under the beanie (no winter hair mesh)
     for c in list(cap.users_collection):
         c.objects.unlink(cap)
     C_sum.objects.link(cap)

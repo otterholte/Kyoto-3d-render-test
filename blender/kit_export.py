@@ -269,7 +269,8 @@ def building_colors(ob, pr):
         isroof = (lnz > 0.3)[:, None]
         col = np.where(isroof, np.array(PAL["kawara"]), 0.5 * pc + 0.5 * np.array([0.45, 0.42, 0.40]))
     else:
-        col = np.where((lmi == 0)[:, None], roof, np.where((lmi == 1)[:, None], wall, plinth))
+        col = np.where(((lmi == 0) | (lmi == 3))[:, None], roof, np.where((lmi == 1)[:, None], wall, plinth))
+        col = np.where((lmi == 4)[:, None], np.array(PAL["wood_weather"]), col)
         # roof slab undersides (eave soffits) read as dark timber
         col = np.where(((lmi == 0) & (lnz < -0.5))[:, None], np.array(PAL["wood_weather"]), col)
     set_corner_colors(me, col * jit)
@@ -455,6 +456,9 @@ def main():
         m_ = bpy.data.materials.new(nm_); b_ = m_.node_tree.nodes.get("Principled BSDF")
         b_.inputs["Base Color"].default_value = (*col_, 1); b_.inputs["Roughness"].default_value = 0.85
         MAT[k_] = m_
+    m_ = bpy.data.materials.new("W_Timber_Fascia"); b_ = m_.node_tree.nodes.get("Principled BSDF")
+    b_.inputs["Base Color"].default_value = (*PAL["wood_weather"], 1); b_.inputs["Roughness"].default_value = 0.8
+    MAT["wood"] = m_
 
     def uv_mat(name, col, rough):
         """placeholder texture through WebUV x constant colour (web swaps in web/assets/tex/)"""
@@ -516,7 +520,8 @@ def main():
                 me.color_attributes.remove(me.color_attributes["web_col"])
                 me["web_p4"] = True
             has_uv = pr != 4 and me.uv_layers.get("FacadeUV") is not None and me.uv_layers.get("RoofUV") is not None
-            ks = ("roof_uv", "wall_uv", "plinth_uv") if has_uv else (("p4roof", "p4wall", "p4wall") if pr == 4 else ("roof", "wall", "plinth"))
+            ks = ("roof_uv", "wall_uv", "plinth_uv", "p4roof", "wood") if has_uv else (
+                ("p4roof", "p4wall", "p4wall") if pr == 4 else ("roof", "wall", "plinth", "roof", "wood"))
             if has_uv:
                 # one UV layer for the web: FacadeUV on wall faces (u = bays, v = m), RoofUV on roof faces (m)
                 mi, lp, nz = poly_loop_arrays(me)
@@ -534,7 +539,7 @@ def main():
                 for uvl in list(me.uv_layers):
                     me.uv_layers.remove(uvl)
             for i in range(len(me.materials)):        # (materials.clear() would reset the face material indices)
-                me.materials[i] = MAT[ks[min(i, 2)]]
+                me.materials[i] = MAT[ks[min(i, len(ks) - 1)]]
         elif nm.startswith("Terrain_"):
             dec = ob.modifiers.new("dec", "DECIMATE"); dec.ratio = 0.25
             bpy.context.view_layer.objects.active = ob

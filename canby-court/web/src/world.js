@@ -39,15 +39,16 @@ export function buildCollider(colliders) {
 
 // ---------------------------------------------------------------- placeholder world (both seasons share it)
 export function buildPlaceholder(ctx) {
-  const { data, terrain, surfTex, trackTex, lite } = ctx;
+  const { data, terrain, surfTex, trackTex, lite, groundLib } = ctx;
   const root = new THREE.Group(); root.name = 'PlaceholderWorld';
   const tg = terrain.buildGeometry({ fine: lite ? 1.25 : 1.0, coarse: lite ? 4 : 3 });
-  const ground = new THREE.Mesh(tg, groundMaterial(terrain, surfTex, trackTex, { lite }));
+  const gl = groundLib ? Object.fromEntries(Object.entries(groundLib).filter(([k]) => k !== 'roof' && k !== 'siding')) : null;
+  const ground = new THREE.Mesh(tg, groundMaterial(terrain, surfTex, trackTex, { lite, lib: gl }));
   ground.name = 'Terrain'; ground.receiveShadow = true;
   root.add(ground);
-  const houses = buildHouses(data, terrain, { frontDoor: { number: 3905, x: -4.6, y: -9.6 } });
+  const houses = buildHouses(data, terrain, { frontDoor: { number: 3905, x: -7.4, y: -3.3 }, lib: groundLib && groundLib.roof && groundLib.siding ? { roof: groundLib.roof, siding: groundLib.siding } : null });
   root.add(houses.group);
-  const veg = buildVegetation(data, terrain);
+  const veg = buildVegetation(data, terrain, ctx.foliage || null);
   root.add(veg.group);
   const run = buildRunFeatures(data.sled, terrain);
   root.add(run.group);
@@ -59,6 +60,7 @@ export function buildPlaceholder(ctx) {
   };
   return {
     kind: 'placeholder', root, ground, houses, veg, run, jumps: run.meta,
+    setDetail(q) { veg.setCards(q !== 'low'); },
     setSeason(season) {
       veg.setSeason(season);
       run.group.visible = season === 'winter';
@@ -77,55 +79,101 @@ function extrasOf(o) {
   return e;
 }
 
+// trunk prism / oriented box colliders (cheap stand-ins for leafy or very dense meshes)
+function prism(x, y, z, r, h, n = 8) {
+  const pos = [], idx = [];
+  for (let k = 0; k < n; k++) { const a = k / n * Math.PI * 2; pos.push(x + Math.cos(a) * r, y, z + Math.sin(a) * r, x + Math.cos(a) * r, y + h, z + Math.sin(a) * r); }
+  for (let k = 0; k < n; k++) { const a = k * 2, c = ((k + 1) % n) * 2; idx.push(a, c, a + 1, c, c + 1, a + 1); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx);
+  return g;
+}
+function obb(mesh) {
+  const g = new THREE.BoxGeometry(1, 1, 1);
+  const bb = mesh.geometry.boundingBox || (mesh.geometry.computeBoundingBox(), mesh.geometry.boundingBox);
+  const size = bb.getSize(new THREE.Vector3()), c = bb.getCenter(new THREE.Vector3());
+  g.scale(size.x, size.y, size.z); g.translate(c.x, c.y, c.z);
+  g.applyMatrix4(mesh.matrixWorld);
+  return g;
+}
+
+// world-space float copy of a (possibly quantized) mesh geometry: positions + index only
+function worldPositions(mesh) {
+  const src = mesh.geometry, p = src.attributes.position, arr = new Float32Array(p.count * 3);
+  for (let i = 0; i < p.count; i++) { arr[i * 3] = p.getX(i); arr[i * 3 + 1] = p.getY(i); arr[i * 3 + 2] = p.getZ(i); }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(arr, 3));
+  if (src.index) g.setIndex(src.index.clone());
+  g.applyMatrix4(mesh.matrixWorld);
+  return g;
+}
+
 export async function loadGLBWorld(entry, season, ctx, onProgress) {
-  const gltf = await loadGLB(entry.file + '?v=' + encodeURIComponent(ctx.manifest.generated || ''), onProgress);
+  const gltf = await loadGLB(entry.file + '?v=' + encodeURIComponent(ctx.manifest.generated || ''), onProgress, entry.resourcePath || '');
   const root = gltf.scene; root.name = 'World_' + season;
+  // the page lights the scene itself: drop exported lights / cameras
+  const strip = [];
+  root.traverse((o) => { if (o.isLight || o.isCamera) strip.push(o); });
+  for (const o of strip) o.parent && o.parent.remove(o);
   root.updateMatrixWorld(true);
   const colliders = [];
   let hasKickers = false;
-  const tmp = new THREE.Matrix4();
-  root.traverse((o) => {
+  const meshes = [];
+  root.traverse((o) => { if (o.isMesh) meshes.push(o); });
+  const trunkDone = new Set();
+  for (const o of meshes) {
     const e = extrasOf(o);
-    if (/kicker|jump_\d|berm/i.test(o.name) || /kicker|berm/i.test(e.kind || '')) hasKickers = true;
-    if (!o.isMesh) return;
-    o.castShadow = e.cast_shadow !== false && !/terrain|ground/i.test(e.kind || o.name);
+    o.userData.cc = e;
+    const kind = e.kind || '';
+    if (/^Jump_|^Berm_/.test(o.name) || /^Jump_|^Berm_/.test(o.parent && o.parent.name) || /jump|kicker|berm/.test(kind)) hasKickers = true;
+    o.castShadow = !/^(ground|terrain|curb|street_detail|house_number|snow|sport_court|patio)$/.test(kind) && !(ctx.lite && kind === 'shrub');
     o.receiveShadow = true;
-    // materials: physically based as authored; make sure textures use anisotropy
     const mats = Array.isArray(o.material) ? o.material : [o.material];
     for (const m of mats) {
       for (const k of ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap']) if (m[k]) m[k].anisotropy = ctx.lite ? 2 : 8;
-      if (m.transparent && m.alphaTest === 0 && m.map) { m.alphaTest = 0.4; m.transparent = false; }
+      if (m.transparent && m.map && m.alphaTest === 0) { m.alphaTest = 0.4; m.transparent = false; }
     }
-    if (e.collide === false && !e.walkable) return;
-    if (e.collide === undefined && e.walkable === undefined && /leaf|foliage|grass|flower|snowflake|decal|glass/i.test(o.name + ' ' + (e.kind || ''))) return;
-    const walkable = e.walkable !== undefined ? !!e.walkable : WALK_RE.test(o.name + ' ' + (e.kind || ''));
-    const info = { name: o.name, kind: e.kind || '', walkable, collide: true, address: e.address || null };
-    const src = o.geometry;
-    if (o.isInstancedMesh) {
-      const n = Math.min(o.count, 4000);
-      for (let i = 0; i < n; i++) {
-        o.getMatrixAt(i, tmp);
-        const g = new THREE.BufferGeometry();
-        g.setAttribute('position', src.attributes.position.clone());
-        if (src.index) g.setIndex(src.index.clone());
-        g.applyMatrix4(tmp.premultiply(o.matrixWorld));
-        colliders.push({ geom: g, info });
-      }
-    } else if (o.isSkinnedMesh) {
-      // skinned props: rest pose
-      const g = new THREE.BufferGeometry(); g.setAttribute('position', src.attributes.position.clone()); if (src.index) g.setIndex(src.index.clone());
-      g.applyMatrix4(o.matrixWorld); colliders.push({ geom: g, info });
+    // colliders: walkable surfaces as meshes; trees by their trunk; hedges / shrub-like solids as boxes
+    if (e.collide === false && !e.walkable) continue;
+    if (e.collide === undefined && e.walkable === undefined) continue;
+    const info = { name: o.name, kind, walkable: !!e.walkable, collide: !!e.collide, address: e.address || null };
+    if (kind === 'tree') {
+      const owner = o.userData.name !== undefined || !o.parent || o.parent === root ? o : o.parent;
+      if (trunkDone.has(owner)) continue;
+      trunkDone.add(owner);
+      const p = new THREE.Vector3().setFromMatrixPosition(o.matrixWorld);
+      colliders.push({ geom: prism(p.x, p.y - 0.3, p.z, e.collide_radius || 0.25, 3.2), info });
+    } else if (kind === 'hedge' && !e.walkable) {
+      colliders.push({ geom: obb(o), info });
     } else {
-      const g = new THREE.BufferGeometry();
-      // de-quantize (KHR_mesh_quantization) into float positions in world space
-      const p = src.attributes.position, arr = new Float32Array(p.count * 3);
-      for (let i = 0; i < p.count; i++) { arr[i * 3] = p.getX(i); arr[i * 3 + 1] = p.getY(i); arr[i * 3 + 2] = p.getZ(i); }
-      g.setAttribute('position', new THREE.BufferAttribute(arr, 3));
-      if (src.index) g.setIndex(src.index.clone());
-      g.applyMatrix4(o.matrixWorld);
-      colliders.push({ geom: g, info });
+      colliders.push({ geom: worldPositions(o), info });
     }
-  });
+  }
+  // instance meshes reused >= 4 times (trees, shrubs, hedges ...): one draw call per (geometry, material)
+  const groups = new Map();
+  for (const o of meshes) {
+    if (o.isSkinnedMesh || o.isInstancedMesh || Array.isArray(o.material)) continue;
+    const key = o.geometry.uuid + '|' + o.material.uuid;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(o);
+  }
+  let instanced = 0;
+  for (const list of groups.values()) {
+    if (list.length < 4) continue;
+    const a = list[0];
+    // phones: drop shrub instances far outside the Canby Ct core (they are a few pixels there)
+    const keep = ctx.lite && a.userData.cc.kind === 'shrub'
+      ? list.filter((o) => { const p = new THREE.Vector3().setFromMatrixPosition(o.matrixWorld); return Math.hypot(p.x + 40, p.z - 25) < 85; })
+      : list;
+    const im = new THREE.InstancedMesh(a.geometry, a.material, Math.max(1, keep.length));
+    keep.forEach((o, i) => im.setMatrixAt(i, o.matrixWorld));
+    im.count = keep.length;
+    im.castShadow = a.castShadow; im.receiveShadow = true; im.name = 'Inst_' + (a.userData.cc.kind || a.name);
+    im.userData = { cc: a.userData.cc };
+    im.computeBoundingSphere();
+    root.add(im);
+    for (const o of list) o.parent.remove(o);
+    instanced += list.length;
+  }
   let run = null;
   if (season === 'winter' && !hasKickers) {
     run = buildRunFeatures(ctx.data.sled, ctx.terrain);
@@ -133,9 +181,10 @@ export async function loadGLBWorld(entry, season, ctx, onProgress) {
     colliders.push(...run.colliders);
   }
   const col = buildCollider(colliders);
+  col.instanced = instanced;
   return {
-    kind: 'glb', root, hasKickers, run,
-    setSeason() {}, colliderFor: () => col,
+    kind: 'glb', root, hasKickers, run, instanced,
+    setSeason() {}, setDetail() {}, colliderFor: () => col,
     extras: root.userData || {},
   };
 }

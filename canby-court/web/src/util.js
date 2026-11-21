@@ -24,7 +24,8 @@ export async function loadJSON(url) {
 const gltfLoader = new GLTFLoader();
 gltfLoader.setMeshoptDecoder(MeshoptDecoder);
 // GLB by URL; '*.b64.txt' = GLB shipped as base64 text (the artifact host does not serve .glb)
-export function loadGLB(url, onProgress) {
+// resourcePath: base for external URIs inside the GLB (e.g. 'assets/' for "tex/x.jpg")
+export function loadGLB(url, onProgress, resourcePath = '') {
   return new Promise((res, rej) => {
     if (!/\.b64\.txt(\?|$)/.test(url)) { gltfLoader.load(url, res, onProgress, rej); return; }
     loadText(url, onProgress).then((txt) => {
@@ -33,7 +34,7 @@ export function loadGLB(url, onProgress) {
         let buf;
         if (typeof Uint8Array.fromBase64 === 'function') buf = Uint8Array.fromBase64(s);
         else { const bin = atob(s); buf = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i); }
-        gltfLoader.parse(buf.buffer, '', res, rej);
+        gltfLoader.parse(buf.buffer, resourcePath, res, rej);
       } catch (err) { rej(err); }
     }, rej);
   });

@@ -269,7 +269,7 @@ class HouseBuilder:
         self.m_glass_lit = MAT.glass_mat("GLASS_window_lit", lit=True)
         self.m_door = MAT.tex_mat("DOOR_%d" % n, "door_" + door["style"], tint=door["colour"])
         self.m_gdoor = MAT.tex_mat("GDOOR_%d" % n, "garage_door_panel", tint=gcol)
-        self.m_gutter = MAT.flat_mat("GUTTER_%d" % n, gcolg, rough=0.35, metal=0.3)
+        self.m_gutter = MAT.flat_mat("GUTTER_%d" % n, gcolg, rough=0.4, metal=0.0)
         self.m_dark = MAT.M("DARKMETAL", lambda: MAT.flat_mat("METAL_dark", "#2a2a2a", rough=0.4, metal=0.6))
         self.m_brick = MAT.M("BRICK", lambda: MAT.tex_mat("BRICK", "brick_red"))
         self.m_concrete = MAT.M("CONC", lambda: MAT.tex_mat("CONCRETE_plain", "concrete_plain"))
@@ -372,6 +372,16 @@ class HouseBuilder:
         mb.poly([P(s0, z0, -D), P(s0, z0, 0), P(s1, z0, 0), P(s1, z0, -D)], rmat, uv_mode="plane")
         tw = 0.09 if kind != "garage" else 0.11
         tr = self.m_trim
+        if getattr(self, "simple", False) and kind == "window":
+            self.wbox(mb, P, s0 - tw, s1 + tw, z1, z1 + tw, 0, 0.03, tr)
+            self.wbox(mb, P, s0 - tw, s1 + tw, z0 - 0.045, z0, -0.02, 0.05, tr)
+            cell = int(self.rng.integers(0, 4))
+            cu, cv = (cell % 2) * 0.5, 1 - (cell // 2 + 1) * 0.5
+            dg = -0.085
+            mb.poly([P(s0, z0, dg), P(s1, z0, dg), P(s1, z1, dg), P(s0, z1, dg)],
+                    self.m_glass_lit if o.get("lit") else self.m_glass,
+                    uvs=[(cu + 0.02, cv + 0.02), (cu + 0.48, cv + 0.02), (cu + 0.48, cv + 0.48), (cu + 0.02, cv + 0.48)])
+            return
         # casing
         self.wbox(mb, P, s0 - tw, s0, z0, z1 + tw, 0, 0.022, tr)
         self.wbox(mb, P, s1, s1 + tw, z0, z1 + tw, 0, 0.022, tr)
@@ -1067,7 +1077,9 @@ class HouseBuilder:
         cu = bpy.data.curves.new("num_%d" % self.num, "FONT")
         cu.body = str(self.num)
         cu.size = 0.13
-        cu.extrude = 0.006
+        cu.extrude = 0.004
+        cu.resolution_u = 2
+        cu.bevel_depth = 0.0
         cu.align_x = "CENTER"
         ob = bpy.data.objects.new("tmpnum", cu)
         self.coll.objects.link(ob)
@@ -1095,13 +1107,21 @@ class HouseBuilder:
         x, y = dk["point"]
         W = self.nearest_wing(x, y)
         sx, sy = dk["size_m"]
-        # orient the long side along the nearest footprint edge
-        ext = self.poly.exterior
-        pp = ext.interpolate(ext.project(Point(x, y)))
-        nvec = np.array([x - pp.x, y - pp.y])
-        nvec /= np.linalg.norm(nvec) + 1e-9
-        tvec = np.array([-nvec[1], nvec[0]])
-        base = np.array([pp.x, pp.y])
+        # orient the long side along the nearest footprint edge (outward normal of that edge)
+        fp = self.fp
+        best = None
+        for i in range(len(fp)):
+            a, b = np.array(fp[i]), np.array(fp[(i + 1) % len(fp)])
+            seg = LineString([a, b])
+            dd = seg.distance(Point(x, y))
+            if best is None or dd < best[0]:
+                best = (dd, a, b, seg)
+        _, a, b, seg = best
+        dvec = (b - a) / np.linalg.norm(b - a)
+        nvec = np.array([dvec[1], -dvec[0]])
+        tvec = dvec
+        pp = seg.interpolate(seg.project(Point(x, y)))
+        base = np.array([pp.x, pp.y]) + nvec * 0.02
         z = self.floor - 0.18
         mb = C.MeshBuilder()
         corners = [base - tvec * sx / 2, base + tvec * sx / 2, base + tvec * sx / 2 + nvec * sy,
@@ -1200,6 +1220,34 @@ class HouseBuilder:
         C.set_extras(ob, kind="pergola", address="%d Canby Ct" % self.num, collide=True)
 
     # ------------------------------------------------------------------ build
+    def build_web_simple(self, coll):
+        """Lighter copy of walls+roof for the web GLB (simple windows, no gutters/downspouts)."""
+        keep = (self.mb, self.rb, self.coll, getattr(self, "front_door", None), self.doors_info, self.light_points)
+        self.mb, self.rb, self.coll = C.MeshBuilder(), C.MeshBuilder(), coll
+        self.doors_info = {}
+        self.simple = True
+        self._gut = self.gutter
+        self.gutter = lambda *a, **k: None
+        self.build_walls()
+        self.build_upper_walls()
+        self.build_roofs()
+        self.chimney()
+        self.stoop()
+        self.garage_lights()
+        addr = "%d Canby Ct" % self.num
+        body = self.mb.emit("House_%d_web" % self.num, coll)
+        C.set_extras(body, kind="house", address=addr, collide=True, walkable=False, part="walls",
+                     storeys=float(self.h["assessor"]["floors"]), year_built=int(self.h["assessor"]["year_built"]),
+                     floor_z=round(self.floor, 2), heights="inferred", footprint="measured (City GIS)")
+        roof = self.rb.emit("House_%d_Roof_web" % self.num, coll)
+        C.set_extras(roof, kind="roof", address=addr, collide=True, part="roof")
+        self.simple = False
+        self.gutter = self._gut
+        (self.mb, self.rb, self.coll, fd, self.doors_info, self.light_points) = keep
+        if fd is not None:
+            self.front_door = fd
+        return body, roof
+
     def build(self):
         self.light_points = []
         self.build_walls()
@@ -1261,3 +1309,141 @@ def build_all(coll, only=None):
         out[n] = hb
         print("  house", n, "faces", len(hb.mb) + len(hb.rb), flush=True)
     return out
+
+
+# ============================================================================ context buildings
+CTX_BODY = ["#8f9488", "#b8ad97", "#7d8a8f", "#a39a8a", "#c9c3b4", "#6f6a60", "#9aa39a", "#b5a58c", "#7a6d5f",
+            "#d0ccc0", "#5f6a6c", "#a8a294"]
+CTX_TRIM = ["#efeee8", "#e8e2d4", "#f3f2ee", "#3f3f3c"]
+CTX_ROOF = ["#6c6f70", "#5e605f", "#7d7a73", "#6a5f55", "#7a7e7f", "#55595b", "#857f75"]
+CTX_SID = ["siding_lap_wood", "siding_lap_wood", "siding_t111", "siding_shingle_cedar", "siding_lap_fibercement",
+           "siding_board_batten"]
+
+
+class ContextHouse(HouseBuilder):
+    """Neighbouring buildings (context_buildings.json): measured footprints + City floors; wings from the
+    automatic rectangle decomposition, hip (70 %) or gable roofs, palette colours, windows, no doors (simpler)."""
+
+    def __init__(self, rec, idx, coll, matsets):
+        from footprint_rects import decompose, dominant_angles
+        self.num = 100000 + idx
+        self.rec = rec
+        self.coll = coll
+        self.rng = C.rng_for("ctx", rec.get("address", idx))
+        fp = C.ccw(rec["footprint_local"])
+        self.fp = fp
+        self.poly = Polygon(fp).buffer(0)
+        self.dtm = C.dtm()
+        P = np.array(fp)
+        gz = self.dtm.sample(P[:, 0], P[:, 1])
+        self.floor = max(float(np.median(gz)) + 0.4, float(gz.max()) - 0.25)
+        self.c = np.array(self.poly.centroid.coords[0])
+        angs = dominant_angles(fp, 1)
+        rects, cov = decompose(fp, angs, min_side=2.5, max_rects=4)
+        if not rects:
+            r = self.poly.minimum_rotated_rectangle
+            rects = []
+        fl = rec.get("floors") or 1
+        st = 2 if fl >= 2 else (1.5 if fl >= 1.5 else 1)
+        gable = self.rng.random() < 0.3
+        wings = []
+        for i, r in enumerate(rects):
+            L, W = r["L"], r["W"]
+            ridge = "u" if L >= W else "v"
+            wings.append(dict(world=(r["c"][0], r["c"][1], r["a"], L, W), roof="gable" if gable else "hip",
+                              ridge=ridge, st=st if i == 0 else (st if self.rng.random() < 0.6 else 1)))
+        self.spec = dict(frame=angs[0] if angs else 0, pitch=6, wings=wings)
+        self.wings = [Wing(w, self.c, self.spec["frame"], 6, self.floor, i, self.num) for i, w in enumerate(wings)]
+        self.main = [w for w in self.wings if w.kind == "main"]
+        ms = matsets[int(self.rng.integers(len(matsets)))]
+        (self.m_siding, self.m_trim, self.m_roof, self.m_ridge, self.m_gutter, self.m_gdoor, self.m_frame) = ms
+        self.m_siding2 = None
+        self.m_wainscot = None
+        self.m_soffit = self.m_trim
+        self.m_found = MAT.M("FOUND", lambda: MAT.tex_mat("FOUNDATION", "concrete_plain", tint="#9a978f"))
+        self.m_glass = MAT.glass_mat("GLASS_window")
+        self.m_glass_lit = MAT.glass_mat("GLASS_window_lit", lit=True)
+        self.m_concrete = MAT.M("CONC", lambda: MAT.tex_mat("CONCRETE_plain", "concrete_plain"))
+        self.m_dark = MAT.M("DARKMETAL", lambda: MAT.flat_mat("METAL_dark", "#2a2a2a", rough=0.4, metal=0.6))
+        self.f = {"windows": {"value": {"type": "white vinyl slider", "frame_hex": "#f1f1ec", "grilles": False}},
+                  "siding": {"value": {}}}
+        self.mb = C.MeshBuilder()
+        self.rb = C.MeshBuilder()
+        self.simple = True
+        self.door_edges = {}
+        self.plan = []
+        self.doors_info = {}
+        self.light_points = []
+        self.street = LineString(C.data("boundary")["canby_ct_centerline_local"]["coordinates"])
+
+    def gutter(self, w, p, q):
+        return
+
+    def build(self):
+        if not self.wings:
+            return None
+        self.build_walls()
+        self.build_upper_walls()
+        for w in self.wings:
+            self.roof_wing(w)
+            if w.roof == "gable":
+                self.gable_ends(w)
+        mb = self.mb
+        # merge roof into the same object (context = fewer objects)
+        off = len(mb.v)
+        mb.v.extend(self.rb.v)
+        for f, mi in zip(self.rb.f, self.rb.mi):
+            mb.f.append([i + off for i in f])
+            mb.mi.append(mb.mat(self.rb.mats[mi]))
+        mb.uv.extend(self.rb.uv)
+        mb.smooth.extend(self.rb.smooth)
+        addr = self.rec.get("address") or "context"
+        ob = mb.emit("Context_%03d" % (self.num - 100000), self.coll)
+        C.set_extras(ob, kind="context_building", address=addr, collide=True, floors=float(self.rec.get("floors") or 1),
+                     heights="inferred", footprint="measured (City GIS)")
+        return ob
+
+
+def context_matsets(n=8):
+    rng = C.rng_for("ctxmats")
+    sets = []
+    for i in range(n):
+        body = CTX_BODY[i % len(CTX_BODY)]
+        trim = CTX_TRIM[int(rng.integers(len(CTX_TRIM)))]
+        roof = CTX_ROOF[int(rng.integers(len(CTX_ROOF)))]
+        sid = CTX_SID[int(rng.integers(len(CTX_SID)))]
+        sets.append((MAT.tex_mat("CTX_SID_%d" % i, sid, tint=body), MAT.tex_mat("CTX_TRIM_%d" % i, "trim_paint", tint=trim),
+                     MAT.tex_mat("CTX_ROOF_%d" % i, "roof_arch_shingle", tint=roof),
+                     MAT.tex_mat("CTX_RIDGE_%d" % i, "roof_ridge_cap", tint=roof),
+                     MAT.flat_mat("CTX_GUT_%d" % i, trim, rough=0.35, metal=0.3),
+                     MAT.tex_mat("CTX_GDOOR_%d" % i, "garage_door_panel", tint=trim),
+                     MAT.flat_mat("WINFRAME_f1f1ec", "#f1f1ec", rough=0.45)))
+    return sets
+
+
+def build_context(coll):
+    from shapely.geometry import box as sbox
+    ctx = sbox(-210, -160, 110, 110)
+    canby = unary_union_fps()
+    sets = context_matsets()
+    out = []
+    for i, rec in enumerate(C.data("context")["buildings"]):
+        p = Polygon(rec["footprint_local"]).buffer(0)
+        if not ctx.contains(p.centroid) or p.area < 12:
+            continue
+        if canby.intersects(p.buffer(-0.5)):
+            continue
+        try:
+            ch = ContextHouse(rec, i, coll, sets)
+            ob = ch.build()
+            if ob is not None:
+                out.append(ob)
+        except Exception as ex:
+            print("   context building", i, "failed:", ex)
+    print("  context buildings", len(out))
+    return out
+
+
+def unary_union_fps():
+    from shapely.ops import unary_union
+    return unary_union([Polygon(h["footprint_local"]["value"]).buffer(0) for h in C.data("houses")["houses"]])

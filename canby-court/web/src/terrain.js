@@ -175,8 +175,15 @@ export const groundUniforms = {
   uSparkle: { value: 1 },
 };
 
-export function groundMaterial(terrain, surfTex, trackTex, { lite = false } = {}) {
+// optional photographic texture sets (assets/tex, scene agent): {lawn, asphalt, concrete, bed, snow, snowPacked}
+// each {a: albedo Texture (sRGB), n: normal Texture, size: metres per repeat}
+export function groundMaterial(terrain, surfTex, trackTex, { lite = false, lib = null } = {}) {
   const U = groundUniforms;
+  if (lib) {
+    for (const [k, t] of Object.entries(lib)) {
+      U['tA_' + k] = { value: t.a }; U['tN_' + k] = { value: t.n }; U['sz_' + k] = { value: 1 / t.size };
+    }
+  }
   U.uSurf.value = surfTex; U.uTrack.value = trackTex; U.uNoise.value = noiseTexture();
   U.uBounds.value.set(terrain.x0, terrain.y0, 1 / (terrain.x1 - terrain.x0), 1 / (terrain.y1 - terrain.y0));
   const m = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, metalness: 0 });
@@ -185,6 +192,7 @@ export function groundMaterial(terrain, surfTex, trackTex, { lite = false } = {}
     Object.assign(sh.uniforms, U);
     sh.defines = sh.defines || {};
     if (lite) sh.defines.CC_LITE = '';
+    if (lib) sh.defines.CC_LIB = '';
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nvarying vec3 vWorldG;')
       .replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\nvWorldG = (modelMatrix * vec4(transformed, 1.0)).xyz;');
@@ -195,6 +203,11 @@ uniform float uSeason, uSparkle;
 uniform sampler2D uSurf, uTrack, uNoise;
 uniform vec4 uBounds;
 uniform vec3 uSunDirW;
+#ifdef CC_LIB
+uniform sampler2D tA_lawn, tA_asphalt, tA_concrete, tA_bed, tA_snow, tA_snowPacked;
+uniform sampler2D tN_lawn, tN_asphalt, tN_concrete, tN_bed, tN_snow, tN_snowPacked;
+uniform float sz_lawn, sz_asphalt, sz_concrete, sz_bed, sz_snow, sz_snowPacked;
+#endif
 float ccHash(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
 `)
       .replace('#include <map_fragment>', `
@@ -216,6 +229,15 @@ float blades = texture2D(uNoise, lw * vec2(9.0, 7.0)).r * 0.6 + texture2D(uNoise
 lawn *= 0.72 + 0.56 * blades;
 // planting beds / shrub cover: low evergreen groundcover with bark-mulch gaps
 vec3 bed = mix(vec3(0.07, 0.05, 0.03), vec3(0.045, 0.085, 0.03), smoothstep(0.3, 0.55, nf.a * 0.55 + nm.r * 0.55)) * (0.75 + 0.5 * nf.r);
+#ifdef CC_LIB
+// photographic sets (scene agent library), large-scale tint variation breaks the tiling
+vec2 rot = vec2(lw.x * 0.83 + lw.y * 0.55, -lw.x * 0.55 + lw.y * 0.83);
+asph = texture2D(tA_asphalt, lw * sz_asphalt).rgb * (0.85 + 0.3 * nm.b);
+conc = texture2D(tA_concrete, lw * sz_concrete).rgb * (0.9 + 0.15 * nm.a);
+vec3 lawnT = mix(texture2D(tA_lawn, lw * sz_lawn).rgb, texture2D(tA_lawn, rot * sz_lawn * 0.37).rgb, 0.4);
+lawn = lawnT * mix(vec3(0.95, 1.0, 0.85), vec3(1.15, 1.05, 0.8), smoothstep(0.3, 0.8, nm.g * 0.6 + nc.b * 0.6));
+bed = mix(texture2D(tA_bed, lw * sz_bed).rgb, lawnT * vec3(0.6, 0.75, 0.55), smoothstep(0.35, 0.6, nf.a * 0.5 + nm.r * 0.6));
+#endif
 vec3 summerCol = asph * wAs + conc * wCo + lawn * wLa + bed * wBe;
 float summerRough = 0.88 * wAs + 0.8 * wCo + 0.96 * wLa + 0.95 * wBe;
 // winter: fresh snow on lawns/beds, packed + smoothed snow on the street and the sled track
@@ -223,6 +245,10 @@ float packed = clamp(wAs * 0.8 + wCo * 0.5 + track, 0.0, 1.0);
 vec3 snowFresh = vec3(0.86, 0.885, 0.93) * (0.94 + 0.08 * nf.g);
 vec3 snowPacked = vec3(0.7, 0.72, 0.76) * (0.92 + 0.1 * nf.r) * (0.95 + 0.08 * nm.b);
 snowPacked = mix(snowPacked, vec3(0.78, 0.8, 0.84), track);
+#ifdef CC_LIB
+snowFresh = texture2D(tA_snow, lw * sz_snow).rgb * (0.95 + 0.07 * nm.g);
+snowPacked = mix(texture2D(tA_snowPacked, lw * sz_snowPacked).rgb, snowFresh, 0.25 + 0.35 * track) * (0.96 + 0.06 * nm.b);
+#endif
 vec3 winterCol = mix(snowFresh, snowPacked, packed);
 // dirty slush strip at the curbs / under conifer drip lines is skipped: snow is fresh (artistic)
 float winterRough = mix(0.82, 0.45, packed * (0.6 + 0.4 * track));
@@ -238,9 +264,21 @@ float roughnessFactor = mix(summerRough, winterRough, uSeason);
   // micro relief: grass tufts / asphalt grain / snow ripples (world-space bump from noise gradients)
   float bs = mix(0.35 * wLa + 0.18 * wAs + 0.25 * wBe, 0.12 * (1.0 - packed) + 0.05, uSeason);
   vec2 e = vec2(0.06, 0.0);
+#ifdef CC_LIB
+  // tangent-space normal maps (OpenGL, +Y = north on the ground), blended by class weights
+  vec3 tn;
+  if (uSeason < 0.5) {
+    tn = (texture2D(tN_asphalt, lw * sz_asphalt).xyz * wAs + texture2D(tN_concrete, lw * sz_concrete).xyz * wCo
+        + texture2D(tN_lawn, lw * sz_lawn).xyz * wLa + texture2D(tN_bed, lw * sz_bed).xyz * wBe) * 2.0 - 1.0;
+  } else {
+    tn = mix(texture2D(tN_snow, lw * sz_snow).xyz, texture2D(tN_snowPacked, lw * sz_snowPacked).xyz, packed) * 2.0 - 1.0;
+  }
+  vec3 bw = vec3(tn.x, 0.0, -tn.y) * 0.9;
+#else
   float h0 = texture2D(uNoise, lw * 1.7).r;
   float hx = texture2D(uNoise, (lw + e.xy) * 1.7).r, hy = texture2D(uNoise, (lw + e.yx) * 1.7).r;
   vec3 bw = vec3(-(hx - h0), 0.0, (hy - h0)) * bs * 4.0;
+#endif
   normal = normalize(normal + (viewMatrix * vec4(bw, 0.0)).xyz);
 }
 #endif
@@ -263,6 +301,6 @@ if (uSeason > 0.5) {
 #endif
 `);
   };
-  m.customProgramCacheKey = () => 'cc-ground' + (lite ? '-lite' : '');
+  m.customProgramCacheKey = () => 'cc-ground' + (lite ? '-lite' : '') + (lib ? '-lib' : '');
   return m;
 }

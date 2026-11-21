@@ -176,7 +176,15 @@ def plan_walks(hbs, drives):
 
 # ============================================================================ ground-cover splat
 class Splat:
-    """Blurred class masks (lawn, mulch/bed, forest floor, paved) from data/processed/groundcover."""
+    """Ground-cover weights (lawn, mulch/bed, forest floor, paved) per point.
+
+    Context (outside the 10 Canby parcels): blurred classes from data/processed/groundcover (paved only from the
+    'paved_concrete' class; 'paved_dark' is mostly shaded beds/gravel and is mapped to mulch).
+    Canby parcels: rule-based suburban yard (the automated classes confuse spring lawns with beds): lawn by
+    default; bark-mulch foundation beds within ~1.8 m of the house, mulch rings under ornamental/small trees,
+    real beds where the classes are confidently 'bed' over a wide window; forest floor on slopes > 22 deg
+    (embankments) - all INFERRED.
+    """
 
     def __init__(self):
         import rasterio
@@ -190,11 +198,10 @@ class Splat:
         bld = cl == 1
         dist = distance_transform_edt(~bld) * self.res
         lawn = (cl == 6).astype(np.float32)
-        bed = np.isin(cl, [7, 8, 9]).astype(np.float32)
-        paved = np.isin(cl, [3, 4, 5]).astype(np.float32)
-        forest = bed * (dist > 16)
-        mulch = bed * (dist <= 16)
-        # greenbelt south of the houses is forest regardless
+        bed = np.isin(cl, [5, 7, 8, 9]).astype(np.float32)
+        paved = (cl == 4).astype(np.float32)
+        forest = bed * (dist > 14)
+        mulch = bed * (dist <= 14)
         rows = self.y0 - (np.arange(cl.shape[0]) + 0.5) * self.res
         south = (rows < -78)[:, None] & np.ones_like(bld)
         forest = np.maximum(forest, mulch * south)
@@ -203,11 +210,46 @@ class Splat:
         self.maps = [gaussian_filter(m, sig) for m in (lawn, mulch, forest, paved)]
         tot = sum(self.maps) + 1e-4
         self.maps = [m / tot for m in self.maps]
+        self.bed_wide = gaussian_filter(bed, 2.0 / self.res)
+        P = C.data("boundary")["parcels_local"]
+        self.parcels = unary_union([shape(g) for g in P.values()]).buffer(0.5)
+        self.fps = unary_union([Polygon(h["footprint_local"]["value"]) for h in C.data("houses")["houses"]])
+        self.trees = [(t_["x"], t_["y"], t_["crown_radius_m"]) for t_ in C.data("trees")["trees"]
+                      if t_["in_core"] and (t_["type"] != "conifer" or t_["height_m"] < 8)]
 
-    def sample(self, x, y):
+    def _gc(self, x, y):
         c = np.clip(((np.asarray(x) - self.x0) / self.res).astype(int), 0, self.maps[0].shape[1] - 1)
         r = np.clip(((self.y0 - np.asarray(y)) / self.res).astype(int), 0, self.maps[0].shape[0] - 1)
-        return np.stack([m[r, c] for m in self.maps], -1)
+        return np.stack([m[r, c] for m in self.maps], -1), self.bed_wide[r, c]
+
+    def sample(self, x, y):
+        x = np.asarray(x, float)
+        y = np.asarray(y, float)
+        W, bw = self._gc(x, y)
+        inp = shapely.contains_xy(self.parcels, x, y)
+        if inp.any():
+            xi, yi = x[inp], y[inp]
+            pts = shapely.points(xi, yi)
+            dh = shapely.distance(self.fps, pts)
+            wob = 0.45 * np.sin(xi * 1.7 + np.sin(yi * 0.9) * 2) + 0.25 * np.sin(yi * 2.3 + 1.0)
+            mul = 1 - np.clip((dh - (1.7 + wob)) / 0.35, 0, 1)
+            for (tx, ty, tr) in self.trees:
+                d = np.hypot(xi - tx, yi - ty)
+                mul = np.maximum(mul, 1 - np.clip((d - (0.55 * tr + 0.5)) / 0.3, 0, 1))
+            mul = np.maximum(mul, np.clip((bw[inp] - 0.72) / 0.1, 0, 1))
+            slope = self._slope(xi, yi)
+            fo = np.clip((slope - 22) / 6, 0, 1)
+            lw = (1 - mul) * (1 - fo)
+            Wi = np.stack([lw, mul * (1 - fo), fo, np.zeros_like(lw)], -1)
+            W[inp] = Wi
+        return W
+
+    def _slope(self, x, y):
+        d = C.dtm()
+        e = 0.75
+        gx = (d.sample(x + e, y) - d.sample(x - e, y)) / (2 * e)
+        gy = (d.sample(x, y + e) - d.sample(x, y - e)) / (2 * e)
+        return np.degrees(np.arctan(np.hypot(gx, gy)))
 
 
 # ============================================================================ terrain CDT
@@ -249,7 +291,7 @@ def _densify(ring, step):
     return np.array(out)
 
 
-def build_cdt(constraint_geoms, spacing):
+def build_cdt(constraint_geoms, spacing, dens=None):
     """Returns (verts2d (n,2), tris (m,3))."""
     grid = _grid(spacing)
     # rasterise boundaries to drop grid points that would make slivers
@@ -263,7 +305,7 @@ def build_cdt(constraint_geoms, spacing):
     cverts, cedges = [], []
     for g in constraint_geoms:
         for ring in _rings(g):
-            dd = _densify(ring, spacing * 0.9)
+            dd = _densify(ring, dens or spacing * 0.9)
             if len(dd) < 3:
                 continue
             i0 = len(cverts)
@@ -384,7 +426,7 @@ class Ground:
         return P[:, :2].copy()
 
     def build(self, coll, spacing=0.5, suffix="", mats=None):
-        V, F = build_cdt(self.constraints(), spacing)
+        V, F = build_cdt(self.constraints(), spacing, dens=None if spacing < 0.9 else 1.6)
         cls = self.classify(V, F)
         dtm = C.dtm()
         Z = dtm.sample(V[:, 0], V[:, 1])
@@ -445,8 +487,14 @@ class Ground:
             pa, pb = V[a], V[b]
             q = [(pa[0], pa[1], Z[a] + lo_a), (pb[0], pb[1], Z[b] + lo_b), (pb[0], pb[1], Z[b] + hi_b),
                  (pa[0], pa[1], Z[a] + hi_a)]
+            # face toward the lower side (the visible curb face)
+            low_t = tl[0] if (o1a + o1b) < (o2a + o2b) else tl[1]
+            cen_low = V[F[low_t]].mean(0)
+            e = pb - pa
+            nrm2 = np.array([e[1], -e[0]])
+            if np.dot(nrm2, cen_low - (pa + pb) / 2) < 0:
+                q = q[::-1]
             mb.poly(q, cm, uv_mode="wall")
-            mb.poly(q[::-1], cm, uv_mode="wall")
         if len(mb):
             ob = mb.emit("Ground_CurbFaces%s" % suffix, coll)
             C.set_extras(ob, kind="curb", walkable=False, collide=False)
@@ -457,7 +505,7 @@ class Ground:
     def build_snow(self, coll, mats, spacing=0.5, suffix=""):
         """Winter snow surface: one continuous mesh draped over everything (soft curb steps, drifts)."""
         if not hasattr(self, "V") or suffix:
-            V, F = build_cdt(self.constraints(), spacing)
+            V, F = build_cdt(self.constraints(), spacing, dens=None if spacing < 0.9 else 1.6)
             cls = self.classify(V, F)
             Z = C.dtm().sample(V[:, 0], V[:, 1])
         else:
@@ -524,10 +572,9 @@ def ground_materials():
     sp = splat_material()
     m["soft"] = [sp, sp, sp, sp]
     # web stand-ins (swapped in by export_web.py)
-    MAT.tex_mat("GROUND_lawn", "lawn_grass")
-    MAT.tex_mat("GROUND_mulch", "bark_mulch")
-    MAT.tex_mat("GROUND_forest", "forest_floor")
-    MAT.tex_mat("GROUND_paved", "concrete_plain")
+    for nm, ts in (("GROUND_lawn", "lawn_grass"), ("GROUND_mulch", "bark_mulch"), ("GROUND_forest", "forest_floor"),
+                   ("GROUND_paved", "concrete_plain")):
+        MAT.tex_mat(nm, ts).use_fake_user = True
     return m
 
 

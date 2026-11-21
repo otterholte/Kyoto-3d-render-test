@@ -85,7 +85,7 @@ export class FollowCamera {
 
 // Sled chase camera: behind the direction of travel, speed-based FOV, smooth (looser vertically while airborne so
 // the height of a jump reads), collision-aware (pulls in when the view ray hits geometry), drag to glance around.
-const _c = { want: new THREE.Vector3(), tgt: new THREE.Vector3(), dir: new THREE.Vector3(), f: new THREE.Vector3(), ray: new THREE.Ray() };
+const _c = { want: new THREE.Vector3(), tgt: new THREE.Vector3(), dir: new THREE.Vector3(), f: new THREE.Vector3(), fw: new THREE.Vector3(), ray: new THREE.Ray() };
 export class ChaseCamera {
   constructor(camera, bvh) {
     this.camera = camera; this.bvh = bvh;
@@ -102,14 +102,14 @@ export class ChaseCamera {
   }
   glance(dx, dy, now) { this.yawOff = THREE.MathUtils.clamp(this.yawOff - dx, -2.6, 2.6); this.pitchOff = THREE.MathUtils.clamp(this.pitchOff + dy, -0.3, 0.6); this.lastLook = now; }
   update(dt, p, vel, heading, airborne, now) {
-    const { want, tgt, dir, f, ray } = _c;
+    const { want, tgt, dir, f, ray } = _c, fwv = _c.fw;
     const hs = Math.hypot(vel.x, vel.z);
     // forward: travel direction when moving, else the sled heading
     f.set(Math.sin(heading), 0, Math.cos(heading));
     if (hs > 1.5) { const vf = dir.set(vel.x, 0, vel.z).normalize(); f.lerp(vf, THREE.MathUtils.clamp((hs - 1.5) / 3, 0, 0.85)).normalize(); }
     this.fwd.lerp(f, 1 - Math.exp(-3.2 * dt)).normalize();
     if (now - this.lastLook > 1200) { this.yawOff *= Math.exp(-2.5 * dt); this.pitchOff *= Math.exp(-2.5 * dt); }
-    const fw = dir.copy(this.fwd).applyAxisAngle(new THREE.Vector3(0, 1, 0), this.yawOff);
+    const fw = fwv.copy(this.fwd).applyAxisAngle(new THREE.Vector3(0, 1, 0), this.yawOff);
     const dist = 4.4 + Math.min(hs, 18) * 0.11;
     const height = 1.7 + Math.min(hs, 18) * 0.035 + this.pitchOff * 3;
     tgt.copy(p).add(new THREE.Vector3(0, 0.9, 0));
@@ -126,7 +126,7 @@ export class ChaseCamera {
     ray.origin.set(this.pos.x, this.pos.y + 3, this.pos.z); ray.direction.set(0, -1, 0);
     const g = this.bvh.raycastFirst(ray, THREE.DoubleSide, 0, 8);
     if (g && this.pos.y < g.point.y + 0.45) this.pos.y = g.point.y + 0.45;
-    const lookT = dir.copy(tgt).addScaledVector(this.fwd, 2.5 + hs * 0.08);
+    const lookT = dir.copy(tgt).addScaledVector(fw, (2.5 + hs * 0.08) * Math.max(0, Math.cos(this.yawOff)));
     this.look.lerp(lookT, dt === 0 ? 1 : 1 - Math.exp(-9 * dt));
     this.fov += (this.baseFov + Math.min(hs, 18) * 1.05 - this.fov) * (1 - Math.exp(-2.5 * dt));
     this.camera.position.copy(this.pos);

@@ -467,7 +467,7 @@ def render_settings(scene=None):
     c.denoising_input_passes = "RGB_ALBEDO_NORMAL"
     c.denoising_prefilter = "ACCURATE"
     c.max_bounces = 4; c.diffuse_bounces = 2; c.glossy_bounces = 1; c.transmission_bounces = 2
-    c.volume_bounces = 0; c.transparent_max_bounces = 4
+    c.volume_bounces = 0; c.transparent_max_bounces = 8
     c.volume_step_rate = 4.0
     c.volume_max_steps = 256
     c.sample_clamp_indirect = 6.0

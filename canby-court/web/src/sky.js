@@ -193,7 +193,7 @@ export class Sky {
 
 // distant treeline ring (artistic): jagged conifer silhouettes beyond the data box, fogged
 export function buildTreeline(terrain, center = [-50, -25]) {
-  const R0 = 300, segs = 720;
+  const R0 = 360, segs = 1440;
   const pos = [], col = [], idx = [];
   let s = 7;
   const rnd = () => { s = (s * 16807) % 2147483647; return s / 2147483647; };
@@ -203,9 +203,9 @@ export function buildTreeline(terrain, center = [-50, -25]) {
     const x = center[0] + Math.cos(a) * R, y = center[1] + Math.sin(a) * R;
     const ex = Math.max(terrain.x0 + 1, Math.min(terrain.x1 - 1, x)), ey = Math.max(terrain.y0 + 1, Math.min(terrain.y1 - 1, y));
     const base = terrain.height(ex, ey) + (x - ex) * 0.0 - 4;
-    // conifer spikes: alternate tip / notch vertices
-    const tip = i % 2 === 0;
-    const h = tip ? 22 + rnd() * 20 + 8 * Math.sin(a * 5) : 12 + rnd() * 8;
+    // irregular canopy line: clumps of crowns with the odd taller conifer tip
+    const tip = i % 2 === 0 && rnd() < 0.35;
+    const h = 18 + 6 * Math.sin(a * 11 + 2) + 5 * Math.sin(a * 37) + rnd() * 4 + (tip ? 6 + rnd() * 8 : 0);
     pos.push(x, base - 30, -y, x, base + h, -y);
     const k = 0.75 + rnd() * 0.3;
     col.push(0.03 * k, 0.05 * k, 0.035 * k, 0.04 * k, 0.065 * k, 0.04 * k);

@@ -7,56 +7,8 @@
    2160
   ],
   "samples": 96,
-  "seconds": 1468.1,
+  "seconds": 1908.7,
   "preset": "golden",
-  "when": "2026-11-21 01:47:07"
- },
- {
-  "shot": "e_yasaka_dori_upper_west",
-  "file": "renders/final_e_yasaka_dori_upper_west.png",
-  "res": [
-   3840,
-   2160
-  ],
-  "samples": 96,
-  "seconds": 1327.3,
-  "preset": "dusk",
-  "when": "2026-11-21 02:09:15"
- },
- {
-  "shot": "b_ninenzaka_south",
-  "file": "renders/final_b_ninenzaka_south.png",
-  "res": [
-   3840,
-   2160
-  ],
-  "samples": 96,
-  "seconds": 1297.0,
-  "preset": "dusk",
-  "when": "2026-11-21 02:30:52"
- },
- {
-  "shot": "c_sannenzaka_stairs",
-  "file": "renders/final_c_sannenzaka_stairs.png",
-  "res": [
-   3840,
-   2160
-  ],
-  "samples": 96,
-  "seconds": 1319.0,
-  "preset": "dusk",
-  "when": "2026-11-21 02:52:51"
- },
- {
-  "shot": "d_bluehour_roofs",
-  "file": "renders/final_d_bluehour_roofs.png",
-  "res": [
-   3840,
-   2160
-  ],
-  "samples": 96,
-  "seconds": 1391.1,
-  "preset": "blue",
-  "when": "2026-11-21 03:16:02"
+  "when": "2026-11-21 04:09:22"
  }
 ]

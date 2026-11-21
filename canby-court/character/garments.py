@@ -451,7 +451,7 @@ def beanie(bd, collection, rect):
     # cut plane: forehead (front, ~2.5cm above brows) down to occiput at the back
     rel = co - hd
     # plane z = a + b*y  (y negative = front)
-    zf, zb = 0.080, 0.020      # heights above head joint at front / back
+    zf, zb = 0.068, 0.002      # heights above head joint at front / back
     yf, yb = -0.10, 0.08
     zc = zf + (rel[:, 1] - yf) * (zb - zf) / (yb - yf)
     m = (headw > 0.5) & (rel[:, 2] > zc)
@@ -467,7 +467,7 @@ def beanie(bd, collection, rect):
     sh.smooth(3)
     n = sh.normals()
     sh.co = sh.co + n * (geo.fbm3(sh.co, 14, 2, 31) * 0.0012)[:, None]
-    sh.clean_hems()
+    sh.clean_hems(ring_smooth=24, falloff=2)
     sh.hem(depth=0.010)
     return sh.to_object(collection, rect)
 

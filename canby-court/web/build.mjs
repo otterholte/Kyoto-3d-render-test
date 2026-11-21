@@ -116,6 +116,19 @@ const TJ = readJSON(path.join(PROC, 'terrain.json')).dtm;
     id: t.id, x: t.x, y: t.y, h: t.height_m, r: t.crown_radius_m, type: t.type, evergreen: !!t.evergreen, species: t.species_guess || '',
   }));
   const hedges = TR.hedges.map((h) => ({ id: h.id, pts: h.points, w: h.width_m || 1, h: h.height_m_est || 1.5, kind: h.kind || '' }));
+  // door / garage-door positions from the scene agent (blender/scene_meta.json), when present
+  const metaPath = path.join(ROOT, 'blender', 'scene_meta.json');
+  if (fs.existsSync(metaPath)) {
+    try {
+      const SM = readJSON(metaPath);
+      for (const h of houses) {
+        const m = SM.houses && SM.houses[String(h.number)];
+        if (!m || !m.doors) continue;
+        h.doors = [...(m.doors.door || []), ...(m.doors.garage || [])].map((d) => ({ kind: d.kind, c: d.center.map(r2), n: d.normal.map((v) => +v.toFixed(3)), w: +d.width.toFixed(2), z: d.z }));
+      }
+      console.log('  doors from blender/scene_meta.json');
+    } catch (e) { console.warn('  scene_meta.json unreadable', e.message); }
+  }
   const wd = {
     note: 'Derived from canby-court/data (see README). Local metres: x east, y north, z NAVD88. three.js: (x, z, -y).',
     origin: B.origin, context: ctx, core: B.core.local.coordinates[0].map(([x, y]) => [r2(x), r2(y)]),
@@ -138,7 +151,25 @@ const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies(
   'meshopt.encoder': MeshoptEncoder, 'meshopt.decoder': MeshoptDecoder,
 });
 
-async function optimise(srcName, { texSize = 2048 } = {}) {
+// GLB with its images kept EXTERNAL (uri relative to assets/, e.g. "tex/x.jpg"): optimise geometry only, then put
+// the original URIs back into the written GLB's JSON (images are fetched by the page next to the GLB).
+const TINY_PNG = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64');
+function patchGLBImages(glb, uris) {
+  const dv = new DataView(glb.buffer, glb.byteOffset, glb.byteLength);
+  const jsonLen = dv.getUint32(12, true);
+  const json = JSON.parse(Buffer.from(glb.buffer, glb.byteOffset + 20, jsonLen).toString('utf8'));
+  const rest = Buffer.from(glb.buffer, glb.byteOffset + 20 + jsonLen, glb.byteLength - 20 - jsonLen);
+  (json.images || []).forEach((im, i) => { if (uris[i]) { delete im.bufferView; im.uri = uris[i]; } });
+  let js = Buffer.from(JSON.stringify(json), 'utf8');
+  const pad = (4 - (js.length % 4)) % 4;
+  js = Buffer.concat([js, Buffer.alloc(pad, 0x20)]);
+  const head = Buffer.alloc(20);
+  head.writeUInt32LE(0x46546c67, 0); head.writeUInt32LE(2, 4); head.writeUInt32LE(20 + js.length + rest.length, 8);
+  head.writeUInt32LE(js.length, 12); head.writeUInt32LE(0x4e4f534a, 16);
+  return { glb: Buffer.concat([head, js, rest]), images: (json.images || []).map((im) => im.uri).filter(Boolean) };
+}
+
+async function optimise(srcName, { texSize = 2048, externalImages = false } = {}) {
   const src = path.join(ASSETS, srcName);
   const glb = path.join(DIST, srcName);
   const t0 = Date.now();
@@ -154,26 +185,36 @@ async function optimise(srcName, { texSize = 2048 } = {}) {
     return { file: 'dist/' + b64, source: 'assets/' + srcName, bytes, sourceBytes: fs.statSync(src).size, passthrough: true, clips: anims.length ? anims : undefined };
   }
   const steps = [dedup(), prune({ keepLeaves: true, keepExtras: true, keepAttributes: false })];
-  if (doc.getRoot().listTextures().length) {
+  if (!externalImages && doc.getRoot().listTextures().length) {
     steps.push(textureCompress({ encoder: sharp, targetFormat: 'webp', resize: [texSize, texSize], quality: 88 }));
   }
   steps.push(meshopt({ encoder: MeshoptEncoder, level: 'medium', quantizePosition: 16, quantizeNormal: 10, quantizeTexcoord: 14 }));
   await doc.transform(...steps);
-  await io.write(glb, doc);
-  fs.writeFileSync(path.join(DIST, b64), fs.readFileSync(glb).toString('base64'));
-  fs.rmSync(glb);
+  let out, images = [];
+  if (externalImages) {
+    const uris = doc.getRoot().listTextures().map((t) => t.getURI());
+    for (const t of doc.getRoot().listTextures()) t.setImage(new Uint8Array(TINY_PNG)).setMimeType('image/png');
+    const r = patchGLBImages(Buffer.from(await io.writeBinary(doc)), uris);
+    out = r.glb; images = r.images;
+    const missing = images.filter((u) => !fs.existsSync(path.join(ASSETS, u)));
+    if (missing.length) console.warn(`  WARNING: ${srcName} references missing images: ${missing.join(', ')}`);
+  } else {
+    out = Buffer.from(await io.writeBinary(doc));
+  }
+  fs.writeFileSync(path.join(DIST, b64), out.toString('base64'));
   const bytes = fs.statSync(path.join(DIST, b64)).size;
   const anims = doc.getRoot().listAnimations().map((a) => a.getName());
-  console.log(`  ${srcName} (${mb(fs.statSync(src).size)}) -> dist/${b64} (${mb(bytes)}) in ${((Date.now() - t0) / 1000).toFixed(1)} s${anims.length ? ' clips: ' + anims.join(',') : ''}`);
+  console.log(`  ${srcName} (${mb(fs.statSync(src).size)}) -> dist/${b64} (${mb(bytes)}, ${images.length} external images) in ${((Date.now() - t0) / 1000).toFixed(1)} s${anims.length ? ' clips: ' + anims.join(',') : ''}`);
   if (bytes > MAX_FILE) console.warn(`  WARNING: dist/${b64} exceeds the 15 MB per-file hosting limit`);
-  return { file: 'dist/' + b64, source: 'assets/' + srcName, bytes, sourceBytes: fs.statSync(src).size, clips: anims.length ? anims : undefined };
+  void glb;
+  return { file: 'dist/' + b64, source: 'assets/' + srcName, bytes, sourceBytes: fs.statSync(src).size, clips: anims.length ? anims : undefined, resourcePath: externalImages ? 'assets/' : undefined, images: images.length ? images.map((u) => 'assets/' + u) : undefined };
 }
 
 for (const f of fs.readdirSync(DIST)) if (/\.glb(\.b64\.txt)?$/.test(f)) fs.rmSync(path.join(DIST, f));
 console.log('GLBs');
 for (const season of ['summer', 'winter']) {
   const f = `world_${season}.glb`;
-  if (fs.existsSync(path.join(ASSETS, f))) manifest.worlds[season] = await optimise(f, { texSize: 2048 });
+  if (fs.existsSync(path.join(ASSETS, f))) manifest.worlds[season] = await optimise(f, { externalImages: true });
   else console.log(`  assets/${f} not present: procedural placeholder world (from data/processed) for ${season}`);
 }
 if (fs.existsSync(path.join(ASSETS, 'character.glb'))) manifest.character = await optimise('character.glb', { texSize: 1024 });
@@ -181,6 +222,27 @@ else console.log('  assets/character.glb not present: placeholder figure');
 if (fs.existsSync(path.join(ASSETS, 'sled.glb'))) manifest.sled = await optimise('sled.glb', { texSize: 512 });
 else console.log('  assets/sled.glb not present: sled from character.glb (node "Sled") or a placeholder sled');
 
+// ground texture sets from the scene agent's library (assets/tex/library.json) for the placeholder ground shader
+{
+  const libPath = path.join(ASSETS, 'tex', 'library.json');
+  const want = { lawn: 'lawn_grass', asphalt: 'asphalt_street', concrete: 'concrete_drive', bed: 'bark_mulch', snow: 'snow_fresh', snowPacked: 'snow_packed', roof: 'roof_arch_shingle', siding: 'siding_lap_fibercement' };
+  if (fs.existsSync(libPath)) {
+    const lib = readJSON(libPath).sets || {};
+    const out = {};
+    for (const [k, name] of Object.entries(want)) {
+      const set = lib[name];
+      if (!set || !set.files || !set.files.albedo || !set.files.normal) continue;
+      if (!fs.existsSync(path.join(ASSETS, 'tex', set.files.albedo)) || !fs.existsSync(path.join(ASSETS, 'tex', set.files.normal))) continue;
+      out[k] = { albedo: 'assets/tex/' + set.files.albedo, normal: 'assets/tex/' + set.files.normal, size: set.size_m[0] };
+    }
+    if (Object.keys(out).length === Object.keys(want).length) { manifest.groundTex = out; console.log('ground textures: ' + Object.values(want).join(', ')); }
+  }
+}
+// leaf-card atlas (scene agent) for the placeholder trees
+if (manifest.groundTex && fs.existsSync(path.join(ASSETS, 'tex', 'foliage_atlas.json')) && fs.existsSync(path.join(ASSETS, 'tex', 'foliage_atlas_albedo.png'))) {
+  manifest.foliage = { json: 'assets/tex/foliage_atlas.json', albedo: 'assets/tex/foliage_atlas_albedo.png' };
+  console.log('foliage atlas: assets/tex/foliage_atlas_albedo.png');
+}
 // optional: scene contract notes (kicker names etc.)
 const sceneDoc = path.join(ROOT, 'docs', 'scene.md');
 manifest.sceneDoc = fs.existsSync(sceneDoc) ? 'canby-court/docs/scene.md (present at build time)' : null;
@@ -200,6 +262,12 @@ console.log('dist/manifest.json written');
   const list = ['index.html', 'artifact.html', 'style.css', ...fs.readdirSync(path.join(HERE, 'src')).filter((f) => f.endsWith('.js')).map((f) => 'src/' + f),
     'dist/manifest.json', manifest.terrain.file, 'assets/surface.png', 'assets/world_data.json'];
   for (const k of ['summer', 'winter']) if (manifest.worlds[k]) list.push(manifest.worlds[k].file);
+  const imgs = new Set();
+  for (const k of ['summer', 'winter']) for (const u of (manifest.worlds[k] && manifest.worlds[k].images) || []) imgs.add(u);
+  list.push(...[...imgs].filter((u) => !list.includes(u)).sort());
+  const placeholderUsed = !(manifest.worlds.summer && manifest.worlds.winter);
+  if (manifest.groundTex && placeholderUsed) for (const t of Object.values(manifest.groundTex)) list.push(t.albedo, t.normal);
+  if (manifest.foliage && placeholderUsed) list.push(manifest.foliage.json, manifest.foliage.albedo);
   if (manifest.character) list.push(manifest.character.file);
   if (manifest.sled) list.push(manifest.sled.file);
   let total = 0;

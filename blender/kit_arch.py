@@ -242,9 +242,9 @@ def _roof_details(bm, roof_faces, col_layer, ring, eaves=True):
             jobs.append(("eave", v0, v1, 0.16, 0.0))
     for kind, v0, v1, w, h in jobs:
         if kind == "ridge":
-            _prism(bm, v0, v1, w, h, 0.08, col_layer, rc, 0)
+            _prism(bm, v0, v1, w, h, 0.08, col_layer, rc, 3)
         else:
-            _prism(bm, v0 + Vector((0, 0, -0.02)), v1 + Vector((0, 0, -0.02)), w, 0.07, ROOF_T + 0.04, col_layer, rc, 0)
+            _prism(bm, v0 + Vector((0, 0, -0.02)), v1 + Vector((0, 0, -0.02)), w, 0.07, ROOF_T + 0.04, col_layer, rc, 3)
     return len(jobs)
 
 
@@ -253,8 +253,75 @@ def _thicken(bm, roof_faces, col_layer):
     nv = [g for g in res["geom"] if isinstance(g, bmesh.types.BMVert)]
     bmesh.ops.translate(bm, verts=nv, vec=(0, 0, -ROOF_T))
     newf = [g for g in res["geom"] if isinstance(g, bmesh.types.BMFace)]
-    bmesh.ops.reverse_faces(bm, faces=newf)
+    for f in newf:
+        f.material_index = 4          # fascia board + soffit (timber), slot 4
+    bmesh.ops.recalc_face_normals(bm, faces=list(roof_faces) + newf)
+    for f in roof_faces:
+        if f.normal.z < 0:            # keep the tiled top facing up
+            bmesh.ops.reverse_faces(bm, faces=list(roof_faces) + newf)
+            break
     return newf
+
+
+def _rafters(out, bvh, a, b, ra, rb, zmax, pitch=0.45):
+    """Exposed rafter tails (taruki) under the 0.45 m street-front eave: one 0.07 x 0.09 m timber every 0.45 m, running
+    from just inside the wall to the surveyed roof edge, tight under the 0.2 m roof slab (inferred, typical machiya)."""
+    L = float(np.linalg.norm(b - a))
+    k = int(L / pitch)
+    for j in range(k + 1):
+        t = (j + 0.5) / (k + 1)
+        pin = a + (b - a) * t
+        pout = ra + (rb - ra) * t
+        u = pout - pin
+        if np.linalg.norm(u) < 0.1:
+            continue
+        hin = bvh.ray_cast(Vector((pin[0], pin[1], zmax + 5)), Vector((0, 0, -1)))
+        pe = pout - u / np.linalg.norm(u) * 0.03
+        hout = bvh.ray_cast(Vector((pe[0], pe[1], zmax + 5)), Vector((0, 0, -1)))
+        if hin[0] is None or hout[0] is None:
+            continue
+        z0 = hin[0].z - ROOF_T - 0.003
+        z1 = hout[0].z - ROOF_T - 0.003
+        p0 = np.array([pin[0], pin[1], z0]) - np.r_[u / np.linalg.norm(u) * 0.06, 0]
+        p1 = np.array([pout[0], pout[1], z1]) - np.r_[u / np.linalg.norm(u) * 0.04, 0]
+        out.append((p0, p1))
+
+
+def _rafter_object(ob, rafters):
+    import bpy as _b
+    from kit_materials import M
+    bm = bmesh.new()
+    for p0, p1 in rafters:
+        _prism_plain(bm, Vector(p0), Vector(p1), 0.07, 0.0, 0.09)
+    me = _b.data.meshes.new("Eave_" + ob.name)
+    bm.to_mesh(me); bm.free()
+    me.materials.append(M("wood_weather"))
+    eo = _b.data.objects.new("Eave_" + ob.name, me)
+    from kit_common import get_coll
+    get_coll("60_Eave_Rafters", get_coll("60_Machiya_Kit")).objects.link(eo)
+    eo["building"] = ob.name; eo["plateau_id"] = ob.get("plateau_id", "")
+    eo["detail_class"] = "inferred"; eo["artistic"] = False; eo["collide"] = False
+    eo["evidence_ref"] = "exposed rafter tails under the 0.45 m street-front eave (typical machiya eave, building_evidence.md)"
+
+
+def _prism_plain(bm, p0, p1, w, h_up, h_dn):
+    ax = (p1 - p0)
+    if ax.length < 0.05:
+        return
+    ax.normalize()
+    side = ax.cross(Vector((0, 0, 1))).normalized()
+    up = side.cross(ax).normalized()
+    if up.z < 0:
+        up = -up
+    vs = []
+    for p in (p0, p1):
+        for sx, v in ((-1, -h_dn), (1, -h_dn), (1, h_up), (-1, h_up)):
+            vs.append(bm.verts.new(p + side * (sx * w / 2) + up * v))
+    for f in ((0, 1, 2, 3), (7, 6, 5, 4), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)):
+        try:
+            bm.faces.new([vs[i] for i in f])
+        except ValueError:
+            pass
 
 
 def _mesh_arrays(me):
@@ -381,6 +448,7 @@ def rebuild_p2(ob, ctx):
             lp[cl] = tuple(cols[li]) if cols is not None else tuple(wall_default)
 
     # new outer walls along the inset ring
+    rafters = []
     fp_ground = gz(ring[:, 0], ring[:, 1])
     zb = float(np.min(fp_ground)) - 0.6
     segs = []
@@ -414,6 +482,8 @@ def rebuild_p2(ob, ctx):
                 f = bm.faces.new(vv); f.material_index = m
                 for lp in f.loops:
                     lp[cl] = c
+        if d[i] > 0.2 and max(tops) - min(tops) < 0.35:
+            _rafters(rafters, bvh, a, b, ring[i], ring[(i + 1) % n], zmax)
         segs.append(dict(i=i, a=a.tolist(), b=b.tolist(), roof_a=ring[i].tolist(), roof_b=ring[(i + 1) % n].tolist(),
                          inset=float(d[i]), src=ins[i][1], top_min=float(min(tops)),
                          ground_min=float(np.min(gzs)), ground_max=float(np.max(gzs))))
@@ -423,6 +493,8 @@ def rebuild_p2(ob, ctx):
     for m in me.materials:
         new.materials.append(m)
     ob.data = new
+    if rafters:
+        _rafter_object(ob, rafters)
     ob["priority"] = 2
     ob["wall_inset_m"] = json.dumps([round(float(x), 3) for x in d])
     ob["wall_inset_src"] = json.dumps(sorted(set(x[1] for x in ins)), ensure_ascii=False)
@@ -454,7 +526,12 @@ def lighten_p3(ob):
         res = bmesh.ops.extrude_face_region(bm, geom=roof_faces)
         nv = [g for g in res["geom"] if isinstance(g, bmesh.types.BMVert)]
         bmesh.ops.translate(bm, verts=nv, vec=(0, 0, -0.15))
-        bmesh.ops.reverse_faces(bm, faces=[g for g in res["geom"] if isinstance(g, bmesh.types.BMFace)])
+        newf = [g for g in res["geom"] if isinstance(g, bmesh.types.BMFace)]
+        for f in newf:
+            f.material_index = 4
+        bmesh.ops.recalc_face_normals(bm, faces=roof_faces + newf)
+        if roof_faces and sum(f.normal.z for f in roof_faces) < 0:
+            bmesh.ops.reverse_faces(bm, faces=roof_faces + newf)
     bm.to_mesh(me); bm.free()
     ob["priority"] = 3
 
