@@ -1,0 +1,4 @@
+__pycache__/
+*.blend1
+textures/web/*_raw.glb
+tools/node_modules/

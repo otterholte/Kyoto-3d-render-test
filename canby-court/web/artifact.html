@@ -1,0 +1,188 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1e2a36">
+<meta name="description" content="Walk around Canby Court, a real cul-de-sac in Bellingham, WA, in summer or winter, and sled down the street over three snow kickers. Built from city GIS, 3DEP terrain and orthophoto evidence.">
+<title>Canby Court</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+    "three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.8.3/build/index.module.js"
+  }
+}
+</script>
+<canvas id="scene" aria-label="3D view of Canby Court, Bellingham"></canvas>
+
+<div id="loading" role="status" aria-live="polite">
+  <div class="load-card">
+    <div class="load-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><path d="M6 46 L22 28 L30 36 L42 20 L58 46 Z"/><circle cx="46" cy="14" r="5"/></svg>
+    </div>
+    <h1>Canby Court</h1>
+    <p class="load-sub">A cul-de-sac in Bellingham, Washington · summer &amp; winter</p>
+    <div class="bar"><div id="load-fill"></div></div>
+    <p id="load-text">Preparing…</p>
+  </div>
+</div>
+
+<div id="hud" hidden>
+  <header class="topbar">
+    <div class="title-chip">
+      <span class="t-main">Canby Court</span>
+      <span class="t-sub" id="place-name">Cul-de-sac bulb</span>
+    </div>
+    <nav class="btn-row" aria-label="Menu">
+      <button class="icon-btn" id="btn-places" aria-label="Places" aria-expanded="false" aria-controls="panel-places" title="Places">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </button>
+      <button class="icon-btn season-btn" id="btn-season" aria-label="Switch to winter" title="Switch season">
+        <svg class="ico-snow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2.5L15 4M9 20l3-2.5 3 2.5M4 10.5l3.6-.6-1.2-3.4M20 13.5l-3.6.6 1.2 3.4M4 13.5l3.6.6-1.2 3.4M20 10.5l-3.6-.6 1.2-3.4"/></svg>
+        <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-settings" aria-label="Settings" aria-expanded="false" aria-controls="panel-settings" title="Quality &amp; sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-info" aria-label="About and credits" aria-expanded="false" aria-controls="panel-info" title="About &amp; credits">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.6" class="fill"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <div id="minimap-wrap" title="Map (tap: local / whole area)" role="button" aria-label="Map, toggle zoom">
+    <canvas id="minimap" aria-hidden="true"></canvas>
+    <span class="north" aria-hidden="true">N</span>
+  </div>
+
+  <section class="panel" id="panel-places" hidden aria-label="Places">
+    <h2>Places</h2>
+    <ul id="places-list"></ul>
+  </section>
+
+  <section class="panel" id="panel-settings" hidden aria-label="Settings">
+    <h2>Quality</h2>
+    <div class="seg" role="radiogroup" aria-label="Quality">
+      <button role="radio" data-q="auto" aria-checked="true">Auto</button>
+      <button role="radio" data-q="low" aria-checked="false">Low</button>
+      <button role="radio" data-q="medium" aria-checked="false">Medium</button>
+      <button role="radio" data-q="high" aria-checked="false">High</button>
+    </div>
+    <h2>Sound</h2>
+    <button class="wide-btn" id="btn-sound" aria-pressed="false">Sound off — tap to turn on</button>
+    <p class="small" id="perf-line"></p>
+  </section>
+
+  <section class="panel wide" id="panel-info" hidden aria-label="About and credits">
+    <h2>About Canby Court</h2>
+    <p>A short cul-de-sac off 38th St in Bellingham, Washington: ten houses around a bulb, with 3905 Canby Ct at the top. Walk the street and around 3905, switch between a late-summer evening and a snowy winter afternoon, and in winter take the sled down the street — the neighbourhood's real sledding hill (134 m, 14.8 m drop).</p>
+    <h3>Measured / documented</h3>
+    <ul class="dots" id="info-measured">
+      <li>Terrain: USGS 3DEP bare-earth DTM (0.5 m), NAVD88.</li>
+      <li>House footprints, street centreline and pavement: City of Bellingham GIS; storeys / year built from the assessor-derived building layer.</li>
+      <li>Roof form, ridge direction, roof colour, trees and hedges: observed on the 2022 / 2024 orthophotos; ground cover classified from the orthophotos and NAIP.</li>
+      <li>Sledding line: steepest descent on the DTM along Canby Ct.</li>
+    </ul>
+    <h3>Inferred or artistic</h3>
+    <ul class="dots" id="info-artistic">
+      <li>Wall and ridge heights, roof pitch (inferred from storeys); facade colours, windows and doors (no evidence: artistic).</li>
+      <li>The three kickers, the run-out berm and the hay bales: <strong>artistic</strong> game additions.</li>
+      <li>Sky, clouds, snow, lighting, sound and the people: <strong>artistic</strong>.</li>
+    </ul>
+    <p class="small" id="info-world"></p>
+    <h3>Controls</h3>
+    <p class="small"><b>Walk:</b> WASD / arrows, Shift run, Space jump, drag to look, wheel zoom. Touch: left thumb walks, drag on the right to look, pinch to zoom.<br><b>Sled:</b> A / D (or ← →) steer, S brake, W paddle, Space pop / boost at the lip, 1 / 2 / 3 tricks in the air, R restart, Esc leave. Touch: left thumb steers, big buttons on the right.</p>
+    <h3>Credits</h3>
+    <p class="credits">City of Bellingham GIS · USGS 3DEP · Whatcom County / City of Bellingham orthophotos · USDA NAIP · © OpenStreetMap contributors</p>
+    <p class="small">Rendering: three.js, three-mesh-bvh, meshoptimizer (MIT). Only addresses are used; no owner or resident data.</p>
+    <button class="close-btn" data-close="panel-info">Close</button>
+  </section>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <div id="hint" class="hint"></div>
+
+  <div id="joy" aria-hidden="true"><div id="joy-knob"></div></div>
+  <button id="btn-run" class="run-btn" aria-pressed="false" hidden>Run</button>
+  <button id="btn-sled" class="sled-btn" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15h15a3 3 0 0 0 3-3M5 15l-1 3h14M7 11l3-3 3 1 2 3"/><circle cx="13" cy="5" r="1.6"/></svg>
+    <span>Sled</span>
+  </button>
+  <button id="btn-photo" class="photo-btn" aria-label="Photo mode" title="Photo mode (hides the interface, highest quality)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3v10H4z"/><circle cx="12" cy="13.2" r="3.4"/></svg>
+  </button>
+
+  <!-- sled HUD -->
+  <div id="sled-hud" hidden>
+    <div class="sled-top">
+      <button class="pill-btn" id="sled-exit" aria-label="Leave the sled">✕ Walk</button>
+      <div class="sled-stats" aria-live="off">
+        <div><span class="lbl">Time</span><span id="s-time">0.0</span></div>
+        <div><span class="lbl">Score</span><span id="s-score">0</span></div>
+        <div><span class="lbl">Best</span><span id="s-best">–</span></div>
+      </div>
+      <button class="pill-btn" id="sled-restart" aria-label="Restart the run">↻ Restart</button>
+    </div>
+    <div class="sled-gauge">
+      <span id="s-speed">0</span><span class="unit">km/h</span>
+      <span class="air" id="s-air"></span>
+    </div>
+    <div id="s-pop" class="sled-pop" aria-live="polite"></div>
+    <div id="s-count" class="sled-count"></div>
+    <div class="sled-actions">
+      <div class="trick-col">
+        <button class="trick-btn" data-trick="superman" title="Superman (1)"><b>1</b>Superman</button>
+        <button class="trick-btn" data-trick="spread_eagle" title="Spread eagle (2)"><b>2</b>Spread</button>
+        <button class="trick-btn" data-trick="grab" title="Grab (3)"><b>3</b>Grab</button>
+      </div>
+      <button class="boost-btn" id="s-boost" title="Pop / boost at the lip (Space)">POP<small>boost</small></button>
+    </div>
+    <div class="sled-progress" aria-hidden="true"><div id="s-prog"></div><i style="left:28%"></i><i style="left:54%"></i><i style="left:74%"></i></div>
+  </div>
+
+  <section class="panel finish" id="panel-finish" hidden aria-label="Run complete">
+    <h2 id="f-title">Run complete</h2>
+    <div class="f-grid">
+      <div><span class="lbl">Score</span><b id="f-score">0</b></div>
+      <div><span class="lbl">Time</span><b id="f-time">0.0 s</b></div>
+      <div><span class="lbl">Top speed</span><b id="f-speed">0</b></div>
+      <div><span class="lbl">Best</span><b id="f-best">0</b></div>
+    </div>
+    <ul id="f-jumps" class="dots"></ul>
+    <div class="f-btns"><button class="wide-btn primary" id="f-again">Run again</button><button class="wide-btn" id="f-walk">Walk</button></div>
+  </section>
+</div>
+
+<div id="fade" aria-hidden="true"></div>
+
+<div id="photo-bar" hidden role="toolbar" aria-label="Photo mode">
+  <span class="photo-label">Photo mode</span>
+  <button id="photo-save">Save image</button>
+  <button id="photo-person" aria-pressed="true">Person</button>
+  <button id="photo-exit">Exit</button>
+</div>
+
+<div id="fatal" hidden role="alert"></div>
+
+<script>
+// Watchdog (classic script, runs even where modules / import maps do not): if the 3D engine module never starts
+// (CDN blocked, no import-map support e.g. iOS < 16.4) show a clear message instead of "Preparing…".
+(function () {
+  function fail(msg) {
+    if (window.__cc && window.__cc.started) return;
+    var f = document.getElementById('fatal'), l = document.getElementById('loading');
+    if (!f) return;
+    f.hidden = false; f.textContent = msg;
+    if (l) l.className += ' done';
+  }
+  var noMap = window.HTMLScriptElement && typeof HTMLScriptElement.supports === 'function' && !HTMLScriptElement.supports('importmap');
+  if (noMap) { fail('Canby Court needs a newer browser (JavaScript import maps): Safari / iOS 16.4+, Chrome 89+, Firefox 108+ or Edge 89+.'); return; }
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'SCRIPT' && t.type === 'module') fail('The 3D engine (three.js from cdn.jsdelivr.net) could not be loaded. Check the connection or content blockers and reload.');
+  }, true);
+  setTimeout(function () {
+    fail('The 3D engine did not start after 20 seconds. The script CDN (cdn.jsdelivr.net) may be blocked, or this browser is too old (iOS 16.4+ / a current Chrome, Firefox, Edge or Safari is needed). Please reload to try again.');
+  }, 20000);
+})();
+</script>
+<script type="module" src="src/main.js"></script>

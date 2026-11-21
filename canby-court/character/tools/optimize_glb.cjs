@@ -13,12 +13,22 @@ const sharp = require('sharp');
     'meshopt.encoder': MeshoptEncoder, 'meshopt.decoder': MeshoptDecoder });
   const doc = await io.read(inp);
   const root = doc.getRoot();
+  // Blender writes Sheen Tint as sheenColor (ignoring Sheen Weight): set physically sensible values.
+  const SHEEN = { Skin: [0.07, 0.055, 0.05], Outfit_Summer: [0.16, 0.17, 0.19], Outfit_Winter: [0.10, 0.10, 0.11] };
   for (const m of root.listMaterials()) {
-    const n = m.getName();
-    if (n === 'Hair') { m.setAlphaMode('MASK'); m.setAlphaCutoff(0.4); m.setDoubleSided(true); }
-    else if (n === 'Eyes') { m.setAlphaMode('BLEND'); }
+    const n = m.getName().replace(/\.\d+$/, '');
+    m.setName(n);
+    const sh = m.getExtension('KHR_materials_sheen');
+    if (sh) { if (SHEEN[n]) sh.setSheenColorFactor(SHEEN[n]); else m.setExtension('KHR_materials_sheen', null); }
+    const cc = m.getExtension('KHR_materials_clearcoat');
+    if (cc && cc.getClearcoatFactor() === 0) m.setExtension('KHR_materials_clearcoat', null);
+    m.setDoubleSided(/^(Hair|Outfit)/.test(n));
+    if (/^Hair/.test(n)) { m.setAlphaMode('MASK'); m.setAlphaCutoff(0.4); }
+    else if (/^Eyes/.test(n)) { m.setAlphaMode('BLEND'); }
     else { m.setAlphaMode('OPAQUE'); }
   }
+  for (const nd of root.listNodes()) nd.setName(nd.getName().replace(/_web$/, ''));
+  for (const me of root.listMeshes()) me.setName(me.getName().replace(/\.\d+$/, ''));
   const S = Number(maxTex);
   await doc.transform(
     dedup(), prune({ keepLeaves: true, keepAttributes: false }), resample({ tolerance: 1e-4 }),

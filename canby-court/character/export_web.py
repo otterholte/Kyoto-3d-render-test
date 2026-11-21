@@ -283,6 +283,9 @@ def main():
         tex[g] = (a, n, orm_from_rough(r, os.path.join(BAKE, f"{g}_orm.png")))
         log("baked", g)
 
+    for mn in ("Skin", "Hair", "Eyes"):
+        if mn in bpy.data.materials:
+            bpy.data.materials[mn].name = mn + "_hires"
     mats = {
         "skin": web_material("Skin", *tex["skin"], sheen=0.12, ior=1.4, spec=0.45),
         "summer": web_material("Outfit_Summer", *tex["summer"], sheen=0.35),
@@ -302,6 +305,8 @@ def main():
         hi = bpy.data.objects.get(k)
         if hi is not None and hi is not ob:
             hi.name = k + "_hires"
+            if hi.data is not None:
+                hi.data.name = k + "_hires"
     for k, ob in low.items():
         key = assign.get(k) or ("summer" if k.startswith("Summer") else "winter")
         ob.data.materials.clear()
@@ -375,22 +380,28 @@ def export_sled():
     n = bake_pass([(src, low)], "NORMAL", "sled_normal", noncolor=True, color=(0.5, 0.5, 1, 1), samples=4)
     o = orm_from_rough(r, os.path.join(BAKE, "sled_orm.png"))
     low.data.materials.clear()
+    bpy.data.materials["SledPlastic"].name = "SledPlastic_hires"
+    sled.data.name = "Sled_hires"
+    low.data.name = "Sled"
     low.data.materials.append(web_material("SledPlastic", a, n, o, coat=0.3))
-    rope_mat = bpy.data.materials["SledRope"]
+    bpy.data.materials["SledRope"].name = "SledRope_hires"
+    rm = bpy.data.materials.new("SledRope")
+    p = rm.node_tree.nodes["Principled BSDF"]
+    p.inputs["Base Color"].default_value = (0.55, 0.52, 0.45, 1)
+    p.inputs["Roughness"].default_value = 0.9
     ropes = []
     for r_ in [c for c in sled.children if c.name.startswith("SledRope")]:
         r_.data.bevel_resolution = 1
         r_.data.resolution_u = 3
         dg = bpy.context.evaluated_depsgraph_get()
         me = bpy.data.meshes.new_from_object(r_.evaluated_get(dg))
-        ro = bpy.data.objects.new(r_.name + "_web", me)
+        nm_ = r_.name
+        r_.name = nm_ + "_hires"
+        ro = bpy.data.objects.new(nm_, me)
         sc.collection.objects.link(ro)
         ro.matrix_world = r_.matrix_world
         me.materials.clear()
-        rm = bpy.data.materials.new("SledRope_web")
-        p = rm.node_tree.nodes["Principled BSDF"]
-        p.inputs["Base Color"].default_value = (0.55, 0.52, 0.45, 1)
-        p.inputs["Roughness"].default_value = 0.9
+        me.name = nm_
         me.materials.append(rm)
         ro.parent = low
         ro.matrix_parent_inverse = low.matrix_world.inverted()

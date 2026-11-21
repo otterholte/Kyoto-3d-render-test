@@ -1,0 +1,849 @@
+{
+ "conventions": {
+  "albedo": "sRGB, no lighting baked in (except deep-interior darkness on facade modules, see docs)",
+  "normal": "tangent space, OpenGL (+Y up / green = up). Flip G for DirectX.",
+  "orm": "R = ambient occlusion, G = roughness, B = metalness (linear)",
+  "emit": "greyscale emissive mask (linear); multiply by a warm light colour at night",
+  "units": "size_m = physical width x height covered by one texture repeat (metres)"
+ },
+ "sets": {
+  "asphalt_street": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    6.0,
+    6.0
+   ],
+   "tags": [
+    "asphalt",
+    "ACP",
+    "street"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "asphalt_street_albedo.jpg",
+    "normal": "asphalt_street_normal.jpg",
+    "orm": "asphalt_street_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "bark_birch": {
+   "kind": "tileable",
+   "category": "bark",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "bark",
+    "birch"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_birch_albedo.jpg",
+    "normal": "bark_birch_normal.jpg",
+    "orm": "bark_birch_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "bark_cedar": {
+   "kind": "tileable",
+   "category": "bark",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "bark",
+    "cedar"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_cedar_albedo.jpg",
+    "normal": "bark_cedar_normal.jpg",
+    "orm": "bark_cedar_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "bark_cherry": {
+   "kind": "tileable",
+   "category": "bark",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "bark",
+    "cherry"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_cherry_albedo.jpg",
+    "normal": "bark_cherry_normal.jpg",
+    "orm": "bark_cherry_orm.jpg"
+   },
+   "resolution": [
+    256,
+    256
+   ]
+  },
+  "bark_fir": {
+   "kind": "tileable",
+   "category": "bark",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "bark",
+    "fir"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_fir_albedo.jpg",
+    "normal": "bark_fir_normal.jpg",
+    "orm": "bark_fir_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "bark_maple": {
+   "kind": "tileable",
+   "category": "bark",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "bark",
+    "maple"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_maple_albedo.jpg",
+    "normal": "bark_maple_normal.jpg",
+    "orm": "bark_maple_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "bark_mulch": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "mulch",
+    "bark"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "bark_mulch_albedo.jpg",
+    "normal": "bark_mulch_normal.jpg",
+    "orm": "bark_mulch_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "brick_red": {
+   "kind": "tileable",
+   "category": "masonry",
+   "size_m": [
+    0.8128,
+    0.8801
+   ],
+   "tags": [
+    "brick"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "brick_red_albedo.jpg",
+    "normal": "brick_red_normal.jpg",
+    "orm": "brick_red_orm.jpg"
+   },
+   "resolution": [
+    512,
+    554
+   ]
+  },
+  "concrete_drive": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    3.0,
+    3.0
+   ],
+   "tags": [
+    "concrete",
+    "PCC"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "concrete_drive_albedo.jpg",
+    "normal": "concrete_drive_normal.jpg",
+    "orm": "concrete_drive_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "concrete_plain": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "concrete",
+    "PCC"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "concrete_plain_albedo.jpg",
+    "normal": "concrete_plain_normal.jpg",
+    "orm": "concrete_plain_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "concrete_sidewalk": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    1.524,
+    1.524
+   ],
+   "tags": [
+    "concrete",
+    "PCC"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "concrete_sidewalk_albedo.jpg",
+    "normal": "concrete_sidewalk_normal.jpg",
+    "orm": "concrete_sidewalk_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "door_6panel": {
+   "kind": "single",
+   "category": "door",
+   "size_m": [
+    0.9144,
+    2.032
+   ],
+   "tags": [
+    "door",
+    "6panel",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "door_6panel_albedo.jpg",
+    "normal": "door_6panel_normal.jpg",
+    "orm": "door_6panel_orm.jpg"
+   },
+   "resolution": [
+    256,
+    512
+   ]
+  },
+  "door_craftsman": {
+   "kind": "single",
+   "category": "door",
+   "size_m": [
+    0.9144,
+    2.032
+   ],
+   "tags": [
+    "door",
+    "craftsman",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "door_craftsman_albedo.jpg",
+    "normal": "door_craftsman_normal.jpg",
+    "orm": "door_craftsman_orm.jpg"
+   },
+   "resolution": [
+    256,
+    512
+   ]
+  },
+  "fence_cedar": {
+   "kind": "tileable",
+   "category": "wood",
+   "size_m": [
+    2.24,
+    2.24
+   ],
+   "tags": [
+    "wood",
+    "fence",
+    "cedar"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "fence_cedar_albedo.jpg",
+    "normal": "fence_cedar_normal.jpg",
+    "orm": "fence_cedar_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "foliage_arborvitae": {
+   "kind": "tileable",
+   "category": "foliage",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "foliage",
+    "dense",
+    "arborvitae"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "foliage_arborvitae_albedo.jpg",
+    "normal": "foliage_arborvitae_normal.jpg",
+    "orm": "foliage_arborvitae_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "foliage_atlas": {
+   "kind": "atlas",
+   "category": "foliage",
+   "size_m": [
+    1,
+    1
+   ],
+   "tags": [
+    "foliage",
+    "alpha",
+    "cards"
+   ],
+   "notes": "4x4 alpha card atlas, see foliage_atlas.json",
+   "resolution": [
+    1024,
+    1024
+   ],
+   "files": {
+    "albedo": "foliage_atlas_albedo.png",
+    "normal": "foliage_atlas_normal.jpg",
+    "orm": "foliage_atlas_orm.jpg"
+   }
+  },
+  "foliage_boxwood": {
+   "kind": "tileable",
+   "category": "foliage",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "foliage",
+    "dense",
+    "boxwood"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "foliage_boxwood_albedo.jpg",
+    "normal": "foliage_boxwood_normal.jpg",
+    "orm": "foliage_boxwood_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "foliage_laurel": {
+   "kind": "tileable",
+   "category": "foliage",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "foliage",
+    "dense",
+    "laurel"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "foliage_laurel_albedo.jpg",
+    "normal": "foliage_laurel_normal.jpg",
+    "orm": "foliage_laurel_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "foliage_rhodo": {
+   "kind": "tileable",
+   "category": "foliage",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "foliage",
+    "dense",
+    "rhodo"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "foliage_rhodo_albedo.jpg",
+    "normal": "foliage_rhodo_normal.jpg",
+    "orm": "foliage_rhodo_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "forest_floor": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "forest",
+    "litter",
+    "needles"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "forest_floor_albedo.jpg",
+    "normal": "forest_floor_normal.jpg",
+    "orm": "forest_floor_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "garage_door_panel": {
+   "kind": "tileable",
+   "category": "door",
+   "size_m": [
+    2.4384,
+    2.1336
+   ],
+   "tags": [
+    "garage",
+    "steel",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "garage_door_panel_albedo.jpg",
+    "normal": "garage_door_panel_normal.jpg",
+    "orm": "garage_door_panel_orm.jpg"
+   },
+   "resolution": [
+    512,
+    447
+   ]
+  },
+  "gravel_drive": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "gravel"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "gravel_drive_albedo.jpg",
+    "normal": "gravel_drive_normal.jpg",
+    "orm": "gravel_drive_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "lawn_grass": {
+   "kind": "tileable",
+   "category": "ground",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "lawn",
+    "grass",
+    "summer"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "lawn_grass_albedo.jpg",
+    "normal": "lawn_grass_normal.jpg",
+    "orm": "lawn_grass_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "roof_arch_shingle": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "asphalt",
+    "shingle",
+    "laminated",
+    "composition",
+    "neutral-tint"
+   ],
+   "notes": "14 courses x 142.9 mm exposure, 1.0 m strips, random 0.10-0.32 m tabs; neutral -> tint with roof colour (facades.json)",
+   "files": {
+    "albedo": "roof_arch_shingle_albedo.jpg",
+    "normal": "roof_arch_shingle_normal.jpg",
+    "orm": "roof_arch_shingle_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "roof_ridge_cap": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    1.016,
+    0.3
+   ],
+   "tags": [
+    "asphalt",
+    "ridge",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "roof_ridge_cap_albedo.jpg",
+    "normal": "roof_ridge_cap_normal.jpg",
+    "orm": "roof_ridge_cap_orm.jpg"
+   },
+   "resolution": [
+    512,
+    151
+   ]
+  },
+  "siding_board_batten": {
+   "kind": "tileable",
+   "category": "siding",
+   "size_m": [
+    2.4,
+    2.4
+   ],
+   "tags": [
+    "board-and-batten",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "siding_board_batten_albedo.jpg",
+    "normal": "siding_board_batten_normal.jpg",
+    "orm": "siding_board_batten_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "siding_lap_fibercement": {
+   "kind": "tileable",
+   "category": "siding",
+   "size_m": [
+    2.2098,
+    2.2098
+   ],
+   "tags": [
+    "lap",
+    "siding",
+    "neutral-tint",
+    "fibre-cement"
+   ],
+   "notes": "7 in exposure (0.1841 m), 12 courses per repeat",
+   "files": {
+    "albedo": "siding_lap_fibercement_albedo.jpg",
+    "normal": "siding_lap_fibercement_normal.jpg",
+    "orm": "siding_lap_fibercement_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "siding_lap_wood": {
+   "kind": "tileable",
+   "category": "siding",
+   "size_m": [
+    2.1336,
+    2.1336
+   ],
+   "tags": [
+    "lap",
+    "siding",
+    "neutral-tint",
+    "wood/hardboard"
+   ],
+   "notes": "7 in exposure (0.1778 m), 12 courses per repeat",
+   "files": {
+    "albedo": "siding_lap_wood_albedo.jpg",
+    "normal": "siding_lap_wood_normal.jpg",
+    "orm": "siding_lap_wood_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "siding_shingle_cedar": {
+   "kind": "tileable",
+   "category": "siding",
+   "size_m": [
+    2.032,
+    2.032
+   ],
+   "tags": [
+    "shingle",
+    "cedar",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "siding_shingle_cedar_albedo.jpg",
+    "normal": "siding_shingle_cedar_normal.jpg",
+    "orm": "siding_shingle_cedar_orm.jpg"
+   },
+   "resolution": [
+    1024,
+    1024
+   ]
+  },
+  "siding_t111": {
+   "kind": "tileable",
+   "category": "siding",
+   "size_m": [
+    2.4384,
+    2.4384
+   ],
+   "tags": [
+    "T1-11",
+    "plywood",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "siding_t111_albedo.jpg",
+    "normal": "siding_t111_normal.jpg",
+    "orm": "siding_t111_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "snow_fresh": {
+   "kind": "tileable",
+   "category": "snow",
+   "size_m": [
+    2.0,
+    2.0
+   ],
+   "tags": [
+    "snow",
+    "fresh"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "snow_fresh_albedo.jpg",
+    "normal": "snow_fresh_normal.jpg",
+    "orm": "snow_fresh_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "snow_packed": {
+   "kind": "tileable",
+   "category": "snow",
+   "size_m": [
+    4.0,
+    4.0
+   ],
+   "tags": [
+    "snow",
+    "packed",
+    "sled-tracks"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "snow_packed_albedo.jpg",
+    "normal": "snow_packed_normal.jpg",
+    "orm": "snow_packed_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "solar_panel": {
+   "kind": "tileable",
+   "category": "roof",
+   "size_m": [
+    1.0,
+    1.7
+   ],
+   "tags": [
+    "pv",
+    "solar"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "solar_panel_albedo.jpg",
+    "normal": "solar_panel_normal.jpg",
+    "orm": "solar_panel_orm.jpg"
+   },
+   "resolution": [
+    256,
+    435
+   ]
+  },
+  "stone_ledgestone": {
+   "kind": "tileable",
+   "category": "masonry",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "stone",
+    "veneer"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "stone_ledgestone_albedo.jpg",
+    "normal": "stone_ledgestone_normal.jpg",
+    "orm": "stone_ledgestone_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "trim_paint": {
+   "kind": "tileable",
+   "category": "trim",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "paint",
+    "neutral-tint"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "trim_paint_albedo.jpg",
+    "normal": "trim_paint_normal.jpg",
+    "orm": "trim_paint_orm.jpg"
+   },
+   "resolution": [
+    256,
+    256
+   ]
+  },
+  "window_interior": {
+   "kind": "atlas",
+   "category": "window",
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "tags": [
+    "window",
+    "interior",
+    "atlas2x2"
+   ],
+   "notes": "2x2 atlas; cell 0 dim room, 1 blinds, 2 curtains, 3 sheer; emit = lit-room mask",
+   "files": {
+    "albedo": "window_interior_albedo.jpg",
+    "normal": "window_interior_normal.jpg",
+    "orm": "window_interior_orm.jpg",
+    "emit": "window_interior_emit.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  },
+  "wood_deck": {
+   "kind": "tileable",
+   "category": "wood",
+   "size_m": [
+    2.4,
+    2.4
+   ],
+   "tags": [
+    "wood",
+    "deck",
+    "neutral-ish"
+   ],
+   "notes": "",
+   "files": {
+    "albedo": "wood_deck_albedo.jpg",
+    "normal": "wood_deck_normal.jpg",
+    "orm": "wood_deck_orm.jpg"
+   },
+   "resolution": [
+    512,
+    512
+   ]
+  }
+ }
+}

@@ -255,6 +255,7 @@ def tshirt(bd, collection, rect):
         (is_arm & (tparam < sleeve_end) & (handw < 0.1))
     sh = Shell(bd, m, "Summer_Tshirt")
     s_arm = sh.field((armw + handw) > 0.3)
+    sh.fields["arm"] = sh.field(np.clip(armw + handw, 0, 1))
     s_t = sh.field(tparam)
     # remove anatomy
     sh.smooth(60)
@@ -264,13 +265,13 @@ def tshirt(bd, collection, rect):
     sp3 = bd.bones["spine_03"][0]
     tab, cy = chest_table(bd, sp3[2] + 0.09, sp3[2] + 0.19, torso_mask)
     act = (1 - sh.field(np.clip(armw + handw, 0, 1)))
-    sh.co = drape_torso(sh.co, tab, cy, z_top=sp3[2] + 0.12, z_bottom=hem_z, ease=0.004, shrink=0.07, active=act)
+    sh.co = drape_torso(sh.co, tab, cy, z_top=sp3[2] + 0.12, z_bottom=hem_z, ease=0.002, shrink=0.10, active=act * 0.75)
     # sleeves: loose tube, opening hangs slightly under gravity
     for s, sfx in ((1, "_l"), (-1, "_r")):
         h, t = bd.bones["upperarm" + sfx]
         sel = (np.sign(sh.co[:, 0]) == s) & s_arm
         tt, r, d = seg_param(sh.co, h, t)
-        ropen = np.percentile(r[sel & (tt > sleeve_end - 0.12)], 92) + 0.012 if sel.any() else 0.06
+        ropen = np.percentile(r[sel & (tt > sleeve_end - 0.12)], 90) + 0.007 if sel.any() else 0.06
         act = sel * smoothstep(0.05, 0.3, tt)
         new, _, d = tube(sh.co, h, t, act, lambda t_: np.full_like(t_, ropen))
         sag = np.clip(-d[:, 2], 0, 1) * 0.008 * act
@@ -362,6 +363,7 @@ def puffer(bd, collection, rect):
         (is_arm & (handw < 0.35) & (lt < 0.98))
     sh = Shell(bd, m, "Winter_Jacket")
     s_arm = sh.field((armw + handw) > 0.3)
+    sh.fields["arm"] = sh.field(np.clip(armw + handw, 0, 1))
     s_neck = sh.field(neckw + headw)
     sh.smooth(60)
     sh.offset(0.016)

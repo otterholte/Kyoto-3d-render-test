@@ -19,12 +19,12 @@ RENDERS = os.path.join(HERE, "..", "renders")
 
 SHOTS = {
     # name: (outfit, clip, frame, camera azimuth deg (0 = front), cam height, target z, focal, dist)
-    "summer_front": ("summer", None, 0, 0, 1.15, 0.92, 50, 4.4),
-    "summer_34": ("summer", None, 0, 35, 1.2, 0.92, 50, 4.4),
-    "summer_side": ("summer", None, 0, 90, 1.15, 0.92, 50, 4.4),
-    "winter_front": ("winter", None, 0, 0, 1.15, 0.92, 50, 4.4),
-    "winter_34": ("winter", None, 0, 35, 1.2, 0.92, 50, 4.4),
-    "winter_side": ("winter", None, 0, 90, 1.15, 0.92, 50, 4.4),
+    "summer_front": ("summer", None, 0, 0, 1.15, 0.90, 50, 5.6),
+    "summer_34": ("summer", None, 0, 35, 1.2, 0.90, 50, 5.6),
+    "summer_side": ("summer", None, 0, 90, 1.15, 0.90, 50, 5.6),
+    "winter_front": ("winter", None, 0, 0, 1.15, 0.90, 50, 5.6),
+    "winter_34": ("winter", None, 0, 35, 1.2, 0.90, 50, 5.6),
+    "winter_side": ("winter", None, 0, 90, 1.15, 0.90, 50, 5.6),
     "summer_head": ("summer", "idle", 0, 25, 1.68, 1.64, 85, 1.25),
     "winter_head": ("winter", "idle", 0, 25, 1.68, 1.64, 85, 1.25),
     "walk": ("summer", "walk", 8, 70, 1.1, 0.9, 50, 4.6),

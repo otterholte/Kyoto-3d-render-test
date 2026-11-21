@@ -229,7 +229,7 @@ def skin_material(name="Skin"):
     base = b.mix(b.math("MULTIPLY", stg, 0.75), base, (0.13, 0.10, 0.085))
     base = b.mix(b.math("MULTIPLY", alpha, 0.35), base, (0.24, 0.13, 0.11))
     # roughness: oilier T-zone/lips, rougher elsewhere
-    rough = b.math("ADD", 0.48, b.math("MULTIPLY", b.math("SUBTRACT", b.noise(oc, 40.0), 0.5), 0.15))
+    rough = b.math("ADD", 0.53, b.math("MULTIPLY", b.math("SUBTRACT", b.noise(oc, 40.0), 0.5), 0.15))
     rough = b.math("SUBTRACT", rough, b.math("MULTIPLY", lips, 0.12))
     rough = b.math("ADD", rough, b.math("MULTIPLY", stub, 0.08))
     # micro relief: pores + fine wrinkles
@@ -292,7 +292,7 @@ def tshirt_material():
     h = b.math("ADD", b.math("MULTIPLY", knit, 0.25), b.math("MULTIPLY", st, -0.6))
     h = b.math("ADD", h, b.math("MULTIPLY", folds, 0.5))
     nrm = b.bump(h, strength=0.25, distance=0.0006)
-    b.principled(**{"Base Color": base, "Roughness": 0.88, "Normal": nrm, "Sheen Weight": 0.5,
+    b.principled(**{"Base Color": base, "Roughness": 0.88, "Normal": nrm, "Sheen Weight": 0.15,
                     "Sheen Roughness": 0.45, "Sheen Tint": (0.8, 0.85, 0.95)})
     return m
 
@@ -324,7 +324,7 @@ def denim_material():
     h = b.math("ADD", b.math("MULTIPLY", twill, 0.35), b.math("MULTIPLY", seam_line, -0.8))
     h = b.math("ADD", h, b.math("MULTIPLY", thread, 0.4))
     nrm = b.bump(h, strength=0.35, distance=0.0006)
-    b.principled(**{"Base Color": base, "Roughness": 0.82, "Normal": nrm, "Sheen Weight": 0.25, "Sheen Roughness": 0.6})
+    b.principled(**{"Base Color": base, "Roughness": 0.82, "Normal": nrm, "Sheen Weight": 0.04, "Sheen Roughness": 0.6, "Sheen Tint": (0.3, 0.35, 0.5)})
     return m
 
 
@@ -403,7 +403,7 @@ def puffer_material():
     h = b.math("ADD", b.math("MULTIPLY", rip, 0.2), b.math("MULTIPLY", b.noise(oc, 40, detail=4), 0.4))
     h = b.math("ADD", h, b.math("MULTIPLY", zipm, b.math("MULTIPLY", zip_teeth, 0.5)))
     nrm = b.bump(h, strength=0.2, distance=0.0006)
-    b.principled(**{"Base Color": base, "Roughness": 0.38, "Normal": nrm, "Sheen Weight": 0.3,
+    b.principled(**{"Base Color": base, "Roughness": 0.38, "Normal": nrm, "Sheen Weight": 0.08,
                     "Sheen Roughness": 0.3, "Coat Weight": 0.15, "Coat Roughness": 0.25})
     return m
 
@@ -420,7 +420,7 @@ def snowpants_material():
     h = b.math("ADD", b.math("MULTIPLY", weave, 0.15), b.math("MULTIPLY", seam_line, -0.7))
     h = b.math("ADD", h, b.math("MULTIPLY", b.noise(oc, 18, detail=4), 0.5))
     nrm = b.bump(h, strength=0.25, distance=0.0008)
-    b.principled(**{"Base Color": base, "Roughness": 0.55, "Normal": nrm, "Sheen Weight": 0.2, "Sheen Roughness": 0.4})
+    b.principled(**{"Base Color": base, "Roughness": 0.55, "Normal": nrm, "Sheen Weight": 0.05, "Sheen Roughness": 0.4})
     return m
 
 
@@ -435,7 +435,7 @@ def glove_material():
     h = b.math("MULTIPLY", b.voronoi(oc, 700.0), b.math("ADD", 0.3, palm))
     nrm = b.bump(h, strength=0.3, distance=0.0005)
     rough = b.mixf(palm, 0.7, 0.45)
-    b.principled(**{"Base Color": base, "Roughness": rough, "Normal": nrm, "Sheen Weight": 0.3})
+    b.principled(**{"Base Color": base, "Roughness": rough, "Normal": nrm, "Sheen Weight": 0.08})
     return m
 
 
@@ -453,7 +453,7 @@ def beanie_material():
     base = b.mix(b.math("MULTIPLY", b.math("SUBTRACT", 1.0, rib), 0.35), base, (0.12, 0.1, 0.08))
     h = b.math("ADD", b.math("MULTIPLY", rib, 0.7), b.math("MULTIPLY", course, 0.2))
     nrm = b.bump(h, strength=0.45, distance=0.0015)
-    b.principled(**{"Base Color": base, "Roughness": 0.92, "Normal": nrm, "Sheen Weight": 0.6, "Sheen Roughness": 0.5})
+    b.principled(**{"Base Color": base, "Roughness": 0.92, "Normal": nrm, "Sheen Weight": 0.3, "Sheen Roughness": 0.5})
     return m
 
 

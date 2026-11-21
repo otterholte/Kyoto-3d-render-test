@@ -83,9 +83,10 @@ def gen_strands(bd, hf, n=40000, k=7, seed=1, cap_only_heights=None):
     keep = rng.random(n) < np.clip((above + 0.002) / 0.014, 0.12, 1.0)
     roots, nrm, phi, hl, above = roots[keep], nrm[keep], phi[keep], hl[keep], above[keep]
     n = len(roots)
-    edge = np.clip(above / 0.012, 0, 1)                      # thinner/shorter at the hairline
+    edge = np.clip(above / 0.035, 0, 1) ** 0.8               # thinner/shorter at the hairline
     top = smoothstep(hf.E[2] + 0.06, hf.E[2] + 0.12, roots[:, 2])
-    L = (0.012 + 0.035 * top) * (0.55 + 0.45 * edge) * rng.uniform(0.8, 1.2, n)
+    side = np.clip((np.abs(np.degrees(phi)) - 35) / 25, 0, 1) * np.clip((150 - np.abs(np.degrees(phi))) / 30, 0, 1)
+    L = (0.012 + 0.035 * top * (1 - 0.45 * side)) * (0.35 + 0.65 * edge) * rng.uniform(0.8, 1.2, n)
     # flow: away from the crown, tangential; front-top hair pushed forward and to the side (part)
     f = roots - hf.crown
     f -= nrm * np.sum(f * nrm, 1, keepdims=True)
@@ -234,8 +235,8 @@ def brow_curve(hf, sx):
     E = hf.E
     eye_x = abs(hf_eye_x(hf))
     xs = np.array([0.011, 0.020, 0.032, 0.044, 0.054, 0.062])
-    zs = E[2] + np.array([0.020, 0.025, 0.029, 0.030, 0.027, 0.020])
-    widths = np.array([0.010, 0.0105, 0.009, 0.0075, 0.0055, 0.0035])
+    zs = E[2] + np.array([0.021, 0.0245, 0.0265, 0.0265, 0.0245, 0.019])
+    widths = np.array([0.009, 0.0095, 0.0085, 0.007, 0.005, 0.003])
     return np.stack([sx * xs, np.zeros_like(xs), zs], 1), widths
 
 
@@ -258,7 +259,7 @@ def project_to_surface(pts, bd, maxd=0.2):
     return out
 
 
-def brow_strands(bd, hf, n_per=1400, seed=3):
+def brow_strands(bd, hf, n_per=1000, seed=3):
     rng = np.random.default_rng(seed)
     all_pts = []
     meta = []

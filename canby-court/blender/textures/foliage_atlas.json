@@ -1,0 +1,265 @@
+{
+ "atlas": "foliage_atlas",
+ "grid": [
+  4,
+  4
+ ],
+ "cells": {
+  "fir_spray": {
+   "index": 0,
+   "row_from_top": 0,
+   "col": 0,
+   "size_m": [
+    0.7,
+    0.9
+   ],
+   "uv_rect": [
+    0.027777777777777776,
+    0.75,
+    0.2222222222222222,
+    1.0
+   ],
+   "anchor": "bottom-centre"
+  },
+  "cedar_spray": {
+   "index": 1,
+   "row_from_top": 0,
+   "col": 1,
+   "size_m": [
+    0.6,
+    0.8
+   ],
+   "uv_rect": [
+    0.28125,
+    0.75,
+    0.46875,
+    1.0
+   ],
+   "anchor": "bottom-centre"
+  },
+  "fir_spray_snow": {
+   "index": 2,
+   "row_from_top": 0,
+   "col": 2,
+   "size_m": [
+    0.7,
+    0.9
+   ],
+   "uv_rect": [
+    0.5277777777777778,
+    0.75,
+    0.7222222222222222,
+    1.0
+   ],
+   "anchor": "bottom-centre"
+  },
+  "cedar_spray_snow": {
+   "index": 3,
+   "row_from_top": 0,
+   "col": 3,
+   "size_m": [
+    0.6,
+    0.8
+   ],
+   "uv_rect": [
+    0.78125,
+    0.75,
+    0.96875,
+    1.0
+   ],
+   "anchor": "bottom-centre"
+  },
+  "maple_cluster": {
+   "index": 4,
+   "row_from_top": 1,
+   "col": 0,
+   "size_m": [
+    0.9,
+    0.9
+   ],
+   "uv_rect": [
+    0.0,
+    0.5,
+    0.25,
+    0.75
+   ],
+   "anchor": "bottom-centre"
+  },
+  "birch_cluster": {
+   "index": 5,
+   "row_from_top": 1,
+   "col": 1,
+   "size_m": [
+    0.6,
+    0.6
+   ],
+   "uv_rect": [
+    0.25,
+    0.5,
+    0.5,
+    0.75
+   ],
+   "anchor": "bottom-centre"
+  },
+  "cherry_cluster": {
+   "index": 6,
+   "row_from_top": 1,
+   "col": 2,
+   "size_m": [
+    0.55,
+    0.55
+   ],
+   "uv_rect": [
+    0.5,
+    0.5,
+    0.75,
+    0.75
+   ],
+   "anchor": "bottom-centre"
+  },
+  "jmaple_cluster": {
+   "index": 7,
+   "row_from_top": 1,
+   "col": 3,
+   "size_m": [
+    0.45,
+    0.45
+   ],
+   "uv_rect": [
+    0.75,
+    0.5,
+    1.0,
+    0.75
+   ],
+   "anchor": "bottom-centre"
+  },
+  "rhodo_cluster": {
+   "index": 8,
+   "row_from_top": 2,
+   "col": 0,
+   "size_m": [
+    0.55,
+    0.55
+   ],
+   "uv_rect": [
+    0.0,
+    0.25,
+    0.25,
+    0.5
+   ],
+   "anchor": "bottom-centre"
+  },
+  "laurel_cluster": {
+   "index": 9,
+   "row_from_top": 2,
+   "col": 1,
+   "size_m": [
+    0.6,
+    0.6
+   ],
+   "uv_rect": [
+    0.25,
+    0.25,
+    0.5,
+    0.5
+   ],
+   "anchor": "bottom-centre"
+  },
+  "arborvitae_spray": {
+   "index": 10,
+   "row_from_top": 2,
+   "col": 2,
+   "size_m": [
+    0.35,
+    0.5
+   ],
+   "uv_rect": [
+    0.5375,
+    0.25,
+    0.7125,
+    0.5
+   ],
+   "anchor": "bottom-centre"
+  },
+  "fern_frond": {
+   "index": 11,
+   "row_from_top": 2,
+   "col": 3,
+   "size_m": [
+    0.3,
+    0.9
+   ],
+   "uv_rect": [
+    0.8333333333333334,
+    0.25,
+    0.9166666666666666,
+    0.5
+   ],
+   "anchor": "bottom-centre"
+  },
+  "grass_clump": {
+   "index": 12,
+   "row_from_top": 3,
+   "col": 0,
+   "size_m": [
+    0.3,
+    0.28
+   ],
+   "uv_rect": [
+    0.0,
+    0.0,
+    0.25,
+    0.23333333333333336
+   ],
+   "anchor": "bottom-centre"
+  },
+  "bare_twigs": {
+   "index": 13,
+   "row_from_top": 3,
+   "col": 1,
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "uv_rect": [
+    0.25,
+    0.0,
+    0.5,
+    0.25
+   ],
+   "anchor": "bottom-centre"
+  },
+  "azalea_cluster": {
+   "index": 14,
+   "row_from_top": 3,
+   "col": 2,
+   "size_m": [
+    0.4,
+    0.4
+   ],
+   "uv_rect": [
+    0.5,
+    0.0,
+    0.75,
+    0.25
+   ],
+   "anchor": "bottom-centre"
+  },
+  "bare_twigs_snow": {
+   "index": 15,
+   "row_from_top": 3,
+   "col": 3,
+   "size_m": [
+    1.0,
+    1.0
+   ],
+   "uv_rect": [
+    0.75,
+    0.0,
+    1.0,
+    0.25
+   ],
+   "anchor": "bottom-centre"
+  }
+ }
+}

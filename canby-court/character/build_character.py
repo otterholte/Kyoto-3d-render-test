@@ -82,6 +82,23 @@ def skin_garment(ob, body, arm):
     m.object = arm
 
 
+def limit_arm_weights(ob, armness):
+    """Torso panels of loose tops must not follow the upper arm (stops 'wings' when the arm is raised)."""
+    up = [g for g in ob.vertex_groups if g.name.startswith(("upperarm", "clavicle"))]
+    ids = {g.index for g in up}
+    for v in ob.data.vertices:
+        a = float(armness[v.index])
+        if a > 0.6:
+            continue
+        keep = 0.25 + 0.75 * a / 0.6
+        ws = {g.group: g.weight for g in v.groups}
+        tot = sum(ws.values()) or 1.0
+        new = {k: (w * keep if k in ids else w) for k, w in ws.items()}
+        s = sum(new.values()) or 1.0
+        for k, w in new.items():
+            ob.vertex_groups[k].add([v.index], w * tot / s, "REPLACE")
+
+
 def body_visibility_groups(body, bd):
     """Vertex groups: vis_head (head/neck/collar band), vis_arms (forearms/hands + lower upper-arm)."""
     co = bd.co
@@ -184,6 +201,8 @@ def main():
             m.object = arm
         else:
             skin_garment(ob, body, arm)
+            if name in ("Summer_Tshirt", "Winter_Jacket"):
+                limit_arm_weights(ob, G.EXTRA[name]["arm"])
     log("garments", {k: len(v.data.polygons) for k, v in list(sm.items()) + list(wm.items())})
 
     # ---------------- hair, brows, lashes
@@ -192,7 +211,7 @@ def main():
     scalp = H.cap_mesh(bd, hc, C_hair, strands, scale=0.12, name="Hair_Scalp_Hires")
     hs = H.curves_object("Hair_Strands", strands, C_hair)
     bs = H.brow_strands(bd, hc)
-    bso = H.curves_object("Brow_Strands", bs, C_hair, r_root=0.00006, r_tip=0.00003)
+    bso = H.curves_object("Brow_Strands", bs, C_hair, r_root=0.00004, r_tip=0.00002)
     brows = H.brow_cards(bd, hc, C_char)
     lashes = H.lash_mesh(d, C_char)
     capt = H.rasterize_cap(strands, hc)
@@ -207,7 +226,7 @@ def main():
         ob.data.materials.append(hair_mat)
         rigid_to_head(ob, arm)
     hmat = H.hair_bsdf_material("HairStrands")
-    bmat = H.hair_bsdf_material("BrowStrands", melanin=0.93, redness=0.15)
+    bmat = H.hair_bsdf_material("BrowStrands", melanin=0.8, redness=0.3)
     hs.data.materials.append(hmat)
     bso.data.materials.append(bmat)
     for ob in (hs, bso):

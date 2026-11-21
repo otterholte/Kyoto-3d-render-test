@@ -1,0 +1,63 @@
+{
+  "generated": "2026-11-21T03:11:43.153Z",
+  "worlds": {},
+  "character": {
+    "file": "dist/character.glb.b64.txt",
+    "source": "assets/character.glb",
+    "bytes": 2421056,
+    "sourceBytes": 1815792,
+    "passthrough": true,
+    "clips": [
+      "idle",
+      "walk",
+      "run",
+      "jump",
+      "sled_sit",
+      "sled_lean_left",
+      "sled_lean_right",
+      "sled_air",
+      "superman",
+      "spread_eagle",
+      "sled_grab"
+    ]
+  },
+  "sled": {
+    "file": "dist/sled.glb.b64.txt",
+    "source": "assets/sled.glb",
+    "bytes": 184264,
+    "sourceBytes": 138196,
+    "passthrough": true
+  },
+  "terrain": {
+    "file": "dist/terrain.u16.b64.txt",
+    "width": 720,
+    "height": 620,
+    "res": 0.5,
+    "bounds": [
+      -230,
+      -180,
+      130,
+      130
+    ],
+    "zMin": 114.176,
+    "zMax": 165.381,
+    "decode": "z = zMin + v/65535*(zMax-zMin); uint16 LE, row 0 = north edge (y1), column 0 = west edge (x0); pixel centres at x0+(c+0.5)*res",
+    "source": "3DEP 2006 bare earth (data/processed/terrain.json)"
+  },
+  "surface": {
+    "file": "assets/surface.png",
+    "width": 1200,
+    "height": 1033,
+    "res": 0.3,
+    "bounds": [
+      -230,
+      -180,
+      130,
+      130
+    ],
+    "channels": "R asphalt (street, dark drives), G concrete (sidewalks, drives, patios), B lawn, remainder planting beds / canopy / soil",
+    "source": "data/processed/groundcover (observed classification, ~70-85 % accuracy)"
+  },
+  "worldData": "assets/world_data.json",
+  "sceneDoc": null
+}

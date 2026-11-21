@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T01:30:50.188Z",
+  "generated": "2026-11-21T03:17:16.852Z",
   "world": {
     "file": "world_art.glb.b64.txt",
     "source": "assets/world_art.glb",
@@ -44,6 +44,7 @@
     "library": "assets/tex/library.json",
     "foliage": "assets/tex/foliage_atlas.json"
   },
+  "renders": "assets/renders/renders.json",
   "surfaceMask": {
     "file": "assets/surface_mask.png",
     "extent": [

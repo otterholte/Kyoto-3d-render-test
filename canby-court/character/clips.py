@@ -386,7 +386,7 @@ def spread_eagle(c):
                 grip(p, c, s)
                 p.ik["leg" + s] = base.ik["leg" + s]
                 continue
-            p.add("upperarm" + s, q(Y, -sg * lerp(0, 95, a)) @ q(X, -12 * a))
+            p.add("upperarm" + s, q(Y, -sg * lerp(0, 78, a)) @ q(X, -16 * a))
             p.add("lowerarm" + s, q(c.elbow_axis[s], -34 * a))
             hand_curl(p, c, s, 4)
             p.add("thigh" + s, q(Y, -sg * 34 * a) @ q(X, -lerp(60, 62, a)))

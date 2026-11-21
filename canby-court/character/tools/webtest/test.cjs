@@ -3,7 +3,7 @@
 const http = require('http'); const fs = require('fs'); const path = require('path');
 const { chromium } = require('playwright');
 const assets = path.resolve(process.argv[2]); const outDir = path.resolve(process.argv[3] || '.');
-const threeDir = path.dirname(require.resolve('three/package.json'));
+const threeDir = process.env.THREE_DIR || path.resolve(path.dirname(require.resolve('three')), '..');
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.glb': 'model/gltf-binary', '.wasm': 'application/wasm' };
 const srv = http.createServer((req, res) => {
   let u = decodeURIComponent(req.url.split('?')[0]); let f;

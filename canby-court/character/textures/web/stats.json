@@ -1,23 +1,23 @@
 {
- "summer_tris": 25189,
- "winter_tris": 36177,
+ "summer_tris": 23012,
+ "winter_tris": 23481,
  "per_mesh": {
   "Body_Head": 6199,
   "Body_Arms": 3600,
-  "Summer_Tshirt": 3800,
-  "Summer_Jeans": 2842,
-  "Summer_Sneaker_l": 2876,
-  "Summer_Sneaker_r": 2876,
-  "Winter_Jacket": 5700,
-  "Winter_Pants": 3034,
-  "Winter_Gloves": 12252,
+  "Summer_Tshirt": 2999,
+  "Summer_Jeans": 2600,
+  "Summer_Sneaker_l": 1499,
+  "Summer_Sneaker_r": 1499,
+  "Winter_Jacket": 4600,
+  "Winter_Pants": 2600,
+  "Winter_Gloves": 3599,
   "Winter_Beanie": 716,
-  "Winter_Boot_l": 2896,
-  "Winter_Boot_r": 2896,
+  "Winter_Boot_l": 1600,
+  "Winter_Boot_r": 1599,
   "Eyes": 2040,
   "Lashes": 368,
   "Brows": 48,
-  "Hair_Cap_Summer": 540,
-  "Hair_Cap_Winter": 28
+  "Hair_Cap_Summer": 2160,
+  "Hair_Cap_Winter": 112
  }
 }

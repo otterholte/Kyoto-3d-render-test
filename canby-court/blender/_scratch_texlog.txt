@@ -1,0 +1,72 @@
+  set roof_arch_shingle            bl (2048, 2048) web (1024, 1024)  web 813 KB
+   roof_arch_shingle          7.4s
+  set roof_ridge_cap               bl (1024, 302) web (512, 151)  web 11 KB
+   roof_ridge_cap             0.2s
+  set siding_lap_wood              bl (2048, 2048) web (1024, 1024)  web 272 KB
+   siding_lap_wood            5.3s
+  set siding_lap_fibercement       bl (2048, 2048) web (1024, 1024)  web 318 KB
+   siding_lap_fibercement     5.2s
+  set siding_t111                  bl (2048, 2048) web (512, 512)  web 89 KB
+   siding_t111                3.6s
+  set siding_shingle_cedar         bl (2048, 2048) web (1024, 1024)  web 427 KB
+   siding_shingle_cedar       4.2s
+  set siding_board_batten          bl (1024, 1024) web (512, 512)  web 52 KB
+   siding_board_batten        0.7s
+  set trim_paint                   bl (512, 512) web (256, 256)  web 12 KB
+   trim_paint                 0.2s
+  set concrete_drive               bl (1024, 1024) web (512, 512)  web 69 KB
+   concrete_drive             1.1s
+  set concrete_sidewalk            bl (1024, 1024) web (512, 512)  web 94 KB
+   concrete_sidewalk          1.1s
+  set concrete_plain               bl (1024, 1024) web (512, 512)  web 69 KB
+   concrete_plain             1.0s
+  set asphalt_street               bl (2048, 2048) web (1024, 1024)  web 323 KB
+   asphalt_street             6.7s
+  set gravel_drive                 bl (1024, 1024) web (512, 512)  web 261 KB
+   gravel_drive               5.0s
+  set brick_red                    bl (1024, 1108) web (512, 554)  web 181 KB
+   brick_red                  0.8s
+  set stone_ledgestone             bl (1024, 1024) web (512, 512)  web 245 KB
+   stone_ledgestone           0.8s
+  set wood_deck                    bl (1024, 1024) web (512, 512)  web 105 KB
+   wood_deck                  0.8s
+  set fence_cedar                  bl (1024, 1024) web (512, 512)  web 98 KB
+   fence_cedar                1.0s
+  set lawn_grass                   bl (1024, 1024) web (512, 512)  web 327 KB
+   lawn_grass                 1.4s
+  set bark_mulch                   bl (1024, 1024) web (512, 512)  web 279 KB
+   bark_mulch                 1.4s
+  set forest_floor                 bl (1024, 1024) web (512, 512)  web 251 KB
+   forest_floor               1.6s
+  set snow_fresh                   bl (1024, 1024) web (512, 512)  web 141 KB
+   snow_fresh                 0.9s
+  set snow_packed                  bl (1024, 1024) web (512, 512)  web 130 KB
+   snow_packed                1.6s
+  set bark_fir                     bl (1024, 1024) web (512, 512)  web 295 KB
+   bark_fir                   1.1s
+  set bark_cedar                   bl (1024, 1024) web (512, 512)  web 146 KB
+   bark_cedar                 1.0s
+  set bark_maple                   bl (1024, 1024) web (512, 512)  web 245 KB
+   bark_maple                 1.0s
+  set bark_birch                   bl (1024, 1024) web (512, 512)  web 85 KB
+   bark_birch                 0.9s
+  set bark_cherry                  bl (1024, 1024) web (256, 256)  web 19 KB
+   bark_cherry                0.7s
+  set garage_door_panel            bl (1024, 895) web (512, 447)  web 41 KB
+   garage_door_panel          1.0s
+  set door_6panel                  bl (512, 1024) web (256, 512)  web 25 KB
+   door_6panel                0.5s
+  set door_craftsman               bl (512, 1024) web (256, 512)  web 27 KB
+   door_craftsman             0.4s
+  set window_interior              bl (1024, 1024) web (512, 512)  web 27 KB
+   window_interior            0.4s
+  set solar_panel                  bl (512, 870) web (256, 435)  web 21 KB
+   solar_panel                0.2s
+  set foliage_laurel               bl (1024, 1024) web (512, 512)  web 178 KB
+   foliage_laurel             0.8s
+  set foliage_arborvitae           bl (1024, 1024) web (512, 512)  web 275 KB
+   foliage_arborvitae         0.9s
+  set foliage_boxwood              bl (1024, 1024) web (512, 512)  web 293 KB
+   foliage_boxwood            1.2s
+  set foliage_rhodo                bl (1024, 1024) web (512, 512)  web 174 KB
+   foliage_rhodo              0.7s
