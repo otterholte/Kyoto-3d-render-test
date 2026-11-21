@@ -36,7 +36,7 @@ def main():
         name = key + ".jpg"
         im.save(os.path.join(OUT, name), quality=88, optimize=True, progressive=True)
         t, c = INFO.get(key, (key, ""))
-        entries.append(dict(file="assets/renders/" + name, title=t, caption=c + " Cycles render, 3840×2160 source: renders/final_%s.png." % key))
+        entries.append(dict(file=name, title=t, caption=c + " Cycles render, 3840×2160 source: renders/final_%s.png." % key))
     json.dump(entries, open(os.path.join(OUT, "renders.json"), "w"), ensure_ascii=False, indent=1)
     print("gallery", len(entries))
 

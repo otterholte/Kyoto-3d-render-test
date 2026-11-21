@@ -14,6 +14,7 @@ import bpy
 import geo
 
 BONES_ARM = ("upperarm", "lowerarm")
+EXTRA = {}
 BONES_HAND = ("hand", "thumb", "index", "middle", "ring", "pinky")
 
 
@@ -73,6 +74,7 @@ class Shell:
         self.A = geo.adjacency(self.nv, self.faces)
         self.name = name
         self.bd = bd
+        self.fields = {}
 
     def normals(self):
         return geo.vertex_normals_fast(self.co, self.faces)
@@ -104,6 +106,7 @@ class Shell:
                 k += 1
         nv0 = len(co)
         new_src = list(self.src)
+        fl = {k: list(v) for k, v in self.fields.items()}
         for loop in loops:
             if select is not None and not select(np.array([self.co[i] for i in loop])):
                 continue
@@ -112,6 +115,8 @@ class Shell:
                 p = self.co[v] - n[v] * depth + np.array([0, 0, lift])
                 co.append(p)
                 new_src.append(self.src[v])
+                for k in fl:
+                    fl[k].append(fl[k][v])
                 new_idx.append(len(co) - 1)
             L = len(loop)
             for i in range(L):
@@ -123,10 +128,39 @@ class Shell:
         self.faces = faces
         self.uv = np.array(uv)
         self.src = np.array(new_src)
+        self.fields = {k: np.array(v) for k, v in fl.items()}
         self.nv = len(self.co)
         self.A = geo.adjacency(self.nv, self.faces)
 
+    def clean_hems(self, ring_smooth=8, falloff=4, select=None):
+        """Project each open boundary loop onto its best-fit plane and smooth it,
+        then relax the neighbouring rows so the cut reads as a straight hem."""
+        loops = geo.boundary_loops(self.faces)
+        fixed = np.zeros(self.nv, bool)
+        for loop in loops:
+            P = self.co[loop]
+            if select is not None and not select(P):
+                continue
+            c = P.mean(axis=0)
+            u, s, vt = np.linalg.svd(P - c)
+            nrm = vt[2]
+            P = P - ((P - c) @ nrm)[:, None] * nrm[None, :]
+            for _ in range(ring_smooth):
+                P = 0.5 * P + 0.25 * (np.roll(P, 1, 0) + np.roll(P, -1, 0))
+            self.co[loop] = P
+            fixed[loop] = True
+        # relax rows next to the hem
+        dist = np.where(fixed, 0, 99)
+        L = geo.laplacian_avg(self.A)
+        A = self.A.tocsr()
+        for k in range(1, falloff + 1):
+            nb = (A @ (dist == k - 1).astype(float)) > 0
+            dist = np.where(nb & (dist > k), k, dist)
+        w = np.clip(1 - dist / (falloff + 1), 0, 1) * (dist > 0)
+        self.co = geo.taubin(self.co, self.A, iters=6, weights=w, fixed=np.where(fixed)[0])
+
     def to_object(self, collection, atlas_rect=None):
+        EXTRA[self.name] = self.fields
         uv = self.uv.copy()
         ob = geo.make_object(self.name, self.co, self.faces, collection, uv_loops=uv, uv_name="UVBody")
         if atlas_rect is not None:
@@ -155,7 +189,9 @@ def chest_table(bd, zlo, zhi, mask, nb=96):
     # fill empty bins / smooth circularly
     for _ in range(3):
         tab = np.maximum(tab, 0.5 * (np.roll(tab, 1) + np.roll(tab, -1)) * (tab == 0))
-    tab = 0.25 * np.roll(tab, 1) + 0.5 * tab + 0.25 * np.roll(tab, -1)
+    tab = np.max([np.roll(tab, k) for k in range(-4, 5)], axis=0)
+    for _ in range(3):
+        tab = 0.25 * np.roll(tab, 1) + 0.5 * tab + 0.25 * np.roll(tab, -1)
     return tab, cy
 
 
@@ -200,7 +236,7 @@ def tshirt(bd, collection, rect):
     legw = bd.w("thigh", "calf", "foot", "ball")
     pel = bd.bones["pelvis"][0]
     neck = bd.bones["neck_01"][0]
-    hem_z = pel[2] - 0.075
+    hem_z = pel[2] - 0.045
     # crew neckline: low in front, higher at back
     rel = co - neck
     rho = np.hypot(rel[:, 0], rel[:, 1] + 0.012)
@@ -215,20 +251,20 @@ def tshirt(bd, collection, rect):
         tparam[m] = tt[m]
     is_arm = (armw + handw) > 0.45
     sleeve_end = 0.46
-    m = (~is_arm & (co[:, 2] > hem_z) & neck_ok & (headw < 0.6) & (legw < 0.6)) | \
+    m = (~is_arm & (co[:, 2] > hem_z) & neck_ok & (headw < 0.6) & (legw < 0.97)) | \
         (is_arm & (tparam < sleeve_end) & (handw < 0.1))
     sh = Shell(bd, m, "Summer_Tshirt")
     s_arm = sh.field((armw + handw) > 0.3)
     s_t = sh.field(tparam)
     # remove anatomy
-    sh.smooth(25)
+    sh.smooth(60)
     sh.offset(0.005)
     # torso drape from the chest/shoulder-blade silhouette
     torso_mask = (armw + handw < 0.3) & (headw < 0.3)
-    tab, cy = chest_table(bd, 1.17, 1.28, torso_mask)
     sp3 = bd.bones["spine_03"][0]
+    tab, cy = chest_table(bd, sp3[2] + 0.09, sp3[2] + 0.19, torso_mask)
     act = (1 - sh.field(np.clip(armw + handw, 0, 1)))
-    sh.co = drape_torso(sh.co, tab, cy, z_top=1.20, z_bottom=hem_z, ease=0.010, shrink=0.03, active=act)
+    sh.co = drape_torso(sh.co, tab, cy, z_top=sp3[2] + 0.12, z_bottom=hem_z, ease=0.004, shrink=0.07, active=act)
     # sleeves: loose tube, opening hangs slightly under gravity
     for s, sfx in ((1, "_l"), (-1, "_r")):
         h, t = bd.bones["upperarm" + sfx]
@@ -244,9 +280,10 @@ def tshirt(bd, collection, rect):
     n = sh.normals()
     z = sh.co[:, 2]
     rip = np.sin((z - hem_z) * 2 * np.pi / 0.055 + geo.fbm3(sh.co, 6, 2, 3) * 2.5)
-    amp = 0.0035 * smoothstep(hem_z + 0.25, hem_z + 0.05, z) * (1 - s_arm)
-    disp = rip * amp + geo.fbm3(sh.co, 9, 3, 11) * 0.0025
+    amp = 0.0012 * smoothstep(hem_z + 0.25, hem_z + 0.05, z) * (1 - s_arm)
+    disp = rip * amp + geo.fbm3(sh.co, 7, 3, 11) * 0.0030
     sh.co = sh.co + n * disp[:, None]
+    sh.clean_hems()
     sh.hem(depth=0.012)
     return sh.to_object(collection, rect)
 
@@ -263,7 +300,7 @@ def jeans(bd, collection, rect, baggy=False, name="Summer_Jeans"):
     hem_z = 0.075 if not baggy else 0.11
     m = (co[:, 2] < waist_z) & (co[:, 2] > hem_z) & (footw < 0.5) & (armw < 0.2)
     sh = Shell(bd, m, name)
-    sh.smooth(30)
+    sh.smooth(60)
     sh.offset(0.007 if not baggy else 0.014)
     for s, sfx in ((1, "_l"), (-1, "_r")):
         a = bd.bones["thigh" + sfx][0]
@@ -291,11 +328,13 @@ def jeans(bd, collection, rect, baggy=False, name="Summer_Jeans"):
     noise = geo.fbm3(sh.co, 7, 3, 21)
     stack = np.sin((z - hem_z) * 2 * np.pi / (0.045 if not baggy else 0.06) + noise * 3.0)
     amp = 0.004 * smoothstep(hem_z + 0.16, hem_z + 0.02, z)
-    knee = np.abs(z - 0.50) < 0.06
-    kn = np.sin(z * 2 * np.pi / 0.03 + noise * 4) * 0.0018 * (1 - np.abs(z - 0.50) / 0.06) * knee
+    kz = bd.bones["calf_l"][0][2]
+    knee = np.abs(z - kz) < 0.06
+    kn = np.sin(z * 2 * np.pi / 0.03 + noise * 4) * 0.0018 * (1 - np.abs(z - kz) / 0.06) * knee
     disp = stack * amp + kn + noise * (0.0025 if not baggy else 0.004)
     sh.co = sh.co + n * disp[:, None]
     # waistband: lift + band
+    sh.clean_hems()
     sh.hem(depth=0.010)
     return sh.to_object(collection, rect)
 
@@ -309,7 +348,7 @@ def puffer(bd, collection, rect):
     legw = bd.w("thigh", "calf", "foot", "ball")
     pel = bd.bones["pelvis"][0]
     neck = bd.bones["neck_01"]
-    hem_z = pel[2] - 0.10
+    hem_z = pel[2] - 0.07
     rel = co - neck[0]
     collar_ok = rel[:, 2] < 0.065
     lt = np.zeros(bd.nv)
@@ -319,16 +358,17 @@ def puffer(bd, collection, rect):
         mm = np.sign(co[:, 0]) == s
         lt[mm] = tt[mm]
     is_arm = (armw + handw) > 0.45
-    m = (~is_arm & (co[:, 2] > hem_z) & collar_ok & (headw < 0.5) & (legw < 0.6)) | \
+    m = (~is_arm & (co[:, 2] > hem_z) & collar_ok & (headw < 0.5) & (legw < 0.97)) | \
         (is_arm & (handw < 0.35) & (lt < 0.98))
     sh = Shell(bd, m, "Winter_Jacket")
     s_arm = sh.field((armw + handw) > 0.3)
     s_neck = sh.field(neckw + headw)
-    sh.smooth(30)
+    sh.smooth(60)
     sh.offset(0.016)
-    tab, cy = chest_table(bd, 1.15, 1.30, (armw + handw < 0.3) & (headw + neckw < 0.3))
+    sp3 = bd.bones["spine_03"][0]
+    tab, cy = chest_table(bd, sp3[2] + 0.08, sp3[2] + 0.20, (armw + handw < 0.3) & (headw + neckw < 0.3))
     act = 1 - sh.field(np.clip(armw + handw, 0, 1))
-    sh.co = drape_torso(sh.co, tab, cy, z_top=1.22, z_bottom=hem_z, ease=0.03, shrink=0.02, active=act)
+    sh.co = drape_torso(sh.co, tab, cy, z_top=sp3[2] + 0.13, z_bottom=hem_z, ease=0.03, shrink=0.02, active=act)
     # stand collar: tube around the neck
     na, nb_ = neck
     act_n = np.clip(s_neck * 2, 0, 1) * smoothstep(neck[0][2] - 0.06, neck[0][2] - 0.01, sh.co[:, 2])
@@ -366,8 +406,10 @@ def puffer(bd, collection, rect):
     quilt = np.where(s_arm, qa, q)
     neckzone = smoothstep(neck[0][2] - 0.07, neck[0][2] - 0.03, z)
     disp = 0.010 * quilt * (1 - neckzone) + geo.fbm3(sh.co, 8, 3, 5) * 0.003
+    sh.fields["quilt"] = np.clip(quilt + neckzone, 0, 1)
     sh.co = sh.co + n * disp[:, None]
     sh.smooth(1)
+    sh.clean_hems()
     sh.hem(depth=0.016)
     return sh.to_object(collection, rect)
 
@@ -395,6 +437,7 @@ def gloves(bd, collection, rect):
     sh.smooth(2)
     n = sh.normals()
     sh.co = sh.co + n * (geo.fbm3(sh.co, 30, 2, 8) * 0.0012)[:, None]
+    sh.clean_hems()
     sh.hem(depth=0.008)
     return sh.to_object(collection, rect)
 
@@ -406,7 +449,7 @@ def beanie(bd, collection, rect):
     # cut plane: forehead (front, ~2.5cm above brows) down to occiput at the back
     rel = co - hd
     # plane z = a + b*y  (y negative = front)
-    zf, zb = 0.105, 0.050      # heights above head joint at front / back
+    zf, zb = 0.080, 0.020      # heights above head joint at front / back
     yf, yb = -0.10, 0.08
     zc = zf + (rel[:, 1] - yf) * (zb - zf) / (yb - yf)
     m = (headw > 0.5) & (rel[:, 2] > zc)
@@ -422,6 +465,7 @@ def beanie(bd, collection, rect):
     sh.smooth(3)
     n = sh.normals()
     sh.co = sh.co + n * (geo.fbm3(sh.co, 14, 2, 31) * 0.0012)[:, None]
+    sh.clean_hems()
     sh.hem(depth=0.010)
     return sh.to_object(collection, rect)
 

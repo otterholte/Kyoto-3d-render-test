@@ -42,6 +42,17 @@ def esri_to_geojson(feat, gtype):
     return {"type": "Feature", "geometry": geom, "properties": scrub(feat.get("attributes", {}))}
 
 
+def clip(feat):
+    """Clip huge city-wide polygons/lines to the fetch bbox (+~100 m) to keep files small."""
+    from shapely.geometry import shape, box, mapping
+    if not feat["geometry"] or feat["geometry"]["type"] == "Point":
+        return feat
+    w, s, e, n = FETCH_BBOX
+    g = shape(feat["geometry"]).buffer(0) if feat["geometry"]["type"] == "Polygon" else shape(feat["geometry"])
+    feat["geometry"] = mapping(g.intersection(box(w - 0.0015, s - 0.001, e + 0.0015, n + 0.001)))
+    return feat
+
+
 def fetch(name, url, fields):
     w, s, e, n = FETCH_BBOX
     feats, offset = [], 0
@@ -63,7 +74,7 @@ def fetch(name, url, fields):
             break
         offset += len(d.get("features", []))
     gj = {"type": "FeatureCollection", "name": name, "source": url,
-          "features": [esri_to_geojson(f, d.get("geometryType")) for f in feats]}
+          "features": [clip(esri_to_geojson(f, d.get("geometryType"))) for f in feats]}
     # final privacy assertion
     txt = json.dumps(gj)
     assert '"OWNER' not in txt.upper().replace('OWNERSHIP', ''), name

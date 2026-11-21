@@ -22,5 +22,17 @@
   "seconds": 1327.3,
   "preset": "dusk",
   "when": "2026-11-21 02:09:15"
+ },
+ {
+  "shot": "b_ninenzaka_south",
+  "file": "renders/final_b_ninenzaka_south.png",
+  "res": [
+   3840,
+   2160
+  ],
+  "samples": 96,
+  "seconds": 1297.0,
+  "preset": "dusk",
+  "when": "2026-11-21 02:30:52"
  }
 ]

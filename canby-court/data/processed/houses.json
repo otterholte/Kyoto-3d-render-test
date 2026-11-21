@@ -1,0 +1,2205 @@
+{
+ "crs": "local metres (boundary.json)",
+ "confidence_classes": "Per-house evidence JSON for the 10 Canby Ct houses (+ massing of context buildings).\n\nConfidence classes used throughout:\n  measured   - computed from survey/GIS geometry or rasters (footprint, area, ground z, roof colour pixels)\n  documented - stated in a public record (City assessor-derived building layer, listing data)\n  observed   - seen by a human on the 2022/2024 orthophotos (roof form, ridge direction, decks, garage side)\n  inferred   - estimated from rules of thumb (wall/eave/ridge heights, pitch)\nNo lidar DSM was obtainable, so roof heights/pitches are INFERRED, not measured.\nPrivacy: only addresses are stored; no owner / person names.",
+ "houses": [
+  {
+   "address": "3802 Canby Ct, Bellingham, WA 98229",
+   "number": 3802,
+   "parcel_code": "370306509217",
+   "footprint_local": {
+    "value": [
+     [
+      -109.36,
+      -37.27
+     ],
+     [
+      -106.72,
+      -32.56
+     ],
+     [
+      -107.46,
+      -32.14
+     ],
+     [
+      -104.63,
+      -27.09
+     ],
+     [
+      -103.75,
+      -27.57
+     ],
+     [
+      -100.19,
+      -21.15
+     ],
+     [
+      -99.48,
+      -21.55
+     ],
+     [
+      -92.5,
+      -25.45
+     ],
+     [
+      -97.29,
+      -34.0
+     ],
+     [
+      -94.43,
+      -35.6
+     ],
+     [
+      -91.98,
+      -31.24
+     ],
+     [
+      -84.7,
+      -35.31
+     ],
+     [
+      -88.29,
+      -41.74
+     ],
+     [
+      -86.42,
+      -42.79
+     ],
+     [
+      -89.54,
+      -48.37
+     ],
+     [
+      -109.36,
+      -37.27
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 326.9,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 23.56,
+    "width_m": 18.55,
+    "long_axis_bearing_deg": 119.2,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -96.99,
+    -35.35
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 1,
+    "year_built": 1984,
+    "style": "1 STY",
+    "sf_1st": 2794,
+    "sf_2nd": 0,
+    "sf_3rd": 0,
+    "sf_basement": 0,
+    "sf_attic": 0,
+    "total_sf": 3521,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 4 BDRM",
+    "parcel_acres": 0.35,
+    "parcel_area_sqft": 14993.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 134.8,
+    "z_ring_max": 137.36,
+    "z_ring_median": 136.42,
+    "grade_drop_across_footprint_m": 2.57
+   },
+   "roof": {
+    "form": {
+     "value": "hip roof, two hipped wings in a stepped L (main wing + garage wing)",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 120,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "documented",
+     "note": "listing says 'composition'"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       136,
+       137,
+       132
+      ],
+      "median_hex": "#888984",
+      "sunlit_planes_hex": "#b7b6a9",
+      "shaded_planes_hex": "#686c73",
+      "n_pixels": 48385
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       170,
+       168,
+       154
+      ],
+      "median_hex": "#aaa89a",
+      "sunlit_planes_hex": "#bcbaab",
+      "shaded_planes_hex": "#9b9a8d",
+      "n_pixels": 48385
+     },
+     "naip": {
+      "median_rgb": [
+       52,
+       71,
+       87
+      ],
+      "median_hex": "#344757",
+      "sunlit_planes_hex": "#697075",
+      "shaded_planes_hex": "#172b44",
+      "n_pixels": 1089
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 3.35,
+     "class": "inferred",
+     "note": "1 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 6.85,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 139.77,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 143.27,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "attached, NE wing, faces NE onto Canby Ct (concrete drive, 2 cars)",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "skylight",
+     "deck/porch at NW corner (light wood)"
+    ],
+    "class": "observed"
+   },
+   "notes": "one-storey rambler on a steep lot falling west to 38th St (embankment with conifers)",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [
+     {
+      "url": "https://www.windermere.com/listing/WA/Bellingham/3802-Canby-Court-98229/171849369",
+      "status": "page blocked from this environment; facts below from web-search result snippets of this and a mirrored agent-site copy of the same listing"
+     }
+    ],
+    "facts": {
+     "sale": "sold 2023-08-24, $1,020,000, 46 days on market",
+     "type": "rambler (one storey)",
+     "beds_baths": "4 bd / 3 ba",
+     "size_sqft": 2304,
+     "roof": "composition",
+     "exterior": "wood",
+     "garage": "attached garage",
+     "view": "partial view of the bay (Bellingham Bay)",
+     "setting": "south-side, quiet neighbourhood"
+    }
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence; siding material documented in listing"
+   }
+  },
+  {
+   "address": "3803 Canby Ct, Bellingham, WA 98229",
+   "number": 3803,
+   "parcel_code": "370306507234",
+   "footprint_local": {
+    "value": [
+     [
+      -106.24,
+      26.22
+     ],
+     [
+      -101.41,
+      26.08
+     ],
+     [
+      -101.52,
+      22.13
+     ],
+     [
+      -96.99,
+      22.0
+     ],
+     [
+      -97.16,
+      15.99
+     ],
+     [
+      -94.89,
+      15.92
+     ],
+     [
+      -95.12,
+      8.14
+     ],
+     [
+      -102.65,
+      8.36
+     ],
+     [
+      -102.6,
+      9.92
+     ],
+     [
+      -108.25,
+      10.08
+     ],
+     [
+      -108.2,
+      11.66
+     ],
+     [
+      -108.78,
+      11.67
+     ],
+     [
+      -109.17,
+      11.13
+     ],
+     [
+      -111.49,
+      11.2
+     ],
+     [
+      -111.97,
+      11.67
+     ],
+     [
+      -112.97,
+      11.7
+     ],
+     [
+      -112.68,
+      21.51
+     ],
+     [
+      -108.98,
+      21.4
+     ],
+     [
+      -108.96,
+      22.13
+     ],
+     [
+      -106.36,
+      22.06
+     ],
+     [
+      -106.24,
+      26.22
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 227.0,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 17.94,
+    "width_m": 17.75,
+    "long_axis_bearing_deg": 91.7,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -103.79,
+    16.25
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 1986,
+    "style": "2 STY",
+    "sf_1st": 1963,
+    "sf_2nd": 1343,
+    "sf_3rd": 0,
+    "sf_basement": 0,
+    "sf_attic": 0,
+    "total_sf": 4890,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 5 BDRM",
+    "parcel_acres": 0.25,
+    "parcel_area_sqft": 10815.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 132.4,
+    "z_ring_max": 134.18,
+    "z_ring_median": 133.23,
+    "grade_drop_across_footprint_m": 1.78
+   },
+   "roof": {
+    "form": {
+     "value": "side-gable, ridge E-W; three small gable dormers/vents on the street (south) plane; rear low-slope ribbed addition (sunroom/patio cover) and white pergola",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 90,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       137,
+       137,
+       134
+      ],
+      "median_hex": "#898986",
+      "sunlit_planes_hex": "#d3cfbe",
+      "shaded_planes_hex": "#797a78",
+      "n_pixels": 33004
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       186,
+       180,
+       168
+      ],
+      "median_hex": "#bab4a8",
+      "sunlit_planes_hex": "#c5beb3",
+      "shaded_planes_hex": "#8e8b80",
+      "n_pixels": 33004
+     },
+     "naip": {
+      "median_rgb": [
+       78,
+       92,
+       110
+      ],
+      "median_hex": "#4e5c6e",
+      "sunlit_planes_hex": "#818385",
+      "shaded_planes_hex": "#2f475d",
+      "n_pixels": 745
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 9.7,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 139.43,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 142.93,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "east end, drive from Canby Ct on the east side",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "octagonal gazebo with brown roof in rear yard",
+     "curved concrete path on west side",
+     "tall clipped hedge along 38th St"
+    ],
+    "class": "observed"
+   },
+   "notes": "corner lot Canby Ct / 38th St",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3806 Canby Ct, Bellingham, WA 98229",
+   "number": 3806,
+   "parcel_code": "370306523207",
+   "footprint_local": {
+    "value": [
+     [
+      -62.58,
+      -41.48
+     ],
+     [
+      -52.9,
+      -42.08
+     ],
+     [
+      -53.0,
+      -43.8
+     ],
+     [
+      -49.81,
+      -44.0
+     ],
+     [
+      -49.94,
+      -45.98
+     ],
+     [
+      -42.63,
+      -46.28
+     ],
+     [
+      -43.37,
+      -58.32
+     ],
+     [
+      -54.16,
+      -57.65
+     ],
+     [
+      -62.46,
+      -57.13
+     ],
+     [
+      -62.79,
+      -57.11
+     ],
+     [
+      -62.42,
+      -51.14
+     ],
+     [
+      -63.18,
+      -51.2
+     ],
+     [
+      -62.58,
+      -41.48
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 279.1,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 20.21,
+    "width_m": 15.62,
+    "long_axis_bearing_deg": 93.5,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -53.49,
+    -50.5
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 1986,
+    "style": "SPLIT",
+    "sf_1st": 1288,
+    "sf_2nd": 1078,
+    "sf_3rd": 1062,
+    "sf_basement": 0,
+    "sf_attic": 0,
+    "total_sf": 6013,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 2 BDRM",
+    "parcel_acres": 0.37,
+    "parcel_area_sqft": 16812.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 139.37,
+    "z_ring_max": 141.57,
+    "z_ring_median": 140.45,
+    "grade_drop_across_footprint_m": 2.2
+   },
+   "roof": {
+    "form": {
+     "value": "complex hip roof (main hip + hipped wings)",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 90,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       134,
+       135,
+       130
+      ],
+      "median_hex": "#868782",
+      "sunlit_planes_hex": "#b1b0a3",
+      "shaded_planes_hex": "#707271",
+      "n_pixels": 42249
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       149,
+       148,
+       141
+      ],
+      "median_hex": "#95948d",
+      "sunlit_planes_hex": "#acaba2",
+      "shaded_planes_hex": "#898a82",
+      "n_pixels": 42249
+     },
+     "naip": {
+      "median_rgb": [
+       75,
+       87,
+       104
+      ],
+      "median_hex": "#4b5768",
+      "sunlit_planes_hex": "#747680",
+      "shaded_planes_hex": "#1f364f",
+      "n_pixels": 948
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 9.7,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 146.65,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 150.15,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "north side, long concrete drive from Canby Ct along the west",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "skylight",
+     "rear deck with raised planter boxes",
+     "trampoline in rear lawn",
+     "white garden arbor"
+    ],
+    "class": "observed"
+   },
+   "notes": "split-level per City STYLE",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3807 Canby Ct, Bellingham, WA 98229",
+   "number": 3807,
+   "parcel_code": "370306517232",
+   "footprint_local": {
+    "value": [
+     [
+      -88.01,
+      14.99
+     ],
+     [
+      -79.23,
+      14.41
+     ],
+     [
+      -79.37,
+      12.18
+     ],
+     [
+      -67.61,
+      11.44
+     ],
+     [
+      -65.62,
+      11.31
+     ],
+     [
+      -66.53,
+      -2.6
+     ],
+     [
+      -75.39,
+      -2.02
+     ],
+     [
+      -75.18,
+      1.32
+     ],
+     [
+      -80.3,
+      1.66
+     ],
+     [
+      -80.35,
+      0.79
+     ],
+     [
+      -88.9,
+      1.34
+     ],
+     [
+      -88.01,
+      14.99
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 295.6,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 22.58,
+    "width_m": 16.15,
+    "long_axis_bearing_deg": 93.7,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -77.2,
+    6.33
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 1984,
+    "style": "SPLIT",
+    "sf_1st": 1584,
+    "sf_2nd": 802,
+    "sf_3rd": 960,
+    "sf_basement": 0,
+    "sf_attic": 0,
+    "total_sf": 6369,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 4 BDRM",
+    "parcel_acres": 0.28,
+    "parcel_area_sqft": 13344.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 134.59,
+    "z_ring_max": 137.81,
+    "z_ring_median": 136.34,
+    "grade_drop_across_footprint_m": 3.22
+   },
+   "roof": {
+    "form": {
+     "value": "hip roof, brown shingles, rectangular plan",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 90,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       157,
+       148,
+       139
+      ],
+      "median_hex": "#9d948b",
+      "sunlit_planes_hex": "#c2b8a9",
+      "shaded_planes_hex": "#8c837e",
+      "n_pixels": 44409
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       174,
+       163,
+       152
+      ],
+      "median_hex": "#aea398",
+      "sunlit_planes_hex": "#b7aba0",
+      "shaded_planes_hex": "#9c9388",
+      "n_pixels": 44409
+     },
+     "naip": {
+      "median_rgb": [
+       88,
+       83,
+       96
+      ],
+      "median_hex": "#585360",
+      "sunlit_planes_hex": "#7d6d72",
+      "shaded_planes_hex": "#2b3a4f",
+      "n_pixels": 997
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 9.7,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 142.54,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 146.04,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "east side, concrete drive to Canby Ct",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "chimney",
+     "skylights",
+     "rear deck with white railing (north)"
+    ],
+    "class": "observed"
+   },
+   "notes": "split-level per City STYLE",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3811 Canby Ct, Bellingham, WA 98229",
+   "number": 3811,
+   "parcel_code": "370306525228",
+   "footprint_local": {
+    "value": [
+     [
+      -61.07,
+      4.25
+     ],
+     [
+      -56.04,
+      3.9
+     ],
+     [
+      -55.94,
+      5.22
+     ],
+     [
+      -53.64,
+      5.06
+     ],
+     [
+      -45.17,
+      4.49
+     ],
+     [
+      -45.55,
+      -1.09
+     ],
+     [
+      -42.43,
+      -1.31
+     ],
+     [
+      -43.06,
+      -10.23
+     ],
+     [
+      -51.44,
+      -9.63
+     ],
+     [
+      -51.36,
+      -8.51
+     ],
+     [
+      -56.78,
+      -8.12
+     ],
+     [
+      -56.77,
+      -7.88
+     ],
+     [
+      -56.71,
+      -6.61
+     ],
+     [
+      -60.35,
+      -6.43
+     ],
+     [
+      -61.82,
+      -6.36
+     ],
+     [
+      -61.07,
+      4.25
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 231.9,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 18.99,
+    "width_m": 14.53,
+    "long_axis_bearing_deg": 94.1,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -51.97,
+    -2.33
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 1986,
+    "style": "2 STY",
+    "sf_1st": 1809,
+    "sf_2nd": 1746,
+    "sf_3rd": 0,
+    "sf_basement": 1066,
+    "sf_attic": 0,
+    "total_sf": 4996,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 3 BDRM",
+    "parcel_acres": 0.27,
+    "parcel_area_sqft": 12547.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 137.75,
+    "z_ring_max": 140.67,
+    "z_ring_median": 139.36,
+    "grade_drop_across_footprint_m": 2.93
+   },
+   "roof": {
+    "form": {
+     "value": "side-gable (ridge E-W) with a street-facing cross gable at the west half",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 90,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       156,
+       162,
+       160
+      ],
+      "median_hex": "#9ca2a0",
+      "sunlit_planes_hex": "#bbbeb8",
+      "shaded_planes_hex": "#898e7f",
+      "n_pixels": 34380
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       89,
+       97,
+       101
+      ],
+      "median_hex": "#596165",
+      "sunlit_planes_hex": "#949894",
+      "shaded_planes_hex": "#3b4751",
+      "n_pixels": 34380
+     },
+     "naip": {
+      "median_rgb": [
+       45,
+       66,
+       93
+      ],
+      "median_hex": "#2d425d",
+      "sunlit_planes_hex": "#5c6c79",
+      "shaded_planes_hex": "#112442",
+      "n_pixels": 761
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 9.7,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 145.56,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 149.06,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "east side, concrete drive to Canby Ct",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "chimney at west gable end",
+     "rear patio with chairs and fire pit"
+    ],
+    "class": "observed"
+   },
+   "notes": "",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3813 Canby Ct, Bellingham, WA 98229",
+   "number": 3813,
+   "parcel_code": "370306533225",
+   "footprint_local": {
+    "value": [
+     [
+      -23.59,
+      9.78
+     ],
+     [
+      -23.53,
+      -5.77
+     ],
+     [
+      -30.76,
+      -5.8
+     ],
+     [
+      -30.76,
+      -4.8
+     ],
+     [
+      -36.98,
+      -4.82
+     ],
+     [
+      -37.04,
+      9.74
+     ],
+     [
+      -32.25,
+      9.75
+     ],
+     [
+      -23.59,
+      9.78
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 202.9,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 15.56,
+    "width_m": 13.45,
+    "long_axis_bearing_deg": 179.8,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -30.17,
+    2.21
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 2015,
+    "style": "2 STY",
+    "sf_1st": 2186,
+    "sf_2nd": 924,
+    "sf_3rd": 0,
+    "sf_basement": 2186,
+    "sf_attic": 0,
+    "total_sf": 4371,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 4 BDRM",
+    "parcel_acres": 0.27,
+    "parcel_area_sqft": 12060.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 139.6,
+    "z_ring_max": 143.47,
+    "z_ring_median": 141.54,
+    "grade_drop_across_footprint_m": 3.87
+   },
+   "roof": {
+    "form": {
+     "value": "compact hip/gable mix, grey (2016 Craftsman)",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 0,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "documented",
+     "note": "listing says 'composition'"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       121,
+       126,
+       122
+      ],
+      "median_hex": "#797e7a",
+      "sunlit_planes_hex": "#a5a8a6",
+      "shaded_planes_hex": "#5c6168",
+      "n_pixels": 30146
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       106,
+       112,
+       113
+      ],
+      "median_hex": "#6a7071",
+      "sunlit_planes_hex": "#8c9191",
+      "shaded_planes_hex": "#28323d",
+      "n_pixels": 30146
+     },
+     "naip": {
+      "median_rgb": [
+       23,
+       41,
+       70
+      ],
+      "median_hex": "#172946",
+      "sunlit_planes_hex": "#3c4762",
+      "shaded_planes_hex": "#0c1e3a",
+      "n_pixels": 675
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 8,
+     "deg": 33.7,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 10.68,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 147.74,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 152.22,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "south-west, drive to the bulb",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "skylights / roof vents",
+     "landscaped front beds with boulders",
+     "stone/retaining wall on east side"
+    ],
+    "class": "observed"
+   },
+   "notes": "built 2015/16 on a lot that was vacant in the 2006 DTM",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [
+     {
+      "url": "https://www.windermere.com/listing/WA/Bellingham/3813-Canby-Court-98229/178146638",
+      "status": "blocked; facts from search snippets"
+     },
+     {
+      "url": "https://www.windermere.com/listing/WA/Bellingham/3813-Canby-Ct-98229/32794538",
+      "status": "blocked; earlier (2016) listing, search snippets"
+     },
+     {
+      "url": "https://orchard.com/homes/details/3813-canby-ct-bellingham-wa-98229",
+      "status": "blocked; search snippets"
+     },
+     {
+      "url": "https://www.wicklundre.com/listing/1504244/3813-Canby-Ct-Bellingham-WA-98229",
+      "status": "not fetched; search snippets"
+     }
+    ],
+    "facts": {
+     "sale": "sold 2023-09-06, $1,200,000 (earlier 2016 new-build sale $650,525)",
+     "style": "Craftsman",
+     "beds_baths": "4 bd / 4 ba",
+     "size_sqft": 3380,
+     "roof": "composition",
+     "exterior": "cement planked (fibre-cement lap) siding + wood (records differ: 'Cement Planked' vs 'Cement/Concrete, Wood')",
+     "features": "deck, skylights; cul-de-sac lot, curbs, sidewalks",
+     "lot_acres": 0.27,
+     "builder": "local custom builder (named in project brief; not re-verified here)",
+     "garage": "attached garage (2016 record)"
+    }
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence; siding material documented in listing"
+   }
+  },
+  {
+   "address": "3900 Canby Ct, Bellingham, WA 98229",
+   "number": 3900,
+   "parcel_code": "370306533207",
+   "footprint_local": {
+    "value": [
+     [
+      -27.26,
+      -56.01
+     ],
+     [
+      -18.43,
+      -53.2
+     ],
+     [
+      -16.18,
+      -60.29
+     ],
+     [
+      -15.07,
+      -59.94
+     ],
+     [
+      -12.86,
+      -66.88
+     ],
+     [
+      -16.7,
+      -68.1
+     ],
+     [
+      -15.53,
+      -71.78
+     ],
+     [
+      -28.14,
+      -75.78
+     ],
+     [
+      -28.8,
+      -73.62
+     ],
+     [
+      -29.46,
+      -71.45
+     ],
+     [
+      -29.6,
+      -70.99
+     ],
+     [
+      -33.17,
+      -72.12
+     ],
+     [
+      -37.22,
+      -59.36
+     ],
+     [
+      -35.93,
+      -58.95
+     ],
+     [
+      -36.05,
+      -58.58
+     ],
+     [
+      -31.6,
+      -57.17
+     ],
+     [
+      -31.42,
+      -57.73
+     ],
+     [
+      -30.85,
+      -57.55
+     ],
+     [
+      -30.73,
+      -57.91
+     ],
+     [
+      -30.48,
+      -58.7
+     ],
+     [
+      -26.78,
+      -57.53
+     ],
+     [
+      -27.02,
+      -56.75
+     ],
+     [
+      -27.26,
+      -56.01
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 340.5,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 20.95,
+    "width_m": 18.78,
+    "long_axis_bearing_deg": 72.4,
+    "class": "measured"
+   },
+   "centroid_local": [
+    -24.75,
+    -64.51
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 1.5,
+    "year_built": 1988,
+    "style": "1&H F",
+    "sf_1st": 3668,
+    "sf_2nd": 966,
+    "sf_3rd": 0,
+    "sf_basement": 2436,
+    "sf_attic": 0,
+    "total_sf": 5502,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 4 BDRM",
+    "parcel_acres": 0.27,
+    "parcel_area_sqft": 12321.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 141.74,
+    "z_ring_max": 145.26,
+    "z_ring_median": 144.22,
+    "grade_drop_across_footprint_m": 3.52
+   },
+   "roof": {
+    "form": {
+     "value": "1.5-storey cross-gable with three gable dormers on the north (street) face",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 110,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       107,
+       112,
+       116
+      ],
+      "median_hex": "#6b7074",
+      "sunlit_planes_hex": "#a6a8a4",
+      "shaded_planes_hex": "#363c4c",
+      "n_pixels": 52066
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       156,
+       158,
+       154
+      ],
+      "median_hex": "#9c9e9a",
+      "sunlit_planes_hex": "#b9bab6",
+      "shaded_planes_hex": "#717473",
+      "n_pixels": 52066
+     },
+     "naip": {
+      "median_rgb": [
+       22,
+       43,
+       73
+      ],
+      "median_hex": "#162b49",
+      "sunlit_planes_hex": "#2f4363",
+      "shaded_planes_hex": "#0f2343",
+      "n_pixels": 1169
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 4.6,
+     "class": "inferred",
+     "note": "1.5 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 8.1,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 148.82,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 152.32,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "east side, drive from the bulb",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "large rooftop solar PV array (~24 panels) on the south plane",
+     "pergola/arbor on west",
+     "detached flat-roofed outbuilding to SW",
+     "boat under blue cover beside drive"
+    ],
+    "class": "observed"
+   },
+   "notes": "City STYLE '1&H F' (one-and-a-half with finished basement)",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3904 Canby Ct, Bellingham, WA 98229",
+   "number": 3904,
+   "parcel_code": "370306538207",
+   "footprint_local": {
+    "value": [
+     [
+      -6.33,
+      -47.57
+     ],
+     [
+      -3.28,
+      -51.03
+     ],
+     [
+      -1.51,
+      -49.46
+     ],
+     [
+      -1.77,
+      -49.17
+     ],
+     [
+      -0.11,
+      -47.71
+     ],
+     [
+      -0.7,
+      -47.04
+     ],
+     [
+      3.33,
+      -43.49
+     ],
+     [
+      14.62,
+      -56.31
+     ],
+     [
+      11.34,
+      -59.2
+     ],
+     [
+      10.74,
+      -58.52
+     ],
+     [
+      4.53,
+      -64.0
+     ],
+     [
+      5.74,
+      -65.37
+     ],
+     [
+      2.05,
+      -68.62
+     ],
+     [
+      -12.05,
+      -52.61
+     ],
+     [
+      -6.33,
+      -47.57
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 317.5,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 21.33,
+    "width_m": 17.57,
+    "long_axis_bearing_deg": 138.6,
+    "class": "measured"
+   },
+   "centroid_local": [
+    1.51,
+    -55.48
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 1,
+    "year_built": 1988,
+    "style": "1 STY",
+    "sf_1st": 2830,
+    "sf_2nd": 0,
+    "sf_3rd": 0,
+    "sf_basement": 0,
+    "sf_attic": 0,
+    "total_sf": 3420,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 3 BDRM",
+    "parcel_acres": 0.32,
+    "parcel_area_sqft": 13858.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 144.67,
+    "z_ring_max": 146.59,
+    "z_ring_median": 146.12,
+    "grade_drop_across_footprint_m": 1.92
+   },
+   "roof": {
+    "form": {
+     "value": "large hip roof, light grey, plan rotated ~45 deg",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 135,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       169,
+       165,
+       151
+      ],
+      "median_hex": "#a9a597",
+      "sunlit_planes_hex": "#c5c1b5",
+      "shaded_planes_hex": "#51545b",
+      "n_pixels": 48005
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       151,
+       150,
+       141
+      ],
+      "median_hex": "#97968d",
+      "sunlit_planes_hex": "#b7b3a5",
+      "shaded_planes_hex": "#676a69",
+      "n_pixels": 48005
+     },
+     "naip": {
+      "median_rgb": [
+       75,
+       86,
+       99
+      ],
+      "median_hex": "#4b5663",
+      "sunlit_planes_hex": "#797e7f",
+      "shaded_planes_hex": "#2c3f55",
+      "n_pixels": 1080
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 3.35,
+     "class": "inferred",
+     "note": "1 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 6.85,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 149.47,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 152.97,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "north-west, drive from the bulb",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "skylights",
+     "rear deck SE"
+    ],
+    "class": "observed"
+   },
+   "notes": "one storey",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3905 Canby Ct, Bellingham, WA 98229",
+   "number": 3905,
+   "parcel_code": "370306541225",
+   "footprint_local": {
+    "value": [
+     [
+      -10.57,
+      3.09
+     ],
+     [
+      -2.89,
+      6.91
+     ],
+     [
+      -2.55,
+      7.69
+     ],
+     [
+      0.25,
+      9.09
+     ],
+     [
+      1.71,
+      8.6
+     ],
+     [
+      1.98,
+      8.06
+     ],
+     [
+      5.87,
+      10.0
+     ],
+     [
+      6.63,
+      8.48
+     ],
+     [
+      8.18,
+      5.41
+     ],
+     [
+      14.22,
+      4.9
+     ],
+     [
+      14.8,
+      4.85
+     ],
+     [
+      14.31,
+      -2.18
+     ],
+     [
+      7.92,
+      -1.79
+     ],
+     [
+      6.87,
+      -2.31
+     ],
+     [
+      7.48,
+      -3.53
+     ],
+     [
+      -1.57,
+      -8.02
+     ],
+     [
+      -1.38,
+      -8.4
+     ],
+     [
+      -4.17,
+      -9.79
+     ],
+     [
+      -10.57,
+      3.09
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 276.4,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 24.14,
+    "width_m": 15.77,
+    "long_axis_bearing_deg": 67.6,
+    "class": "measured"
+   },
+   "centroid_local": [
+    1.71,
+    0.83
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 1988,
+    "style": "2 STY",
+    "sf_1st": 1856,
+    "sf_2nd": 1404,
+    "sf_3rd": 0,
+    "sf_basement": 0,
+    "sf_attic": 0,
+    "total_sf": 5954,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 4 BDRM",
+    "parcel_acres": 0.32,
+    "parcel_area_sqft": 14302.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 144.7,
+    "z_ring_max": 146.11,
+    "z_ring_median": 145.66,
+    "grade_drop_across_footprint_m": 1.41
+   },
+   "roof": {
+    "form": {
+     "value": "complex: main hip roof with long ridge NNW-SSE, a lower roof strip along the SW face, hipped bay on the north, light low-slope section in the NE re-entrant corner, and a hip/gable garage wing to the east with ridge E-W",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 155,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "observed",
+     "note": "shingle texture on 5-7.5 cm ortho"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       151,
+       160,
+       167
+      ],
+      "median_hex": "#97a0a7",
+      "sunlit_planes_hex": "#dbdcd5",
+      "shaded_planes_hex": "#6c7781",
+      "n_pixels": 41456
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       175,
+       181,
+       177
+      ],
+      "median_hex": "#afb5b1",
+      "sunlit_planes_hex": "#bdc1bc",
+      "shaded_planes_hex": "#8c9292",
+      "n_pixels": 41456
+     },
+     "naip": {
+      "median_rgb": [
+       58,
+       81,
+       106
+      ],
+      "median_hex": "#3a516a",
+      "sunlit_planes_hex": "#7d8d95",
+      "shaded_planes_hex": "#112342",
+      "n_pixels": 936
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 9.7,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 151.86,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 155.36,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "attached east wing, doors face south",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "light-grey composition shingles (both orthos)",
+     "chimney on NW part of main roof",
+     "row of roof vents",
+     "garage doors face south onto concrete drive from the bulb (2 cars parked)",
+     "walkway from SW front to the bulb sidewalk",
+     "large rear lawn N and W with play structure (red roof) and swing set at about (-12,20)",
+     "diagonal row of ~9 columnar arborvitae across the west lawn (hedge H1)",
+     "low clipped hedge along the curved west lawn edge (H2)",
+     "paved path NE to a garden shed (~5x4 m, grey roof) at about (14,25)",
+     "raised vegetable beds north at about (5..12,28..32)",
+     "patio/terrace with furniture in the NE corner between wings"
+    ],
+    "class": "observed"
+   },
+   "notes": "no facade evidence in nadir imagery",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [],
+    "facts": {},
+    "note": "web search (2026-11) found no listing/sale page for this address; only street-index pages"
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence"
+   }
+  },
+  {
+   "address": "3909 Canby Ct, Bellingham, WA 98229",
+   "number": 3909,
+   "parcel_code": "370306541217",
+   "footprint_local": {
+    "value": [
+     [
+      4.9,
+      -12.55
+     ],
+     [
+      16.2,
+      -11.96
+     ],
+     [
+      16.53,
+      -18.83
+     ],
+     [
+      17.0,
+      -28.27
+     ],
+     [
+      14.85,
+      -28.37
+     ],
+     [
+      14.95,
+      -30.21
+     ],
+     [
+      12.76,
+      -30.32
+     ],
+     [
+      11.45,
+      -33.34
+     ],
+     [
+      12.05,
+      -33.63
+     ],
+     [
+      9.72,
+      -38.47
+     ],
+     [
+      1.7,
+      -34.49
+     ],
+     [
+      4.55,
+      -28.35
+     ],
+     [
+      3.74,
+      -12.92
+     ],
+     [
+      4.91,
+      -12.86
+     ],
+     [
+      4.9,
+      -12.55
+     ]
+    ],
+    "class": "measured",
+    "source": "City of Bellingham 'Bellingham_Buildings_With_Addresses' (footprint YEAR 2019 edit)"
+   },
+   "footprint_area_m2": {
+    "value": 280.0,
+    "class": "measured"
+   },
+   "obb": {
+    "length_m": 27.01,
+    "width_m": 14.64,
+    "long_axis_bearing_deg": 5.4,
+    "class": "measured"
+   },
+   "centroid_local": [
+    9.72,
+    -23.79
+   ],
+   "assessor": {
+    "class": "documented",
+    "source": "City building layer (assessor-derived)",
+    "floors": 2,
+    "year_built": 1988,
+    "style": "2 STY",
+    "sf_1st": 2452,
+    "sf_2nd": 1540,
+    "sf_3rd": 0,
+    "sf_basement": 1744,
+    "sf_attic": 0,
+    "total_sf": 6033,
+    "bldg_type": "HOUSE",
+    "parcel_land_use": "RES 4 BDRM",
+    "parcel_acres": 0.27,
+    "parcel_area_sqft": 11257.0
+   },
+   "ground": {
+    "class": "measured",
+    "source": "3DEP 2006 bare-earth DTM, 1.5 m ring around footprint",
+    "z_ring_min": 145.22,
+    "z_ring_max": 147.03,
+    "z_ring_median": 145.92,
+    "grade_drop_across_footprint_m": 1.8
+   },
+   "roof": {
+    "form": {
+     "value": "long side-gable, ridge N-S, light grey",
+     "class": "observed"
+    },
+    "ridge_bearing_deg": {
+     "value": 0,
+     "class": "observed",
+     "note": "main ridge, +-10 deg"
+    },
+    "material": {
+     "value": "asphalt/composition shingle",
+     "class": "documented",
+     "note": "listing says 'composition'"
+    },
+    "colour": {
+     "class": "measured",
+     "note": "pixel medians inside footprint (inset 0.6 m); illumination-dependent - use sunlit_planes_hex as albedo-ish base colour, 2024 = Pictometry spring, 2022 = EagleView spring, NAIP = 2017-09 1 m",
+     "ortho_wc2024_core": {
+      "median_rgb": [
+       179,
+       175,
+       162
+      ],
+      "median_hex": "#b3afa2",
+      "sunlit_planes_hex": "#c0bdb1",
+      "shaded_planes_hex": "#98978c",
+      "n_pixels": 42005
+     },
+     "ortho_cob2022_core": {
+      "median_rgb": [
+       164,
+       162,
+       152
+      ],
+      "median_hex": "#a4a298",
+      "sunlit_planes_hex": "#bebaae",
+      "shaded_planes_hex": "#89877f",
+      "n_pixels": 42005
+     },
+     "naip": {
+      "median_rgb": [
+       48,
+       66,
+       86
+      ],
+      "median_hex": "#304256",
+      "sunlit_planes_hex": "#3f4e61",
+      "shaded_planes_hex": "#11253f",
+      "n_pixels": 946
+     }
+    },
+    "pitch": {
+     "value_rise_per_12": 6,
+     "deg": 26.6,
+     "class": "inferred",
+     "note": "typical for 1984-88 PNW tract homes (6:12); 8:12 for the 2016 Craftsman"
+    },
+    "eave_height_above_grade_m": {
+     "value": 6.2,
+     "class": "inferred",
+     "note": "2 storey(s) x ~2.75 m + 0.45 m stem wall"
+    },
+    "ridge_height_above_grade_m": {
+     "value": 9.7,
+     "class": "inferred",
+     "note": "eave + min(OBB width/2, 7 m) x pitch; complex roofs have lower secondary ridges"
+    },
+    "eave_z_navd88_m": {
+     "value": 152.12,
+     "class": "inferred"
+    },
+    "ridge_z_navd88_m": {
+     "value": 155.62,
+     "class": "inferred"
+    }
+   },
+   "garage": {
+    "value": "south-west end, drive from the bulb",
+    "class": "observed"
+   },
+   "observed_features": {
+    "value": [
+     "trampoline in east yard",
+     "trailer/RV or shed (white) north of house at about (14,-12)"
+    ],
+    "class": "observed"
+   },
+   "notes": "City: 2 storeys + basement",
+   "listing": {
+    "class": "documented (listing data, human-read via search snippets)",
+    "sources": [
+     {
+      "url": "https://www.estately.com/listings/info/3909-canby-court",
+      "status": "blocked; facts from search snippets"
+     }
+    ],
+    "facts": {
+     "structure": "house",
+     "exterior": "cement planked + wood",
+     "roof": "composition",
+     "directions": "I-5 Samish Way exit ... left onto Canby Ct",
+     "sale": "date/price not shown in snippet"
+    }
+   },
+   "facade": {
+    "colour": null,
+    "class": "gap",
+    "note": "nadir orthophotos show roofs only; no facade colour evidence; siding material documented in listing"
+   }
+  }
+ ]
+}

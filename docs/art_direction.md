@@ -9,7 +9,8 @@ and an `evidence_ref` custom property. The `evidence_confidence` property keeps 
 
 ```
 /home/user/venv/bin/python blender/art_pass.py            # -> blender/higashiyama_art.blend (checkpoint after each stage)
-/home/user/venv/bin/python blender/kit_render.py --shots a,b,c,d,e --res 3840 --time-limit 1260 --out renders/final_
+/home/user/venv/bin/python blender/kit_render.py --shots a,e,b,c,d --res 3840 --samples 96 --threshold 0.03 --time-limit 1200 --out renders/final_
+/home/user/venv/bin/python blender/kit_gallery.py         # -> web/assets/renders/*.jpg + renders.json
 /home/user/venv/bin/python blender/kit_export.py          # -> web/assets/world_art.glb
 ```
 
@@ -31,7 +32,7 @@ inferred 0.45 m inset** (`evidence_ref` = "typical machiya eave overhang (buildi
 * Roofs are untouched. New wall tops are ray-cast onto the roof underside. A 0.35 m stone plinth band follows the terrain.
 
 **Machiya kit** (hidden collection `A_Asset_Library`, one collection per piece, placed as collection instances in
-`60_Machiya_Kit/60_Kit_<street>`). There are 2,515 placements: 1,052 `observed`, 1,213 `inferred` and 250 `artistic`. Every placement carries both `detail_class` and the boolean `artistic`. Proportions follow `docs/evidence/building_evidence.md`:
+`60_Machiya_Kit/60_Kit_<street>`). There are 2,721 placements: 1,052 `observed`, 1,419 `inferred` and 250 `artistic`. The inferred count includes 206 gutters and downpipes. Every placement carries both `detail_class` and the boolean `artistic`. Proportions follow `docs/evidence/building_evidence.md`:
 * bays of 1 ken (1.82 m);
 * a tiled 1F hisashi with its outer edge at about 2.6 m and attached at about 3.0 m (PLATEAU has no hisashi; the evidence gives 2.7–3.2 m);
 * oya-ko sen-gōshi at a 56 mm slat pitch;
@@ -153,3 +154,8 @@ Names and prefixes are kept: `Terrain_`, `B_`, `LM_`, `Steps_osm`, `Paving_osm`,
 * **Documented / measured:** footprints, roof shapes and heights (PLATEAU), GSI-matched wall insets, street and stair geometry and surfaces (OSM), tree positions and tagged species (OSM), the stone lantern and street lamps (OSM), terrain (GSI DEM5A / DEM10B), and the facade vocabulary per street (evidence file).
 * **Inferred:** 0.5 m wall insets, hisashi height, the per-bay arrangement of the kit, untagged tree species, default tree heights, paving extension to the building line, and ishidatami slab size (by eye in photos).
 * **Artistic:** brushwork, palette push, weather (post-rain sheen, fog), lighting and grade, pots and andon, lamp-post positions, forest/garden fill, shrubs, weeds, fallen leaves, distant land cover and city lights, and pagoda flood positions.
+
+## Eave overhang note
+PLATEAU walls stand on the surveyed roof edge, and the accuracy audit (F1) rules out moving them from GSI data. Real eave depth therefore
+appears only where it is evidenced as typical: the uniform 0.45 m set-back of traditional street fronts, plus the tiled hisashi, gutters and
+the roof-slab and nokigawara edge geometry. Main roofs are never extended beyond the surveyed roof edge.

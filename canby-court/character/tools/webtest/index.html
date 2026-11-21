@@ -1,0 +1,53 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Character GLB test</title>
+<style>html,body{margin:0;background:#9aa4ad}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+const q = new URLSearchParams(location.search);
+const R = window.__result = { ok: false, errors: [] };
+window.addEventListener('error', e => R.errors.push(String(e.message)));
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(960, 540); renderer.toneMapping = THREE.ACESFilmicToneMapping;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x9aa4ad);
+scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x55504a, 1.4));
+const sun = new THREE.DirectionalLight(0xfff2e0, 2.6); sun.position.set(3, 5, 4); scene.add(sun);
+const cam = new THREE.PerspectiveCamera(35, 960 / 540, 0.05, 100);
+const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+const outfit = q.get('outfit') || 'summer';
+const clip = q.get('clip') || 'idle';
+const t = parseFloat(q.get('t') || '0.5');
+const [gc, gs] = await Promise.all([loader.loadAsync('/assets/character.glb'), loader.loadAsync('/assets/sled.glb')]);
+const ch = gc.scene; scene.add(ch);
+let tris = 0; const visMeshes = [];
+ch.traverse(o => { if (o.isMesh) {
+  const n = o.name; const summer = /^(Summer_|Hair_Cap_Summer|Body_Arms)/.test(n) || /Summer/.test(o.parent?.name||'');
+  const winter = /^(Winter_|Hair_Cap_Winter)/.test(n);
+  o.visible = outfit === 'summer' ? !winter : !summer;
+  o.frustumCulled = false;
+  if (o.visible) { tris += o.geometry.index ? o.geometry.index.count / 3 : o.geometry.attributes.position.count / 3; visMeshes.push(n + ':' + o.material.type); }
+}});
+const sledClips = /^sled|superman|spread_eagle/.test(clip);
+if (sledClips) { const seat = gs.scene.getObjectByName('SledSeat'); scene.add(gs.scene); gs.scene.updateMatrixWorld(true);
+  seat.add(ch); }
+const mixer = new THREE.AnimationMixer(ch);
+const a = gc.animations.find(x => x.name === clip);
+R.clips = gc.animations.map(x => `${x.name}:${x.duration.toFixed(3)}`);
+if (!a) R.errors.push('missing clip ' + clip);
+else { mixer.clipAction(a).play(); mixer.setTime(t * a.duration); }
+// skeleton sanity: head bone world height
+ch.updateMatrixWorld(true);
+const head = ch.getObjectByName('head'); const hp = new THREE.Vector3(); head.getWorldPosition(hp);
+R.headY = hp.y; R.tris = tris; R.meshes = visMeshes; R.sledNodes = []; gs.scene.traverse(o => R.sledNodes.push(o.name));
+const box = new THREE.Box3().setFromObject(ch); const c = box.getCenter(new THREE.Vector3());
+const view = q.get('view') || 'q';
+const dir = view === 'side' ? new THREE.Vector3(1, 0.15, 0) : view === 'front' ? new THREE.Vector3(0, 0.1, 1) : new THREE.Vector3(0.8, 0.25, 1);
+const dist = sledClips ? 4.2 : 4.6;
+cam.position.copy(c).add(dir.normalize().multiplyScalar(dist)); cam.lookAt(c);
+renderer.render(scene, cam);
+R.ok = R.errors.length === 0;
+</script></body></html>

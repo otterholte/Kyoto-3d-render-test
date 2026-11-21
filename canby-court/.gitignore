@@ -1,0 +1,6 @@
+# Large / licence-restricted raw imagery: City of Bellingham 2022 (EagleView) and Whatcom County 2024
+# (Pictometry) orthophoto mosaics are fetched locally by pipeline/03_fetch_rasters.py for analysis only.
+data/raw/rasters/ortho_*.tif
+pipeline/__pycache__/
+# drawn over licence-restricted county ortho; the public-domain NAIP map is master_map_naip.png
+docs/master_map.png

@@ -1,0 +1,417 @@
+{
+ "dtm": {
+  "file": "data/processed/terrain/dtm_0p5m.tif",
+  "resolution_m": 0.5,
+  "crs": "EPSG:6339",
+  "vertical": "NAVD88 m",
+  "origin_upper_left_utm": [
+   539090.0,
+   5396970.0
+  ],
+  "shape_rows_cols": [
+   620,
+   720
+  ],
+  "bounds_local": [
+   -230.0,
+   -180.0,
+   130.0,
+   130.0
+  ],
+  "z_min": 114.18,
+  "z_max": 165.38,
+  "heightmap_png": {
+   "file": "data/processed/terrain/heightmap_u16.png",
+   "z_min": 114.176,
+   "z_max": 165.381,
+   "decode": "z = z_min + v/65535*(z_max-z_min); row 0 = north edge"
+  },
+  "source": "USGS 3DEP dynamic elevation (exportImage 1 m bilinear) -> cubic spline to 0.5 m. Best-available source at the site per 3DEP catalogue: USGS NED 1/9 arc-second 'ned19_n48x75_w122x50_wa_northpugetsound_2006' (North Puget Sound 2006 lidar, bare earth). Newer lidar (City/DNR 'Bellingham 2013', DNR 'Cascades North Wali 2023') exists but could not be downloaded (DNR portal disallows /download in robots.txt and returns 403; not in USGS LPC/EPT buckets).",
+  "caveats": [
+   "2006 bare earth: predates 3813 (built 2015/16) - its pad/driveway grading is not in the DTM",
+   "under-building ground is interpolated; building pads must be flattened by the scene builder",
+   "curb faces (~15 cm) are not resolved"
+  ]
+ },
+ "validation": {
+  "catch_basin_rims": {
+   "n": 20,
+   "mean_diff_m": -0.309,
+   "rmse_m": 0.376,
+   "points": [
+    {
+     "x": -207.3,
+     "y": 66.74,
+     "rim_ft": 378.672,
+     "rim_m": 115.419,
+     "dtm_m": 115.575,
+     "diff_m": 0.155,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -114.46,
+     "y": 37.3,
+     "rim_ft": 430.496,
+     "rim_m": 131.215,
+     "dtm_m": 131.554,
+     "diff_m": 0.338,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": 83.23,
+     "y": 28.73,
+     "rim_ft": 491.954,
+     "rim_m": 149.948,
+     "dtm_m": 149.562,
+     "diff_m": -0.386,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -209.49,
+     "y": 51.02,
+     "rim_ft": 378.141,
+     "rim_m": 115.258,
+     "dtm_m": 114.908,
+     "diff_m": -0.35,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -193.61,
+     "y": -74.21,
+     "rim_ft": 402.829,
+     "rim_m": 122.783,
+     "dtm_m": 122.602,
+     "diff_m": -0.18,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": 85.93,
+     "y": 9.89,
+     "rim_ft": 492.892,
+     "rim_m": 150.234,
+     "dtm_m": 149.859,
+     "diff_m": -0.375,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -123.23,
+     "y": -23.09,
+     "rim_ft": 431.998,
+     "rim_m": 131.673,
+     "dtm_m": 131.535,
+     "diff_m": -0.138,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -123.29,
+     "y": 7.29,
+     "rim_ft": 432.48,
+     "rim_m": 131.82,
+     "dtm_m": 131.328,
+     "diff_m": -0.492,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -172.34,
+     "y": -69.2,
+     "rim_ft": 408.25,
+     "rim_m": 124.435,
+     "dtm_m": 124.296,
+     "diff_m": -0.139,
+     "accuracy": "High",
+     "source": "SGPT"
+    },
+    {
+     "x": 80.11,
+     "y": -159.28,
+     "rim_ft": 510.988,
+     "rim_m": 155.749,
+     "dtm_m": 155.272,
+     "diff_m": -0.478,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -171.49,
+     "y": -79.36,
+     "rim_ft": 408.798,
+     "rim_m": 124.602,
+     "dtm_m": 124.264,
+     "diff_m": -0.337,
+     "accuracy": "High",
+     "source": "SGPT"
+    },
+    {
+     "x": -131.53,
+     "y": 92.88,
+     "rim_ft": 424.247,
+     "rim_m": 129.311,
+     "dtm_m": 128.888,
+     "diff_m": -0.423,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -123.36,
+     "y": 62.39,
+     "rim_ft": 427.275,
+     "rim_m": 130.234,
+     "dtm_m": 129.828,
+     "diff_m": -0.406,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": 70.93,
+     "y": -70.4,
+     "rim_ft": 500.345,
+     "rim_m": 152.505,
+     "dtm_m": 152.052,
+     "diff_m": -0.453,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": 71.16,
+     "y": 29.66,
+     "rim_ft": 492.11,
+     "rim_m": 149.995,
+     "dtm_m": 149.618,
+     "diff_m": -0.378,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -123.27,
+     "y": -75.73,
+     "rim_ft": 425.427,
+     "rim_m": 129.67,
+     "dtm_m": 129.327,
+     "diff_m": -0.344,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -133.96,
+     "y": -83.14,
+     "rim_ft": 424.295,
+     "rim_m": 129.325,
+     "dtm_m": 128.842,
+     "diff_m": -0.484,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": 82.69,
+     "y": -71.13,
+     "rim_ft": 500.426,
+     "rim_m": 152.53,
+     "dtm_m": 152.167,
+     "diff_m": -0.363,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": -123.34,
+     "y": 92.85,
+     "rim_ft": 424.367,
+     "rim_m": 129.347,
+     "dtm_m": 128.883,
+     "diff_m": -0.464,
+     "accuracy": "High",
+     "source": "GPSS"
+    },
+    {
+     "x": 82.59,
+     "y": -118.84,
+     "rim_ft": 506.114,
+     "rim_m": 154.264,
+     "dtm_m": 153.78,
+     "diff_m": -0.484,
+     "accuracy": "High",
+     "source": "GPSS"
+    }
+   ],
+   "note": "DTM minus GPS-surveyed catch-basin rim (City storm layer, ft -> m). Rims sit in the gutter, typically 0.1-0.2 m below the crown; positions are 'High' accuracy."
+  },
+  "contours_2013": {
+   "n_samples": 4906,
+   "mean_m": -0.231,
+   "median_m": -0.184,
+   "rmse_m": 0.564,
+   "p95_abs_m": 1.187
+  }
+ },
+ "slope_stats": {
+  "3802": {
+   "ground_z_min": 131.42,
+   "ground_z_max": 139.0,
+   "relief_m": 7.58,
+   "slope_deg_mean": 11.8,
+   "slope_deg_p90": 27.0,
+   "slope_deg_max": 43.8,
+   "share_over_15deg": 0.324
+  },
+  "3803": {
+   "ground_z_min": 130.75,
+   "ground_z_max": 135.5,
+   "relief_m": 4.75,
+   "slope_deg_mean": 8.3,
+   "slope_deg_p90": 14.5,
+   "slope_deg_max": 22.2,
+   "share_over_15deg": 0.084
+  },
+  "3806": {
+   "ground_z_min": 137.88,
+   "ground_z_max": 142.3,
+   "relief_m": 4.42,
+   "slope_deg_mean": 5.9,
+   "slope_deg_p90": 13.7,
+   "slope_deg_max": 27.2,
+   "share_over_15deg": 0.078
+  },
+  "3807": {
+   "ground_z_min": 134.54,
+   "ground_z_max": 138.37,
+   "relief_m": 3.83,
+   "slope_deg_mean": 6.0,
+   "slope_deg_p90": 11.3,
+   "slope_deg_max": 18.7,
+   "share_over_15deg": 0.018
+  },
+  "3811": {
+   "ground_z_min": 137.43,
+   "ground_z_max": 142.22,
+   "relief_m": 4.79,
+   "slope_deg_mean": 8.1,
+   "slope_deg_p90": 13.9,
+   "slope_deg_max": 29.8,
+   "share_over_15deg": 0.069
+  },
+  "3813": {
+   "ground_z_min": 139.64,
+   "ground_z_max": 145.16,
+   "relief_m": 5.52,
+   "slope_deg_mean": 9.3,
+   "slope_deg_p90": 20.7,
+   "slope_deg_max": 37.6,
+   "share_over_15deg": 0.199
+  },
+  "3900": {
+   "ground_z_min": 141.7,
+   "ground_z_max": 146.31,
+   "relief_m": 4.6,
+   "slope_deg_mean": 7.9,
+   "slope_deg_p90": 15.6,
+   "slope_deg_max": 25.2,
+   "share_over_15deg": 0.115
+  },
+  "3904": {
+   "ground_z_min": 143.0,
+   "ground_z_max": 149.37,
+   "relief_m": 6.37,
+   "slope_deg_mean": 8.5,
+   "slope_deg_p90": 17.0,
+   "slope_deg_max": 25.4,
+   "share_over_15deg": 0.151
+  },
+  "3905": {
+   "ground_z_min": 143.22,
+   "ground_z_max": 147.02,
+   "relief_m": 3.8,
+   "slope_deg_mean": 4.7,
+   "slope_deg_p90": 10.8,
+   "slope_deg_max": 32.0,
+   "share_over_15deg": 0.03
+  },
+  "3909": {
+   "ground_z_min": 143.41,
+   "ground_z_max": 147.62,
+   "relief_m": 4.22,
+   "slope_deg_mean": 6.4,
+   "slope_deg_p90": 13.0,
+   "slope_deg_max": 31.5,
+   "share_over_15deg": 0.044
+  },
+  "canby_ct_road": {
+   "ground_z_min": 131.0,
+   "ground_z_max": 143.55,
+   "slope_deg_mean": 5.2,
+   "slope_deg_p90": 8.1
+  }
+ },
+ "house_ground": {
+  "3909": {
+   "z_ring_min": 145.22,
+   "z_ring_max": 147.03,
+   "z_ring_median": 145.92,
+   "grade_drop_across_footprint_m": 1.8
+  },
+  "3802": {
+   "z_ring_min": 134.8,
+   "z_ring_max": 137.36,
+   "z_ring_median": 136.42,
+   "grade_drop_across_footprint_m": 2.57
+  },
+  "3904": {
+   "z_ring_min": 144.67,
+   "z_ring_max": 146.59,
+   "z_ring_median": 146.12,
+   "grade_drop_across_footprint_m": 1.92
+  },
+  "3811": {
+   "z_ring_min": 137.75,
+   "z_ring_max": 140.67,
+   "z_ring_median": 139.36,
+   "grade_drop_across_footprint_m": 2.93
+  },
+  "3905": {
+   "z_ring_min": 144.7,
+   "z_ring_max": 146.11,
+   "z_ring_median": 145.66,
+   "grade_drop_across_footprint_m": 1.41
+  },
+  "3803": {
+   "z_ring_min": 132.4,
+   "z_ring_max": 134.18,
+   "z_ring_median": 133.23,
+   "grade_drop_across_footprint_m": 1.78
+  },
+  "3813": {
+   "z_ring_min": 139.6,
+   "z_ring_max": 143.47,
+   "z_ring_median": 141.54,
+   "grade_drop_across_footprint_m": 3.87
+  },
+  "3806": {
+   "z_ring_min": 139.37,
+   "z_ring_max": 141.57,
+   "z_ring_median": 140.45,
+   "grade_drop_across_footprint_m": 2.2
+  },
+  "3900": {
+   "z_ring_min": 141.74,
+   "z_ring_max": 145.26,
+   "z_ring_median": 144.22,
+   "grade_drop_across_footprint_m": 3.52
+  },
+  "3807": {
+   "z_ring_min": 134.59,
+   "z_ring_max": 137.81,
+   "z_ring_median": 136.34,
+   "grade_drop_across_footprint_m": 3.22
+  }
+ },
+ "overall": {
+  "slope_deg_mean_core": 7.3,
+  "general_fall": "ground falls from east (~160 m) to west (~120 m) across the context box; Canby Ct climbs east from 38th St to the cul-de-sac bulb"
+ }
+}

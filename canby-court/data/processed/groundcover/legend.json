@@ -1,0 +1,98 @@
+{
+ "resolution_m": 0.3,
+ "classes": {
+  "0": {
+   "name": "unknown",
+   "rgb": [
+    0,
+    0,
+    0
+   ]
+  },
+  "1": {
+   "name": "building",
+   "rgb": [
+    200,
+    60,
+    60
+   ]
+  },
+  "2": {
+   "name": "street_asphalt",
+   "rgb": [
+    90,
+    90,
+    95
+   ]
+  },
+  "3": {
+   "name": "sidewalk_concrete",
+   "rgb": [
+    215,
+    215,
+    205
+   ]
+  },
+  "4": {
+   "name": "paved_concrete",
+   "rgb": [
+    185,
+    185,
+    180
+   ]
+  },
+  "5": {
+   "name": "paved_dark (asphalt drive / dark patio / deck / gravel)",
+   "rgb": [
+    130,
+    125,
+    120
+   ]
+  },
+  "6": {
+   "name": "lawn",
+   "rgb": [
+    120,
+    190,
+    80
+   ]
+  },
+  "7": {
+   "name": "bed_shrubs",
+   "rgb": [
+    110,
+    120,
+    50
+   ]
+  },
+  "8": {
+   "name": "tree_canopy",
+   "rgb": [
+    30,
+    100,
+    40
+   ]
+  },
+  "9": {
+   "name": "hedge",
+   "rgb": [
+    40,
+    140,
+    90
+   ]
+  }
+ },
+ "area_m2_context": {
+  "unknown": 0,
+  "building": 17072,
+  "street_asphalt": 11438,
+  "sidewalk_concrete": 2729,
+  "paved_concrete": 7047,
+  "paved_dark (asphalt drive / dark patio / deck / gravel)": 19351,
+  "lawn": 21397,
+  "bed_shrubs": 28739,
+  "tree_canopy": 3352,
+  "hedge": 441
+ },
+ "method": "Ground cover classification (0.3 m) for the context box + vector polygons.\n\nSources: City street pavement polygon (asphalt, 'ACP'), City sidewalk centrelines (PCC, width 5 ft),\nCity building footprints, trees/hedges from trees.json (observed), and per-pixel rules on\n  - Whatcom 2024 ortho (leaf-off spring, 0.15 m -> 0.3 m): excess-green ExG = 2G-R-B, luminance, local texture\n  - NAIP 2017-09-02 (leaf-on, 1 m, CIR): NDVI\nRules (classes 'observed' from imagery, accuracy ~70-85 %; check the preview):\n  paved/hardscape  : NDVI17 < 0.15 and ExG24 < 14        (driveways, patios, walks; concrete vs asphalt by brightness)\n  lawn             : ExG24 >= 16 and texture < 11 and not under a tree crown\n  bed / shrubs     : other vegetated pixels (NDVI17 >= 0.15 or ExG24 >= 14)\nShadowed pixels (luminance < 75) are assigned from NDVI17 alone. A 7x7 majority filter cleans speckle.\nOutputs data/processed/groundcover/{classes_0p3m.tif, preview.png, groundcover.geojson, legend.json}"
+}
